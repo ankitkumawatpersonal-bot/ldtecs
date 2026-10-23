@@ -9,7 +9,6 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-
 FROM php:8.3-apache
 
 RUN apt-get update && apt-get install -y \
@@ -20,21 +19,18 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install \
        pdo_mysql mbstring exif pcntl bcmath gd intl zip \
     && a2enmod rewrite \
-    && printf '\n<Directory /var/www/html/public>\n    AllowOverride All\n    Require all granted\n</Directory>\n' >> /etc/apache2/apache2.conf
+    && sed -ri 's/Listen 80/Listen 10000/' /etc/apache2/ports.conf \
+    && printf '\n<Directory /var/www/html/public>\n    AllowOverride All\n    Require all granted\n</Directory>\n' >> /etc/apache2/apache2.conf \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-
 RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/sites-available/000-default.conf \
-    && sed -ri 's/Listen 80/Listen 10000/' \
-    /etc/apache2/ports.conf \
     && sed -ri 's/:80>/:10000>/' \
-    /etc/apache2/sites-available/000-default.conf \
-    && printf '\n<Directory /var/www/html/public>\n    AllowOverride All\n    Require all granted\n</Directory>\n' >> /etc/apache2/apache2.conf
+    /etc/apache2/sites-available/000-default.conf
 
 WORKDIR /var/www/html
 
