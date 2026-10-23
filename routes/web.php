@@ -1,64 +1,32 @@
+
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LdController;
 
-Route::get('/', [LdController::class,'index']);
+Route::get('/', [LdController::class, 'index'])->name('home');
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::view('/about', 'about');
+Route::view('/technology', 'technology');
+Route::view('/services', 'services');
+Route::view('/career', 'career');
 
+Route::view('/elite', 'elite');
+Route::view('/lite', 'lite');
+Route::view('/nano', 'nano');
+
+Route::view('/technology-solution', 'technology-solution');
+
+Route::view('/software-development', 'software-development');
+Route::view('/machine-learning', 'machine-learning');
+Route::view('/automation-software', 'automation-software');
+Route::view('/embedded-software', 'embedded-software');
+
+Route::view('/3d-printing', '3d-printing');
+Route::view('/cad-design', 'cad-design');
+Route::view('/r&d-services', 'r&d-services');
+
+// Product link: Home page ke Our Products section par le jao
 Route::get('/product', function () {
-    return view('/#our-products');
-});
-
-Route::get('/technology', function () {
-    return view('technology');
-});
-
-Route::get('/services', function () {
-    return view('services');
-});
-
-Route::get('/career', function () {
-    return view('career');
-});
-
-Route::get('/elite', function () {
-    return view('elite');
-});
-Route::get('/lite', function () {
-    return view('lite');
-});
-Route::get('/nano', function () {
-    return view('nano');
-});
-
-Route::get('/technology-solution', function () {
-    return view('technology-solution');
-});
-
-Route::get('/software-development', function () {
-    return view('software-development');
-});
-
-Route::get('/machine-learning', function () {
-    return view('machine-learning');
-});
-
-Route::get('/automation-software', function () {
-    return view('automation-software');
-});
-Route::get('/embedded-software', function () {
-    return view('embedded-software');
-});
-Route::get('/3d-printing', function () {
-    return view('3d-printing');
-});
-
-Route::get('/cad-design', function () {
-    return view('cad-design');
-});
-Route::get('/r&d-services', function () {
-    return view('r&d-services');
+    return redirect('/#our-products');
 });
