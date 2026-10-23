@@ -30,7 +30,6 @@ RUN sed -ri 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/sites-available/000-default.conf \
     && sed -ri 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/apache2.conf \
-    && echo "Listen 10000" >> /etc/apache2/ports.conf \
     && sed -ri 's/Listen 80/Listen 10000/' /etc/apache2/ports.conf \
     && sed -ri 's/:80>/:10000>/' \
        /etc/apache2/sites-available/000-default.conf
