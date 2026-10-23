@@ -1856,7 +1856,7 @@
 
             <!-- 3D Printing -->
             <div class="service-card design-card">
-                <img src="3d image.png" alt="3D Printing" id="3d">
+                <img src="3d image.png" alt="3D Printing" id="design">
 
                 <div class="card-content">
                     <h3>3D Printing</h3>
@@ -1877,7 +1877,7 @@
 
             <!-- 3D CAD Design -->
             <div class="service-card design-card">
-                <img src="3d cad design.avif" alt="3D CAD Design" id="3d">
+                <img src="3d cad design.avif" alt="3D CAD Design" id="design">
 
                 <div class="card-content">
                     <h3>3D CAD Design</h3>
@@ -1898,7 +1898,7 @@
 
             <!-- R&D Services -->
             <div class="service-card design-card">
-                <img src="research.avif" alt="Research and Development" id="3d">
+                <img src="research.avif" alt="Research and Development" id="design">
 
                 <div class="card-content">
                     <h3>R&D Services</h3>

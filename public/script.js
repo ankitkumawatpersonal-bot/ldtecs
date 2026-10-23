@@ -191,14 +191,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    gsap.from('#3d', {
+    gsap.from('#design', {
         x: -100,
         opacity: 0,
         duration: 1.2,
         ease: 'power3.out',
 
         scrollTrigger: {
-            trigger: '#3d',
+            trigger: '#design',
             start: 'top 70%',
             toggleActions: 'play none none reverse'
         }
