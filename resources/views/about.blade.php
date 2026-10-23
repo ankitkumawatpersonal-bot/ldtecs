@@ -2212,9 +2212,9 @@
         </div>
     </section>
 
-    <section class="page3">
+    <section class="page3" id="product-about">
         <div class="product-titl">
-            <div class="build">
+            <div class="build" id="build">
                 <h2> Who We Are </h2>
                 <h1> Building Solutions <br>Through Technology </h1>
                 <div class="paragraph">
@@ -2228,7 +2228,7 @@
                     </p>
                 </div>
             </div>
-            <div class="products-container1">
+            <div class="products-container1" id="product-cont">
                 <img class="product-image custom" src="ldtecs.png" alt="LDTECS COMPANY" id="zoomLite">
             </div>
         </div>

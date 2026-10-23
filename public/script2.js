@@ -181,10 +181,45 @@ document.addEventListener('DOMContentLoaded', () => {
         ABOUT
     ====================================*/
 
-    // gsap.from('.about',{
-    //     x:-100,
-    //     opacity:0,
-    //     duration:1.3,
-    //     ease:'Power1.out'
-    // });
+    gsap.from('#build', {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#build',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#product-cont', {
+        x: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#product-cont',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('.clients-section', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.clients-section',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
 });
