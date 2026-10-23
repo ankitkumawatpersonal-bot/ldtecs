@@ -2249,8 +2249,8 @@
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
                         <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
-                        <img src="manisha gems.webp" alt="Mahindra Diamonds">
-                        <p> RPV Diamonds Limited </p>
+                        <img src="manisha gems.webp" alt="Manisha Gems">
+                        <img src="shivaye.jpeg" alt="shivaye Diamonds">
                     </div>
 
                     <div class="marquee-group" aria-hidden="true">
@@ -2261,8 +2261,8 @@
                         <img src="mahavir.png" alt="">
                         <img src="hare-krishana.svg" alt="">
                         <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
-                        <img src="manisha gems.webp" alt="Mahindra Diamonds">
-                        <p> RPV Diamonds Limited </p>
+                        <img src="manisha gems.webp" alt="Manisha gems">
+                        <img src="shivaye.jpeg" alt="shivaye Diamonds">
                     </div>
 
                 </div>
