@@ -173,5 +173,146 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    gsap.from('.page5', {
+
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.page5',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#services', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#services',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('.section-heading', {
+        x: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.section-heading',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('.card-content', {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.card-content',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('.footer', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('.footer-cta', {
+        x: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#footer-column', {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#quick-links', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#contect', {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('.footer-bottom', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '.footer',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
 });
 

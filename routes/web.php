@@ -33,3 +33,32 @@ Route::get('/lite', function () {
 Route::get('/nano', function () {
     return view('nano');
 });
+
+Route::get('/technology-solution', function () {
+    return view('technology-solution');
+});
+
+Route::get('/software-development', function () {
+    return view('software-development');
+});
+
+Route::get('/machine-learning', function () {
+    return view('machine-learning');
+});
+
+Route::get('/automation-software', function () {
+    return view('automation-software');
+});
+Route::get('/embedded-software', function () {
+    return view('embedded-software');
+});
+Route::get('/3d-printing', function () {
+    return view('3d-printing');
+});
+
+Route::get('/cad-design', function () {
+    return view('cad-design');
+});
+Route::get('/r&d-services', function () {
+    return view('r&d-services');
+});

@@ -132,18 +132,34 @@
         .menu-toggle {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            justify-content: center;
+            gap: 6px;
             cursor: pointer;
-            background: #e9aa6b;
-            border: none;
-            padding: 6px;
+            background: transparent;
+            border: 0;
+            padding: 10px;
+            z-index: 1100;
         }
 
         .menu-toggle span {
-            width: 26px;
+            display: block;
+            width: 27px;
             height: 3px;
-            background: #e9aa6b;
-            border-radius: 2px;
+            background: #ffffff;
+            border-radius: 3px;
+            transition: transform .25s ease, opacity .25s ease;
+        }
+
+        .menu-toggle.active span:first-child {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:last-child {
+            transform: translateY(-9px) rotate(-45deg);
         }
         .hero {
             flex: none;
@@ -186,40 +202,92 @@
 
         @media (max-width: 820px) {
             .header {
-                padding: 12px 20px;
+                position: sticky;
+                top: 0;
+                padding: 10px 18px;
+                min-height: 76px;
+                background: #063b3e;
             }
 
+            .logo { position: relative; z-index: 1100; }
+            .img { width: 52px; height: 52px; }
+            .brand { font-size: 17px; margin-left: 9px; }
+
+            .menu-toggle { display: flex; }
+
             .navbar {
-                position: fixed;
-                top: 70px;
-                right: 0px;
-                left: 20px;
-                background: #e9aa6b;
-                border: 1px solid var(--bg-1);
-                border-radius: 10px;
-                box-shadow: 0 8px 24px rgba(25, 27, 25, 0.15);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                width: 100%;
+                max-height: calc(100vh - 76px);
+                overflow-y: auto;
+                background: #063b3e;
+                border: 0;
+                border-top: 1px solid rgba(255,255,255,.15);
+                border-radius: 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,.22);
                 flex-direction: column;
-                gap: 6px;
-                padding: 14px;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 22px 18px;
                 display: none;
             }
 
-            .navbar.open {
-                display: flex;
-            }
+            .navbar.open { display: flex; }
 
-            .navbar a {
+            .navbar > a,
+            .product-menu > a {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
                 width: 100%;
-                padding: 10px 6px;
+                padding: 14px 4px;
+                border-bottom: 1px solid rgba(255,255,255,.14);
+                color: #fff;
+                font-size: 16px;
             }
 
-            .menu-toggle {
-                display: flex;
+            .product-menu { position: relative; width: 100%; }
+            .product-popup {
+                position: static;
+                width: 100%;
+                height: auto;
+                display: none;
+                flex-direction: column;
+                padding: 4px 0 8px 14px;
+                background: rgba(0,0,0,.16);
+                border-radius: 6px;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
             }
 
-            .hero h1 {
-                font-size: 30px;
+            .product-menu:hover .product-popup,
+            .product-menu:focus-within .product-popup { display: flex; }
+
+            .product-popup a {
+                color: #fff;
+                margin: 0;
+                padding: 12px 8px;
+                font-size: 14px;
             }
+
+            .product-popup a:hover { background: rgba(255,255,255,.08); }
+            .nano, .lite { border-left: 0; }
+            .hero h1 { font-size: clamp(26px, 6vw, 36px); }
+            .hero-image { flex-wrap: wrap; gap: 18px; }
+            .product-card { max-width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .header { padding: 9px 14px; }
+            .img { width: 46px; height: 46px; }
+            .brand { font-size: 15px; }
+            .hero { padding: 24px 16px; }
+            .hero h1 { font-size: 27px; }
         }
 
         .product-menu{
@@ -883,6 +951,13 @@
             <span class="brand">LDTECS</span>
         </div>
 
+        <button class="menu-toggle" id="menuToggle" type="button"
+                aria-label="Open navigation menu" aria-controls="navbar" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <nav class="navbar" id="navbar">
             <a href="/">Home</a>
             <div class="product-menu">
@@ -1150,14 +1225,40 @@
     <script>
         const toggle = document.getElementById('menuToggle');
         const navbar = document.getElementById('navbar');
-        toggle.addEventListener('click', () => navbar.classList.toggle('open'));
+
+        toggle.addEventListener('click', () => {
+            const isOpen = navbar.classList.toggle('open');
+            toggle.classList.toggle('active', isOpen);
+            toggle.setAttribute('aria-expanded', String(isOpen));
+            toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+        });
 
         document.querySelectorAll('.navbar a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelectorAll('.navbar a').forEach(a => a.classList.remove('active'));
                 link.classList.add('active');
                 navbar.classList.remove('open');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open navigation menu');
             });
+        });
+
+        document.addEventListener('click', event => {
+            if (!navbar.contains(event.target) && !toggle.contains(event.target)) {
+                navbar.classList.remove('open');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Open navigation menu');
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 820) {
+                navbar.classList.remove('open');
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 </body>

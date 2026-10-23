@@ -292,14 +292,13 @@ gsap.from('#holder,.scan1',{
 })
 
 gsap.from('#display,.scan2',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
-    delay:0,
     ease:'power1.out',
 
     scrollTrigger:{
-        trigger:'#holder',
+        trigger:'#display',
         start:'top 80%',
         toggleActions: 'play none none reverse'
     }
@@ -318,18 +317,18 @@ gsap.from('.title6',{
     }
 })
 
-gsap.from('.technical',{
-    x:-100,
-    opacity:0,
-    duration:1.5,
-    ease:'power3.out',
+// gsap.from('.technical',{
+//     x:-100,
+//     opacity:0,
+//     duration:1.5,
+//     ease:'power3.out',
 
-    scrollTrigger:{
-        trigger:'.technical',
-        start:'top 80%',
-        toggleActions: 'play none none reverse' 
-    }
-})
+//     scrollTrigger:{
+//         trigger:'.technical',
+//         start:'top 80%',
+//         toggleActions: 'play none none reverse' 
+//     }
+// })
 
 gsap.from('.title7',{
     x:-100,
@@ -344,62 +343,62 @@ gsap.from('.title7',{
     }
 })
 gsap.from('#software',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     ease:'power3.out',
 
     scrollTrigger:{
-        trigger:'#softwar',
+        trigger:'#software',
         start:'top 80%',
         toggleActions: 'play none none reverse' 
     }
 })
 
 gsap.from('#softwar',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.1,
     ease:'power3.out',
 
     scrollTrigger:{
-        trigger:'#softwar',
+        trigger:'#software',
         start:'top 80%',
         toggleActions: 'play none none reverse' 
     }
 })
 
 gsap.from('#softwa',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.2,
     ease:'power3.out',
 
     scrollTrigger:{
-        trigger:'#softwar',
+        trigger:'#software',
         start:'top 80%',
         toggleActions: 'play none none reverse' 
     }
 })
 
 gsap.from('#softw',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.3,
     ease:'power3.out',
 
     scrollTrigger:{
-        trigger:'#softwar',
+        trigger:'#software',
         start:'top 80%',
         toggleActions: 'play none none reverse' 
     }
 })
 
 gsap.from('#soft',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.4,
@@ -413,7 +412,7 @@ gsap.from('#soft',{
 })
 
 gsap.from('#sof',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.5,
@@ -427,7 +426,7 @@ gsap.from('#sof',{
 })
 
 gsap.from('#fe',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.6,
@@ -441,7 +440,7 @@ gsap.from('#fe',{
 })
 
 gsap.from('#feat',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.7,
@@ -455,7 +454,7 @@ gsap.from('#feat',{
 })
 
 gsap.from('#featu',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.8,
@@ -469,7 +468,7 @@ gsap.from('#featu',{
 })
 
 gsap.from('#featur',{
-    x:100,
+    x:-100,
     opacity:0,
     duration:1.5,
     delay:0.9,
@@ -477,6 +476,19 @@ gsap.from('#featur',{
 
     scrollTrigger:{
         trigger:'#softwar',
+        start:'top 80%',
+        toggleActions: 'play none none reverse' 
+    }
+})
+
+gsap.from('.table',{
+    x:100,
+    opacity:0,
+    duration:1.5,
+    ease:'power3.out',
+
+    scrollTrigger:{
+        trigger:'.table',
         start:'top 80%',
         toggleActions: 'play none none reverse' 
     }
