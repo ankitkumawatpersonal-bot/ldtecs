@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.from('#3d', {
-        x: 100,
+        x: -100,
         opacity: 0,
         duration: 1.2,
         ease: 'power3.out',
