@@ -2262,7 +2262,7 @@
         gsap.registerPlugin(ScrollTrigger);
     </script>
 
-    <script src="{{ asset('script1.js') }}"></script>
+    <script src="{{ secure_asset('script1.js') }}"></script>
 
     <script>
         const toggle = document.getElementById('menuToggle');
