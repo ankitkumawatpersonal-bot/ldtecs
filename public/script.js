@@ -177,6 +177,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    gsap.from('#software', {
+        x: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#software',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#3d', {
+        x: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#3d',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
     gsap.from('.footer', {
         y: 100,
         opacity: 0,

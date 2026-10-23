@@ -1799,9 +1799,7 @@
 
             <!-- Software Development -->
             <div class="service-card software-card">
-                <img
-                    src="software2.avif"
-                    alt="Software Development">
+                <img src="software2.avif" alt="Software Development" id="software">
 
                 <div class="card-content">
                     <h3>Software Development</h3>
@@ -1823,9 +1821,7 @@
 
             <!-- AI & Machine Learning -->
             <div class="service-card software-card">
-                <img
-                    src="ai3.avif"
-                    alt="Artificial Intelligence">
+                <img src="ai3.avif" alt="Artificial Intelligence" id="software">
 
                 <div class="card-content">
                     <h3>AI & Machine Learning</h3>
@@ -1860,9 +1856,7 @@
 
             <!-- 3D Printing -->
             <div class="service-card design-card">
-                <img
-                    src="3d image.png"
-                    alt="3D Printing">
+                <img src="3d image.png" alt="3D Printing" id="3d">
 
                 <div class="card-content">
                     <h3>3D Printing</h3>
@@ -1883,9 +1877,7 @@
 
             <!-- 3D CAD Design -->
             <div class="service-card design-card">
-                <img
-                    src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=500&q=80"
-                    alt="3D CAD Design">
+                <img src="3d cad design.avif" alt="3D CAD Design" id="3d">
 
                 <div class="card-content">
                     <h3>3D CAD Design</h3>
@@ -1906,9 +1898,7 @@
 
             <!-- R&D Services -->
             <div class="service-card design-card">
-                <img
-                    src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=500&q=80"
-                    alt="Research and Development">
+                <img src="research.avif" alt="Research and Development" id="3d">
 
                 <div class="card-content">
                     <h3>R&D Services</h3>
