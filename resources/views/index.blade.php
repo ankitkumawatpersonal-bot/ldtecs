@@ -1702,6 +1702,9 @@
                         <img src="shivaye.webp" alt="Shivaye">
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
+                        <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
+                        <img src="manisha gems.webp" alt="Mahindra Diamonds">
+                        <p> RPV Diamonds Limited </p>
                     </div>
 
                     <div class="marquee-group" aria-hidden="true">
@@ -1711,6 +1714,9 @@
                         <img src="shivaye.webp" alt="">
                         <img src="mahavir.png" alt="">
                         <img src="hare-krishana.svg" alt="">
+                        <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
+                        <img src="manisha gems.webp" alt="Mahindra Diamonds">
+                        <p> RPV Diamonds Limited </p>
                     </div>
 
                 </div>
