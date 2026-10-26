@@ -230,10 +230,7 @@
             }
             
 
-            .product-popup,
-            .product-popup1
-            .product-popup2
-            {
+            .product-popup,.product-popup1{
                 position: absolute;
                 width:200%;
                 margin-top: 4px;
@@ -242,10 +239,7 @@
                 border: 1px solid var(--bg-1);
             }
 
-            .product-menu:hover .product-popup,
-            .product-menu:hover .product-popup1,
-            .product-menu:hover .product-popup2
-            {
+            .product-menu:hover .product-popup,.product-popup1 {
                 transform: none;
             }
 
@@ -274,25 +268,6 @@
 
         /*popup initially hidden*/
         .product-popup {
-            position: absolute;
-            top: calc(100% + 8px);
-            width: 600px;
-            height:100px;
-            background: #fff;
-            border-radius: 8px;
-            padding: 12px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            font-family: 'Poppins', sans-serif;
-            visibility: hidden;
-            transform: translate(-50%, 10px);
-            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-            z-index: 1000;
-            display:flex;
-            justify-content:space-between;    
-        }
-
-        .product-popup2 {
             position: absolute;
             top: calc(100% + 8px);
             width: 600px;
@@ -352,15 +327,13 @@
             visibility: visible;
             transform: translate(-50%, 0);
         }
-        .product-menu:hover .product-popup1,
-        .product-menu:hover .product-popup2{
+        .product-menu:hover .product-popup1{
             opacity:1;
             visibility:visible;
             transform:translate(-50%,0)
         }
 
-        .product-popup a,
-        .product-popup2 a{
+        .product-popup a{
             margin: 12px 18px;
             display:flex;
             padding: 12px 18px;
@@ -376,8 +349,7 @@
             transition: 0.3s;
         }
 
-        .product-popup a:hover,
-        .product-popup2 a:hover{
+        .product-popup a:hover{
             background:#f1f7f7;
             color:#e9aa6b;
         }
@@ -1581,8 +1553,7 @@
             .product-menu { width: 100%; }
 
             .product-popup,
-            .product-popup1,
-            .product-popup2 {
+            .product-popup1 {
                 display: none;
                 position: static;
                 width: 100%;
@@ -1601,15 +1572,12 @@
             }
 
             .product-menu.mobile-open .product-popup,
-            .product-menu.mobile-open .product-popup1,
-            .product-menu.mobile-open .product-popup2 {
+            .product-menu.mobile-open .product-popup1 {
                 display: flex;
             }
 
             .product-menu:hover .product-popup,
-            .product-menu:hover .product-popup1,
-            .product-menu:hover .product-popup2
-            {
+            .product-menu:hover .product-popup1 {
                 opacity: 1;
                 visibility: visible;
                 transform: none;
@@ -1617,10 +1585,8 @@
 
             .product-popup a,
             .product-popup1 a,
-            .product-popup2 a,
             .product-popup .feature a,
-            .product-popup1 .feature a
-            .product-popup2 .feature a {
+            .product-popup1 .feature a {
                 width: 100%;
                 margin: 0;
                 padding: 11px 6px;
@@ -1657,6 +1623,13 @@
             .hero p { font-size: 16px; }
         }
 
+        /* button{
+
+        }
+        .contect-btn{
+
+        } */
+
     </style>
 </head>
 <body>
@@ -1678,9 +1651,6 @@
                 <div class="product-menu">
                     <a href="#our-products" class="product-link">Products <i class="fa-solid fa-chevron-down"></i></a>
                     <div class="product-popup">
-                        <a href="diamond-detection"> Diamond Detection </a>
-                    </div>
-                    <div class="product-popup2">
                         <div class="elite">
                             <a href="/elite"> CLASSIFIER ELITE </a>
                         </div>
@@ -1712,8 +1682,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- <a href="/career">Career</a> -->
                 <a href="/about">About</a>
+                <a href="/Contect">
+                    <button type="button" class="contect-btn">Contect </button>
+                </a>
             </nav>
             
         </header>
