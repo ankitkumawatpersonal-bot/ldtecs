@@ -2315,7 +2315,7 @@
                 "Phone: " + phone + "\n" +
                 "Message: " + message;
 
-            const whatsappNumber = "91YOURNUMBER";
+            const whatsappNumber = "917240713574";
 
             const url =
                 "https://wa.me/" + whatsappNumber +
