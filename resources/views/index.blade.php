@@ -1626,22 +1626,7 @@
         
         /* Contact Button */
 
-        .contect-btn{
-            background: transparent;
-            color: white;
-            border: 1 px solid white;
-            padding: 9px 18px;
-            font-size: 16px;
-            cursor: pointer;
-            transition:0.3s;
-        }
-
-        .contect-btn:hover {
-            background: #6c560e;
-            color: #111;
-            border-color: #6c560e;
-        }
-        /* .contact-btn {
+        .contact-btn {
             background: transparent;
             color: white;
             border: 1px solid white;
@@ -1655,10 +1640,10 @@
             background: #e9aa6b;
             color: #111;
             border-color: #e9aa6b;
-        } */
+        }
 
         /* Popup Background */
-        /* .contact-overlay {
+        .contact-overlay {
             display: none;
             position: fixed;
             inset: 0;
@@ -1668,10 +1653,10 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
-        } */
+        }
 
         /* Popup Box */
-        /* .contact-box {
+        .contact-box {
             position: relative;
             background: #102b2d;
             color: white;
@@ -1764,10 +1749,10 @@
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
-        } */
+        }
 
         /* Mobile Responsive */
-        /* @media (max-width: 480px) {
+        @media (max-width: 480px) {
             .contact-box {
                 padding: 28px 20px;
             }
@@ -1775,7 +1760,7 @@
             .contact-box h2 {
                 font-size: 24px;
             }
-        } */
+        }
 
 
     </style>
