@@ -2207,6 +2207,7 @@
                         <img src="mahindra.png" alt="Mahindra Diamonds">
                         <img src="manisha gems.webp" alt="Manisha Gems">
                         <img src="shivaye.png" alt="shivaye Diamonds">
+                        <img src="nature.png" alt="Nature's Art LTD.">
                     </div>
 
                     <div class="marquee-group" aria-hidden="true">
@@ -2218,6 +2219,7 @@
                         <img src="mahindra.png" alt="">
                         <img src="manisha gems.webp" alt="">
                         <img src="shivaye.png" alt="">
+                        <img src="nature.png" alt="">
                     </div>
 
                 </div>
@@ -2235,7 +2237,7 @@
 
                 <div class="box1 product-card">
                     <h4 class="customh4"> Diamond Detection Technology </h4>
-                    <img class="product-image custom" src="diamond scan1.png" alt="Diamong Detection">
+                    <img class="product-image custom" src="diamond scan1.png" alt="Diamond Detection">
 
                     <div class="diem">
                         <p> Advanced HPHT & CVD Diamond detection and classification systems for labs, traders, jewellery
@@ -2289,14 +2291,14 @@
 
     <section class="vision-mission">
 
-        <div class="content-wrapper">
+        <div class="content-wrapper" id="icon">
 
             <!-- Our Vision -->
             <div class="content-box">
 
                 
 
-                <div class="content">
+                <div class="content" >
                     <div class="icon"><i class="fa-solid fa-eye"></i><h2>Our Vision</h2></div>
 
                     <p>
@@ -2404,8 +2406,7 @@
                 </p>
 
                 <p>
-                    Surat<br>
-                    395004, Gujarat, India
+                    Surat, Gujarat, India
                 </p>
 
                 <p>

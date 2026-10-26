@@ -244,7 +244,21 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
 
         scrollTrigger: {
-            trigger: '#diamond',
+            trigger: '#our',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#icon', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#icon',
             start: 'top 70%',
             toggleActions: 'play none none reverse'
         }

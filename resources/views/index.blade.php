@@ -1704,6 +1704,7 @@
                         <img src="mahindra.png" alt="Mahindra Diamonds">
                         <img src="manisha gems.webp" alt="Mahindra Diamonds">
                         <img src="shivaye.png" alt="shivaye Diamonds">
+                        <img src="nature.png" alt="Nature's Art LTD">
                     </div>
 
                     <div class="marquee-group" aria-hidden="true">
@@ -1715,6 +1716,7 @@
                         <img src="mahindra.png" alt="">
                         <img src="manisha gems.webp" alt="">
                         <img src="shivaye.png" alt="">
+                        <img src="nature.png" alt="">
                     </div>
 
                 </div>
