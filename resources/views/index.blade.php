@@ -230,7 +230,10 @@
             }
             
 
-            .product-popup,.product-popup1{
+            .product-popup,
+            .product-popup1
+            .product-popup2
+            {
                 position: absolute;
                 width:200%;
                 margin-top: 4px;
@@ -239,7 +242,10 @@
                 border: 1px solid var(--bg-1);
             }
 
-            .product-menu:hover .product-popup,.product-popup1 {
+            .product-menu:hover .product-popup,
+            .product-menu:hover .product-popup1,
+            .product-menu:hover .product-popup2
+            {
                 transform: none;
             }
 
@@ -268,6 +274,25 @@
 
         /*popup initially hidden*/
         .product-popup {
+            position: absolute;
+            top: calc(100% + 8px);
+            width: 600px;
+            height:100px;
+            background: #fff;
+            border-radius: 8px;
+            padding: 12px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            font-family: 'Poppins', sans-serif;
+            visibility: hidden;
+            transform: translate(-50%, 10px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+            display:flex;
+            justify-content:space-between;    
+        }
+
+        .product-popup2 {
             position: absolute;
             top: calc(100% + 8px);
             width: 600px;
@@ -1645,6 +1670,8 @@
                     <a href="#our-products" class="product-link">Products <i class="fa-solid fa-chevron-down"></i></a>
                     <div class="product-popup">
                         <a href="diamond-detection"> Diamond Detection </a>
+                    </div>
+                    <div class="product-popup">
                         <div class="elite">
                             <a href="/elite"> CLASSIFIER ELITE </a>
                         </div>
