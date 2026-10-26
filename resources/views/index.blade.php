@@ -270,7 +270,7 @@
         .product-popup {
             position: absolute;
             top: calc(100% + 8px);
-            width: 600px;
+            width: 300px;
             height:100px;
             background: #fff;
             border-radius: 8px;
@@ -1827,25 +1827,25 @@
             <nav class="navbar" id="navbar">
                 <a href="/" class="active">Home</a>
                 <div class="product-menu">
-    <a href="#our-products" class="product-link">
-        Products <i class="fa-solid fa-chevron-down"></i>
-    </a>
+                    <a href="#our-products" class="product-link">
+                        Products <i class="fa-solid fa-chevron-down"></i>
+                    </a>
 
-    <div class="product-popup">
-        <div class="diamond-menu">
-            <button type="button" class="diamond-btn">
-                Diamond Detectors
-                <i class="fa-solid fa-chevron-down"></i>
-            </button>
+                    <div class="product-popup">
+                        <div class="diamond-menu">
+                            <button type="button" class="diamond-btn">
+                                Diamond Detectors
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
 
-            <div class="diamond-options">
-                <a href="/elite">CLASSIFIER ELITE</a>
-                <a href="/lite">CLASSIFIER LITE</a>
-                <a href="/nano">CLASSIFIER NANO</a>
-            </div>
-        </div>
-    </div>
-</div>
+                            <div class="diamond-options">
+                                <a href="/elite">CLASSIFIER ELITE</a>
+                                <a href="/lite">CLASSIFIER LITE</a>
+                                <a href="/nano">CLASSIFIER NANO</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-menu">
                     <a href="#services" class="product-link">Services <i class="fa-solid fa-chevron-down"></i></a>
                     <div class="product-popup1">
@@ -2297,17 +2297,19 @@
             });
         }
 
-        
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const options = menu.querySelector(".diamond-options");
+        /*====================================
+            Product dropdown 
+        ======================================*/
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const options = menu.querySelector(".diamond-options");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        options.classList.toggle("show");
-    });
-});
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                options.classList.toggle("show");
+            });
+        });
 
 
         /*====================================
