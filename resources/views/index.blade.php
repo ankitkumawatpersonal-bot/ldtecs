@@ -1762,38 +1762,30 @@
             }
         }
 
-
         
 .diamond-menu {
+    position: relative;
     width: 100%;
 }
 
 .diamond-btn {
     width: 100%;
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 18px 20px;
     background: transparent;
     border: none;
     color: #191b19;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-}
-
-.diamond-btn i {
-    font-size: 12px;
-    transition: transform 0.2s ease;
-}
-
-.diamond-btn.active i {
-    transform: rotate(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .diamond-options {
     display: none;
-    padding: 0 10px 5px;
+    background: #fff;
+    border-top: 1px solid #ddd;
 }
 
 .diamond-options.show {
@@ -1802,18 +1794,19 @@
 
 .diamond-options a {
     display: block;
-    padding: 13px 20px;
-    color: #333;
+    padding: 14px 20px;
+    color: #191b19;
     text-decoration: none;
     font-size: 14px;
-    border-top: 1px solid #eee;
-    transition: background 0.2s ease;
+    font-weight: 600;
+    transition: background 0.3s ease;
 }
 
 .diamond-options a:hover {
-    background: #f2f5f5;
-    color: #24a19c;
+    background: #24a19c;
+    color: #fff;
 }
+
 
     </style>
 </head>
@@ -1834,20 +1827,25 @@
             <nav class="navbar" id="navbar">
                 <a href="/" class="active">Home</a>
                 <div class="product-menu">
-                    <a href="#our-products" class="product-link">Products <i class="fa-solid fa-chevron-down"></i></a>
-                    <div class="diamond-menu">
-    <button type="button" class="diamond-btn">
-        Diamond Detectors
-        <i class="fa-solid fa-chevron-down"></i>
-    </button>
+    <a href="#our-products" class="product-link">
+        Products <i class="fa-solid fa-chevron-down"></i>
+    </a>
 
-    <div class="diamond-options">
-        <a href="/elite">CLASSIFIER ELITE</a>
-        <a href="/lite">CLASSIFIER LITE</a>
-        <a href="/nano">CLASSIFIER NANO</a>
+    <div class="product-popup">
+        <div class="diamond-menu">
+            <button type="button" class="diamond-btn">
+                Diamond Detectors
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+
+            <div class="diamond-options">
+                <a href="/elite">CLASSIFIER ELITE</a>
+                <a href="/lite">CLASSIFIER LITE</a>
+                <a href="/nano">CLASSIFIER NANO</a>
+            </div>
+        </div>
     </div>
 </div>
-                </div>
                 <div class="product-menu">
                     <a href="#services" class="product-link">Services <i class="fa-solid fa-chevron-down"></i></a>
                     <div class="product-popup1">
@@ -2300,13 +2298,14 @@
         }
 
         
-document.querySelectorAll(".diamond-btn").forEach((button) => {
-    button.addEventListener("click", () => {
-        const options = button.nextElementSibling;
-        const isOpen = options.classList.contains("show");
+document.querySelectorAll(".diamond-menu").forEach((menu) => {
+    const button = menu.querySelector(".diamond-btn");
+    const options = menu.querySelector(".diamond-options");
 
-        options.classList.toggle("show", !isOpen);
-        button.classList.toggle("active", !isOpen);
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        options.classList.toggle("show");
     });
 });
 
