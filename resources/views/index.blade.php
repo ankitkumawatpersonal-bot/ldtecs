@@ -2241,46 +2241,40 @@
             Contect US 
         ======================================*/
         
-        const contactPopup = document.getElementById("contactPopup");
-        const openContact = document.getElementById("openContact");
-        const closeContact = document.getElementById("closeContact");
+        
+const contactPopup = document.getElementById("contactPopup");
+const openContact = document.getElementById("openContact");
+const closeContact = document.getElementById("closeContact");
 
-        openContact.addEventListener("click", () => {
-            contactPopup.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        });
+openContact.addEventListener("click", () => {
+    contactPopup.style.display = "flex";
+    document.body.style.overflow = "hidden";
+});
 
-        function closeContactPopup() {
-            contactPopup.style.display = "none";
-            document.body.style.overflow = "";
-        }
+function closeContactPopup() {
+    contactPopup.style.display = "none";
+    document.body.style.overflow = "";
+}
 
-        closeContact.addEventListener("click", closeContactPopup);
+closeContact.addEventListener("click", closeContactPopup);
 
-        // Popup ke bahar click karne par close
-        contactPopup.addEventListener("click", (event) => {
-            if (event.target === contactPopup) {
-                closeContactPopup();
-            }
-        });
+// Popup ke bahar click karne par close
+contactPopup.addEventListener("click", (event) => {
+    if (event.target === contactPopup) {
+        closeContactPopup();
+    }
+});
 
-        // Escape key se close
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
-                closeContactPopup();
-            }
-        });
+// Escape key se close
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeContactPopup();
+    }
+});
 
-        // Demo form submission
-        document.getElementById("contactForm").addEventListener("submit", (event) => {
-            event.preventDefault();
-            alert("Thank you! Your message has been entered.");
-            event.target.reset();
-            closeContactPopup();
-        });
-
-        document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+// WhatsApp form submission
+document.getElementById("contactForm").addEventListener("submit", (event) => {
+    event.preventDefault();
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
@@ -2294,12 +2288,16 @@
         "Phone: " + phone + "\n" +
         "Message: " + message;
 
-    const whatsappNumber = "91YOURNUMBER";
-    const url = "https://wa.me/" + whatsappNumber +
-                "?text=" + encodeURIComponent(text);
+    // Apna WhatsApp number yahan likhein
+    const whatsappNumber = "917240713574";
+
+    const url =
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(text);
 
     window.open(url, "_blank");
 });
+
 
     </script>
 </body>
