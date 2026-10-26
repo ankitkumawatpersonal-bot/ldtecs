@@ -1635,6 +1635,12 @@
             cursor: pointer;
             transition:0.3s;
         }
+
+        .contect-btn:hover {
+            background: #6c560e;
+            color: #111;
+            border-color: #6c560e;
+        }
         /* .contact-btn {
             background: transparent;
             color: white;
