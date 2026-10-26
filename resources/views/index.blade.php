@@ -352,13 +352,15 @@
             visibility: visible;
             transform: translate(-50%, 0);
         }
-        .product-menu:hover .product-popup1{
+        .product-menu:hover .product-popup1,
+        .product-menu:hover .product-popup2{
             opacity:1;
             visibility:visible;
             transform:translate(-50%,0)
         }
 
-        .product-popup a{
+        .product-popup a,
+        .product-popup2 a{
             margin: 12px 18px;
             display:flex;
             padding: 12px 18px;
@@ -374,7 +376,8 @@
             transition: 0.3s;
         }
 
-        .product-popup a:hover{
+        .product-popup a:hover,
+        .product-popup2 a:hover{
             background:#f1f7f7;
             color:#e9aa6b;
         }
@@ -1578,7 +1581,8 @@
             .product-menu { width: 100%; }
 
             .product-popup,
-            .product-popup1 {
+            .product-popup1,
+            .product-popup2 {
                 display: none;
                 position: static;
                 width: 100%;
@@ -1597,12 +1601,15 @@
             }
 
             .product-menu.mobile-open .product-popup,
-            .product-menu.mobile-open .product-popup1 {
+            .product-menu.mobile-open .product-popup1,
+            .product-menu.mobile-open .product-popup2 {
                 display: flex;
             }
 
             .product-menu:hover .product-popup,
-            .product-menu:hover .product-popup1 {
+            .product-menu:hover .product-popup1,
+            .product-menu:hover .product-popup2
+            {
                 opacity: 1;
                 visibility: visible;
                 transform: none;
@@ -1610,8 +1617,10 @@
 
             .product-popup a,
             .product-popup1 a,
+            .product-popup2 a,
             .product-popup .feature a,
-            .product-popup1 .feature a {
+            .product-popup1 .feature a
+            .product-popup2 .feature a {
                 width: 100%;
                 margin: 0;
                 padding: 11px 6px;
@@ -1671,7 +1680,7 @@
                     <div class="product-popup">
                         <a href="diamond-detection"> Diamond Detection </a>
                     </div>
-                    <div class="product-popup">
+                    <div class="product-popup2">
                         <div class="elite">
                             <a href="/elite"> CLASSIFIER ELITE </a>
                         </div>
