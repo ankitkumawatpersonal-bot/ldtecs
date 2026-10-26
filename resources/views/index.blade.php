@@ -1763,6 +1763,27 @@
         }
 
         
+
+/* Parent Products dropdown */
+.product-menu {
+    position: relative;
+}
+
+.product-popup {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    background: #fff;
+    border-radius: 9px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    overflow: visible;
+    z-index: 9999;
+}
+
+/* Diamond Detectors row */
 .diamond-menu {
     position: relative;
     width: 100%;
@@ -1770,42 +1791,151 @@
 
 .diamond-btn {
     width: 100%;
-    padding: 18px 20px;
-    background: transparent;
-    border: none;
-    color: #191b19;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.diamond-options {
-    display: none;
+    gap: 12px;
+    padding: 18px 22px;
     background: #fff;
-    border-top: 1px solid #ddd;
+    border: none;
+    border-radius: 9px;
+    color: #191b19;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
 }
 
-.diamond-options.show {
+.diamond-btn:hover {
+    background: #f5f7f7;
+}
+
+.diamond-btn i {
+    font-size: 13px;
+    transition: transform 0.2s ease;
+}
+
+.diamond-btn.active i {
+    transform: rotate(90deg);
+}
+
+/* Separate right-side submenu */
+.diamond-side-popup {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 10px);
+    width: 260px;
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 9px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    display: none;
+    z-index: 10000;
+}
+
+.diamond-side-popup.show {
     display: block;
 }
 
-.diamond-options a {
+.diamond-side-popup a {
     display: block;
-    padding: 14px 20px;
+    padding: 15px 14px;
     color: #191b19;
     text-decoration: none;
     font-size: 14px;
     font-weight: 600;
-    transition: background 0.3s ease;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
-.diamond-options a:hover {
-    background: #24a19c;
-    color: #fff;
+.diamond-side-popup a:last-child {
+    border-bottom: none;
 }
+
+.diamond-side-popup a:hover {
+    background: #f3f6f6;
+    color: #24a19c;
+}
+
+/* Tablet */
+@media (min-width: 821px) and (max-width: 1100px) {
+    .product-popup {
+        width: 310px;
+    }
+
+    .diamond-side-popup {
+        width: 230px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 820px) {
+    .product-menu {
+        position: relative;
+    }
+
+    .product-popup {
+        position: static;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+        margin-top: 8px;
+        box-shadow: none;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    .diamond-btn {
+        padding: 15px 16px;
+        font-size: 15px;
+    }
+
+    /* Mobile: submenu opens below Diamond Detectors */
+    .diamond-side-popup {
+        position: static;
+        width: auto;
+        margin: 0 10px 10px;
+        padding: 4px;
+        box-shadow: none;
+        border-radius: 6px;
+        background: #f8f9f9;
+        box-sizing: border-box;
+    }
+
+    .diamond-side-popup a {
+        padding: 14px 12px;
+        font-size: 13px;
+    }
+
+    .diamond-btn.active i {
+        transform: rotate(90deg);
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .product-popup {
+        margin-top: 6px;
+    }
+
+    .diamond-btn {
+        padding: 14px 12px;
+        font-size: 14px;
+    }
+
+    .diamond-side-popup {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .diamond-side-popup a {
+        padding: 13px 10px;
+        font-size: 12px;
+    }
+}
+
 
 
     </style>
@@ -1835,10 +1965,10 @@
                         <div class="diamond-menu">
                             <button type="button" class="diamond-btn">
                                 Diamond Detectors
-                                <i class="fa-solid fa-chevron-down"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
                             </button>
 
-                            <div class="diamond-options">
+                            <div class="diamond-side-popup">
                                 <a href="/elite">CLASSIFIER ELITE</a>
                                 <a href="/lite">CLASSIFIER LITE</a>
                                 <a href="/nano">CLASSIFIER NANO</a>
@@ -2300,16 +2430,44 @@
         /*====================================
             Product dropdown 
         ======================================*/
-        document.querySelectorAll(".diamond-menu").forEach((menu) => {
-            const button = menu.querySelector(".diamond-btn");
-            const options = menu.querySelector(".diamond-options");
+        
+document.querySelectorAll(".diamond-menu").forEach((menu) => {
+    const button = menu.querySelector(".diamond-btn");
+    const popup = menu.querySelector(".diamond-side-popup");
 
-            button.addEventListener("click", (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                options.classList.toggle("show");
-            });
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen = popup.classList.contains("show");
+
+        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+            item.classList.remove("show");
         });
+
+        document.querySelectorAll(".diamond-btn").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        if (!isOpen) {
+            popup.classList.add("show");
+            button.classList.add("active");
+        }
+    });
+});
+
+document.addEventListener("click", (event) => {
+    if (!event.target.closest(".diamond-menu")) {
+        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+            popup.classList.remove("show");
+        });
+
+        document.querySelectorAll(".diamond-btn").forEach((button) => {
+            button.classList.remove("active");
+        });
+    }
+});
+
 
 
         /*====================================
