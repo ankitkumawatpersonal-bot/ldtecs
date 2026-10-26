@@ -1924,24 +1924,20 @@
         </div>
     </section>
 
-        <!-- Contact Popup -->
-    <div class="contact-overlay" id="contactPopup">
+    <!-- Contact Popup -->
+    <div class="contact-overlay">
         <div class="contact-box">
-            <button class="close-btn" id="closeContact">&times;</button>
+            <button class="close-btn" id="closecontact">&times;</button>
 
-            <h2>Contact Us</h2>
-            <p>Let's discuss your project and ideas.</p>
+            <h2> Contact Us </h2>
+            <p> Let's discuss your project and ideas. </p>
 
-            <form id="contactForm">
+            <form id="contactform">
                 <input type="text" name="name" placeholder="Your Name" required>
-
                 <input type="email" name="email" placeholder="Your Email" required>
-
                 <input type="tel" name="phone" placeholder="Phone Number">
-
-                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-
-                <button type="submit" class="submit-btn">Send Message</button>
+                <textarea name="message" placeholder="Your message" rows="4" required></textarea">
+                <button type="submit" class="submit-btn"> Send Message </button>
             </form>
         </div>
     </div>
@@ -2241,43 +2237,68 @@
             });
         }
 
+        /*====================================
+            Contect US 
+        ======================================*/
         
-const contactPopup = document.getElementById("contactPopup");
-const openContact = document.getElementById("openContact");
-const closeContact = document.getElementById("closeContact");
+        const contactPopup = document.getElementById("contactPopup");
+        const openContact = document.getElementById("openContact");
+        const closeContact = document.getElementById("closeContact");
 
-openContact.addEventListener("click", () => {
-    contactPopup.style.display = "flex";
-    document.body.style.overflow = "hidden";
-});
+        openContact.addEventListener("click", () => {
+            contactPopup.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
 
-function closeContactPopup() {
-    contactPopup.style.display = "none";
-    document.body.style.overflow = "";
-}
+        function closeContactPopup() {
+            contactPopup.style.display = "none";
+            document.body.style.overflow = "";
+        }
 
-closeContact.addEventListener("click", closeContactPopup);
+        closeContact.addEventListener("click", closeContactPopup);
 
-// Popup ke bahar click karne par close
-contactPopup.addEventListener("click", (event) => {
-    if (event.target === contactPopup) {
-        closeContactPopup();
-    }
-});
+        // Popup ke bahar click karne par close
+        contactPopup.addEventListener("click", (event) => {
+            if (event.target === contactPopup) {
+                closeContactPopup();
+            }
+        });
 
-// Escape key se close
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeContactPopup();
-    }
-});
+        // Escape key se close
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeContactPopup();
+            }
+        });
 
-// Demo form submission
-document.getElementById("contactForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-    alert("Thank you! Your message has been entered.");
-    event.target.reset();
-    closeContactPopup();
+        // Demo form submission
+        document.getElementById("contactForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+            alert("Thank you! Your message has been entered.");
+            event.target.reset();
+            closeContactPopup();
+        });
+
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const text =
+        "New LDTECS Website Inquiry\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Phone: " + phone + "\n" +
+        "Message: " + message;
+
+    const whatsappNumber = "91YOURNUMBER";
+    const url = "https://wa.me/" + whatsappNumber +
+                "?text=" + encodeURIComponent(text);
+
+    window.open(url, "_blank");
 });
 
     </script>
