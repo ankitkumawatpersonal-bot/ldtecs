@@ -1696,27 +1696,25 @@
                 <div class="marquee-track">
 
                     <div class="marquee-group">
-                        <img src="sevenstar.webp" alt="Seven Star">
+                        <img src="seven.png" alt="Seven Star">
                         <img src="tenx.png" alt="Tenx">
                         <img src="uni-design.png" alt="Uni Design">
-                        <img src="shivaye.webp" alt="Shivaye">
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
-                        <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
+                        <img src="mahindra.jpg" alt="Mahindra Diamonds">
                         <img src="manisha gems.webp" alt="Mahindra Diamonds">
-                        <img src="shivaye.jpeg" alt="shivaye Diamonds">
+                        <img src="shivaye.png" alt="shivaye Diamonds">
                     </div>
 
                     <div class="marquee-group" aria-hidden="true">
-                        <img src="sevenstar.webp" alt="">
+                        <img src="seven.png" alt="">
                         <img src="tenx.png" alt="">
                         <img src="uni-design.png" alt="">
-                        <img src="shivaye.webp" alt="">
                         <img src="mahavir.png" alt="">
                         <img src="hare-krishana.svg" alt="">
-                        <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
-                        <img src="manisha gems.webp" alt="Mahindra Diamonds">
-                        <img src="shivaye.jpeg" alt="shivaye Diamonds">
+                        <img src="mahindra.jpg" alt="">
+                        <img src="manisha gems.webp" alt="">
+                        <img src="shivaye.png" alt="">
                     </div>
 
                 </div>
