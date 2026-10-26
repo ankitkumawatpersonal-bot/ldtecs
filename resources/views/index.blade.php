@@ -1932,7 +1932,7 @@
             <h2> Contact Us </h2>
             <p> Let's discuss your project and ideas. </p>
 
-            <form id="contactform">
+            <form id="contactForm">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <input type="tel" name="phone" placeholder="Phone Number">
@@ -2242,61 +2242,61 @@
         ======================================*/
         
         
-const contactPopup = document.getElementById("contactPopup");
-const openContact = document.getElementById("openContact");
-const closeContact = document.getElementById("closeContact");
+        const contactPopup = document.getElementById("contactPopup");
+        const openContact = document.getElementById("openContact");
+        const closeContact = document.getElementById("closeContact");
 
-openContact.addEventListener("click", () => {
-    contactPopup.style.display = "flex";
-    document.body.style.overflow = "hidden";
-});
+        openContact.addEventListener("click", () => {
+            contactPopup.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
 
-function closeContactPopup() {
-    contactPopup.style.display = "none";
-    document.body.style.overflow = "";
-}
+        function closeContactPopup() {
+            contactPopup.style.display = "none";
+            document.body.style.overflow = "";
+        }
 
-closeContact.addEventListener("click", closeContactPopup);
+        closeContact.addEventListener("click", closeContactPopup);
 
-// Popup ke bahar click karne par close
-contactPopup.addEventListener("click", (event) => {
-    if (event.target === contactPopup) {
-        closeContactPopup();
-    }
-});
+        // Popup ke bahar click karne par close
+        contactPopup.addEventListener("click", (event) => {
+            if (event.target === contactPopup) {
+                closeContactPopup();
+            }
+        });
 
-// Escape key se close
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeContactPopup();
-    }
-});
+        // Escape key se close
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeContactPopup();
+            }
+        });
 
-// WhatsApp form submission
-document.getElementById("contactForm").addEventListener("submit", (event) => {
-    event.preventDefault();
+        // WhatsApp form submission
+        document.getElementById("contactForm").addEventListener("submit", (event) => {
+            event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const message = document.getElementById("message").value.trim();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const message = document.getElementById("message").value.trim();
 
-    const text =
-        "New LDTECS Website Inquiry\n\n" +
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n" +
-        "Phone: " + phone + "\n" +
-        "Message: " + message;
+            const text =
+                "New LDTECS Website Inquiry\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Phone: " + phone + "\n" +
+                "Message: " + message;
 
-    // Apna WhatsApp number yahan likhein
-    const whatsappNumber = "917240713574";
+            // Apna WhatsApp number yahan likhein
+            const whatsappNumber = "917240713574";
 
-    const url =
-        "https://wa.me/" + whatsappNumber +
-        "?text=" + encodeURIComponent(text);
+            const url =
+                "https://wa.me/" + whatsappNumber +
+                "?text=" + encodeURIComponent(text);
 
-    window.open(url, "_blank");
-});
+            window.open(url, "_blank");
+        });
 
 
     </script>
