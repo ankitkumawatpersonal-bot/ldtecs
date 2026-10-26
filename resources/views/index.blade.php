@@ -1170,8 +1170,8 @@
             justify-content: space-around;
             gap: 60px;
             padding-right: 60px;
-            padding-top:20px;
-            padding-bottom:20px;
+            padding-top:30px;
+            padding-bottom:30px;
             flex-shrink: 0;
         }
 
