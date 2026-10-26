@@ -1188,11 +1188,11 @@
 
         @keyframes marqueeMove {
             from {
-                transform: translateY(0);
+                transform: translateX(0);
             }
 
             to {
-                transform: translateY(-50%);
+                transform: translateX(-50%);
             }
         }
 
