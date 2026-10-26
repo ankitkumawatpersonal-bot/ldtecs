@@ -1623,12 +1623,144 @@
             .hero p { font-size: 16px; }
         }
 
-        /* button{
+        
+/* Contact Button */
+.contact-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 9px 18px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        }
-        .contect-btn{
+.contact-btn:hover {
+    background: #e9aa6b;
+    color: #111;
+    border-color: #e9aa6b;
+}
 
-        } */
+/* Popup Background */
+.contact-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Popup Box */
+.contact-box {
+    position: relative;
+    background: #102b2d;
+    color: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 35px;
+    border-radius: 12px;
+    border: 1px solid rgba(233, 170, 107, 0.5);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    animation: popupOpen 0.3s ease;
+}
+
+.contact-box h2 {
+    color: #e9aa6b;
+    margin: 0 0 10px;
+    font-size: 28px;
+}
+
+.contact-box p {
+    color: #ccc;
+    margin-bottom: 22px;
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 14px;
+    background: #19383a;
+    border: 1px solid #496263;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    border-color: #e9aa6b;
+}
+
+.contact-box input::placeholder,
+.contact-box textarea::placeholder {
+    color: #bbb;
+}
+
+.contact-box textarea {
+    resize: vertical;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #e9aa6b;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 13px;
+    background: #e9aa6b;
+    color: #111;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: white;
+}
+
+@keyframes popupOpen {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .contact-box {
+        padding: 28px 20px;
+    }
+
+    .contact-box h2 {
+        font-size: 24px;
+    }
+}
+
 
     </style>
 </head>
@@ -1683,9 +1815,7 @@
                     </div>
                 </div>
                 <a href="/about">About</a>
-                <a href="/Contect">
-                    <button type="button" class="contect-btn">Contect </button>
-                </a>
+                <button class="contact-btn" id="openContact">Contact</button>
             </nav>
             
         </header>
@@ -1793,6 +1923,28 @@
 
         </div>
     </section>
+
+        <!-- Contact Popup -->
+    <div class="contact-overlay" id="contactPopup">
+        <div class="contact-box">
+            <button class="close-btn" id="closeContact">&times;</button>
+
+            <h2>Contact Us</h2>
+            <p>Let's discuss your project and ideas.</p>
+
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name" required>
+
+                <input type="email" name="email" placeholder="Your Email" required>
+
+                <input type="tel" name="phone" placeholder="Phone Number">
+
+                <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
 
     <!-- <section class="page3" id="services">
             
@@ -2088,6 +2240,46 @@
                 }
             });
         }
+
+        
+const contactPopup = document.getElementById("contactPopup");
+const openContact = document.getElementById("openContact");
+const closeContact = document.getElementById("closeContact");
+
+openContact.addEventListener("click", () => {
+    contactPopup.style.display = "flex";
+    document.body.style.overflow = "hidden";
+});
+
+function closeContactPopup() {
+    contactPopup.style.display = "none";
+    document.body.style.overflow = "";
+}
+
+closeContact.addEventListener("click", closeContactPopup);
+
+// Popup ke bahar click karne par close
+contactPopup.addEventListener("click", (event) => {
+    if (event.target === contactPopup) {
+        closeContactPopup();
+    }
+});
+
+// Escape key se close
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeContactPopup();
+    }
+});
+
+// Demo form submission
+document.getElementById("contactForm").addEventListener("submit", (event) => {
+    event.preventDefault();
+    alert("Thank you! Your message has been entered.");
+    event.target.reset();
+    closeContactPopup();
+});
+
     </script>
 </body>
 </html>
