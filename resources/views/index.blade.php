@@ -1762,6 +1762,50 @@
             }
         }
 
+    
+        .diamond-menu {
+            position: relative;
+            width: 100%;
+        }
+
+        .diamond-btn {
+            width: 100%;
+            padding: 18px 20px;
+            background: transparent;
+            border: none;
+            color: #191b19;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .diamond-options {
+            display: none;
+            background: #fff;
+            border-top: 1px solid #ddd;
+        }
+
+        .diamond-options.show {
+            display: block;
+        }
+
+        .diamond-options a {
+            display: block;
+            padding: 14px 20px;
+            color: #191b19;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .diamond-options a:hover {
+            background: #24a19c;
+            color: #fff;
+        }
 
     </style>
 </head>
@@ -1782,17 +1826,22 @@
             <nav class="navbar" id="navbar">
                 <a href="/" class="active">Home</a>
                 <div class="product-menu">
-                    <a href="#our-products" class="product-link">Products <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="#our-products" class="product-link">
+                        Products <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+
                     <div class="product-popup">
-                        <a href="diamond detectors"> Diamond Detectors </a>
-                        <div class="elite">
-                            <a href="/elite"> CLASSIFIER ELITE </a>
-                        </div>
-                        <div class="lite1">
-                            <a href="/lite"> CLASSIFIER LITE </a>
-                        </div>
-                        <div class="nano1">
-                            <a href="/nano"> CLASSIFIER NANO </a>
+                        <div class="diamond-menu">
+                            <button type="button" class="diamond-btn">
+                                Diamond Detectors
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+
+                            <div class="diamond-options">
+                                <a href="/elite">CLASSIFIER ELITE</a>
+                                <a href="/lite">CLASSIFIER LITE</a>
+                                <a href="/nano">CLASSIFIER NANO</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2246,6 +2295,17 @@
                 }
             });
         }
+
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const options = menu.querySelector(".diamond-options");
+
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                options.classList.toggle("show");
+            });
+        });
 
         /*====================================
             Contect US 
