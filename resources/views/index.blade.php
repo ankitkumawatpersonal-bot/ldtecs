@@ -1925,22 +1925,54 @@
     </section>
 
     <!-- Contact Popup -->
-    <div class="contact-overlay">
-        <div class="contact-box">
-            <button class="close-btn" id="closecontact">&times;</button>
+    
+<div class="contact-overlay" id="contactPopup">
+    <div class="contact-box">
+        <button type="button" class="close-btn" id="closecontact">&times;</button>
 
-            <h2> Contact Us </h2>
-            <p> Let's discuss your project and ideas. </p>
+        <h2>Contact Us</h2>
+        <p>Let's discuss your project and ideas.</p>
 
-            <form id="contactForm">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="tel" name="phone" placeholder="Phone Number">
-                <textarea name="message" placeholder="Your message" rows="4" required></textarea">
-                <button type="submit" class="submit-btn"> Send Message </button>
-            </form>
-        </div>
+        <form id="contactForm">
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                required
+            >
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Phone Number"
+                required
+            >
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Your Message"
+                rows="4"
+                required
+            ></textarea>
+
+            <button type="submit" class="submit-btn">
+                Send Message
+            </button>
+        </form>
     </div>
+</div>
+
 
     <!-- <section class="page3" id="services">
             
@@ -2240,11 +2272,9 @@
         /*====================================
             Contect US 
         ======================================*/
-        
-        
         const contactPopup = document.getElementById("contactPopup");
+        const closeContact = document.getElementById("closecontact");
         const openContact = document.getElementById("openContact");
-        const closeContact = document.getElementById("closeContact");
 
         openContact.addEventListener("click", () => {
             contactPopup.style.display = "flex";
@@ -2258,21 +2288,18 @@
 
         closeContact.addEventListener("click", closeContactPopup);
 
-        // Popup ke bahar click karne par close
         contactPopup.addEventListener("click", (event) => {
             if (event.target === contactPopup) {
                 closeContactPopup();
             }
         });
 
-        // Escape key se close
         document.addEventListener("keydown", (event) => {
             if (event.key === "Escape") {
                 closeContactPopup();
             }
         });
 
-        // WhatsApp form submission
         document.getElementById("contactForm").addEventListener("submit", (event) => {
             event.preventDefault();
 
@@ -2288,8 +2315,7 @@
                 "Phone: " + phone + "\n" +
                 "Message: " + message;
 
-            // Apna WhatsApp number yahan likhein
-            const whatsappNumber = "917240713574";
+            const whatsappNumber = "91YOURNUMBER";
 
             const url =
                 "https://wa.me/" + whatsappNumber +
@@ -2297,6 +2323,7 @@
 
             window.open(url, "_blank");
         });
+
 
 
     </script>
