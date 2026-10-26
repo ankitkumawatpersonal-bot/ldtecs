@@ -1763,49 +1763,190 @@
         }
 
     
-        .diamond-menu {
-            position: relative;
-            width: 100%;
-        }
+        
+/* Product dropdown */
+.product-menu {
+    position: relative;
+}
 
-        .diamond-btn {
-            width: 100%;
-            padding: 18px 20px;
-            background: transparent;
-            border: none;
-            color: #191b19;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+.product-arrow {
+    transition: transform 0.3s ease;
+}
 
-        .diamond-options {
-            display: none;
-            background: #fff;
-            border-top: 1px solid #ddd;
-        }
+.product-menu:hover .product-arrow {
+    transform: rotate(180deg);
+}
 
-        .diamond-options.show {
-            display: block;
-        }
+.product-popup {
+    position: absolute;
+    top: calc(100% + 18px);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 340px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(36, 161, 156, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(16px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease,
+                visibility 0.25s ease;
+    z-index: 9999;
+}
 
-        .diamond-options a {
-            display: block;
-            padding: 14px 20px;
-            color: #191b19;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
+.product-menu:hover .product-popup,
+.product-menu:focus-within .product-popup,
+.product-menu.popup-open .product-popup {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
 
-        .diamond-options a:hover {
-            background: #24a19c;
-            color: #fff;
-        }
+/* Diamond Detectors button */
+.diamond-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 12px;
+    background: #f5f8f8;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.diamond-btn:hover,
+.diamond-btn[aria-expanded="true"] {
+    background: #e9f7f6;
+    border-color: #b8e5e2;
+}
+
+.diamond-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #24a19c;
+    color: #fff;
+    font-size: 19px;
+}
+
+.diamond-text,
+.option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.diamond-text strong {
+    color: #191b19;
+    font-size: 15px;
+}
+
+.diamond-text small,
+.option-info small {
+    color: #737b7b;
+    font-size: 12px;
+}
+
+.diamond-arrow {
+    margin-left: auto;
+    color: #24a19c;
+    font-size: 13px;
+    transition: transform 0.25s ease;
+}
+
+.diamond-btn[aria-expanded="true"] .diamond-arrow {
+    transform: rotate(90deg);
+}
+
+/* Submenu */
+.diamond-options {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.3s ease, opacity 0.3s ease;
+}
+
+.diamond-options.show {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+
+.diamond-options-inner {
+    overflow: hidden;
+}
+
+.diamond-options.show {
+    display: block;
+    padding-top: 7px;
+}
+
+.diamond-option {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 13px 10px;
+    margin-top: 4px;
+    border-radius: 9px;
+    color: #191b19;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.diamond-option:hover {
+    background: #eef8f7;
+    transform: translateX(3px);
+}
+
+.option-number {
+    font-size: 12px;
+    font-weight: 700;
+    color: #24a19c;
+}
+
+.option-info {
+    flex: 1;
+}
+
+.option-info strong {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.diamond-option > i {
+    font-size: 12px;
+    color: #899292;
+}
+
+.diamond-option:hover > i {
+    color: #24a19c;
+}
+
+/* Mobile */
+@media (max-width: 820px) {
+    .product-popup {
+        position: static;
+        width: 100%;
+        transform: none;
+        box-shadow: none;
+        border-radius: 12px;
+        margin-top: 8px;
+    }
+
+    .product-menu:hover .product-popup {
+        transform: none;
+    }
+}
+
 
     </style>
 </head>
@@ -1826,25 +1967,58 @@
             <nav class="navbar" id="navbar">
                 <a href="/" class="active">Home</a>
                 <div class="product-menu">
-                    <a href="#our-products" class="product-link">
-                        Products <i class="fa-solid fa-chevron-down"></i>
-                    </a>
+    <a href="#our-products" class="product-link">
+        Products
+        <i class="fa-solid fa-chevron-down product-arrow"></i>
+    </a>
 
-                    <div class="product-popup">
-                        <div class="diamond-menu">
-                            <button type="button" class="diamond-btn">
-                                Diamond Detectors
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </button>
+    <div class="product-popup">
 
-                            <div class="diamond-options">
-                                <a href="/elite">CLASSIFIER ELITE</a>
-                                <a href="/lite">CLASSIFIER LITE</a>
-                                <a href="/nano">CLASSIFIER NANO</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <button type="button" class="diamond-btn"
+            aria-expanded="false">
+            <span class="diamond-icon">
+                <i class="fa-regular fa-gem"></i>
+            </span>
+
+            <span class="diamond-text">
+                <strong>Diamond Detectors</strong>
+                <small>Explore our machines</small>
+            </span>
+
+            <i class="fa-solid fa-chevron-right diamond-arrow"></i>
+        </button>
+
+        <div class="diamond-options">
+            <a href="/elite" class="diamond-option">
+                <span class="option-number">01</span>
+                <span class="option-info">
+                    <strong>Classifier Elite</strong>
+                    <small>Advanced diamond screening</small>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a href="/lite" class="diamond-option">
+                <span class="option-number">02</span>
+                <span class="option-info">
+                    <strong>Classifier Lite</strong>
+                    <small>Smart diamond detection</small>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <a href="/nano" class="diamond-option">
+                <span class="option-number">03</span>
+                <span class="option-info">
+                    <strong>Classifier Nano</strong>
+                    <small>Compact detection solution</small>
+                </span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+
+    </div>
+</div>
                 <div class="product-menu">
                     <a href="#services" class="product-link">Services <i class="fa-solid fa-chevron-down"></i></a>
                     <div class="product-popup1">
@@ -2296,16 +2470,15 @@
             });
         }
 
-        document.querySelectorAll(".diamond-menu").forEach((menu) => {
-            const button = menu.querySelector(".diamond-btn");
-            const options = menu.querySelector(".diamond-options");
+        document.querySelectorAll(".diamond-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+        const options = button.nextElementSibling;
+        const isOpen = button.getAttribute("aria-expanded") === "true";
 
-            button.addEventListener("click", (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                options.classList.toggle("show");
-            });
-        });
+        button.setAttribute("aria-expanded", String(!isOpen));
+        options.classList.toggle("show", !isOpen);
+    });
+});
 
         /*====================================
             Contect US 
