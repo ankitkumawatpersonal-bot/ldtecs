@@ -1624,142 +1624,152 @@
         }
 
         
-/* Contact Button */
-.contact-btn {
-    background: transparent;
-    color: white;
-    border: 1px solid white;
-    padding: 9px 18px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        /* Contact Button */
 
-.contact-btn:hover {
-    background: #e9aa6b;
-    color: #111;
-    border-color: #e9aa6b;
-}
+        .contect-btn{
+            background: transparent;
+            color: white;
+            border: 1 px solid white;
+            padding: 9px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            transition:0.3s;
+        }
+        /* .contact-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 9px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-/* Popup Background */
-.contact-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(5px);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+        .contact-btn:hover {
+            background: #e9aa6b;
+            color: #111;
+            border-color: #e9aa6b;
+        } */
 
-/* Popup Box */
-.contact-box {
-    position: relative;
-    background: #102b2d;
-    color: white;
-    width: 100%;
-    max-width: 450px;
-    padding: 35px;
-    border-radius: 12px;
-    border: 1px solid rgba(233, 170, 107, 0.5);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
-    animation: popupOpen 0.3s ease;
-}
+        /* Popup Background */
+        /* .contact-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        } */
 
-.contact-box h2 {
-    color: #e9aa6b;
-    margin: 0 0 10px;
-    font-size: 28px;
-}
+        /* Popup Box */
+        /* .contact-box {
+            position: relative;
+            background: #102b2d;
+            color: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid rgba(233, 170, 107, 0.5);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            animation: popupOpen 0.3s ease;
+        }
 
-.contact-box p {
-    color: #ccc;
-    margin-bottom: 22px;
-}
+        .contact-box h2 {
+            color: #e9aa6b;
+            margin: 0 0 10px;
+            font-size: 28px;
+        }
 
-.contact-box input,
-.contact-box textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 14px;
-    background: #19383a;
-    border: 1px solid #496263;
-    border-radius: 5px;
-    color: white;
-    font-size: 15px;
-    box-sizing: border-box;
-    outline: none;
-}
+        .contact-box p {
+            color: #ccc;
+            margin-bottom: 22px;
+        }
 
-.contact-box input:focus,
-.contact-box textarea:focus {
-    border-color: #e9aa6b;
-}
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            background: #19383a;
+            border: 1px solid #496263;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
 
-.contact-box input::placeholder,
-.contact-box textarea::placeholder {
-    color: #bbb;
-}
+        .contact-box input:focus,
+        .contact-box textarea:focus {
+            border-color: #e9aa6b;
+        }
 
-.contact-box textarea {
-    resize: vertical;
-}
+        .contact-box input::placeholder,
+        .contact-box textarea::placeholder {
+            color: #bbb;
+        }
 
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 16px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-}
+        .contact-box textarea {
+            resize: vertical;
+        }
 
-.close-btn:hover {
-    color: #e9aa6b;
-}
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
 
-.submit-btn {
-    width: 100%;
-    padding: 13px;
-    background: #e9aa6b;
-    color: #111;
-    font-weight: bold;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .close-btn:hover {
+            color: #e9aa6b;
+        }
 
-.submit-btn:hover {
-    background: white;
-}
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: #e9aa6b;
+            color: #111;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-@keyframes popupOpen {
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(0.96);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
+        .submit-btn:hover {
+            background: white;
+        }
 
-/* Mobile Responsive */
-@media (max-width: 480px) {
-    .contact-box {
-        padding: 28px 20px;
-    }
+        @keyframes popupOpen {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        } */
 
-    .contact-box h2 {
-        font-size: 24px;
-    }
-}
+        /* Mobile Responsive */
+        /* @media (max-width: 480px) {
+            .contact-box {
+                padding: 28px 20px;
+            }
+
+            .contact-box h2 {
+                font-size: 24px;
+            }
+        } */
 
 
     </style>
