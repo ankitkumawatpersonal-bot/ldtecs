@@ -1701,7 +1701,7 @@
                         <img src="uni-design.png" alt="Uni Design">
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
-                        <img src="mahindra.jpg" alt="Mahindra Diamonds">
+                        <img src="mahindra.png" alt="Mahindra Diamonds">
                         <img src="manisha gems.webp" alt="Mahindra Diamonds">
                         <img src="shivaye.png" alt="shivaye Diamonds">
                     </div>
@@ -1712,7 +1712,7 @@
                         <img src="uni-design.png" alt="">
                         <img src="mahavir.png" alt="">
                         <img src="hare-krishana.svg" alt="">
-                        <img src="mahindra.jpg" alt="">
+                        <img src="mahindra.png" alt="">
                         <img src="manisha gems.webp" alt="">
                         <img src="shivaye.png" alt="">
                     </div>

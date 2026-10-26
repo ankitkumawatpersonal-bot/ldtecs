@@ -1915,7 +1915,7 @@
         </div>
         <div class="box1">
             <div class="product-card1">
-                <img class="product-image elite1" src="elite.jpeg" alt="Classifier elite" id="elite1">
+                <img class="product-image elite1" src="Elite.jpeg" alt="Classifier elite" id="elite1">
             </div>
             <div class="CLassifier">
                 <p id="p">Classifier is a next-generation lab- grown diamond screening solution designed to 
@@ -1937,15 +1937,15 @@
             </div>
             <div class="all">
                 <div class="product-card2">
-                    <img class="product-image loose" src="loose.svg" alt="Loose" id="loose">
+                    <img class="product-image loose" src="Loose.svg" alt="Loose" id="loose">
                     <h4>Loose & Mounted </h3>
                 </div>
                 <div class="product-card2">
-                    <img class="product-image shape" src="all-shapes.svg" alt="All-Shapes" id="all-shapes">
+                    <img class="product-image shape" src="All-shapes.svg" alt="All-Shapes" id="all-shapes">
                     <h4> All Shapes </h4>
                 </div>
                 <div class="product-card2">
-                    <img class="product-image rough" src="rough.svg" alt="Rough" id="rough">
+                    <img class="product-image rough" src="Rough.svg" alt="Rough" id="rough">
                     <h4>Rough & Polished </h4>
                 </div>
             </div>
