@@ -716,10 +716,10 @@
             Page3
         ============================================*/
 
-        .page3{
+        /* .page3{
             width:100%;
-            min-height:90vh;
-        }
+            min-height:80vh;
+        } */
 
         .product-image.soft1 {
             width:130%;
@@ -1684,208 +1684,6 @@
             }
         }
 
-        
-/* =========================================
-   PAGE 3 - TABLET RESPONSIVE
-========================================= */
-
-/* @media (min-width: 769px) and (max-width: 1024px) {
-
-    .page3 {
-        width: 100%;
-        min-height: auto;
-        padding: 50px 35px;
-        background-color: #f1f4fd;
-        overflow: hidden;
-    }
-
-    .page3 .product-titl {
-        display: grid;
-        grid-template-columns: 1fr 0.85fr;
-        align-items: center;
-        gap: 25px;
-        width: 100%;
-    } */
-
-    /* Text section */
-    /* .page3 .build {
-        width: 100%;
-        text-align: left;
-    }
-
-    .page3 .build h2 {
-        font-size: 21px;
-        line-height: 1.5;
-        margin-bottom: 8px;
-    }
-
-    .page3 .build h1 {
-        font-size: 30px;
-        line-height: 1.35;
-    } */
-
-    /* Paragraphs */
-    /* .page3 .paragraph {
-        width: 100%;
-        padding-right: 0;
-    }
-
-    .page3 .build p {
-        font-size: 15px;
-        line-height: 1.7;
-        padding-top: 15px;
-        overflow-wrap: break-word;
-    } */
-
-    /* Image container */
-    /* .page3 .products-container1 {
-        width: 100%;
-        max-width: 100%;
-        min-height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-    } */
-
-    /* Company image */
-    /* .page3 .product-image.custom {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        max-height: none;
-        margin: 0;
-        object-fit: contain;
-    }
-} */
-
-
-        
-        /* =========================================
-        PAGE 3 - MOBILE RESPONSIVE
-        ========================================= */
-
-        /* @media (max-width: 768px) { */
-
-            /* .page3 {
-                width: 100%;
-                min-height: auto;
-                padding: 35px 20px;
-                background-color: #f1f4fd;
-                overflow: hidden;
-                text-align: left;
-            } */
-
-            /* Text and image vertical layout */
-            /* .page3 .product-titl {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 25px;
-            } */
-
-            /* Text section */
-            /* .page3 .build {
-                width: 100%;
-                text-align: left;
-            }
-
-            .page3 .build h2 {
-                font-size: 20px;
-                line-height: 1.4;
-                font-weight: 500;
-                color: #4495bb;
-                margin-bottom: 8px;
-            }
-
-            .page3 .build h1 {
-                font-size: 30px;
-                line-height: 1.3;
-                font-weight: 700;
-                color: #111;
-                margin-bottom: 5px;
-            } */
-
-            /* Paragraphs */
-            /* .page3 .paragraph {
-                width: 100%;
-                padding-right: 0;
-            }
-
-            .page3 .build p {
-                width: 100%;
-                padding-top: 15px;
-                font-size: 15px;
-                line-height: 1.7;
-                font-weight: 400;
-                color: #222;
-                overflow-wrap: break-word;
-            } */
-
-            /* Company image */
-            /* .page3 .products-container1 {
-                width: 100%;
-                max-width: 100%;
-                min-height: auto;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin: 0;
-                padding: 0;
-            }
-
-            .page3 .product-image.custom {
-                display: block;
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                max-height: none;
-                margin: 0;
-                object-fit: contain;
-            }
-        } */
-
-        /* =========================================
-        SMALL MOBILE
-        ========================================= */
-
-        /* @media (max-width: 480px) {
-
-            .page3 {
-                padding: 28px 15px;
-            }
-
-            .page3 .product-titl {
-                gap: 20px;
-            }
-
-            .page3 .build h2 {
-                font-size: 18px;
-            }
-
-            .page3 .build h1 {
-                font-size: 26px;
-                line-height: 1.35;
-            }
-
-            .page3 .build p {
-                font-size: 14px;
-                line-height: 1.7;
-                padding-top: 12px;
-            }
-
-            .page3 .products-container1 {
-                width: 100%;
-            }
-
-            .page3 .product-image.custom {
-                width: 100%;
-                height: auto;
-            }
-        } */
-
         @media (max-width: 820px) {
             .header {
                 position: fixed;
@@ -2137,162 +1935,162 @@
         }
 
         
-/* ================================
-   TABLET RESPONSIVE (768px–1024px)
-================================ */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+        /* ================================
+        TABLET RESPONSIVE (768px–1024px)
+        ================================ */
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
 
-    .page3 {
-        padding: 50px 35px;
-        height: auto;
-        min-height: auto;
-        box-sizing: border-box;
-    }
+            .page3 {
+                padding: 50px 35px;
+                height: auto;
+                min-height: auto;
+                box-sizing: border-box;
+            }
 
-    .page3 .product-titl {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        align-items: start;
-        gap: 30px;
-        width: 100%;
-    }
+            .page3 .product-titl {
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                align-items: start;
+                gap: 30px;
+                width: 100%;
+            }
 
-    .page3 .build {
-        width: 100%;
-        min-width: 0;
-    }
+            .page3 .build {
+                width: 100%;
+                min-width: 0;
+            }
 
-    .page3 .build h2 {
-        font-size: 25px;
-        margin-bottom: 10px;
-    }
+            .page3 .build h2 {
+                font-size: 25px;
+                margin-bottom: 10px;
+            }
 
-    .page3 .build h1 {
-        font-size: 34px;
-        line-height: 1.3;
-        margin-bottom: 20px;
-    }
+            .page3 .build h1 {
+                font-size: 34px;
+                line-height: 1.3;
+                margin-bottom: 20px;
+            }
 
-    .page3 .paragraph p {
-        font-size: 17px;
-        line-height: 1.7;
-        margin-bottom: 18px;
-    }
+            .page3 .paragraph p {
+                font-size: 17px;
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
 
-    .page3 .products-container1 {
-        width: 100%;
-        height: auto;
-        min-width: 0;
-    }
+            .page3 .products-container1 {
+                width: 100%;
+                height: auto;
+                min-width: 0;
+            }
 
-    .page3 .products-container1 img {
-        width: 100%;
-        height: auto;
-        max-height: 360px;
-        object-fit: cover;
-        display: block;
-    }
-}
-
-
-/* ================================
-   MOBILE RESPONSIVE (max 767px)
-================================ */
-@media screen and (max-width: 767px) {
-
-    .page3 {
-        width: 100%;
-        height: auto;
-        min-height: auto;
-        padding: 35px 20px;
-        box-sizing: border-box;
-        overflow: hidden;
-    }
-
-    .page3 .product-titl {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 25px;
-        width: 100%;
-    }
-
-    .page3 .build {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .page3 .build h2 {
-        font-size: 21px;
-        line-height: 1.4;
-        margin: 0 0 8px;
-    }
-
-    .page3 .build h1 {
-        font-size: 29px;
-        line-height: 1.3;
-        margin: 0 0 18px;
-        overflow-wrap: break-word;
-    }
-
-    .page3 .paragraph {
-        width: 100%;
-    }
-
-    .page3 .paragraph p {
-        font-size: 16px;
-        line-height: 1.7;
-        margin: 0 0 16px;
-    }
-
-    .page3 .products-container1 {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .page3 .products-container1 img {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 300px;
-        object-fit: contain;
-        object-position: center;
-        margin: 0 auto;
-    }
-}
+            .page3 .products-container1 img {
+                width: 100%;
+                height: auto;
+                max-height: 360px;
+                object-fit: cover;
+                display: block;
+            }
+        }
 
 
-/* ================================
-   SMALL MOBILE (max 380px)
-================================ */
-@media screen and (max-width: 380px) {
+        /* ================================
+        MOBILE RESPONSIVE (max 767px)
+        ================================ */
+        @media screen and (max-width: 767px) {
 
-    .page3 {
-        padding: 28px 15px;
-    }
+            .page3 {
+                width: 100%;
+                height: auto;
+                min-height: auto;
+                padding: 35px 20px;
+                box-sizing: border-box;
+                overflow: hidden;
+            }
 
-    .page3 .build h2 {
-        font-size: 19px;
-    }
+            .page3 .product-titl {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 25px;
+                width: 100%;
+            }
 
-    .page3 .build h1 {
-        font-size: 25px;
-    }
+            .page3 .build {
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
+            }
 
-    .page3 .paragraph p {
-        font-size: 15px;
-        line-height: 1.65;
-    }
+            .page3 .build h2 {
+                font-size: 21px;
+                line-height: 1.4;
+                margin: 0 0 8px;
+            }
 
-    .page3 .products-container1 img {
-        max-height: 240px;
-    }
-}
+            .page3 .build h1 {
+                font-size: 29px;
+                line-height: 1.3;
+                margin: 0 0 18px;
+                overflow-wrap: break-word;
+            }
+
+            .page3 .paragraph {
+                width: 100%;
+            }
+
+            .page3 .paragraph p {
+                font-size: 16px;
+                line-height: 1.7;
+                margin: 0 0 16px;
+            }
+
+            .page3 .products-container1 {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .page3 .products-container1 img {
+                display: block;
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+                object-fit: contain;
+                object-position: center;
+                margin: 0 auto;
+            }
+        }
+
+
+        /* ================================
+        SMALL MOBILE (max 380px)
+        ================================ */
+        @media screen and (max-width: 380px) {
+
+            .page3 {
+                padding: 28px 15px;
+            }
+
+            .page3 .build h2 {
+                font-size: 19px;
+            }
+
+            .page3 .build h1 {
+                font-size: 25px;
+            }
+
+            .page3 .paragraph p {
+                font-size: 15px;
+                line-height: 1.65;
+            }
+
+            .page3 .products-container1 img {
+                max-height: 240px;
+            }
+        }
 
 
 </style>
@@ -2429,11 +2227,11 @@
 
     <section class="page2">
         <div class="product-title">
-            <div class="heading1">
+            <div class="heading1" id="our">
                 <h6> OUR CAPABILITIES </h6>
                 <h1> What We Do </h1>
             </div>
-            <div class="products-container">
+            <div class="products-container" id="diamond">
 
                 <div class="box1 product-card">
                     <h4 class="customh4"> Diamond Detection Technology </h4>
