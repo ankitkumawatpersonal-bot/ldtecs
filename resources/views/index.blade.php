@@ -1784,6 +1784,7 @@
                 <div class="product-menu">
                     <a href="#our-products" class="product-link">Products <i class="fa-solid fa-chevron-down"></i></a>
                     <div class="product-popup">
+                        <a href="diamond detectors"> Diamond Detectors </a>
                         <div class="elite">
                             <a href="/elite"> CLASSIFIER ELITE </a>
                         </div>
@@ -1935,37 +1936,13 @@
         <p>Let's discuss your project and ideas.</p>
 
         <form id="contactForm">
-            <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your Name"
-                required
-            >
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your Email"
-                required
-            >
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-            <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Phone Number"
-                required
-            >
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 
-            <textarea
-                id="message"
-                name="message"
-                placeholder="Your Message"
-                rows="4"
-                required
-            ></textarea>
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
 
             <button type="submit" class="submit-btn">
                 Send Message
