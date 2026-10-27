@@ -42,4 +42,8 @@ return [
         'version' => env('WHATSAPP_API_VERSION'),
     ],
 
+    'groq' => [
+        'key' => env('GROQ_API_KEY'),
+    ],
+
 ];

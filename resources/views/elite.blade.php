@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ldtecs</title>
+    <title>LDTECS</title>
+
+    <link rel="icon" type="image/png"
+        href="{{ asset('logo.png') }}?v=12">
+    <link rel="shortcut icon"
+        href="{{ asset('logo.png') }}?v=12">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <style>
         :root {
@@ -112,13 +117,13 @@
             bottom: 0;
             width: 0%;
             height: 2px;
-            background: #e9aa6b;
+            background: #a1e1eb;
             border-radius: 2px;
             transition: width 0.25s ease;
         }
 
         .navbar a:hover {
-            color: #e9aa6b;
+            color: #a1e1eb;
         }
 
         .navbar a:hover::after,
@@ -127,7 +132,7 @@
         }
 
         .navbar a.active {
-            color: #e9aa6b;
+            color: #a1e1eb;
         }
 
         .menu-toggle {
@@ -266,8 +271,8 @@
         /*popup initially hidden*/
         .product-popup {
             position: absolute;
-            top: calc(100% + 8px);
-            width: 600px;
+            top: calc(100% + 12px);
+            width: 200px;
             height: 100px;
             background: #fff;
             border-radius: 8px;
@@ -284,7 +289,7 @@
         }
         .product-popup1 {
             position: absolute;
-            top: calc(100% + 8px);
+            top: calc(60% + 12px);
             width: 530px;
             height:200px;
             background: #fff;
@@ -296,27 +301,35 @@
             opacity: 0;
             font-family: 'Poppins', sans-serif;
             visibility: hidden;
-            transform: translate(-50%, 10px);
+            transform: translate(-60%, 10px);
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
             z-index: 1000;
             display:flex;
             justify-content:space-between;    
         }
 
-        .devlopment{
+        .development{
             display:grid;
             padding-top:20px;
-            text-align:left;
+            text-align:center;
             line-height:1.7;
         }
-        .devlopment a{
+        .development a{
             font-size:16px;
             font-weight:700;
         }
+
+        .service p{
+            padding-right:70px;
+        }
         .services{
             text-align:left;
-            padding-left:80px;
+            padding-left:60px;
             border-left:2px solid gray;
+        }
+
+        .services p{
+            padding-right:20px;
         }
 
         /*cursor pointer*/
@@ -346,7 +359,7 @@
             margin: 12px 18px;
             display:block;
             padding: 12px 18px;
-            color:#222;
+            color: #222;
             text-decoration:none;
             transition: 0.3s;
         }
@@ -356,13 +369,16 @@
             border-left: 2px solid gray;
         }
 
-        .product-popup a:hover{
-            background:#f1f7f7;
-            color:#e9aa6b;
-        }
+        /* .product-popup a:hover{
+            background: #f1f7f7;
+            color: #e9aa6b;
+        } */
         .product-popup1 a:hover{
-            background:#f1f7f7;
-            color:#e9aa6b;
+            background: #173237;
+            color: #fff;
+            padding-left:20px;
+            padding-right:20px;
+            border-radius:8px;
         }
 
         .product-card {
@@ -1272,7 +1288,7 @@
 
             .navbar a::after { display: none; }
             .navbar a:hover,
-            .navbar a.active { color: #e9aa6b; }
+            .navbar a.active { color: #a1e1eb; }
             .product-menu { width: 100%; }
 
             .product-popup,
@@ -1828,8 +1844,329 @@
                 font-size: 12px;
             }
         }
+
+        /* Parent Products dropdown */
+        .product-menu {
+            position: relative;
+        }
+
+        .product-popup {
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 50%;
+            transform: translateX(-60%);
+            width: 270px;
+            background: #fff;
+            border-radius: 9px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            overflow: visible;
+            z-index: 9999;
+        }
+
+        /* Diamond Detectors row */
+        .diamond-menu {
+            position: relative;
+            width: 100%;
+        }
+
+        .diamond-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px 22px;
+            background: #fff;
+            border: none;
+            border-radius: 9px;
+            color: #191b19;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .diamond-btn:hover {
+            background: #173237;
+            color: #fff;
+        }
+
+        .diamond-btn i {
+            font-size: 13px;
+            transition: transform 0.2s ease;
+        }
+
+        .diamond-btn.active i {
+            transform: rotate(90deg);
+        }
+
+        /* Separate right-side submenu */
+        .diamond-side-popup {
+            position: absolute;
+            top: 0;
+            left: calc(100% + 10px);
+            width: 260px;
+            padding: 8px;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 9px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            display: none;
+            z-index: 10000;
+        }
+
+        .diamond-side-popup.show {
+            display: block;
+        }
+
+        .diamond-side-popup a {
+            display: block;
+            padding: 15px 14px;
+            color: #191b19;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .diamond-side-popup a.active{
+            background: #173237;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        .active button.diamond-btn{
+            background: #173237;
+            color: #fff;
+        }
+
+        .diamond-side-popup a:last-child {
+            border-bottom: none;
+        }
+
+        .diamond-side-popup a:hover {
+            background: #173237;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        /* Tablet */
+        @media (min-width: 821px) and (max-width: 1100px) {
+            .product-popup {
+                width: 310px;
+            }
+
+            .diamond-side-popup {
+                width: 230px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 820px) {
+            .product-menu {
+                position: relative;
+            }
+
+            .product-popup {
+                position: static;
+                transform: none;
+                width: 100%;
+                max-width: 100%;
+                margin-top: 8px;
+                box-shadow: none;
+                border: 1px solid #e5e5e5;
+                border-radius: 8px;
+                box-sizing: border-box;
+            }
+
+            .diamond-btn {
+                padding: 15px 16px;
+                font-size: 15px;
+            }
+
+            /* Mobile: submenu opens below Diamond Detectors */
+            .diamond-side-popup {
+                position: static;
+                width: auto;
+                margin: 0 10px 10px;
+                padding: 4px;
+                box-shadow: none;
+                border-radius: 6px;
+                background: #f8f9f9;
+                box-sizing: border-box;
+            }
+
+            .diamond-side-popup a {
+                padding: 14px 12px;
+                font-size: 13px;
+            }
+
+            .diamond-btn.active i {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .product-popup {
+                margin-top: 6px;
+            }
+
+            .diamond-btn {
+                padding: 14px 12px;
+                font-size: 14px;
+            }
+
+            .diamond-side-popup {
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+            .diamond-side-popup a {
+                padding: 13px 10px;
+                font-size: 12px;
+            }
+        }
     
-        
+        /* Contact Button */
+
+        .contact-btn {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 9px 18px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #a1e1eb;
+            color: #111;
+            border-color: #a1e1eb;
+        }
+
+        /* Popup Background */
+        .contact-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Popup Box */
+        .contact-box {
+            position: relative;
+            background: #102b2d;
+            color: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid rgba(102, 211, 213, 0.5);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            animation: popupOpen 0.3s ease;
+        }
+
+        .contact-box h2 {
+            color: #a1e1eb;
+            margin: 0 0 10px;
+            font-size: 28px;
+        }
+
+        .contact-box p {
+            color: #ccc;
+            margin-bottom: 22px;
+        }
+
+        .contact-box input,
+        .contact-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            background: #19383a;
+            border: 1px solid #496263;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .contact-box input:focus,
+        .contact-box textarea:focus {
+            border-color: #a1e1eb;
+        }
+
+        .contact-box input::placeholder,
+        .contact-box textarea::placeholder {
+            color: #bbb;
+        }
+
+        .contact-box textarea {
+            resize: vertical;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #a1e1eb;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 13px;
+            background: #61cfe0d2;
+            color: #111;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: white;
+        }
+
+        @keyframes popupOpen {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .contact-box {
+                padding: 28px 20px;
+            }
+
+            .contact-box h2 {
+                font-size: 24px;
+            }
+        }
 
     </style>
 </head>
@@ -1850,16 +2187,24 @@
         <nav class="navbar" id="navbar">
             <a href="/">Home</a>
             <div class="product-menu">
-                <a href="#our-products"  class="active">Products <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="#our-products" class="active">
+                    Products <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
                 <div class="product-popup">
-                    <div class="elite">
-                        <a href="/elite" class="active"> CLASSIFIRE ELITE </a>
-                    </div>
-                    <div class="lite1">
-                        <a href="/lite"> CLASSIFIRE LITE </a>
-                    </div>
-                    <div class="nano1">
-                        <a href="/nano"> CLASSIFIRE NANO </a>
+                    <div class="diamond-menu">
+                        <div class="active">
+                            <button type="button" class="diamond-btn">
+                                Diamond Detectors
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="diamond-side-popup">
+                            <a href="/elite" class="active">CLASSIFIER ELITE</a>
+                            <a href="/lite">CLASSIFIER LITE</a>
+                            <a href="/nano">CLASSIFIER NANO</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1868,14 +2213,14 @@
                 <div class="product-popup1">
                     <div class="service">
                         <p> Technology Solutions </p>
-                        <div class="devlopment">
+                        <div class="development">
                             <a href="software-development"> Software Development </a>
                             <a href="machine-learning "> AI & Machine Learning </a>
                         </div>
                     </div>
                     <div class="services">
                         <p> Design & Prototyping </p>
-                        <div class="devlopment">
+                        <div class="development">
                             <a href="3d-printing"> 3D Printing </a>
                             <a href="cad-design"> 3D CAD Design </a>
                             <a href="r&d-services"> R&D Services </a>
@@ -1883,8 +2228,9 @@
                     </div>    
                 </div>
             </div>
-            <!-- <a href="/career">Career</a> -->
+
             <a href="/about">About</a>
+            <button class="contact-btn" id="openContact">Contact</button>
         </nav>
     </header>
     <div class="page1">
@@ -1980,6 +2326,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Popup -->
+    
+    <div class="contact-overlay" id="contactPopup">
+        <div class="contact-box">
+            <button type="button" class="close-btn" id="closecontact">&times;</button>
+
+            <h2>Contact Us</h2>
+            <p>Let's discuss your project and ideas.</p>
+
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
 
     <section class="page4">
         <div class="title4">
@@ -2299,6 +2670,107 @@
                 });
             });
         }
+
+                /*====================================
+            Product dropdown 
+        ======================================*/
+        
+document.querySelectorAll(".diamond-menu").forEach((menu) => {
+    const button = menu.querySelector(".diamond-btn");
+    const popup = menu.querySelector(".diamond-side-popup");
+
+    button.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const isOpen = popup.classList.contains("show");
+
+        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+            item.classList.remove("show");
+        });
+
+        document.querySelectorAll(".diamond-btn").forEach((item) => {
+            item.classList.remove("active");
+        });
+
+        if (!isOpen) {
+            popup.classList.add("show");
+            button.classList.add("active");
+        }
+    });
+});
+
+document.addEventListener("click", (event) => {
+    if (!event.target.closest(".diamond-menu")) {
+        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+            popup.classList.remove("show");
+        });
+
+        document.querySelectorAll(".diamond-btn").forEach((button) => {
+            button.classList.remove("active");
+        });
+    }
+});
+
+ /*====================================
+            Contect US 
+        ======================================*/
+        const contactPopup = document.getElementById("contactPopup");
+        const closeContact = document.getElementById("closecontact");
+        const openContact = document.getElementById("openContact");
+
+        openContact.addEventListener("click", () => {
+            contactPopup.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+
+        function closeContactPopup() {
+            contactPopup.style.display = "none";
+            document.body.style.overflow = "";
+        }
+
+        closeContact.addEventListener("click", closeContactPopup);
+
+        contactPopup.addEventListener("click", (event) => {
+            if (event.target === contactPopup) {
+                closeContactPopup();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeContactPopup();
+            }
+        });
+
+        document.getElementById("contactForm").addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const text =
+                "New LDTECS Website Inquiry\n\n" +
+                "Name: " + name + "\n" +
+                "Email: " + email + "\n" +
+                "Phone: " + phone + "\n" +
+                "Message: " + message;
+
+            const whatsappNumber = "917240713574";
+
+            const url =
+                "https://wa.me/" + whatsappNumber +
+                "?text=" + encodeURIComponent(text);
+
+            window.open(url, "_blank");
+        });
+
+
+
     </script>
+
+    @include('partials.chatbot')
 </body>
 </html>

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LDTECS</title>
 
-<link rel="icon" type="image/png"
-      href="{{ asset('logo.png') }}?v=12">
-<link rel="shortcut icon"
-      href="{{ asset('logo.png') }}?v=12">
+    <link rel="icon" type="image/png"
+        href="{{ asset('logo.png') }}?v=12">
+    <link rel="shortcut icon"
+        href="{{ asset('logo.png') }}?v=12">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,13 +116,13 @@
             bottom: 0;
             width: 0%;
             height: 2px;
-            background: #e9aa6b;
+            background: #a1e1eb;
             border-radius: 2px;
             transition: width 0.25s ease;
         }
 
         .navbar a:hover {
-            color: #e9aa6b;
+            color: #a1e1eb;
         }
 
         .navbar a:hover::after,
@@ -131,7 +131,7 @@
         }
 
         .navbar a.active {
-            color: #e9aa6b;
+            color: #a1e1eb;
         }
         .menu-toggle {
             display: none;
@@ -274,8 +274,8 @@
         /*popup initially hidden*/
         .product-popup {
             position: absolute;
-            top: calc(100% + 8px);
-            width: 300px;
+            top: calc(100% + 12px);
+            width: 200px;
             height:100px;
             background: #fff;
             border-radius: 8px;
@@ -293,7 +293,7 @@
 
         .product-popup1 {
             position: absolute;
-            top: calc(100% + 8px);
+            top: calc(100% + 12px);
             width: 530px;
             height:200px;
             background: #fff;
@@ -301,11 +301,12 @@
             padding: 12px 0;
             padding-right:20px;
             padding-left:20px;
+            
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             opacity: 0;
             font-family: 'Poppins', sans-serif;
             visibility: hidden;
-            transform: translate(-50%, 10px);
+            transform: translate(-60%, 10px);
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
             z-index: 1000;
             display:flex;
@@ -316,14 +317,31 @@
             padding-top:20px;
             font-size:16px;
             font-weight:400px;
-            text-align:left;
+            text-align:center;
             line-height:1.7;
+            
+        }
+
+        .feature a:hover{
+            background: #173237;
+            color: #fff;
+            border-radius: 8px;
+            padding-left:20px;
+            padding-right:20px;
         }
 
         .services{
             text-align:left;
             padding-left:60px;
             border-left:2px solid gray;
+        }
+
+        /* .services p{
+            padding-right:20px;
+        } */
+
+        .service p{
+            padding-right:60px;
         }
 
         /*cursor pointer*/
@@ -342,21 +360,21 @@
             margin: 12px 18px;
             display:flex;
             padding: 12px 18px;
-            color:#222;
+            color: #222;
             text-decoration:none;
             transition: 0.3s;
         }
 
         .product-popup1 a{
             display:flex;
-            color:#222;
+            color: #222;
             text-decoration:none;
             transition: 0.3s;
         }
 
         .product-popup a:hover{
-            background:#f1f7f7;
-            color:#e9aa6b;
+            background: #173237;
+            color: #fff;
         }
 
         .nano1, .lite1 {
@@ -1642,9 +1660,9 @@
         }
 
         .contact-btn:hover {
-            background: #e9aa6b;
+            background: #a1e1eb;
             color: #111;
-            border-color: #e9aa6b;
+            border-color: #a1e1eb;
         }
 
         /* Popup Background */
@@ -1669,13 +1687,13 @@
             max-width: 450px;
             padding: 35px;
             border-radius: 12px;
-            border: 1px solid rgba(233, 170, 107, 0.5);
+            border: 1px solid rgba(102, 211, 213, 0.5);
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
             animation: popupOpen 0.3s ease;
         }
 
         .contact-box h2 {
-            color: #e9aa6b;
+            color: #a1e1eb;
             margin: 0 0 10px;
             font-size: 28px;
         }
@@ -1701,7 +1719,7 @@
 
         .contact-box input:focus,
         .contact-box textarea:focus {
-            border-color: #e9aa6b;
+            border-color: #a1e1eb;
         }
 
         .contact-box input::placeholder,
@@ -1725,13 +1743,13 @@
         }
 
         .close-btn:hover {
-            color: #e9aa6b;
+            color: #a1e1eb;
         }
 
         .submit-btn {
             width: 100%;
             padding: 13px;
-            background: #e9aa6b;
+            background: #61cfe0d2;
             color: #111;
             font-weight: bold;
             font-size: 16px;
@@ -1778,8 +1796,8 @@
     position: absolute;
     top: calc(100% + 12px);
     left: 50%;
-    transform: translateX(-50%);
-    width: 350px;
+    transform: translateX(-60%);
+    width: 270px;
     background: #fff;
     border-radius: 9px;
     border: 1px solid #e5e5e5;
@@ -1812,7 +1830,8 @@
 }
 
 .diamond-btn:hover {
-    background: #f5f7f7;
+    background: #173237;
+    color: #fff;
 }
 
 .diamond-btn i {
@@ -1859,8 +1878,9 @@
 }
 
 .diamond-side-popup a:hover {
-    background: #f3f6f6;
-    color: #24a19c;
+    background: #173237;
+    color: #fff;
+    border-radius: 8px;
 }
 
 /* Tablet */
@@ -2533,5 +2553,7 @@ document.addEventListener("click", (event) => {
 
 
     </script>
+
+    @include('partials.chatbot')
 </body>
 </html>

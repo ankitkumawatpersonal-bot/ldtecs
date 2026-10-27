@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LdController;
+use App\Http\Controllers\ChatbotController;
 
 Route::get('/', [LdController::class, 'index'])->name('home');
 
@@ -30,3 +31,8 @@ Route::view('/r&d-services', 'r&d-services');
 Route::get('/product', function () {
     return redirect('/#our-products');
 });
+
+Route::post('/chatbot/message', [
+    ChatbotController::class,
+    'chat',
+])->middleware('throttle:10,1')->name('chatbot.message');
