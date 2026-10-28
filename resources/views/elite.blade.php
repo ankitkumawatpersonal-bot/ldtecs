@@ -263,7 +263,7 @@
 
         .product-link{
             text-decoration:none;
-            color:#222;
+            color: #222;
             padding:20px;
             display:block;
         }
@@ -348,7 +348,7 @@
             /* margin: 12px 18px; */
             display:flex;
             /* padding: 12px 18px; */
-            color:#222;
+            color: #222;
             text-decoration:none;
             transition: 0.3s;
             font-weight:700;
@@ -1925,6 +1925,7 @@
             padding: 15px 14px;
             color: #191b19;
             text-decoration: none;
+            border-radius: 8px;
             font-size: 14px;
             font-weight: 600;
             border-bottom: 1px solid #eee;

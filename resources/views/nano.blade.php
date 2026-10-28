@@ -1918,6 +1918,7 @@
             padding: 15px 14px;
             color: #191b19;
             text-decoration: none;
+            border-radius: 8px;
             font-size: 14px;
             font-weight: 600;
             border-bottom: 1px solid #eee;

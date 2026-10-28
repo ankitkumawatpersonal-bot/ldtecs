@@ -309,13 +309,13 @@
             display:flex;
             justify-content:space-between;    
         }
-        .devlopment{
+        .development{
             display:grid;
             padding-top:20px;
             text-align:center;
             line-height:1.7;
         }
-        .devlopment a{
+        .development a{
             font-size:16px;
             font-weight:700;
         }
@@ -1924,6 +1924,7 @@
             padding: 15px 14px;
             color: #191b19;
             text-decoration: none;
+            border-radius: 8px;
             font-size: 14px;
             font-weight: 600;
             border-bottom: 1px solid #eee;
