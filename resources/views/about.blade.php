@@ -2600,7 +2600,7 @@
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="shivaye.png" alt="shivaye Diamonds">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
-                        <img src="mahindra.png" alt="Mahindra Diamonds">
+                        <img src="mahindra1.png" alt="Mahindra Diamonds">
                         <img src="manisha gems.webp" alt="Manisha Gems">
                         <img src="nature.png" alt="Nature's Art LTD.">
                     </div>
@@ -2612,7 +2612,7 @@
                         <img src="mahavir.png" alt="">
                         <img src="shivaye.png" alt="">
                         <img src="hare-krishana.svg" alt="">
-                        <img src="mahindra.png" alt="">
+                        <img src="mahindra1.png" alt="">
                         <img src="manisha gems.webp" alt=""> 
                         <img src="nature.png" alt="">
                     </div>

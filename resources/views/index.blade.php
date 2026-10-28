@@ -2060,7 +2060,7 @@
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="shivaye.png" alt="shivaye Diamonds">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
-                        <img src="mahindra.png" alt="Mahindra Diamonds">
+                        <img src="mahindra1.png" alt="Mahindra Diamonds">
                         <img src="manisha gems.webp" alt="Mahindra Diamonds">
                         <img src="nature.png" alt="Nature's Art LTD">
                     </div>
@@ -2127,7 +2127,7 @@
             <div class="box1 product-card">
 
                 <a href="/nano" class="product-image-link">
-                    <img class="product-image nano" src="nano1.png" alt="Classifier Nano" id="zoomNano">
+                    <img class="product-image nano" src="nano5.png" alt="Classifier Nano" id="zoomNano">
                 </a>
 
                 <div class="diem">
