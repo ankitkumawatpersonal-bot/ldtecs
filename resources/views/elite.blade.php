@@ -86,13 +86,13 @@
             /* box-shadow: 0 4px 12px rgba(36, 161, 156, 0.35); */
         }
 
-        .brand {
+        /* .brand {
             font-size: 20px;
             font-weight: 700;
             color: #ffffff;
             margin-left: 12px;
             letter-spacing: 0.5px;
-        }
+        } */
 
         .navbar {
             display: flex;
@@ -365,10 +365,10 @@
             transition: 0.3s;
         }
 
-        .nano1, .lite1 {
+        /* .nano1, .lite1 {
             padding: 0 20px;
             border-left: 2px solid gray;
-        }
+        } */
 
         /* .product-popup a:hover{
             background: #f1f7f7;
@@ -453,11 +453,11 @@
             background: #ffffff;
         }
 
-        .description {
+        /* .description {
             font-size:25px;
             font-weight:540;
             padding-top:50px;
-        }
+        } */
 
         .box1{
             width:100%;
@@ -529,12 +529,12 @@
             margin:20px 0;
         }
 
-        .paragraph{
+        /* .paragraph{
             font-size:22px;
             font-weight:450;
             padding:0;
             text-align:left;    
-        }
+        } */
         @media (max-width: 820px) {
 
             .header {
@@ -546,14 +546,15 @@
                 gap: 35px;
             }
 
-            .product-card1,
-            .paragraph {
+            .product-card1
+            /* .paragraph  */
+            {
                 width: 100%;
             }
 
-            .paragraph {
+            /* .paragraph {
                 text-align: center;
-            }
+            } */
         }
 
 
@@ -567,10 +568,10 @@
                 padding: 18px;
             }
 
-            .paragraph p {
+            /* .paragraph p {
                 font-size: 16px;
                 line-height: 1.65;
-            }
+            } */
         }
 
         .page3{
@@ -921,12 +922,12 @@
             font-size:clamp(16px, 2vw, 20px);
         }
 
-        .technical {
+        /* .technical {
             width:150%;
             max-width:400px;
             max-height:500px;
             object-fit: contain; 
-        }
+        } */
 
         table,tr,td{
             position:sticky;
@@ -1028,23 +1029,23 @@
                 padding: 25px;
             }
 
-            .products-container {
+            /* .products-container {
 
                 grid-template-columns: repeat(2, 1fr);
 
                 gap: 20px;
-            }
+            } */
 
                 .product-card {
 
                 min-height: 300px;
             }
 
-            .product-image-link {
+            /* .product-image-link {
 
                 height: 350px;
                 
-            }
+            } */
 
         }
 
@@ -1060,21 +1061,21 @@
                 padding: 45px 15px 60px;
             }
 
-            .products-title {
+            /* .products-title {
 
                 margin-bottom: 35px;
 
                 font-size: 38px;
-            }
+            } */
 
-            .products-container {
+            /* .products-container {
 
                 grid-template-columns: 1fr;
 
                 gap: 25px;
 
                 max-width: 500px;
-            }
+            } */
 
             .product-card {
 
@@ -1083,31 +1084,31 @@
                 padding: 25px 15px;
             }
 
-            .product-image-link {
+            /* .product-image-link {
 
                 height: 350px;
-            }
+            } */
 
             .product-image {
 
                 width: 90%;
             }
 
-            .diem h2 {
+            /* .diem h2 {
 
                 font-size: 20px;
 
                 letter-spacing: 6px;
-            }
+            } */
 
-            .diem h3 {
+            /* .diem h3 {
 
                 font-size: 16px;
 
                 letter-spacing: 5px;
 
                 padding-right: 12%;
-            }
+            } */
 
         }
 
@@ -1123,10 +1124,10 @@
                 padding: 35px 10px 50px;
             }
 
-            .products-title {
+            /* .products-title {
 
                 font-size: 32px;
-            }
+            } */
 
             .product-card {
 
@@ -1135,12 +1136,12 @@
                 border-radius: 15px;
             }
 
-            .product-image-link {
+            /* .product-image-link {
 
                 height: 300px;
-            }
+            } */
 
-            .diem h2 {
+            /* .diem h2 {
 
                 font-size: 20px;
 
@@ -1157,7 +1158,7 @@
             .diem p {
 
                 font-size: 16px;
-            }
+            } */
 
         }
     
@@ -1637,7 +1638,7 @@
             border-radius: 30px; */
             padding: 10px 18px;
             font-size: 16px;
-            letter-spacing: 2px;
+            /* letter-spacing: 2px; */
             transition: 0.3s;
         }
 
@@ -2574,6 +2575,7 @@
                 <a href="/r&d-services">R&D Services</a>
                 <a href="/career">Career</a>
                 <a href="/about">About</a>
+                <a href="#" id="footerContact">Contact</a>
             </div>
 
             <!-- Contact -->
@@ -2769,7 +2771,36 @@ document.addEventListener("click", (event) => {
             window.open(url, "_blank");
         });
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const openContact = document.getElementById("openContact");
+            const footerContact = document.getElementById("footerContact");
+            const contactPopup = document.getElementById("contactPopup");
+            const closeContact = document.getElementById("closecontact");
 
+            function showContactPopup(e) {
+                e.preventDefault();
+
+                if (contactPopup) {
+                    contactPopup.style.display = "flex";
+                }
+            }
+
+            if (openContact) {
+                openContact.addEventListener("click", showContactPopup);
+            }
+
+            if (footerContact) {
+                footerContact.addEventListener("click", showContactPopup);
+            }
+
+            if (closeContact) {
+                closeContact.addEventListener("click", function () {
+                    if (contactPopup) {
+                        contactPopup.style.display = "none";
+                    }
+                });
+            }
+        });
 
     </script>
 

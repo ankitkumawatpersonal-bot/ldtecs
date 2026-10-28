@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LDTECS</title>
-
-    <link rel="icon" type="image/png"
-        href="{{ asset('logo.png') }}?v=12">
-    <link rel="shortcut icon"
-        href="{{ asset('logo.png') }}?v=12">
+    <link rel="icon" type="image/png" href="{{ asset('logo.png') }}?v=12">
+    <link rel="shortcut icon" href="{{ asset('logo.png') }}?v=12">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,13 +80,13 @@
             /* box-shadow: 0 4px 12px rgba(36, 161, 156, 0.35); */
         }
 
-        .brand {
+        /* .brand {
             font-size: 22px;
             font-weight: 700;
             color: #ffffff;
             margin-left: 12px;
             letter-spacing: 0.5px;
-        }
+        } */
 
         .navbar {
             display: flex;
@@ -377,10 +374,10 @@
             color: #fff;
         }
 
-        .nano1, .lite1 {
+        /* .nano1, .lite1 {
             padding: 0 10px;
             border-left: 2px solid gray;
-        }
+        } */
 
         .page1{
             position:relative;
@@ -1128,14 +1125,14 @@
             }
         }
 
-        .page4{
+        /* .page4{
             width:100%;
             height:100vh;
             font-size:50px;
             background-color:#ffffff;
-        }
+        } */
 
-        .products-title2 {
+        /* .products-title2 {
             margin: 0 0 55px;
             font-family: "Segoe UI", Arial, sans-serif;
             font-size: clamp(35px, 4vw, 55px);
@@ -1143,7 +1140,7 @@
             padding-top:20px;
             color: #191b19;
             opacity: 1;
-        }
+        } */
         
 
         /* ========================================== 
@@ -1267,7 +1264,7 @@
             border-radius: 30px; */
             padding: 10px 18px;
             font-size: 16px;
-            letter-spacing: 2px;
+            /* letter-spacing: 2px; */
             transition: 0.3s;
         }
 
@@ -1380,7 +1377,7 @@
             line-height: 1.6;
         }
 
-        .certificates {
+        /* .certificates {
             display: flex;
             gap: 10px;
             align-items: center;
@@ -1403,7 +1400,7 @@
 
         .certificate small {
             font-size: 9px;
-        }
+        } */
 
         /* Tablet */
         @media (max-width: 900px) {
@@ -2356,6 +2353,7 @@
                 <a href="/r&d-services">R&D Services</a>
                 <!-- <a href="/career">Career</a> -->
                 <a href="/about">About</a>
+                <a href="#" id="footerContact">Contact</a>
             </div>
 
             <!-- Contact -->
@@ -2391,7 +2389,7 @@
                 <a href="#privacy">Privacy Policy</a>
                 <span>-</span>
                 <a href="#terms">Terms and Conditions</a>
-                <a href="/contact">Contact Us</a>
+                
             </div>
 
             <p class="copyright">
@@ -2565,7 +2563,40 @@ document.addEventListener("click", (event) => {
             window.open(url, "_blank");
         });
 
+        /*==================================================
+            Footer contact
+        ====================================================*/
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const openContact = document.getElementById("openContact");
+            const footerContact = document.getElementById("footerContact");
+            const contactPopup = document.getElementById("contactPopup");
+            const closeContact = document.getElementById("closecontact");
+
+            function showContactPopup(e) {
+                e.preventDefault();
+
+                if (contactPopup) {
+                    contactPopup.style.display = "flex";
+                }
+            }
+
+            if (openContact) {
+                openContact.addEventListener("click", showContactPopup);
+            }
+
+            if (footerContact) {
+                footerContact.addEventListener("click", showContactPopup);
+            }
+
+            if (closeContact) {
+                closeContact.addEventListener("click", function () {
+                    if (contactPopup) {
+                        contactPopup.style.display = "none";
+                    }
+                });
+            }
+        });
 
     </script>
 

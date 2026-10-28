@@ -1202,7 +1202,7 @@
             border-radius: 30px; */
             padding: 10px 18px;
             font-size: 16px;
-            letter-spacing: 2px;
+            /* letter-spacing: 2px; */
             transition: 0.3s;
         }
 
@@ -1961,6 +1961,7 @@
                 <a href="/r&d-services">R&D Services</a>
                 <!-- <a href="/career">Career</a> -->
                 <a href="/about">About</a>
+                <a href="#" id="footerContact">Contact</a>
             </div>
 
             <!-- Contact -->
@@ -1996,7 +1997,6 @@
                 <a href="#privacy">Privacy Policy</a>
                 <span>-</span>
                 <a href="#terms">Terms and Conditions</a>
-                <a href="/contact">Contact Us</a>
             </div>
 
             <p class="copyright">
@@ -2154,7 +2154,36 @@ document.addEventListener("click", (event) => {
             window.open(url, "_blank");
         });
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const openContact = document.getElementById("openContact");
+            const footerContact = document.getElementById("footerContact");
+            const contactPopup = document.getElementById("contactPopup");
+            const closeContact = document.getElementById("closecontact");
 
+            function showContactPopup(e) {
+                e.preventDefault();
+
+                if (contactPopup) {
+                    contactPopup.style.display = "flex";
+                }
+            }
+
+            if (openContact) {
+                openContact.addEventListener("click", showContactPopup);
+            }
+
+            if (footerContact) {
+                footerContact.addEventListener("click", showContactPopup);
+            }
+
+            if (closeContact) {
+                closeContact.addEventListener("click", function () {
+                    if (contactPopup) {
+                        contactPopup.style.display = "none";
+                    }
+                });
+            }
+        });
 
     </script>
 
