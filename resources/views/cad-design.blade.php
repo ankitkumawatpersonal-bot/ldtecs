@@ -148,7 +148,7 @@
         .menu-toggle span {
             width: 26px;
             height: 3px;
-            background: #e9aa6b;
+            background: #a1e1eb;
             border-radius: 2px;
         }
 
@@ -175,7 +175,7 @@
 
         .hero p {
             font-size: 16px;
-            color: #e9aa6b;
+            color: #a1e1eb;
             max-width: 520px;
             text-align: center;
             margin: 0;
@@ -201,7 +201,7 @@
                 top: 70px;
                 right: 20px;
                 left: 20px;
-                background: #e9aa6b;
+                background: #a1e1eb;
                 border: 1px solid var(--bg-1);
                 border-radius: 10px;
                 box-shadow: 0 8px 24px rgba(25, 27, 25, 0.15);
@@ -311,7 +311,7 @@
         .development{
             display:grid;
             padding-top:20px;
-            text-align:center;
+            text-align:left;
             line-height:1.7;
         }
         .development a{
@@ -384,7 +384,7 @@
 
         /* .product-popup a:hover{
             background:#f1f7f7;
-            color:#e9aa6b;
+            color:#a1e1eb;
         } */
         .product-popup1 a:hover{
             background: #173237;
@@ -962,7 +962,7 @@
 
             .navbar a::after { display: none; }
             .navbar a:hover,
-            .navbar a.active { color: #e9aa6b; }
+            .navbar a.active { color: #a1e1eb; }
             .product-menu { width: 100%; }
 
             .product-popup,
@@ -1019,7 +1019,7 @@
 
             .product-popup1 .service > p,
             .product-popup1 .services > p {
-                color: #e9aa6b;
+                color: #a1e1eb;
                 text-align: left;
                 padding: 8px 6px 0;
             }
@@ -1067,7 +1067,7 @@
             display: block;
             width: 25px;
             height: 3px;
-            background: #e9aa6b;
+            background: #a1e1eb;
             border-radius: 3px;
             transition: transform .25s ease, opacity .25s ease;
         }
@@ -1198,8 +1198,8 @@
             display: inline-block;
             color: #fff;
             text-decoration: none;
-            border: 1px solid #fff;
-            border-radius: 30px;
+            /* border: 1px solid #fff;
+            border-radius: 30px; */
             padding: 10px 18px;
             font-size: 16px;
             letter-spacing: 2px;
@@ -1207,7 +1207,7 @@
         }
 
         .contact-btn:hover {
-            background: #fff;
+            /* background: #fff; */
             color: #160039;
         }
 
@@ -1519,6 +1519,15 @@
             border-radius: 8px;
         }
 
+        /* Click ya active hone par bhi same background */
+        .active:hover,
+        .active:focus,
+        .active.diamond-btn {
+            background-color: #173438;
+            color: #ffffff;
+            border-radius: 8px;
+        }        
+
         /* Tablet */
         @media (min-width: 821px) and (max-width: 1100px) {
             .product-popup {
@@ -1602,7 +1611,7 @@
         .contact-btn {
             background: transparent;
             color: white;
-            border: 1px solid white;
+            /* border: 1px solid white; */
             padding: 9px 18px;
             font-size: 16px;
             cursor: pointer;
@@ -1610,9 +1619,9 @@
         }
 
         .contact-btn:hover {
-            background: #a1e1eb;
+            /* background: #a1e1eb; */
             color: #111;
-            border-color: #a1e1eb;
+            /* border-color: #a1e1eb; */
         }
 
         /* Popup Background */
@@ -1793,7 +1802,7 @@
             </div>
             <!-- <a href="/career">Career</a> -->
             <a href="/about">About</a>
-            <button class="contact-btn" id="openContact">Contact</button>
+            <a class="contact-btn" id="openContact">Contact</a>
         </nav>
     </header>
 

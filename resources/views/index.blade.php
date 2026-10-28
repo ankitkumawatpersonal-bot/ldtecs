@@ -179,7 +179,7 @@
 
         .hero p {
             font-size: 30px;
-            color:#ffffff;
+            color: #ffffff;
             max-width: 1000px;
             text-align: center;
             margin: 0;
@@ -211,7 +211,7 @@
                 top: 70px;
                 right: 20px;
                 left: 20px;
-                background: #e9aa6b;
+                background: #a1e1eb;
                 border: 1px solid var(--bg-1);
                 border-radius: 10px;
                 box-shadow: 0 8px 24px rgba(25, 27, 25, 0.15);
@@ -692,7 +692,7 @@
 
             .page2 {
 
-                padding: d 25px;
+                padding: 25px;
             }
 
             .products-container {
@@ -1263,8 +1263,8 @@
             display: inline-block;
             color: #fff;
             text-decoration: none;
-            border: 1px solid #fff;
-            border-radius: 30px;
+            /* border: 1px solid #fff;
+            border-radius: 30px; */
             padding: 10px 18px;
             font-size: 16px;
             letter-spacing: 2px;
@@ -1272,7 +1272,7 @@
         }
 
         .contact-btn:hover {
-            background: #fff;
+            /* background: #fff; */
             color: #160039;
         }
 
@@ -1500,7 +1500,7 @@
             display: block;
             width: 25px;
             height: 3px;
-            background: #e9aa6b;
+            background: #a1e1eb;
             border-radius: 3px;
             transition: transform .25s ease, opacity .25s ease;
         }
@@ -1572,7 +1572,7 @@
 
             .navbar a::after { display: none; }
             .navbar a:hover,
-            .navbar a.active { color: #e9aa6b; }
+            .navbar a.active { color: #a1e1eb; }
             .product-menu { width: 100%; }
 
             .product-popup,
@@ -1613,6 +1613,7 @@
                 width: 100%;
                 margin: 0;
                 padding: 11px 6px;
+                /* text-align: left; */
                 color: #fff;
                 font-size: 14px;
                 border-bottom: 1px solid rgba(255,255,255,.1);
@@ -1627,7 +1628,7 @@
 
             .product-popup1 .service > p,
             .product-popup1 .services > p {
-                color: #e9aa6b;
+                color: #a1e1eb;
                 text-align: left;
                 padding: 8px 6px 0;
             }
@@ -1652,7 +1653,7 @@
         .contact-btn {
             background: transparent;
             color: white;
-            border: 1px solid white;
+            /* border: 1px solid white; */
             padding: 9px 18px;
             font-size: 16px;
             cursor: pointer;
@@ -1660,9 +1661,9 @@
         }
 
         .contact-btn:hover {
-            background: #a1e1eb;
+            /* background: #a1e1eb; */
             color: #111;
-            border-color: #a1e1eb;
+            /* border-color: #a1e1eb; */
         }
 
         /* Popup Background */
@@ -1778,6 +1779,7 @@
         @media (max-width: 480px) {
             .contact-box {
                 padding: 28px 20px;
+                
             }
 
             .contact-box h2 {
@@ -1884,6 +1886,16 @@
     border-radius: 8px;
 }
 
+/* Click ya active hone par bhi same background */
+.active:hover,
+.active:focus,
+.active.diamond-btn {
+    background-color: #173438;
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+
 /* Tablet */
 @media (min-width: 821px) and (max-width: 1100px) {
     .product-popup {
@@ -1989,10 +2001,12 @@
 
                     <div class="product-popup">
                         <div class="diamond-menu">
-                            <button type="button" class="diamond-btn">
-                                Diamond Detectors
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </button>
+                            <div class="active">
+                                <button type="button" class="diamond-btn">
+                                    Diamond Detectors
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
 
                             <div class="diamond-side-popup">
                                 <a href="/elite">CLASSIFIER ELITE</a>
@@ -2023,7 +2037,7 @@
                     </div>
                 </div>
                 <a href="/about">About</a>
-                <button class="contact-btn" id="openContact">Contact</button>
+                <a class="contact-btn" id="openContact">Contact</a>
             </nav>
             
         </header>
