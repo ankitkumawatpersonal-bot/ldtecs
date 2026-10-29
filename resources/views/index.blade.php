@@ -66,7 +66,7 @@
 
         .img {
             width: 100px;
-            height: 100px;
+            height: 120px;
             /* background-color: var(--text);
             border: 2px solid var(--accent);
             border-radius: 10px; */
@@ -271,12 +271,12 @@
         /*popup initially hidden*/
         .product-popup {
             position: absolute;
-            top: calc(100% + 12px);
+            top: calc(110% + 30px);
             width: 200px;
-            height:100px;
-            background: #fff;
+            height:75px;
+            /* background: #fff; */
             border-radius: 8px;
-            padding: 12px 0;
+            padding: 0px 0;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             opacity: 0;
             font-family: 'Poppins', sans-serif;
@@ -330,7 +330,8 @@
         .services{
             text-align:left;
             padding-left:60px;
-            border-left:2px solid gray;
+            border-left: 2px solid #eee;
+            transition: background 0.2s ease, color 0.2s ease;
         }
 
         /* .services p{
@@ -561,14 +562,14 @@
 
         .product-image.lite {
             width: 82%;
-            height: 90%;
+            height: 80%;
             object-fit: contain;
         }
 
 
         .product-image.nano {
             width: 62%;
-            height: 90%;
+            height: 70%;
             object-fit: contain;
         }
 
@@ -1799,9 +1800,9 @@
     left: 50%;
     transform: translateX(-60%);
     width: 270px;
-    background: #fff;
+    /* background: #fff; */
     border-radius: 9px;
-    border: 1px solid #e5e5e5;
+    /* border: 1px solid #173237; */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     overflow: visible;
     z-index: 9999;
@@ -1820,7 +1821,7 @@
     justify-content: space-between;
     gap: 12px;
     padding: 18px 22px;
-    background: #fff;
+    /* background: #fff; */
     border: none;
     border-radius: 9px;
     color: #191b19;
@@ -1847,7 +1848,7 @@
 /* Separate right-side submenu */
 .diamond-side-popup {
     position: absolute;
-    top: 0;
+    top: 30px;
     left: calc(100% + 10px);
     width: 260px;
     padding: 8px;
@@ -2002,7 +2003,7 @@
                         <div class="diamond-menu">
                             <div class="active">
                                 <button type="button" class="diamond-btn">
-                                    Diamond Detectors
+                                    Labgrown Diamond Detectors
                                     <i class="fa-solid fa-chevron-right"></i>
                                 </button>
                             </div>

@@ -59,7 +59,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 30px 50px;
+            padding: 5px 50px;
             border-bottom: 1px solid var(--bg-1);
             box-shadow: 0 2px 12px rgba(25, 27, 25, 0.08);
         }
@@ -71,7 +71,7 @@
 
         .img {
             width: 100px;
-            height: 100px;
+            height: 120px;
             /* background-color: var(--text);
             border: 2px solid var(--accent);
             border-radius: 10px; */
@@ -273,8 +273,8 @@
             position: absolute;
             top: calc(100% + 12px);
             width: 200px;
-            height: 100px;
-            background: #fff;
+            height: 75px;
+            /* background: #fff; */
             border-radius: 8px;
             padding: 12px 0;
 
@@ -296,7 +296,7 @@
             height:200px;
             background: #fff;
             border-radius: 8px;
-            padding: 12px 0;
+            padding: 2px 0;
             padding-right:20px;
             padding-left:20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -1851,13 +1851,13 @@
 
         .product-popup {
             position: absolute;
-            top: calc(100% + 15px);
+            top: calc(100% + 12px);
             left: 50%;
             transform: translateX(-60%);
             width: 270px;
-            background: #fff;
+            /* background: #fff; */
             border-radius: 9px;
-            border: 1px solid #e5e5e5;
+            /* border: 1px solid #e5e5e5; */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             overflow: visible;
             z-index: 9999;
@@ -1903,7 +1903,7 @@
         /* Separate right-side submenu */
         .diamond-side-popup {
             position: absolute;
-            top: 0;
+            top: 30px;
             left: calc(100% + 10px);
             width: 260px;
             padding: 8px;
@@ -2196,7 +2196,7 @@
                 <div class="diamond-menu">
                     <div class="active">
                         <button type="button" class="diamond-btn">
-                            Diamond Detectors
+                            Labgrown Diamond Detectors
                             <i class="fa-solid fa-chevron-right"></i>
                         </button>
                     </div>

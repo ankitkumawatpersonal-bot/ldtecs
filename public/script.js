@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
 
         scrollTrigger: {
-            trigger: '#software',
+            trigger: '.card-content',
             start: 'top 70%',
             toggleActions: 'play none none reverse'
         }
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
 
         scrollTrigger: {
-            trigger: '#design',
+            trigger: '.card-content',
             start: 'top 70%',
             toggleActions: 'play none none reverse'
         }
