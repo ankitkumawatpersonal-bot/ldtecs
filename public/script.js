@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.from('.footer-cta', {
-        x: -100,
+        y: 70,
         opacity: 0,
         duration: 1.2,
         ease: 'power3.out',

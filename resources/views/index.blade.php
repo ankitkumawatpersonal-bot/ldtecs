@@ -2317,7 +2317,6 @@
         <div class="footer-cta">
             <h1>Let's put our minds into motion,<br>
                 Let's grow together</h1>
-            <!-- <a href="#contact" class="contact-btn">GET IN TOUCH</a> -->
         </div>
 
         <div class="footer-container">
