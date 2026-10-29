@@ -2596,7 +2596,7 @@
                     <div class="marquee-group">
                         <img src="seven.png" alt="Seven Star">
                         <img src="tenx.png" alt="Tenx">
-                        <img src="uni-design.png" alt="Uni Design">
+                        <img src="uni.png" alt="Uni Design">
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="shivaye.png" alt="shivaye Diamonds">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
@@ -2608,7 +2608,7 @@
                     <div class="marquee-group" aria-hidden="true">
                         <img src="seven.png" alt="">
                         <img src="tenx.png" alt="">
-                        <img src="uni-design.png" alt="">
+                        <img src="uni.png" alt="">
                         <img src="mahavir.png" alt="">
                         <img src="shivaye.png" alt="">
                         <img src="hare-krishana.svg" alt="">

@@ -2552,8 +2552,7 @@
                 </p>
 
                 <p>
-                    Surat<br>
-                    395004, Gujarat, India
+                    Surat, Gujarat, India
                 </p>
 
                 <p>

@@ -411,8 +411,8 @@
             margin: 0 0 55px;
 
             font-family: "Segoe UI", Arial, sans-serif;
-            font-size: clamp(35px, 4vw, 55px);
-            font-weight: 700;
+            font-size: clamp(35px, 4vw, 38px);
+            font-weight: 650;
 
 
             color: #103b60;
@@ -727,7 +727,7 @@
 
                 margin-bottom: 35px;
 
-                font-size: 38px;
+                font-size: 33px;
             }
 
             .products-container {
@@ -788,7 +788,7 @@
 
             .products-title {
 
-                font-size: 32px;
+                font-size: 28px;
             }
 
             .product-card {
@@ -836,6 +836,7 @@
 
         .services-title h1 {
             font-size: 38px;
+            font-weight: 650;
             color: #103b60;
             margin-bottom: 12px;
         }
@@ -1168,7 +1169,8 @@
 
         .clients-section h2 {
             text-align: center;
-            font-size: 48px;
+            font-size: 38px;
+            font-weight: 650;
             margin-bottom: 40px;
         }
 
@@ -2056,7 +2058,7 @@
                     <div class="marquee-group">
                         <img src="seven.png" alt="Seven Star">
                         <img src="tenx.png" alt="Tenx">
-                        <img src="uni-design.png" alt="Uni Design">
+                        <img src="uni.png" alt="Uni Design">
                         <img src="mahavir.png" alt="Mahavir">
                         <img src="shivaye.png" alt="shivaye Diamonds">
                         <img src="hare-krishana.svg" alt="Hari Krishna">
@@ -2068,7 +2070,7 @@
                     <div class="marquee-group" aria-hidden="true">
                         <img src="seven.png" alt="">
                         <img src="tenx.png" alt="">
-                        <img src="uni-design.png" alt="">
+                        <img src="uni.png" alt="">
                         <img src="mahavir.png" alt="">
                         <img src="shivaye.png" alt="">
                         <img src="hare-krishana.svg" alt="">
@@ -2330,8 +2332,7 @@
                 </p>
 
                 <p>
-                    Surat<br>
-                    395004, Gujarat, India
+                    Surat, Gujarat, India
                 </p>
 
                 <p>
