@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.from('#why', {
-        y: 100,
+        x: 100,
         opacity: 0,
         duration: 1.2,
         ease: 'power3.out',
@@ -279,14 +279,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    gsap.from('#icon', {
+    gsap.from('.vision-mission', {
         y: 100,
         opacity: 0,
         duration: 1.2,
         ease: 'power3.out',
 
         scrollTrigger: {
-            trigger: '#icon',
+            trigger: '.vision-mission',
             start: 'top 70%',
             toggleActions: 'play none none reverse'
         }
