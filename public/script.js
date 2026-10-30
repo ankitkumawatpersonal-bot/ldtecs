@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scale: 0,
         opacity: 0,
         duration: 1.2,
-        ease: "back.out(3)",
+        ease: "back.out(2)",
 
         scrollTrigger: {
             trigger: '.footer',
