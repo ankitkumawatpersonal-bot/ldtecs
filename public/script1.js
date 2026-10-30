@@ -494,47 +494,47 @@ gsap.from('.table',{
     }
 });
 
-gsap.from('.card-content', {
-        x: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out',
+// gsap.from('.card-content', {
+//         x: 100,
+//         opacity: 0,
+//         duration: 1.2,
+//         ease: 'power3.out',
 
-        scrollTrigger: {
-            trigger: '.card-content',
-            start: 'top 70%',
-            toggleActions: 'play none none reverse'
-        }
+//         scrollTrigger: {
+//             trigger: '.card-content',
+//             start: 'top 70%',
+//             toggleActions: 'play none none reverse'
+//         }
 
-    });
+//     });
 
-    gsap.from('#software', {
-        x: -100,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out',
+//     gsap.from('#software', {
+//         x: -100,
+//         opacity: 0,
+//         duration: 1.2,
+//         ease: 'power3.out',
 
-        scrollTrigger: {
-            trigger: '.card-content',
-            start: 'top 70%',
-            toggleActions: 'play none none reverse'
-        }
+//         scrollTrigger: {
+//             trigger: '.card-content',
+//             start: 'top 70%',
+//             toggleActions: 'play none none reverse'
+//         }
 
-    });
+//     });
 
-    gsap.from('#design', {
-        x: -100,
-        opacity: 0,
-        duration: 1.2,
-        ease: 'power3.out',
+//     gsap.from('#design', {
+//         x: -100,
+//         opacity: 0,
+//         duration: 1.2,
+//         ease: 'power3.out',
 
-        scrollTrigger: {
-            trigger: '.card-content',
-            start: 'top 70%',
-            toggleActions: 'play none none reverse'
-        }
+//         scrollTrigger: {
+//             trigger: '.card-content',
+//             start: 'top 70%',
+//             toggleActions: 'play none none reverse'
+//         }
 
-    });
+//     });
 
     gsap.from('.footer', {
         y: 100,
