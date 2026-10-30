@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: 'power3.out',
 
         scrollTrigger: {
-            trigger: '#icon',
+            trigger: '.vision-mission',
             start: 'top 70%',
             toggleActions: 'play none none reverse'
         }
