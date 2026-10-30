@@ -37,7 +37,7 @@
 
         body {
             text-align: center;
-            background: #F1F5FD;
+            
             color: var(--text);
             font-family: 'Segoe UI', Arial, sans-serif;
             min-height: 100vh;
@@ -435,6 +435,7 @@
             display:flex;
             flex-direction:column;
             align-items:center;
+            background: #F1F5FD;
         }
         .hero1,
         .hero-image {
@@ -2518,7 +2519,7 @@
         <div class="footer-container">
 
             <!-- Company Details -->
-            <div class="footer-column company">
+            <div class="footer-column company" id="footer-column">
                 <h3>CORPORATE HEADQUARTERS:</h3>
 
                 <p>
@@ -2537,7 +2538,7 @@
             </div>
 
             <!-- Quick Links -->
-            <div class="footer-column quick-links">
+            <div class="footer-column quick-links" id="quick-links">
                 <h3>QUICK LINK</h3>
 
                 <a href="/">Home</a>
@@ -2553,7 +2554,7 @@
             </div>
 
             <!-- Contact -->
-            <div class="footer-column contact">
+            <div class="footer-column contact" id="contect">
                 <h3>CONTACT US</h3>
 
                 <h4>SALES INQUIRY</h4>

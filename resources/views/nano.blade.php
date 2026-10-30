@@ -435,6 +435,7 @@
             display:flex;
             flex-direction:column;
             align-items:center;
+            background: #F1F5FD;
         }
         .hero1,
         .hero-image {
