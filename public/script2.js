@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollTrigger: {
             trigger: '.footer',
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse'
         }
 
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollTrigger: {
             trigger: '.footer',
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse'
         }
 
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollTrigger: {
             trigger: '.footer',
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse'
         }
 
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollTrigger: {
             trigger: '.footer',
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse'
         }
 
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollTrigger: {
             trigger: '.footer',
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse'
         }
 
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollTrigger: {
             trigger: '.footer',
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse'
         }
 
