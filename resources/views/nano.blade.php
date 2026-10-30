@@ -2225,7 +2225,7 @@
                 </div>
             </div>
             <a href="/about">About</a>
-            <a class="contact-btn" id="openContact">Contact</a>
+            <a class="contact-btn" id="openContact">Contact Us</a>
         </nav>
     </header>
     <div class="page1">

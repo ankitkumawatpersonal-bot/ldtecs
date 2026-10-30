@@ -395,44 +395,154 @@
         /* ====================================
             page
         */
-        .page{
-            width:100%;
-            min-height:80vh;
-            position: relative;
-        }
-        .about{
-            text-align:left;
-            color:#000;
-            padding-top:30px;
-            padding-left:70px;
-            line-height:1.5;
-        }
-
-        .h1{
-            font-size:27px;
-            font-weight:700;
-            color:rgb(24, 112, 228);
-        }
-
-        .tech{
-            color: #000000;
-            font-size:25px;
-            font-weight:500;
-            text-align:left;
-        }
-        .hero-img1{
+        /* Desktop / Laptop */
+        .page {
             width: 100%;
-            height: 100%;
-            max-width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
+            min-height: 70vh;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            overflow: hidden;
         }
-        .description{
-            font-size:18px;
-            font-weight:400;
-            padding-top:30px;
+
+        .about {
+            width: 50%;
+            text-align: left;
+            color: #000;
+            padding: 30px 0 30px 70px;
+            line-height: 1.5;
+            position: relative;
+            z-index: 1;
+        }
+
+        .h1 {
+            font-size: 27px;
+            font-weight: 700;
+            color: rgb(24, 112, 228);
+        }
+
+        .tech {
+            color: #000;
+            font-size: 25px;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .hero-img1 {
+            width: 50%;
+            height: auto;
+            max-width: 50%;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            left: auto;
+            z-index: 0;
+        }
+
+        .description {
+            font-size: 18px;
+            font-weight: 400;
+            padding-top: 30px;
+        }
+
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .page {
+                min-height: 65vh;
+            }
+
+            .about {
+                width: 55%;
+                padding-left: 40px;
+            }
+
+            .h1 {
+                font-size: 25px;
+            }
+
+            .tech {
+                font-size: 22px;
+            }
+
+            .description {
+                font-size: 16px;
+                padding-top: 20px;
+            }
+
+            .hero-img1 {
+                width: 48%;
+                max-width: 48%;
+                top: 70px;
+            }
+        }
+
+
+        /* Mobile */
+        @media (max-width: 767px) {
+            .page {
+                min-height: auto;
+                display: flex;
+                flex-direction: column;
+                padding-bottom: 30px;
+            }
+
+            .about {
+                width: 100%;
+                padding: 25px 20px 0;
+                text-align: left;
+            }
+
+            .h1 {
+                font-size: 23px;
+            }
+
+            .tech {
+                font-size: 20px;
+                line-height: 1.4;
+            }
+
+            .description {
+                font-size: 15px;
+                line-height: 1.7;
+                padding-top: 15px;
+            }
+
+            .hero-img1 {
+                position: relative;
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                top: auto;
+                right: auto;
+                left: auto;
+                z-index: 0;
+                margin-top: 15px;
+            }
+        }
+
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .about {
+                padding: 20px 15px 0;
+            }
+
+            .h1 {
+                font-size: 21px;
+            }
+
+            .tech {
+                font-size: 18px;
+            }
+
+            .description {
+                font-size: 14px;
+            }
+
+            .hero-img1 {
+                margin-top: 10px;
+            }
         }
 
         /* ====================================
@@ -2514,14 +2624,12 @@
             </div>
             <!-- <a href="/career">Career</a> -->
             <a href="/about" class="active">About</a>
-            <a class="contact-btn" id="openContact">Contact</a>
+            <a class="contact-btn" id="openContact">Contact Us</a>
         </nav>
     </header>
 
     <section class="page">
-        <div class="logo1">
-            <img class="hero-img1" src="about3.png" alt="back">
-        </div>
+        
         <div class="about" id="desc">
             <div class="heading" id="soft">
                 <h1 class="h1"> About Us </h1>
@@ -2535,6 +2643,9 @@
                     that delivers real-world value. 
                 </p>
             </div>
+        </div>
+        <div class="logo1">
+            <img class="hero-img1" src="about3.png" alt="back">
         </div>
     </section>
 
