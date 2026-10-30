@@ -37,7 +37,7 @@
 
         body {
             text-align: center;
-            background: #F1F5FD;
+            /* background: #F1F5FD; */
             color: var(--text);
             font-family: 'Segoe UI', Arial, sans-serif;
             min-height: 100vh;
