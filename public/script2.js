@@ -93,6 +93,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    gsap.from('#why', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#why',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
+    gsap.from('#container', {
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out',
+
+        scrollTrigger: {
+            trigger: '#why',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse'
+        }
+
+    });
+
     gsap.from('.footer', {
         y: 100,
         opacity: 0,
