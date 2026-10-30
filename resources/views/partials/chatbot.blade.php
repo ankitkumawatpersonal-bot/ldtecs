@@ -501,7 +501,7 @@
         setTyping(true);
 
         try {
-            const response = await fetch(@json(route('chatbot.message')), {
+            const response = await fetch('/chatbot/message', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
