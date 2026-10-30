@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDTECS Chat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --surface: #13131a;
+            --border: #1f1f2e;
+            --accent: #7c6aff;
+            --accent-glow: rgba(124, 106, 255, 0.25);
+            --accent-soft: rgba(124, 106, 255, 0.12);
+            --text: #e8e6f0;
+            --text-muted: #6b6880;
+            --user-bubble: #1a1830;
+            --bot-bubble: #111119;
+            --green: #4ade80;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Mono', monospace;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124,106,255,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .chat-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 720px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0 16px;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 24px 0 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .bot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            border: 1px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .bot-avatar svg { width: 20px; height: 20px; }
+
+        .header-info h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+        .messages::-webkit-scrollbar { width: 4px; }
+        .messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .msg-row {
+            display: flex;
+            gap: 12px;
+            animation: fadeUp 0.3s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .msg-row.user { flex-direction: row-reverse; }
+
+        .msg-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .msg-row.bot .msg-avatar {
+            background: var(--accent-soft);
+            border: 1px solid rgba(124,106,255,0.3);
+            color: var(--accent);
+        }
+        .msg-row.user .msg-avatar {
+            background: #1a1a2e;
+            border: 1px solid #2a2a45;
+            color: var(--text-muted);
+        }
+
+        .msg-bubble {
+            max-width: 75%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 13.5px;
+            line-height: 1.65;
+            font-weight: 300;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .msg-bubble a { color: var(--accent); text-decoration: underline; }
+
+        .msg-row.bot .msg-bubble {
+            background: var(--bot-bubble);
+            border: 1px solid var(--border);
+            border-top-left-radius: 4px;
+        }
+        .msg-row.user .msg-bubble {
+            background: var(--user-bubble);
+            border: 1px solid rgba(124,106,255,0.2);
+            border-top-right-radius: 4px;
+        }
+
+        .msg-time {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            display: block;
+        }
+
+        .typing-indicator {
+            display: none;
+            gap: 12px;
+            align-items: center;
+            animation: fadeUp 0.3s ease forwards;
+        }
+        .typing-indicator.visible { display: flex; }
+
+        .typing-dots {
+            background: var(--bot-bubble);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            border-top-left-radius: 4px;
+            padding: 14px 18px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+        .typing-dots span {
+            width: 6px;
+            height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: blink 1.4s ease-in-out infinite;
+        }
+        .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes blink {
+            0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+            40%           { opacity: 1;   transform: scale(1); }
+        }
+
+        .input-area {
+            padding: 4px 0 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 10px 10px 10px 16px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .input-box:focus-within {
+            border-color: rgba(124,106,255,0.5);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+
+        #msg {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-family: 'DM Mono', monospace;
+            font-size: 13.5px;
+            color: var(--text);
+            font-weight: 300;
+        }
+        #msg::placeholder { color: var(--text-muted); }
+
+        .send-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            background: var(--accent);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 0 16px var(--accent-glow);
+            flex-shrink: 0;
+        }
+        .send-btn:hover { opacity: 0.9; transform: scale(1.05); box-shadow: 0 0 24px var(--accent-glow); }
+        .send-btn:active { transform: scale(0.95); }
+        .send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+        .send-btn svg { width: 16px; height: 16px; }
+
+        .welcome { text-align: center; padding: 32px 24px; }
+
+        .welcome-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-soft);
+            border: 1px solid rgba(124,106,255,0.3);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 0 32px var(--accent-glow);
+        }
+
+        .welcome h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Suggested question chips: a bar above the input that is always visible */
+        .chips-bar {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 12px 0 12px;
+            scrollbar-width: none;
+        }
+        .chips-bar::-webkit-scrollbar { display: none; }
+
+        .chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            white-space: nowrap;
+            padding: 8px 14px;
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            cursor: pointer;
+            transition: border-color .2s, background .2s;
+        }
+        .chip:hover { border-color: var(--accent); background: var(--accent-soft); }
+        .chip:disabled { opacity: 0.5; cursor: not-allowed; }
+        .chip .num {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-wrapper">
+
+    <!-- Header -->
+    <div class="chat-header">
+        <div class="bot-avatar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#7c6aff" stroke-width="1.8">
+                <rect x="3" y="8" width="18" height="13" rx="3"/>
+                <path d="M8 8V6a4 4 0 018 0v2"/>
+                <circle cx="9" cy="14" r="1.2" fill="#7c6aff" stroke="none"/>
+                <circle cx="15" cy="14" r="1.2" fill="#7c6aff" stroke="none"/>
+                <path d="M9 18h6" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="header-info">
+            <h1>LDTECS</h1>
+            <div class="status">
+                <span class="status-dot"></span>
+                Online &amp; ready
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages -->
+    <div class="messages" id="messages">
+        <div class="welcome" id="welcome">
+            <div class="welcome-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7c6aff" stroke-width="1.8">
+                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+                </svg>
+            </div>
+            <h2>How can I help?</h2>
+            <p>Ask me anything, or tap one of the suggestions below.</p>
+        </div>
+
+        <!-- Typing indicator -->
+        <div class="typing-indicator" id="typing">
+            <div class="msg-avatar" style="background:var(--accent-soft);border:1px solid rgba(124,106,255,0.3);color:var(--accent);">AI</div>
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-area">
+        <!-- Suggested questions: always visible -->
+        <div class="chips-bar" id="chips"></div>
+
+        <div class="input-box">
+            <input type="text" id="msg" placeholder="Type your message…" autocomplete="off">
+            <button class="send-btn" id="sendBtn" onclick="sendmsg()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2">
+                    <line x1="22" y1="2" x2="11" y2="13"/>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const messagesEl = document.getElementById('messages');
+    const typingEl   = document.getElementById('typing');
+    const sendBtn    = document.getElementById('sendBtn');
+    const msgInput   = document.getElementById('msg');
+    const chipsEl    = document.getElementById('chips');
+
+    // Conversation memory sent to the server so follow-up questions work
+    const history = [];
+
+    const questions = [
+        "What is your product/service?",
+        "How does it work?",
+        "Do you offer support?",
+        "How can I get started?",
+        "Tell me something interesting!"
+    ];
+
+    // Build suggestion chips (they stay on screen for the whole chat)
+    questions.forEach((q, i) => {
+        const b = document.createElement('button');
+        b.className = 'chip';
+        const n = document.createElement('span');
+        n.className = 'num';
+        n.textContent = i + 1;
+        const t = document.createElement('span');
+        t.textContent = q;
+        b.append(n, t);
+        b.onclick = () => sendmsg(q);
+        chipsEl.appendChild(b);
+    });
+
+    // Let the mouse wheel scroll the chips sideways on desktop
+    chipsEl.addEventListener('wheel', e => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            chipsEl.scrollLeft += e.deltaY;
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    function getTime() {
+        return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+
+    // Put text in the bubble and turn http(s) links into clickable links
+    function fillBubble(bubble, text) {
+        text.split(/(https?:\/\/[^\s]+)/g).forEach(part => {
+            if (/^https?:\/\//.test(part)) {
+                const m = part.match(/^(.*?)([.,;:!?)\]]*)$/);
+                const a = document.createElement('a');
+                a.href = m[1];
+                a.textContent = m[1];
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                bubble.appendChild(a);
+                if (m[2]) bubble.appendChild(document.createTextNode(m[2]));
+            } else if (part) {
+                bubble.appendChild(document.createTextNode(part));
+            }
+        });
+    }
+
+    function appendMessage(text, role) {
+        const welcome = document.getElementById('welcome');
+        if (welcome) welcome.remove();
+
+        const row = document.createElement('div');
+        row.className = `msg-row ${role}`;
+
+        const avatar = document.createElement('div');
+        avatar.className = 'msg-avatar';
+        avatar.textContent = role === 'bot' ? 'AI' : 'You';
+
+        const bubble = document.createElement('div');
+        bubble.className = 'msg-bubble';
+        fillBubble(bubble, text);
+
+        const time = document.createElement('span');
+        time.className = 'msg-time';
+        time.textContent = getTime();
+        bubble.appendChild(time);
+
+        row.appendChild(avatar);
+        row.appendChild(bubble);
+
+        messagesEl.insertBefore(row, typingEl);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function setTyping(visible) {
+        typingEl.classList.toggle('visible', visible);
+        if (visible) messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function setBusy(busy) {
+        sendBtn.disabled = busy;
+        chipsEl.querySelectorAll('.chip').forEach(c => c.disabled = busy);
+    }
+
+    // preset = text from a chip; otherwise read from the input box
+    async function sendmsg(preset) {
+        const text = (typeof preset === 'string' ? preset : msgInput.value).trim();
+        if (!text || sendBtn.disabled) return;
+
+        appendMessage(text, 'user');
+        msgInput.value = '';
+        setBusy(true);
+        setTyping(true);
+
+        try {
+            const response = await fetch('/api/level2/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ msg: text, history: history.slice(-10) })
+            });
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            const data = await response.json();
+            const reply = data.response || 'No response received.';
+            setTyping(false);
+            appendMessage(reply, 'bot');
+
+            // Remember this exchange for the next question
+            history.push({ role: 'user', content: text });
+            history.push({ role: 'assistant', content: reply });
+        } catch (err) {
+            setTyping(false);
+            appendMessage('Sorry, something went wrong. Please try again.', 'bot');
+        } finally {
+            setBusy(false);
+            msgInput.focus();
+        }
+    }
+
+    msgInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendmsg();
+        }
+    });
+</script>
+</body>
+</html>

@@ -435,7 +435,7 @@
 
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 2fr);
 
             gap: 20px;
 
@@ -450,7 +450,7 @@
         .product-card {
 
             width: 100%;
-            min-height: 620px;
+            min-height: 320px;
 
             background: #ffffff;
 

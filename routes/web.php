@@ -32,7 +32,5 @@ Route::get('/product', function () {
     return redirect('/#our-products');
 });
 
-Route::post('/chatbot/message', [
-    ChatbotController::class,
-    'chat',
-])->middleware('throttle:10,1')->name('chatbot.message');
+Route::post('/chatbot/message', [ChatbotController::class, 'chat'])
+    ->name('chatbot.message');
