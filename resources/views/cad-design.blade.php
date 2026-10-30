@@ -1470,7 +1470,7 @@
         /* Separate right-side submenu */
         .diamond-side-popup {
             position: absolute;
-            top: -30px;
+            top: 30px;
             left: calc(100% + 10px);
             width: 260px;
             padding: 8px;
