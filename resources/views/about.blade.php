@@ -2731,11 +2731,11 @@
 
     <section class="page6">
         <div class="product-title">
-            <div class="heading1">
+            <div class="heading1" id="why">
                 <h5> WHY CHOOSE US </h5>
                 <h1> The LDTECS Advantage </h1>
             </div>
-            <div class="products-container">
+            <div class="products-container" id="container">
 
                 <div class="box2 product-card2">
                     <i class="fa-solid fa-lightbulb"></i>

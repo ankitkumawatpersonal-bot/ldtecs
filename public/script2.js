@@ -108,10 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     gsap.from('.footer-cta', {
-        x: -100,
+        scale: 0,
         opacity: 0,
         duration: 1.2,
-        ease: 'power3.out',
+        ease: "back.out(2)",
 
         scrollTrigger: {
             trigger: '.footer',
