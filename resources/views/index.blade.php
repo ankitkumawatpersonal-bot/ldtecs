@@ -428,14 +428,14 @@
 
         .products-container {
 
-            width: 100%;
-            max-width: 1800px;
+            width: 90%;
+            max-width: 1500px;
 
             margin: 0 auto;
 
             display: grid;
 
-            grid-template-columns: repeat(4, 2fr);
+            grid-template-columns: repeat(3, 1fr);
 
             gap: 20px;
 
@@ -449,7 +449,7 @@
 
         .product-card {
 
-            width: 100%;
+            width: 90%;
             min-height: 320px;
 
             background: #ffffff;
@@ -499,7 +499,7 @@
         .product-image-link {
 
             width: 100%;
-            height: 390px;
+            height: 250px;
 
             display: flex;
 
@@ -554,15 +554,15 @@
         ========================================= */
 
         .product-image.elite {
-            width: 90%;
-            height: 90%;
+            width: 150%;
+            height: 100%;
             object-fit: contain;
         }
 
 
         .product-image.lite {
-            width: 82%;
-            height: 80%;
+            width: 90%;
+            height: 85%;
             object-fit: contain;
         }
 
@@ -653,6 +653,7 @@
             margin: 5px 0;
 
             font-size: 18px;
+            font-weight: 500;
 
             line-height: 1.4;
 
@@ -702,12 +703,12 @@
 
             .product-card {
 
-            min-height: 600px;
+            min-height:400px;
         }
 
         .product-image-link {
 
-            height: 350px;
+            height: 200px;
         }
 
         }
@@ -742,7 +743,7 @@
 
             .product-card {
 
-                min-height: 580px;
+                min-height: 400px;
 
                 padding: 25px 15px;
             }
@@ -1127,87 +1128,175 @@
             }
         }
 
-        /* .page4{
-            width:100%;
-            height:100vh;
-            font-size:50px;
-            background-color:#ffffff;
-        } */
+        /* ===============================
+        OUR CLIENTS SECTION
+        ================================ */
 
-        /* .products-title2 {
-            margin: 0 0 55px;
-            font-family: "Segoe UI", Arial, sans-serif;
-            font-size: clamp(35px, 4vw, 55px);
-            font-weight: 500;
-            padding-top:20px;
-            color: #191b19;
-            opacity: 1;
-        } */
-        
-
-        /* ========================================== 
-        page5 - marquee
-        =============================================*/
-
-        .page5{
-            width:100%;
-            max-height:80vh;
+        .page5 {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #f1fdf5;
         }
 
-        .page5 h2{
-            font-size:40px;
-            font-weight:500;
-            margin-top:30px;
-        }
-        
         .clients-section {
             width: 100%;
-            padding: 30px 0;
-            background: white;
-            color: #103b60;
+            padding: 45px 0 65px;
+            position: relative;
             overflow: hidden;
         }
 
-        .clients-section h2 {
+        /* Heading */
+
+        .clients-heading {
             text-align: center;
-            font-size: 38px;
-            font-weight: 650;
-            margin-bottom: 40px;
+            padding: 0 20px;
+            margin-bottom: 55px;
         }
+
+        /* .clients-label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: #24a19c;
+            margin-bottom: 15px;
+        } */
+
+        .clients-heading h2 {
+            font-size: clamp(35px, 4vw, 45px);
+            font-weight: 650;
+            color: #103b60;
+            margin: 0 0 18px;
+            letter-spacing: -1.5px;
+        }
+
+        .clients-heading h2 span {
+            color: #24a19c;
+        }
+
+        .clients-heading p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #696969;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        /* Marquee */
 
         .marquee {
             width: 100%;
             overflow: hidden;
+            position: relative;
+            padding: 25px 0;
             background: #173237;
         }
+
+        /* Gradient edges */
+
+        .marquee::before,
+        .marquee::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marquee::before {
+            left: 0;
+            background: linear-gradient(
+                to right,
+                #173237,
+                transparent
+            );
+        }
+
+        .marquee::after {
+            right: 0;
+            background: linear-gradient(
+                to left,
+                #173237,
+                transparent
+            );
+        }
+
+        /* Animation Track */
 
         .marquee-track {
             display: flex;
             width: max-content;
-            animation: marqueeMove 25s linear infinite;
+            animation: marqueeMove 35s linear infinite;
+            will-change: transform;
         }
+
+        /* Logo Group */
 
         .marquee-group {
             display: flex;
             align-items: center;
-            justify-content: space-around;
-            gap: 60px;
-            padding-right: 60px;
-            padding-top:30px;
-            padding-bottom:30px;
+            gap: 25px;
+            padding: 0 12px;
             flex-shrink: 0;
         }
 
-        .marquee-group img {
-            width: 180px;
-            height: 70px;
-            object-fit: contain;
+        /* Individual Logo Card */
+
+        .client-card {
+            width: 210px;
+            height: 110px;
             flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+
+            padding: 22px;
+            box-sizing: border-box;
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease;
         }
+
+        /* Logo Image */
+
+        .client-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+
+            transition: transform 0.35s ease;
+        }
+
+        /* Hover Effect */
+
+        .client-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+            background: #f8fffc;
+        }
+
+        .client-card:hover img {
+            transform: scale(1.07);
+        }
+
+        /* Pause Animation on Hover */
 
         .marquee:hover .marquee-track {
             animation-play-state: paused;
         }
+
+        /* Infinite Animation */
 
         @keyframes marqueeMove {
             from {
@@ -1217,6 +1306,139 @@
             to {
                 transform: translateX(-50%);
             }
+        }
+
+        /* Footer */
+
+        /* .clients-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 35px;
+
+            color: #696969;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .clients-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #24a19c;
+            box-shadow: 0 0 10px rgba(36, 161, 156, 0.4);
+        } */
+
+        /* ===============================
+        TABLET RESPONSIVE
+        ================================ */
+
+        @media (max-width: 768px) {
+
+            .clients-section {
+                padding: 65px 0 45px;
+            }
+
+            .clients-heading {
+                margin-bottom: 40px;
+            }
+
+            .clients-heading p {
+                font-size: 14px;
+            }
+
+            .marquee-group {
+                gap: 18px;
+            }
+
+            .client-card {
+                width: 170px;
+                height: 90px;
+                padding: 18px;
+                border-radius: 12px;
+            }
+
+            .marquee-track {
+                animation-duration: 28s;
+            }
+
+            .marquee::before,
+            .marquee::after {
+                width: 50px;
+            }
+
+        }
+
+        /* ===============================
+        MOBILE RESPONSIVE
+        ================================ */
+
+        @media (max-width: 480px) {
+
+            .clients-section {
+                padding: 50px 0 35px;
+            }
+
+            .clients-heading {
+                margin-bottom: 30px;
+            }
+
+            /* .clients-label {
+                font-size: 11px;
+                letter-spacing: 3px;
+            } */
+
+            .clients-heading h2 {
+                font-size: 32px;
+                letter-spacing: -0.5px;
+            }
+
+            .clients-heading p {
+                font-size: 13px;
+                padding: 0 10px;
+            }
+
+            .marquee {
+                padding: 20px 0;
+            }
+
+            .marquee-group {
+                gap: 14px;
+            }
+
+            .client-card {
+                width: 145px;
+                height: 78px;
+                padding: 14px;
+                border-radius: 10px;
+            }
+
+            .marquee-track {
+                animation-duration: 25s;
+            }
+
+            .marquee::before,
+            .marquee::after {
+                width: 30px;
+            }
+
+            .clients-footer {
+                font-size: 12px;
+                margin-top: 25px;
+            }
+
+        }
+
+        /* Accessibility */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .marquee-track {
+                animation: none;
+            }
+
         }
 
 
@@ -1789,192 +2011,297 @@
 
         
 
-/* Parent Products dropdown */
-.product-menu {
-    position: relative;
-}
+        /* Parent Products dropdown */
+        .product-menu {
+            position: relative;
+        }
 
-.product-popup {
-    position: absolute;
-    top: calc(100% + 12px);
-    left: 50%;
-    transform: translateX(-60%);
-    width: 270px;
-    /* background: #fff; */
-    border-radius: 9px;
-    /* border: 1px solid #173237; */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    overflow: visible;
-    z-index: 9999;
-}
+        .product-popup {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-60%);
+            width: 270px;
+            /* background: #fff; */
+            border-radius: 9px;
+            /* border: 1px solid #173237; */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            overflow: visible;
+            z-index: 9999;
+        }
 
-/* Diamond Detectors row */
-.diamond-menu {
-    position: relative;
-    width: 100%;
-}
+        /* Diamond Detectors row */
+        .diamond-menu {
+            position: relative;
+            width: 100%;
+        }
 
-.diamond-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 18px 22px;
-    /* background: #fff; */
-    border: none;
-    border-radius: 9px;
-    color: #191b19;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-}
+        /* Diamond button */
+        .diamond-btn {
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px 22px;
+            border: none;
+            border-radius: 9px;
+            background-color: #ffffff;
+            color: #173237;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+        }
 
-.diamond-btn:hover {
-    background: #173237;
-    color: #fff;
-}
+        .diamond-btn:hover {
+            background: #173237;
+            color: #fff;
+        }
 
-.diamond-btn i {
-    font-size: 13px;
-    transition: transform 0.2s ease;
-}
+        .diamond-btn i {
+            transition: transform 0.3s ease;
+        }
 
-.diamond-btn.active i {
-    transform: rotate(90deg);
-}
+        .diamond-btn.active i {
+            transform: rotate(90deg);
+        }
 
-/* Separate right-side submenu */
-.diamond-side-popup {
-    position: absolute;
-    top: 30px;
-    left: calc(100% + 10px);
-    width: 260px;
-    padding: 8px;
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    border-radius: 9px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-    display: none;
-    z-index: 10000;
-}
+        /* Separate right-side submenu */
+        .diamond-side-popup {
+            position: absolute;
+            top: 0;
+            left: calc(90% + 10px);
+            width: 260px;
+            padding: 8px;
+            background: #ffffff;
+            border-radius: 9px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 10000;
+        }
 
-.diamond-side-popup.show {
-    display: block;
-}
+        .diamond-side-popup.show {
+            display: block;
+        }
 
-.diamond-side-popup a {
-    display: block;
-    padding: 15px 14px;
-    color: #191b19;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    border-bottom: 1px solid #eee;
-    transition: background 0.2s ease, color 0.2s ease;
-}
+        .diamond-side-popup a {
+            display: block;
+            padding: 15px 14px;
+            color: #191b19;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border-bottom: 1px solid #eee;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
 
-.diamond-side-popup a:last-child {
-    border-bottom: none;
-}
+        .diamond-side-popup a:last-child {
+            border-bottom: none;
+        }
 
-.diamond-side-popup a:hover {
-    background: #173237;
-    color: #fff;
-    border-radius: 8px;
-}
+        .diamond-side-popup a:hover {
+            background: #173237;
+            color: #fff;
+            border-radius: 8px;
+        }
 
-/* Click ya active hone par bhi same background */
-.active:hover,
-.active:focus,
-.active.diamond-btn {
-    background-color: #173438;
-    color: #ffffff;
-    border-radius: 8px;
-}
+        /* Click ya active hone par bhi same background */
+        .active:hover,
+        .active:focus,
+        .active.diamond-btn {
+            background-color: #173438;
+            color: #ffffff;
+            border-radius: 8px;
+        }
 
 
-/* Tablet */
-@media (min-width: 821px) and (max-width: 1100px) {
-    .product-popup {
-        width: 310px;
+        /* Desktop hover */
+        @media (min-width: 821px) {
+
+            .diamond-menu:hover .diamond-side-popup,
+            .diamond-menu:focus-within .diamond-side-popup {
+                display: block;
+            }
+
+            .diamond-menu:hover .diamond-btn i {
+                transform: rotate(90deg);
+            }
+
+            /* Hover gap connection */
+            .diamond-menu::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 12px;
+                height: 100%;
+            }
+        }
+
+        /* Popup links */
+        .diamond-side-popup a {
+            display: block;
+            padding: 15px 14px;
+            color: #191b19;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .diamond-side-popup a:hover {
+            background: #173237;
+            color: #ffffff;
+        }
+
+        /* Mobile */
+        @media (max-width: 820px) {
+
+            .diamond-side-popup {
+                position: static;
+                width: auto;
+                margin: 5px 10px;
+                box-shadow: none;
+                background: #f8f9f9;
+            }
+
+            .diamond-side-popup.show {
+                display: block;
+            }
+
+            .diamond-btn {
+                padding: 15px 16px;
+            }
+        }
+
+
+        /* Tablet */
+        @media (min-width: 821px) and (max-width: 1100px) {
+            .product-popup {
+                width: 310px;
+            }
+
+            .diamond-side-popup {
+                width: 230px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 820px) {
+            .product-menu {
+                position: relative;
+            }
+
+            .product-popup {
+                position: static;
+                transform: none;
+                width: 100%;
+                max-width: 100%;
+                margin-top: 8px;
+                box-shadow: none;
+                border: 1px solid #e5e5e5;
+                border-radius: 8px;
+                box-sizing: border-box;
+            }
+
+            .diamond-btn {
+                padding: 15px 16px;
+                font-size: 15px;
+            }
+
+            /* Mobile: submenu opens below Diamond Detectors */
+            .diamond-side-popup {
+                position: static;
+                width: auto;
+                margin: 0 10px 10px;
+                padding: 4px;
+                box-shadow: none;
+                border-radius: 6px;
+                background: #f8f9f9;
+                box-sizing: border-box;
+            }
+
+            .diamond-side-popup a {
+                padding: 14px 12px;
+                font-size: 13px;
+            }
+
+            .diamond-btn.active i {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .product-popup {
+                margin-top: 6px;
+            }
+
+            .diamond-btn {
+                padding: 14px 12px;
+                font-size: 14px;
+            }
+
+            .diamond-side-popup {
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+            .diamond-side-popup a {
+                padding: 13px 10px;
+                font-size: 12px;
+            }
+        }
+
+
+        /* WhatsApp button beside chatbot */
+        .floating-whatsapp {
+            position: fixed;
+            right: 100px;
+            bottom: 25px;
+
+            width: 60px;
+            height: 60px;
+
+            background: #25D366;
+            color: #fff;
+
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+            text-decoration: none;
+
+            z-index: 9998;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            background: #25D366;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .floating-whatsapp {
+                right: 100px;
+                bottom: 28px;
+                width: 55px;
+                height: 55px;
+                font-size: 35px;
+            }
     }
 
-    .diamond-side-popup {
-        width: 230px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 820px) {
-    .product-menu {
-        position: relative;
-    }
-
-    .product-popup {
-        position: static;
-        transform: none;
-        width: 100%;
-        max-width: 100%;
-        margin-top: 8px;
-        box-shadow: none;
-        border: 1px solid #e5e5e5;
-        border-radius: 8px;
-        box-sizing: border-box;
-    }
-
-    .diamond-btn {
-        padding: 15px 16px;
-        font-size: 15px;
-    }
-
-    /* Mobile: submenu opens below Diamond Detectors */
-    .diamond-side-popup {
-        position: static;
-        width: auto;
-        margin: 0 10px 10px;
-        padding: 4px;
-        box-shadow: none;
-        border-radius: 6px;
-        background: #f8f9f9;
-        box-sizing: border-box;
-    }
-
-    .diamond-side-popup a {
-        padding: 14px 12px;
-        font-size: 13px;
-    }
-
-    .diamond-btn.active i {
-        transform: rotate(90deg);
-    }
-}
-
-/* Small mobile */
-@media (max-width: 480px) {
-    .product-popup {
-        margin-top: 6px;
-    }
-
-    .diamond-btn {
-        padding: 14px 12px;
-        font-size: 14px;
-    }
-
-    .diamond-side-popup {
-        margin-left: 8px;
-        margin-right: 8px;
-    }
-
-    .diamond-side-popup a {
-        padding: 13px 10px;
-        font-size: 12px;
-    }
-}
-
-
+        .navbar #openContact {
+            display: none !important;
+        }
 
     </style>
 </head>
@@ -2001,18 +2328,18 @@
 
                     <div class="product-popup">
                         <div class="diamond-menu">
-                            <div class="active">
-                                <button type="button" class="diamond-btn">
-                                    Labgrown Diamond Detectors
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </button>
-                            </div>
+
+                            <button type="button" class="diamond-btn">
+                                <span>Labgrown Diamond Detectors</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
 
                             <div class="diamond-side-popup">
                                 <a href="/elite">CLASSIFIER ELITE</a>
                                 <a href="/lite">CLASSIFIER LITE</a>
                                 <a href="/nano">CLASSIFIER NANO</a>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -2049,41 +2376,7 @@
         </section>    
     </div>
 
-    <section class="page5">
-        <div class="clients-section">
-            <h2>Our Clients</h2>
-
-            <div class="marquee">
-                <div class="marquee-track">
-
-                    <div class="marquee-group">
-                        <img src="seven.png" alt="Seven Star">
-                        <img src="tenx.png" alt="Tenx">
-                        <img src="uni.png" alt="Uni Design">
-                        <img src="mahavir.png" alt="Mahavir">
-                        <img src="shivaye.png" alt="shivaye Diamonds">
-                        <img src="hare-krishana.svg" alt="Hari Krishna">
-                        <img src="mahindra1.png" alt="Mahindra Diamonds">
-                        <img src="manisha gems.webp" alt="Mahindra Diamonds">
-                        <img src="nature.png" alt="Nature's Art LTD">
-                    </div>
-
-                    <div class="marquee-group" aria-hidden="true">
-                        <img src="seven.png" alt="">
-                        <img src="tenx.png" alt="">
-                        <img src="uni.png" alt="">
-                        <img src="mahavir.png" alt="">
-                        <img src="shivaye.png" alt="">
-                        <img src="hare-krishana.svg" alt="">
-                        <img src="mahindra.png" alt="">
-                        <img src="manisha gems.webp" alt="">
-                        <img src="nature.png" alt="">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <section class="page2" id="our-products">
 
         <h1 id="productsTitle" class="products-title">Our Products</h1>
@@ -2094,7 +2387,7 @@
             <div class="box1 product-card">
 
                 <a href="/elite" class="product-image-link">
-                    <img class="product-image elite" src="machine.png" alt="Classifier Elite" id="zoomImage">
+                    <img class="product-image elite" src="elite0.png" alt="Classifier Elite" id="zoomImage">
                 </a>
 
                 <div class="diem">
@@ -2148,28 +2441,28 @@
 
     <!-- Contact Popup -->
     
-<div class="contact-overlay" id="contactPopup">
-    <div class="contact-box">
-        <button type="button" class="close-btn" id="closecontact">&times;</button>
+    <div class="contact-overlay" id="contactPopup">
+        <div class="contact-box">
+            <button type="button" class="close-btn" id="closecontact">&times;</button>
 
-        <h2>Contact Us</h2>
-        <p>Let's discuss your project and ideas.</p>
+            <h2>Contact Us</h2>
+            <p>Let's discuss your project and ideas.</p>
 
-        <form id="contactForm">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 
-            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
 
-            <button type="submit" class="submit-btn">
-                Send Message
-            </button>
-        </form>
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+            </form>
+        </div>
     </div>
-</div>
 
 
     <!-- <section class="page3" id="services">
@@ -2311,6 +2604,125 @@
             </div>
 
         </div> 
+    </section>
+
+    <section class="page5" id="our-clients">
+
+        <div class="clients-section">
+
+            <!-- Section Heading -->
+            <div class="clients-heading">
+                <!-- <span class="clients-label">TRUSTED PARTNERS</span> -->
+
+                <h2>
+                    Our Clients
+                </h2>
+
+                <!-- <p>
+                    Building strong relationships through innovation,
+                    technology and trust.
+                </p> -->
+            </div>
+
+            <!-- Clients Marquee -->
+            <div class="marquee">
+
+                <div class="marquee-track">
+
+                    <!-- First Group -->
+                    <div class="marquee-group">
+
+                        <div class="client-card">
+                            <img src="seven.png" alt="Seven Star">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="tenx.png" alt="Tenx">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="uni-design.png" alt="Uni Design">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahavir.png" alt="Mahavir">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="shivaye.png" alt="Shivaye Diamonds">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="hari-krishana.svg" alt="Hari Krishna">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="manisha gems.webp" alt="Manisha Gems">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="nature.png" alt="Nature's Art">
+                        </div>
+
+                    </div>
+
+                    <!-- Duplicate Group for Infinite Animation -->
+                    <div class="marquee-group" aria-hidden="true">
+
+                        <div class="client-card">
+                            <img src="seven.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="tenx.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="uni-design.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahavir.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="shivaye.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="hari-krishana.svg" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahindra diamonds.jpg" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="manisha gems.webp" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="nature.png" alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Bottom Text
+            <div class="clients-footer">
+                <span class="clients-dot"></span>
+                Trusted by industry leaders
+            </div> -->
+
+        </div>
+
     </section>
     
     <footer class="footer">
@@ -2599,7 +3011,63 @@ document.addEventListener("click", (event) => {
             }
         });
 
+        document.querySelectorAll('.diamond-btn').forEach(button => {
+
+    button.addEventListener('click', function () {
+
+        const popup = this.nextElementSibling;
+
+        popup.classList.toggle('show');
+
+        this.classList.toggle('active');
+
+    });
+
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const whatsappBtn = document.getElementById("whatsappContact");
+    const contactPopup = document.getElementById("contactPopup");
+    const closeContact = document.getElementById("closecontact");
+
+    // WhatsApp click - Open Contact Popup
+    if (whatsappBtn && contactPopup) {
+        whatsappBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            contactPopup.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+    }
+
+    // Close popup
+    if (closeContact && contactPopup) {
+        closeContact.addEventListener("click", function () {
+            contactPopup.style.display = "none";
+            document.body.style.overflow = "";
+        });
+    }
+
+    // Outside click
+    if (contactPopup) {
+        contactPopup.addEventListener("click", function (e) {
+            if (e.target === contactPopup) {
+                contactPopup.style.display = "none";
+                document.body.style.overflow = "";
+            }
+        });
+    }
+
+});
+
     </script>
+
+    <a href="javascript:void(0)"
+   class="floating-whatsapp"
+   id="whatsappContact">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 
     @include('partials.chatbot')
 </body>

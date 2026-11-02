@@ -359,12 +359,12 @@
             <h3>LDTECS AI Assistant</h3>
             <div class="ld-status"><span class="ld-status-dot"></span> Online &amp; ready</div>
         </div>
-        <button id="ld-chat-close" type="button" aria-label="Close chatbot">×</button>
+        <button id="ld-chat-close" type="button" aria-label="Close chatbot">x</button>
     </div>
 
     <div id="ld-chat-messages" aria-live="polite">
         <div class="ld-welcome" id="ld-chat-welcome">
-            <div class="ld-welcome-icon">✦</div>
+            <div class="ld-welcome-icon">✦</div>s
             <h3>How can I help?</h3>
             <p>Ask me about LDTECS products, services, or solutions.</p>
         </div>

@@ -271,18 +271,17 @@
         /*popup initially hidden*/
         .product-popup {
             position: absolute;
-            top: calc(100% + 12px);
-            width: 200px;
-            height: 75px;
+            top: calc(100% + 30px);
+            width: 150px;
+            height:75px;
             /* background: #fff; */
             border-radius: 8px;
-            padding: 2px 0;
-
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            padding: 3px 0;
+            /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); */
             opacity: 0;
             font-family: 'Poppins', sans-serif;
             visibility: hidden;
-            transform: translate(-50%, 10px);
+            transform: translate(-60%, 10px);
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
             z-index: 1000;
             display:flex;
@@ -1852,8 +1851,8 @@
             width: 270px;
             /* background: #fff; */
             border-radius: 9px;
-            /* border: 1px solid #e5e5e5; */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            /* border: 1px solid #173237; */
+            /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); */
             overflow: visible;
             z-index: 9999;
         }
@@ -1864,17 +1863,18 @@
             width: 100%;
         }
 
+        /* Diamond button */
         .diamond-btn {
-            width: 100%;
+            width: 90%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
             padding: 18px 22px;
-            background: #fff;
             border: none;
             border-radius: 9px;
-            color: #191b19;
+            background-color: #ffffff;
+            color: #173237;
             font-size: 16px;
             font-weight: 600;
             text-align: left;
@@ -1887,8 +1887,7 @@
         }
 
         .diamond-btn i {
-            font-size: 13px;
-            transition: transform 0.2s ease;
+            transition: transform 0.3s ease;
         }
 
         .diamond-btn.active i {
@@ -1898,14 +1897,13 @@
         /* Separate right-side submenu */
         .diamond-side-popup {
             position: absolute;
-            top: 30px;
-            left: calc(100% + 10px);
+            top: 0;
+            left: calc(90% + 10px);
             width: 260px;
             padding: 8px;
-            background: #fff;
-            border: 1px solid #e5e5e5;
+            background: #ffffff;
             border-radius: 9px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
             display: none;
             z-index: 10000;
         }
@@ -1913,7 +1911,6 @@
         .diamond-side-popup.show {
             display: block;
         }
-
         .diamond-side-popup a {
             display: block;
             padding: 15px 14px;
@@ -1926,6 +1923,8 @@
             transition: background 0.2s ease, color 0.2s ease;
         }
 
+        
+
         .diamond-side-popup a.active{
             background: #173237;
             color: #fff;
@@ -1937,6 +1936,8 @@
             color: #fff;
         }
 
+
+
         .diamond-side-popup a:last-child {
             border-bottom: none;
         }
@@ -1946,82 +1947,34 @@
             color: #fff;
             border-radius: 8px;
         }
-
-        /* Tablet */
-        @media (min-width: 821px) and (max-width: 1100px) {
-            .product-popup {
-                width: 310px;
-            }
-
-            .diamond-side-popup {
-                width: 230px;
-            }
+        /* Click ya active hone par bhi same background */
+        .active:hover,
+        .active:focus,
+        .active.diamond-btn {
+            /* background-color: #173438; */
+            color: #ffffff;
+            border-radius: 8px;
         }
 
-        /* Mobile */
-        @media (max-width: 820px) {
-            .product-menu {
-                position: relative;
+        @media (min-width: 821px) {
+
+            .diamond-menu:hover .diamond-side-popup,
+            .diamond-menu:focus-within .diamond-side-popup {
+                display: block;
             }
 
-            .product-popup {
-                position: static;
-                transform: none;
-                width: 100%;
-                max-width: 100%;
-                margin-top: 8px;
-                box-shadow: none;
-                border: 1px solid #e5e5e5;
-                border-radius: 8px;
-                box-sizing: border-box;
-            }
-
-            .diamond-btn {
-                padding: 15px 16px;
-                font-size: 15px;
-            }
-
-            /* Mobile: submenu opens below Diamond Detectors */
-            .diamond-side-popup {
-                position: static;
-                width: auto;
-                margin: 0 10px 10px;
-                padding: 4px;
-                box-shadow: none;
-                border-radius: 6px;
-                background: #f8f9f9;
-                box-sizing: border-box;
-            }
-
-            .diamond-side-popup a {
-                padding: 14px 12px;
-                font-size: 13px;
-            }
-
-            .diamond-btn.active i {
+            .diamond-menu:hover .diamond-btn i {
                 transform: rotate(90deg);
             }
-        }
 
-        /* Small mobile */
-        @media (max-width: 480px) {
-            .product-popup {
-                margin-top: 6px;
-            }
-
-            .diamond-btn {
-                padding: 14px 12px;
-                font-size: 14px;
-            }
-
-            .diamond-side-popup {
-                margin-left: 8px;
-                margin-right: 8px;
-            }
-
-            .diamond-side-popup a {
-                padding: 13px 10px;
-                font-size: 12px;
+            /* Hover gap connection */
+            .diamond-menu::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 12px;
+                height: 100%;
             }
         }
     
@@ -2163,6 +2116,51 @@
             }
         }
     
+         /* WhatsApp button beside chatbot */
+        .floating-whatsapp {
+            position: fixed;
+            right: 100px;
+            bottom: 25px;
+
+            width: 60px;
+            height: 60px;
+
+            background: #25D366;
+            color: #fff;
+
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+            text-decoration: none;
+
+            z-index: 9998;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            background: #25D366;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .floating-whatsapp {
+                right: 100px;
+                bottom: 28px;
+                width: 55px;
+                height: 55px;
+                font-size: 35px;
+            }
+    }
+
+    .navbar #openContact {
+            display: none !important;
+        }
 
     </style>
 </head>
@@ -2747,8 +2745,49 @@ document.addEventListener("click", (event) => {
             }
         });
 
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const whatsappBtn = document.getElementById("whatsappContact");
+    const contactPopup = document.getElementById("contactPopup");
+    const closeContact = document.getElementById("closecontact");
+
+    // WhatsApp click - Open Contact Popup
+    if (whatsappBtn && contactPopup) {
+        whatsappBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            contactPopup.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+    }
+
+    // Close popup
+    if (closeContact && contactPopup) {
+        closeContact.addEventListener("click", function () {
+            contactPopup.style.display = "none";
+            document.body.style.overflow = "";
+        });
+    }
+
+    // Outside click
+    if (contactPopup) {
+        contactPopup.addEventListener("click", function (e) {
+            if (e.target === contactPopup) {
+                contactPopup.style.display = "none";
+                document.body.style.overflow = "";
+            }
+        });
+    }
+
+});
+
     </script>
 
+    <a href="javascript:void(0)"
+   class="floating-whatsapp"
+   id="whatsappContact">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
     @include('partials.chatbot')
 </body>
 </html>

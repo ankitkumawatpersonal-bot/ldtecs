@@ -271,17 +271,17 @@
         /*popup initially hidden*/
         .product-popup {
             position: absolute;
-            top: calc(100% + 12px);
-            width: 600px;
-            height: 75px;
+            top: calc(100% + 30px);
+            width: 150px;
+            height:75px;
             /* background: #fff; */
             border-radius: 8px;
-            padding: 2px 0;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            padding: 3px 0;
+            /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); */
             opacity: 0;
             font-family: 'Poppins', sans-serif;
             visibility: hidden;
-            transform: translate(-50%, 10px);
+            transform: translate(-60%, 10px);
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
             z-index: 1000;
             display:flex;
@@ -1446,7 +1446,7 @@
             /* background: #fff; */
             border-radius: 9px;
             /* border: 1px solid #e5e5e5; */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            /* box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); */
             overflow: visible;
             z-index: 9999;
         }
@@ -1458,7 +1458,7 @@
         }
 
         .diamond-btn {
-            width: 100%;
+            width: 90%;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -1492,7 +1492,7 @@
         .diamond-side-popup {
             position: absolute;
             top: 30px;
-            left: calc(100% + 10px);
+            left: calc(90% + 10px);
             width: 260px;
             padding: 8px;
             background: #fff;
@@ -1547,6 +1547,28 @@
             background-color: #173438;
             color: #ffffff;
             border-radius: 8px;
+        }
+
+         @media (min-width: 821px) {
+
+            .diamond-menu:hover .diamond-side-popup,
+            .diamond-menu:focus-within .diamond-side-popup {
+                display: block;
+            }
+
+            .diamond-menu:hover .diamond-btn i {
+                transform: rotate(90deg);
+            }
+
+            /* Hover gap connection */
+            .diamond-menu::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 12px;
+                height: 100%;
+            }
         }
 
         /* Tablet */
@@ -1763,6 +1785,52 @@
             .contact-box h2 {
                 font-size: 24px;
             }
+        }
+
+         /* WhatsApp button beside chatbot */
+        .floating-whatsapp {
+            position: fixed;
+            right: 100px;
+            bottom: 25px;
+
+            width: 60px;
+            height: 60px;
+
+            background: #25D366;
+            color: #fff;
+
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+            text-decoration: none;
+
+            z-index: 9998;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            background: #25D366;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .floating-whatsapp {
+                right: 100px;
+                bottom: 28px;
+                width: 55px;
+                height: 55px;
+                font-size: 35px;
+            }
+    }
+
+    .navbar #openContact {
+            display: none !important;
         }
 </style>
 </head>
@@ -2192,7 +2260,49 @@ document.addEventListener("click", (event) => {
             }
         });
 
+    document.addEventListener("DOMContentLoaded", function () {
+
+    const whatsappBtn = document.getElementById("whatsappContact");
+    const contactPopup = document.getElementById("contactPopup");
+    const closeContact = document.getElementById("closecontact");
+
+    // WhatsApp click - Open Contact Popup
+    if (whatsappBtn && contactPopup) {
+        whatsappBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            contactPopup.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        });
+    }
+
+    // Close popup
+    if (closeContact && contactPopup) {
+        closeContact.addEventListener("click", function () {
+            contactPopup.style.display = "none";
+            document.body.style.overflow = "";
+        });
+    }
+
+    // Outside click
+    if (contactPopup) {
+        contactPopup.addEventListener("click", function (e) {
+            if (e.target === contactPopup) {
+                contactPopup.style.display = "none";
+                document.body.style.overflow = "";
+            }
+        });
+    }
+
+});
+
     </script>
+
+    <a href="javascript:void(0)"
+   class="floating-whatsapp"
+   id="whatsappContact">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
 
     @include('partials.chatbot')
 </body>
