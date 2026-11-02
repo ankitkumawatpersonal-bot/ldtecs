@@ -2510,7 +2510,7 @@
                 <img src="ai3.avif" alt="Artificial Intelligence" id="software">
 
                 <div class="card-content">
-                    <h3>AI & Machine Learning</h3>
+                    <h3>AI & Machine Learning Solution</h3>
                     <p>Intelligent systems, data analysis, image recognition and automation solutions.</p>
 
                     <ul>
