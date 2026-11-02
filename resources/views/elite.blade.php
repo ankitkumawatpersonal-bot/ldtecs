@@ -525,6 +525,21 @@
         .product-image.elite0 {
             width: 80%;
             max-width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            margin:20px 0;
+        }
+
+        .product-image.elite2 {
+            width: 100%;
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            margin:20px 0;
+        }
+        .product-image.elite3 {
+            width: 100%;
+            max-width: 100%;
             max-height: 400px;
             object-fit: contain;
             margin:20px 0;
@@ -1548,7 +1563,9 @@
             }
 
             .page1 .product-image,
-            .page1 .product-image.elite0 {
+            .page1 .product-image.elite0,
+            .page1 .product-image.elite1,
+            .page1 .product-image.elite2 {
                 display: block;
                 width: 100%;
                 max-width: 100%;
@@ -1586,7 +1603,9 @@
             }
 
             .page1 .product-image,
-            .page1 .product-image.elite0 {
+            .page1 .product-image.elite0,
+            .page1 .product-image.elite1,
+            .page1 .product-image.elite2 {
                 height: 220px;
                 max-height: 220px;
             }
@@ -2328,10 +2347,10 @@
                     <img class="product-image elite0" src="machine.png" alt="Classifier elite">     
                 </div>
                 <div class="product-card">
-                    <img class="product-image elite0" src="elite3.png" alt="Classifier elite">
+                    <img class="product-image elite2" src="elite03.png" alt="Classifier elite">
                 </div>
                 <div class="product-card">
-                    <img class="product-image elite0" src="elite01.png" alt="Classifier elite">
+                    <img class="product-image elite3" src="elite01.png" alt="Classifier elite">
                 </div>
             </div>     
         </section>
