@@ -239,9 +239,9 @@
         align-items: center;
         gap: 8px;
     }
-    #ld-chat-window .ld-typing.visible { display: flex; }
+    #ld-chat-window .ld-typing.visible { display: grid; }
     #ld-chat-window .ld-typing-dots {
-        display: flex;
+        display: grid;
         gap: 4px;
         padding: 12px 14px;
         border: 1px solid var(--ld-border);
@@ -265,19 +265,24 @@
     #ld-chat-window .ld-input-area {
         flex-shrink: 0;
         padding: 8px 12px 12px;
-        border-top: 1px solid var(--ld-border);
-        background: #101018;
+        /* border-top: 1px solid var(--ld-border); */
+        /* background: #101018; */
+        
     }
     #ld-chat-window .ld-chips {
-        display: flex;
+        display: grid;
         gap: 7px;
+        text-align: left;
+        justify-content: left;
+        /* grid-auto-flow: column; */
         overflow-x: auto;
         padding: 4px 0 11px;
         scrollbar-width: none;
+        
     }
     #ld-chat-window .ld-chips::-webkit-scrollbar { display: none; }
     #ld-chat-window .ld-chip {
-        display: flex;
+        display: grid;
         align-items: center;
         gap: 6px;
         flex-shrink: 0;
@@ -287,7 +292,7 @@
         background: var(--ld-surface);
         color: var(--ld-text);
         font-family: Arial, sans-serif;
-        font-size: 10px;
+        font-size: 14px;
         white-space: nowrap;
         cursor: pointer;
     }
@@ -364,7 +369,7 @@
 
     <div id="ld-chat-messages" aria-live="polite">
         <div class="ld-welcome" id="ld-chat-welcome">
-            <div class="ld-welcome-icon">✦</div>s
+            <div class="ld-welcome-icon">✦</div>
             <h3>How can I help?</h3>
             <p>Ask me about LDTECS products, services, or solutions.</p>
         </div>
@@ -535,6 +540,8 @@
         sendMessage();
     });
 })();
+
+link.target = "_self";
 </script>
 </body>
 </html>
