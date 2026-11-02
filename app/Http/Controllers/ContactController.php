@@ -1,107 +1,49 @@
 <?php
 
-    namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-    use Illuminate\Http\Request;
-    use Illuminate\Support\Facades\Http;
-    use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
-    class ContactController extends Controller
+class ContactController extends Controller
+{
+    public function submit(Request $request)
     {
-        public function submit(Request $request)
-        {
-            $validated = $request->validate([
-                'name' => 'required|string|max:100',
-                'email' => 'required|email|max:150',
-                'phone' => 'nullable|string|max:25',
-                'message' => 'required|string|max:2000',
+        $validated = $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:150',
+            'phone' => 'required|string|max:20',
+            'message' => 'required|string|max:2000',
+        ]);
+
+        try {
+            Mail::raw(
+                "New LDTECS Website Inquiry\n\n" .
+                "Name: " . $validated['name'] . "\n" .
+                "Email: " . $validated['email'] . "\n" .
+                "Phone: " . $validated['phone'] . "\n" .
+                "Message: " . $validated['message'],
+
+                function ($mail) {
+                    $mail->to(env('CONTACT_EMAIL'))
+                         ->subject('New LDTECS Contact Inquiry');
+                }
+            );
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Your message has been sent successfully!'
             ]);
 
-            $token = config('services.whatsapp.token');
-            $phoneNumberId = config('services.whatsapp.phone_number_id');
-            $recipient = config('services.whatsapp.recipient');
-            $version = config('services.whatsapp.version');
+        } catch (\Throwable $e) {
 
-            if (!$token || !$phoneNumberId || !$recipient || !$version) {
-                Log::error('WhatsApp notification configuration is missing.');
+            Log::error('Contact form error: ' . $e->getMessage());
 
-                return back()->with(
-                    'error',
-                    'Configuration error. Please try again later.'
-                );
-            }
-
-            try {
-                $response = Http::withToken($token)
-                    ->acceptJson()
-                    ->timeout(20)
-                    ->post(
-                        "https://graph.facebook.com/{$version}/{$phoneNumberId}/messages",
-                        [
-                            'messaging_product' => 'whatsapp',
-                            'to' => $recipient,
-                            'type' => 'template',
-                            'template' => [
-                                'name' => 'contact_form_alert',
-                                'language' => [
-                                    'code' => 'en_US',
-                                ],
-                                'components' => [
-                                    [
-                                        'type' => 'body',
-                                        'parameters' => [
-                                            [
-                                                'type' => 'text',
-                                                'text' => $validated['name'],
-                                            ],
-                                            [
-                                                'type' => 'text',
-                                                'text' => $validated['email'],
-                                            ],
-                                            [
-                                                'type' => 'text',
-                                                'text' => $validated['phone'] ?: 'Not provided',
-                                            ],
-                                            [
-                                                'type' => 'text',
-                                                'text' => $validated['message'],
-                                            ],
-                                        ],
-                                    ],
-                                ],
-                            ],
-                        ]
-                    );
-
-                if (!$response->successful()) {
-                    Log::error('WhatsApp API request failed.', [
-                        'status' => $response->status(),
-                        'response' => $response->json(),
-                    ]);
-
-                    return back()->with(
-                        'error',
-                        'Your message could not be sent. Please try again later.'
-                    );
-                }
-
-                return back()->with(
-                    'success',
-                    'Thank you! Your enquiry has been submitted.'
-                );
-
-            } catch (\Throwable $e) {
-                Log::error('WhatsApp notification exception.', [
-                    'error' => $e->getMessage(),
-                ]);
-
-                return back()->with(
-                    'error',
-                    'Something went wrong. Please try again later.'
-                );
-            }
+            return response()->json([
+                'success' => false,
+                'message' => 'Message could not be sent. Please try again.'
+            ], 500);
         }
     }
-
-?>
-
+}

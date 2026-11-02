@@ -2072,7 +2072,7 @@
             position: absolute;
             top: 0;
             left: calc(90% + 10px);
-            width: 260px;
+            width: 220px;
             padding: 8px;
             background: #ffffff;
             border-radius: 9px;
@@ -2141,7 +2141,7 @@
         }
 
         /* Popup links */
-        .diamond-side-popup a {
+        /* .diamond-side-popup a {
             display: block;
             padding: 15px 14px;
             color: #191b19;
@@ -2155,10 +2155,10 @@
         .diamond-side-popup a:hover {
             background: #173237;
             color: #ffffff;
-        }
+        } */
 
         /* Mobile */
-        @media (max-width: 820px) {
+        /* @media (max-width: 820px) {
 
             .diamond-side-popup {
                 position: static;
@@ -2175,7 +2175,7 @@
             .diamond-btn {
                 padding: 15px 16px;
             }
-        }
+        } */
 
 
         /* Tablet */
@@ -2299,9 +2299,9 @@
             }
     }
 
-        .navbar #openContact {
+        /* .navbar #openContact {
             display: none !important;
-        }
+        } */
 
     </style>
 </head>
@@ -2449,18 +2449,26 @@
             <p>Let's discuss your project and ideas.</p>
 
             <form id="contactForm">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                @csrf
 
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <input type="text" id="name" name="name"
+                    placeholder="Your Name" required>
 
-                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                <input type="email" id="email" name="email"
+                    placeholder="Your Email" required>
 
-                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+                <input type="tel" id="phone" name="phone"
+                    placeholder="Phone Number" required>
+
+                <textarea id="message" name="message"
+                        placeholder="Your Message" rows="4" required></textarea>
 
                 <button type="submit" class="submit-btn">
                     Send Message
                 </button>
             </form>
+
+<p id="formStatus"></p>
         </div>
     </div>
 
@@ -2882,42 +2890,42 @@
             Product dropdown 
         ======================================*/
         
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const popup = menu.querySelector(".diamond-side-popup");
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const popup = menu.querySelector(".diamond-side-popup");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        const isOpen = popup.classList.contains("show");
+                const isOpen = popup.classList.contains("show");
 
-        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
-            item.classList.remove("show");
+                document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+                    item.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                if (!isOpen) {
+                    popup.classList.add("show");
+                    button.classList.add("active");
+                }
+            });
         });
 
-        document.querySelectorAll(".diamond-btn").forEach((item) => {
-            item.classList.remove("active");
-        });
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".diamond-menu")) {
+                document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+                    popup.classList.remove("show");
+                });
 
-        if (!isOpen) {
-            popup.classList.add("show");
-            button.classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("click", (event) => {
-    if (!event.target.closest(".diamond-menu")) {
-        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
-            popup.classList.remove("show");
+                document.querySelectorAll(".diamond-btn").forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
         });
-
-        document.querySelectorAll(".diamond-btn").forEach((button) => {
-            button.classList.remove("active");
-        });
-    }
-});
 
 
 
@@ -2925,56 +2933,87 @@ document.addEventListener("click", (event) => {
             Contect US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
-        const closeContact = document.getElementById("closecontact");
-        const openContact = document.getElementById("openContact");
+const closeContact = document.getElementById("closecontact");
+const openContact = document.getElementById("openContact");
 
-        openContact.addEventListener("click", () => {
-            contactPopup.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        });
+if (openContact && contactPopup) {
+    openContact.addEventListener("click", () => {
+        contactPopup.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    });
+}
 
-        function closeContactPopup() {
-            contactPopup.style.display = "none";
-            document.body.style.overflow = "";
+function closeContactPopup() {
+    contactPopup.style.display = "none";
+    document.body.style.overflow = "";
+}
+
+if (closeContact) {
+    closeContact.addEventListener("click", closeContactPopup);
+}
+
+if (contactPopup) {
+    contactPopup.addEventListener("click", (event) => {
+        if (event.target === contactPopup) {
+            closeContactPopup();
         }
+    });
+}
 
-        closeContact.addEventListener("click", closeContactPopup);
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && contactPopup) {
+        closeContactPopup();
+    }
+});
 
-        contactPopup.addEventListener("click", (event) => {
-            if (event.target === contactPopup) {
-                closeContactPopup();
+// Contact Form Submission
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const submitBtn = contactForm.querySelector(".submit-btn");
+        const status = document.getElementById("formStatus");
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending...";
+
+        try {
+            const response = await fetch("/contact-submit", {
+                method: "POST",
+                headers: {
+                    "Accept": "application/json"
+                },
+                body: new FormData(contactForm)
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || "Something went wrong.");
             }
-        });
 
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape") {
+            status.textContent = result.message;
+            status.style.color = "#25D366";
+
+            contactForm.reset();
+
+            setTimeout(() => {
                 closeContactPopup();
-            }
-        });
+                status.textContent = "";
+            }, 2000);
 
-        document.getElementById("contactForm").addEventListener("submit", (event) => {
-            event.preventDefault();
+        } catch (error) {
+            status.textContent = error.message;
+            status.style.color = "red";
 
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const phone = document.getElementById("phone").value.trim();
-            const message = document.getElementById("message").value.trim();
-
-            const text =
-                "New LDTECS Website Inquiry\n\n" +
-                "Name: " + name + "\n" +
-                "Email: " + email + "\n" +
-                "Phone: " + phone + "\n" +
-                "Message: " + message;
-
-            const whatsappNumber = "917240713574";
-
-            const url =
-                "https://wa.me/" + whatsappNumber +
-                "?text=" + encodeURIComponent(text);
-
-            window.open(url, "_blank");
-        });
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message";
+        }
+    });
+}
 
         /*==================================================
             Footer contact

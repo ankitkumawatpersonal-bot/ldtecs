@@ -1898,7 +1898,7 @@
             position: absolute;
             top: 0px;
             left: calc(90% + 10px);
-            width: 260px;
+            width: 220px;
             padding: 8px;
             background: #ffffff;
             border-radius: 9px;
@@ -2237,9 +2237,9 @@
             }
     }
 
-    .navbar #openContact {
+    /* .navbar #openContact {
             display: none !important;
-        }
+        } */
 
     </style>
 </head>

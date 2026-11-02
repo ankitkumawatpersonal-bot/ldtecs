@@ -1472,7 +1472,7 @@
             position: absolute;
             top: 30px;
             left: calc(90% + 10px);
-            width: 260px;
+            width: 220px;
             padding: 8px;
             background: #fff;
             border: 1px solid #e5e5e5;
@@ -1810,9 +1810,9 @@
             }
     }
 
-    .navbar #openContact {
+    /* .navbar #openContact {
             display: none !important;
-        }
+        } */
 </style>
 </head>
 <body>

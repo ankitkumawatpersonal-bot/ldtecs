@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LdController;
 use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', [LdController::class, 'index'])->name('home');
 
@@ -34,3 +35,6 @@ Route::get('/product', function () {
 
 Route::post('/chatbot/message', [ChatbotController::class, 'chat'])
     ->name('chatbot.message');
+
+Route::post('/contact-submit', [ContactController::class, 'submit'])
+    ->name('contact.submit');
