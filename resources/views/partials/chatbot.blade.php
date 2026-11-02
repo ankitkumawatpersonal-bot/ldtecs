@@ -434,7 +434,7 @@
                 const link = document.createElement('a');
                 link.href = match[1];
                 link.textContent = match[1];
-                link.target = '_blank';
+                link.target = "_self";
                 link.rel = 'noopener noreferrer';
                 bubble.appendChild(link);
                 if (match[2]) bubble.appendChild(document.createTextNode(match[2]));
@@ -541,7 +541,7 @@
     });
 })();
 
-link.target = "_self";
+
 </script>
 </body>
 </html>
