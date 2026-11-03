@@ -2256,14 +2256,14 @@
         @media (max-width: 600px) {
             .floating-whatsapp {
                 right: 100px;
-                bottom: 28px;
+                bottom: 25px;
                 width: 55px;
                 height: 55px;
                 font-size: 35px;
             }
-    }
+        }
 
-    /* .navbar #openContact {
+        /* .navbar #openContact {
             display: none !important;
         } */
 

@@ -1372,7 +1372,7 @@
         }
 
         /* ===============================
-        MOBILE RESPONSIVE
+            MOBILE RESPONSIVE
         ================================ */
 
         @media (max-width: 480px) {
@@ -1701,7 +1701,7 @@
 
         /* ================================
            MOBILE NAVIGATION IMPROVEMENTS
-           ================================ */
+        ================================= */
         .menu-toggle {
             display: none;
             align-items: center;
@@ -2292,42 +2292,16 @@
         @media (max-width: 600px) {
             .floating-whatsapp {
                 right: 100px;
-                bottom: 28px;
+                bottom: 25px;
                 width: 55px;
                 height: 55px;
                 font-size: 35px;
             }
-    }
+        }
 
         /* .navbar #openContact {
             display: none !important;
         } */
-
-            .whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 75px;
-    height: 75px;
-    background: #25D366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.whatsapp-float img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
 
     </style>
 </head>
@@ -2477,31 +2451,23 @@
             <form id="contactForm">
                 @csrf
 
-                <input type="text" id="name" name="name"
-                    placeholder="Your Name" required>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-                <input type="email" id="email" name="email"
-                    placeholder="Your Email" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
 
-                <input type="tel" id="phone" name="phone"
-                    placeholder="Phone Number" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 
-                <textarea id="message" name="message"
-                        placeholder="Your Message" rows="4" required></textarea>
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
 
-                <button type="submit" class="submit-btn">
-                    Send Message
-                </button>
+                <button type="submit" class="submit-btn"> Send Message </button>
             </form>
-
-<p id="formStatus"></p>
+            <p id="formStatus"></p>
         </div>
     </div>
 
-
-    <!-- <section class="page3" id="services">
-            
-    </section> -->
+    <!-- /* =================================
+        Services Section
+    ====================================*/ -->
     <div class="services-title" id="services">
         <h1>Our Services</h1>
     </div>
@@ -2552,7 +2518,7 @@
                         <li>Predictive Analytics</li>
                         <li>Computer Vision</li>
                         <li>AI-Powered Automation</li>
-                        <li>Data Analysis & Integration</li>
+                        <li> Chatbot </li>
                     </ul>
 
                     <a href="machine-learning" class="learn-btn">
@@ -2704,6 +2670,7 @@
 
                         <div class="client-card">
                             <img src="rpv.jpg" alt="RPV Diamonds">
+                             <p> RPV Diamonds HongKong</p>
                         </div>
 
                     </div>
@@ -2756,12 +2723,6 @@
                 </div>
 
             </div>
-
-            <!-- Bottom Text
-            <div class="clients-footer">
-                <span class="clients-dot"></span>
-                Trusted by industry leaders
-            </div> -->
 
         </div>
 
@@ -2967,87 +2928,87 @@
             Contect US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
-const closeContact = document.getElementById("closecontact");
-const openContact = document.getElementById("openContact");
+        const closeContact = document.getElementById("closecontact");
+        const openContact = document.getElementById("openContact");
 
-if (openContact && contactPopup) {
-    openContact.addEventListener("click", () => {
-        contactPopup.style.display = "flex";
-        document.body.style.overflow = "hidden";
-    });
-}
-
-function closeContactPopup() {
-    contactPopup.style.display = "none";
-    document.body.style.overflow = "";
-}
-
-if (closeContact) {
-    closeContact.addEventListener("click", closeContactPopup);
-}
-
-if (contactPopup) {
-    contactPopup.addEventListener("click", (event) => {
-        if (event.target === contactPopup) {
-            closeContactPopup();
-        }
-    });
-}
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && contactPopup) {
-        closeContactPopup();
-    }
-});
-
-// Contact Form Submission
-const contactForm = document.getElementById("contactForm");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", async (event) => {
-        event.preventDefault();
-
-        const submitBtn = contactForm.querySelector(".submit-btn");
-        const status = document.getElementById("formStatus");
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending...";
-
-        try {
-            const response = await fetch("/contact-submit", {
-                method: "POST",
-                headers: {
-                    "Accept": "application/json"
-                },
-                body: new FormData(contactForm)
+        if (openContact && contactPopup) {
+            openContact.addEventListener("click", () => {
+                contactPopup.style.display = "flex";
+                document.body.style.overflow = "hidden";
             });
-
-            const result = await response.json();
-
-            if (!response.ok) {
-                throw new Error(result.message || "Something went wrong.");
-            }
-
-            status.textContent = result.message;
-            status.style.color = "#25D366";
-
-            contactForm.reset();
-
-            setTimeout(() => {
-                closeContactPopup();
-                status.textContent = "";
-            }, 2000);
-
-        } catch (error) {
-            status.textContent = error.message;
-            status.style.color = "red";
-
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Send Message";
         }
-    });
-}
+
+        function closeContactPopup() {
+            contactPopup.style.display = "none";
+            document.body.style.overflow = "";
+        }
+
+        if (closeContact) {
+            closeContact.addEventListener("click", closeContactPopup);
+        }
+
+        if (contactPopup) {
+            contactPopup.addEventListener("click", (event) => {
+                if (event.target === contactPopup) {
+                    closeContactPopup();
+                }
+            });
+        }
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && contactPopup) {
+                closeContactPopup();
+            }
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById("contactForm");
+
+        if (contactForm) {
+            contactForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const submitBtn = contactForm.querySelector(".submit-btn");
+                const status = document.getElementById("formStatus");
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Sending...";
+
+                try {
+                    const response = await fetch("/contact-submit", {
+                        method: "POST",
+                        headers: {
+                            "Accept": "application/json"
+                        },
+                        body: new FormData(contactForm)
+                    });
+
+                    const result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(result.message || "Something went wrong.");
+                    }
+
+                    status.textContent = result.message;
+                    status.style.color = "#25D366";
+
+                    contactForm.reset();
+
+                    setTimeout(() => {
+                        closeContactPopup();
+                        status.textContent = "";
+                    }, 2000);
+
+                } catch (error) {
+                    status.textContent = error.message;
+                    status.style.color = "red";
+
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Send Message";
+                }
+            });
+        }
 
         /*==================================================
             Footer contact
@@ -3086,53 +3047,53 @@ if (contactForm) {
 
         document.querySelectorAll('.diamond-btn').forEach(button => {
 
-    button.addEventListener('click', function () {
+            button.addEventListener('click', function () {
 
-        const popup = this.nextElementSibling;
+                const popup = this.nextElementSibling;
 
-        popup.classList.toggle('show');
+                popup.classList.toggle('show');
 
-        this.classList.toggle('active');
+                this.classList.toggle('active');
 
-    });
+            });
 
-});
+        });
 
-// document.addEventListener("DOMContentLoaded", function () {
+        // document.addEventListener("DOMContentLoaded", function () {
 
-//     const whatsappBtn = document.getElementById("whatsappContact");
-//     const contactPopup = document.getElementById("contactPopup");
-//     const closeContact = document.getElementById("closecontact");
+        //     const whatsappBtn = document.getElementById("whatsappContact");
+        //     const contactPopup = document.getElementById("contactPopup");
+        //     const closeContact = document.getElementById("closecontact");
 
-//     // WhatsApp click - Open Contact Popup
-//     if (whatsappBtn && contactPopup) {
-//         whatsappBtn.addEventListener("click", function (e) {
-//             e.preventDefault();
+        //     // WhatsApp click - Open Contact Popup
+        //     if (whatsappBtn && contactPopup) {
+        //         whatsappBtn.addEventListener("click", function (e) {
+        //             e.preventDefault();
 
-//             contactPopup.style.display = "flex";
-//             document.body.style.overflow = "hidden";
-//         });
-//     }
+        //             contactPopup.style.display = "flex";
+        //             document.body.style.overflow = "hidden";
+        //         });
+        //     }
 
-//     // Close popup
-//     if (closeContact && contactPopup) {
-//         closeContact.addEventListener("click", function () {
-//             contactPopup.style.display = "none";
-//             document.body.style.overflow = "";
-//         });
-//     }
+        //     // Close popup
+        //     if (closeContact && contactPopup) {
+        //         closeContact.addEventListener("click", function () {
+        //             contactPopup.style.display = "none";
+        //             document.body.style.overflow = "";
+        //         });
+        //     }
 
-//     // Outside click
-//     if (contactPopup) {
-//         contactPopup.addEventListener("click", function (e) {
-//             if (e.target === contactPopup) {
-//                 contactPopup.style.display = "none";
-//                 document.body.style.overflow = "";
-//             }
-//         });
-//     }
+        //     // Outside click
+        //     if (contactPopup) {
+        //         contactPopup.addEventListener("click", function (e) {
+        //             if (e.target === contactPopup) {
+        //                 contactPopup.style.display = "none";
+        //                 document.body.style.overflow = "";
+        //             }
+        //         });
+        //     }
 
-// });
+        // });
 
     </script>
 
