@@ -1173,7 +1173,7 @@
         } */
 
         .clients-heading h2 {
-            font-size: clamp(35px, 4vw, 45px);
+            font-size: clamp(35px, 4vw, 40px);
             font-weight: 650;
             color: #103b60;
             margin: 0 0 18px;
@@ -3095,125 +3095,6 @@
         </div>
     </section>
 
-    <section class="page5" id="our-clients">
-
-        <div class="clients-section">
-
-            <!-- Section Heading -->
-            <div class="clients-heading">
-                <!-- <span class="clients-label">TRUSTED PARTNERS</span> -->
-
-                <h2>
-                    Our Clients
-                </h2>
-
-                <!-- <p>
-                    Building strong relationships through innovation,
-                    technology and trust.
-                </p> -->
-            </div>
-
-            <!-- Clients Marquee -->
-            <div class="marquee">
-
-                <div class="marquee-track">
-
-                    <!-- First Group -->
-                    <div class="marquee-group">
-
-                        <div class="client-card">
-                            <img src="seven.png" alt="Seven Star">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="tenx.png" alt="Tenx">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="uni-design.png" alt="Uni Design">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="mahavir.png" alt="Mahavir">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="shivaye.png" alt="Shivaye Diamonds">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="hari-krishana.svg" alt="Hari Krishna">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="manisha gems.webp" alt="Manisha Gems">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="nature.png" alt="Nature's Art">
-                        </div>
-
-                    </div>
-
-                    <!-- Duplicate Group for Infinite Animation -->
-                    <div class="marquee-group" aria-hidden="true">
-
-                        <div class="client-card">
-                            <img src="seven.png" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="tenx.png" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="uni-design.png" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="mahavir.png" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="shivaye.png" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="hari-krishana.svg" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="mahindra diamonds.jpg" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="manisha gems.webp" alt="">
-                        </div>
-
-                        <div class="client-card">
-                            <img src="nature.png" alt="">
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Bottom Text
-            <div class="clients-footer">
-                <span class="clients-dot"></span>
-                Trusted by industry leaders
-            </div> -->
-
-        </div>
-
-    </section>
-
     <section class="vision-mission">
 
         <div class="content-wrapper" id="icon">
@@ -3311,6 +3192,120 @@
         </div>
     </section>
 
+    <section class="page5" id="our-clients">
+
+        <div class="clients-section">
+
+            <!-- Section Heading -->
+            <div class="clients-heading">
+                <h2>
+                    Our Clients
+                </h2>
+            </div>
+
+            <!-- Clients Marquee -->
+            <div class="marquee">
+
+                <div class="marquee-track">
+
+                    <!-- First Group -->
+                    <div class="marquee-group">
+
+                        <div class="client-card">
+                            <img src="seven.png" alt="Seven Star">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="tenx.png" alt="Tenx">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="uni-design.png" alt="Uni Design">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahavir.png" alt="Mahavir">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="shivaye.png" alt="Shivaye Diamonds">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="hari-krishana.svg" alt="Hari Krishna">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="manisha gems.webp" alt="Manisha Gems">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="nature.png" alt="Nature's Art">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="rpv.jpg" alt="RPV Diamonds">
+                        </div>
+
+                    </div>
+
+                    <!-- Duplicate Group for Infinite Animation -->
+                    <div class="marquee-group" aria-hidden="true">
+
+                        <div class="client-card">
+                            <img src="seven.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="tenx.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="uni-design.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahavir.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="shivaye.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="hari-krishana.svg" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="mahindra diamonds.jpg" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="manisha gems.webp" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="nature.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="rpv.jpg" alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
     <footer class="footer">
 
         <div class="footer-cta">
@@ -3357,7 +3352,7 @@
             </div>
 
             <!-- Contact -->
-            <div class="footer-column contact" id="contect">
+            <div class="footer-column contact" id="contact">
                 <h3>CONTACT US</h3>
 
                 <h4>SALES INQUIRY</h4>
@@ -3450,48 +3445,48 @@
             });
         }
 
-                /*====================================
+        /*====================================
             Product dropdown 
         ======================================*/
         
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const popup = menu.querySelector(".diamond-side-popup");
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const popup = menu.querySelector(".diamond-side-popup");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        const isOpen = popup.classList.contains("show");
+                const isOpen = popup.classList.contains("show");
 
-        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
-            item.classList.remove("show");
+                document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+                    item.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                if (!isOpen) {
+                    popup.classList.add("show");
+                    button.classList.add("active");
+                }
+            });
         });
 
-        document.querySelectorAll(".diamond-btn").forEach((item) => {
-            item.classList.remove("active");
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".diamond-menu")) {
+                document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+                    popup.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
         });
 
-        if (!isOpen) {
-            popup.classList.add("show");
-            button.classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("click", (event) => {
-    if (!event.target.closest(".diamond-menu")) {
-        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
-            popup.classList.remove("show");
-        });
-
-        document.querySelectorAll(".diamond-btn").forEach((button) => {
-            button.classList.remove("active");
-        });
-    }
-});
-
- /*====================================
+        /*====================================
             Contect US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
@@ -3577,49 +3572,47 @@ document.addEventListener("click", (event) => {
             }
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
+        // document.addEventListener("DOMContentLoaded", function () {
 
-    const whatsappBtn = document.getElementById("whatsappContact");
-    const contactPopup = document.getElementById("contactPopup");
-    const closeContact = document.getElementById("closecontact");
+        //     const whatsappBtn = document.getElementById("whatsappContact");
+        //     const contactPopup = document.getElementById("contactPopup");
+        //     const closeContact = document.getElementById("closecontact");
 
-    // WhatsApp click - Open Contact Popup
-    if (whatsappBtn && contactPopup) {
-        whatsappBtn.addEventListener("click", function (e) {
-            e.preventDefault();
+        //     // WhatsApp click - Open Contact Popup
+        //     if (whatsappBtn && contactPopup) {
+        //         whatsappBtn.addEventListener("click", function (e) {
+        //             e.preventDefault();
 
-            contactPopup.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        });
-    }
+        //             contactPopup.style.display = "flex";
+        //             document.body.style.overflow = "hidden";
+        //         });
+        //     }
 
-    // Close popup
-    if (closeContact && contactPopup) {
-        closeContact.addEventListener("click", function () {
-            contactPopup.style.display = "none";
-            document.body.style.overflow = "";
-        });
-    }
+        //     // Close popup
+        //     if (closeContact && contactPopup) {
+        //         closeContact.addEventListener("click", function () {
+        //             contactPopup.style.display = "none";
+        //             document.body.style.overflow = "";
+        //         });
+        //     }
 
-    // Outside click
-    if (contactPopup) {
-        contactPopup.addEventListener("click", function (e) {
-            if (e.target === contactPopup) {
-                contactPopup.style.display = "none";
-                document.body.style.overflow = "";
-            }
-        });
-    }
+        //     // Outside click
+        //     if (contactPopup) {
+        //         contactPopup.addEventListener("click", function (e) {
+        //             if (e.target === contactPopup) {
+        //                 contactPopup.style.display = "none";
+        //                 document.body.style.overflow = "";
+        //             }
+        //         });
+        //     }
 
-});
+        // });
 
     </script>
 
-    <a href="javascript:void(0)"
-   class="floating-whatsapp"
-   id="whatsappContact">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
+    <a href="https://wa.me/917240713574" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     @include('partials.chatbot')
 </body>

@@ -1164,7 +1164,7 @@
         } */
 
         .clients-heading h2 {
-            font-size: clamp(35px, 4vw, 45px);
+            font-size: clamp(35px, 4vw, 40px);
             font-weight: 650;
             color: #103b60;
             margin: 0 0 18px;
@@ -2303,6 +2303,32 @@
             display: none !important;
         } */
 
+            .whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
     </style>
 </head>
 <body>
@@ -2676,6 +2702,10 @@
                             <img src="nature.png" alt="Nature's Art">
                         </div>
 
+                        <div class="client-card">
+                            <img src="rpv.jpg" alt="RPV Diamonds">
+                        </div>
+
                     </div>
 
                     <!-- Duplicate Group for Infinite Animation -->
@@ -2715,6 +2745,10 @@
 
                         <div class="client-card">
                             <img src="nature.png" alt="">
+                        </div>
+
+                        <div class="client-card">
+                            <img src="rpv.jpg" alt="">
                         </div>
 
                     </div>
@@ -3064,49 +3098,47 @@ if (contactForm) {
 
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
 
-    const whatsappBtn = document.getElementById("whatsappContact");
-    const contactPopup = document.getElementById("contactPopup");
-    const closeContact = document.getElementById("closecontact");
+//     const whatsappBtn = document.getElementById("whatsappContact");
+//     const contactPopup = document.getElementById("contactPopup");
+//     const closeContact = document.getElementById("closecontact");
 
-    // WhatsApp click - Open Contact Popup
-    if (whatsappBtn && contactPopup) {
-        whatsappBtn.addEventListener("click", function (e) {
-            e.preventDefault();
+//     // WhatsApp click - Open Contact Popup
+//     if (whatsappBtn && contactPopup) {
+//         whatsappBtn.addEventListener("click", function (e) {
+//             e.preventDefault();
 
-            contactPopup.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        });
-    }
+//             contactPopup.style.display = "flex";
+//             document.body.style.overflow = "hidden";
+//         });
+//     }
 
-    // Close popup
-    if (closeContact && contactPopup) {
-        closeContact.addEventListener("click", function () {
-            contactPopup.style.display = "none";
-            document.body.style.overflow = "";
-        });
-    }
+//     // Close popup
+//     if (closeContact && contactPopup) {
+//         closeContact.addEventListener("click", function () {
+//             contactPopup.style.display = "none";
+//             document.body.style.overflow = "";
+//         });
+//     }
 
-    // Outside click
-    if (contactPopup) {
-        contactPopup.addEventListener("click", function (e) {
-            if (e.target === contactPopup) {
-                contactPopup.style.display = "none";
-                document.body.style.overflow = "";
-            }
-        });
-    }
+//     // Outside click
+//     if (contactPopup) {
+//         contactPopup.addEventListener("click", function (e) {
+//             if (e.target === contactPopup) {
+//                 contactPopup.style.display = "none";
+//                 document.body.style.overflow = "";
+//             }
+//         });
+//     }
 
-});
+// });
 
     </script>
 
-    <a href="javascript:void(0)"
-   class="floating-whatsapp"
-   id="whatsappContact">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
+    <a href="https://wa.me/917240713574" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     @include('partials.chatbot')
 </body>

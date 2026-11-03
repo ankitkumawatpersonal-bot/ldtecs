@@ -2251,49 +2251,47 @@ document.addEventListener("click", (event) => {
             }
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
+//         document.addEventListener("DOMContentLoaded", function () {
 
-    const whatsappBtn = document.getElementById("whatsappContact");
-    const contactPopup = document.getElementById("contactPopup");
-    const closeContact = document.getElementById("closecontact");
+//     const whatsappBtn = document.getElementById("whatsappContact");
+//     const contactPopup = document.getElementById("contactPopup");
+//     const closeContact = document.getElementById("closecontact");
 
-    // WhatsApp click - Open Contact Popup
-    if (whatsappBtn && contactPopup) {
-        whatsappBtn.addEventListener("click", function (e) {
-            e.preventDefault();
+//     // WhatsApp click - Open Contact Popup
+//     if (whatsappBtn && contactPopup) {
+//         whatsappBtn.addEventListener("click", function (e) {
+//             e.preventDefault();
 
-            contactPopup.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        });
-    }
+//             contactPopup.style.display = "flex";
+//             document.body.style.overflow = "hidden";
+//         });
+//     }
 
-    // Close popup
-    if (closeContact && contactPopup) {
-        closeContact.addEventListener("click", function () {
-            contactPopup.style.display = "none";
-            document.body.style.overflow = "";
-        });
-    }
+//     // Close popup
+//     if (closeContact && contactPopup) {
+//         closeContact.addEventListener("click", function () {
+//             contactPopup.style.display = "none";
+//             document.body.style.overflow = "";
+//         });
+//     }
 
-    // Outside click
-    if (contactPopup) {
-        contactPopup.addEventListener("click", function (e) {
-            if (e.target === contactPopup) {
-                contactPopup.style.display = "none";
-                document.body.style.overflow = "";
-            }
-        });
-    }
+//     // Outside click
+//     if (contactPopup) {
+//         contactPopup.addEventListener("click", function (e) {
+//             if (e.target === contactPopup) {
+//                 contactPopup.style.display = "none";
+//                 document.body.style.overflow = "";
+//             }
+//         });
+//     }
 
-});
+// });
 
     </script>
 
-    <a href="javascript:void(0)"
-   class="floating-whatsapp"
-   id="whatsappContact">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
+    <a href="https://wa.me/917240713574" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     @include('partials.chatbot')
 </body>
