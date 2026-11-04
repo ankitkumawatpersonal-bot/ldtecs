@@ -48,7 +48,6 @@
             width:100%;
         }
 
-
         .header {
             position: sticky;
             margin-top:0px;
@@ -223,7 +222,6 @@
             .product-menu1 {
                 width: 100%;
             }
-            
 
             .product-popup,.product-popup1{
                 position: absolute;
@@ -254,10 +252,6 @@
                 font-size: 30px;
             }
         }
-
-        /* .product-menu, .product-menu1{
-            position:relative;
-        } */
 
         .product-link{
             text-decoration:none;
@@ -366,10 +360,6 @@
             border-left: 2px solid gray;
         }
 
-        /* .product-popup a:hover{
-            background: #f1f7f7;
-            color: #e9aa6b;
-        } */
         .product-popup1 a:hover{
             background: #173237;
             color: #fff;
@@ -425,7 +415,6 @@
             margin-top:50px;
         }
 
-
         .page1{
             width:100%;
             min-height:100vh;
@@ -473,26 +462,17 @@
         .product-card1 {
             width:100%;
             min-height:360px;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             /* padding: 30px 20px 25px; */
             margin:50px 0;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
-
             transition:
                 transform 0.4s ease,
                 box-shadow 0.4s ease,
@@ -553,7 +533,6 @@
             }
         }
 
-
         @media (max-width: 600px) {
 
             .page2 {
@@ -588,25 +567,16 @@
             flex:1 1 220px;
             max-width:320px;
             min-height:100px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:30px 24px;
             margin:0;
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -647,7 +617,6 @@
             .all {
                 gap:20px;
             }
-
         }
 
 
@@ -672,20 +641,12 @@
             flex:1 1 240px;
             max-width:360px;
             min-height:20px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:10px 24px 30px;
-            
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
 
@@ -753,7 +714,7 @@
             padding-bottom:50px;
             text-align:left;
             line-height:2;
-            font-size:20px;
+            font-size:18px;
             font-family: Microsoft Sans Serif;
             font-weight:500;
         }
@@ -793,15 +754,15 @@
 
             position: relative;
         }
-        .product-car {
+        /* .product-card {
             width:auto;
             flex:1 1 240px;
             max-width:250px;
             min-height:150px;
 
-            /* border: 2px solid #111;
+            border: 2px solid #111;
 
-            border-radius: 20px; */
+            border-radius: 20px;
             padding:30px 24px;
             margin-top:70px;            
 
@@ -814,7 +775,7 @@
             overflow: hidden;
 
             position: relative;
-        }
+        } */
         .product-image.try {
             width:100%;
             max-width:500px;
@@ -862,32 +823,20 @@
             font-weight:500;
         }
 
-        /* .scan p{
-            font-size:16px;
-            letter-spacing:1px;
-            font-weight:400;
-        } */
-
         .product-card6 {
             width:auto;
             flex:1 1 240px;
             max-width:200px;
             min-height:100px;
-
             /* border: 2px solid #111;
-
             border-radius: 20px; */
             padding:30px 24px;
             margin-top:50px;            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -1014,152 +963,91 @@
         .product-card8 .paragraph2 p{
             margin-bottom:12px;
         }
-         /* =========================================
-        TABLET
+
+        /* =========================================
+            TABLET
         ========================================= */
 
         @media (max-width: 1100px) {
 
             .page2 {
-
                 padding: 25px;
             }
 
             .products-container {
-
                 grid-template-columns: repeat(2, 1fr);
-
                 gap: 20px;
             }
 
             .product-card {
+                min-height: 300px;
+            }
 
-            min-height: 300px;
+            .product-image-link {
+                height: 350px;
+            }
         }
-
-        .product-image-link {
-
-            height: 350px;
-        }
-
-        }
-
 
         /* =========================================
-        MOBILE
+            MOBILE
         ========================================= */
 
         @media (max-width: 700px) {
 
             .page2 {
-
                 padding: 45px 15px 60px;
             }
 
             .products-title {
-
                 margin-bottom: 35px;
-
                 font-size: 38px;
             }
 
             .products-container {
-
                 grid-template-columns: 1fr;
-
                 gap: 25px;
-
                 max-width: 500px;
             }
 
             .product-card {
-
                 min-height: 580px;
-
                 padding: 25px 15px;
             }
 
             .product-image-link {
-
                 height: 350px;
             }
 
             .product-image {
-
                 width: 90%;
             }
-
-            .diem h2 {
-
-                font-size: 20px;
-
-                letter-spacing: 6px;
-            }
-
-            .diem h3 {
-
-                font-size: 16px;
-
-                letter-spacing: 5px;
-
-                padding-right: 12%;
-            }
-
         }
 
-
         /* =========================================
-        SMALL MOBILE
+            SMALL MOBILE
         ========================================= */
 
         @media (max-width: 450px) {
 
             .page2 {
-
                 padding: 35px 10px 50px;
             }
 
             .products-title {
-
                 font-size: 32px;
             }
 
             .product-card {
-
                 min-height: 520px;
-
                 border-radius: 15px;
             }
 
             .product-image-link {
-
                 height: 300px;
             }
-
-            .diem h2 {
-
-                font-size: 20px;
-
-                letter-spacing: 4px;
-            }
-
-            .diem h3 {
-
-                font-size: 16px;
-
-                letter-spacing: 4px;
-            }
-
-            .diem p {
-
-                font-size: 16px;
-            }
-
         }
-    
 
-
-        @media (max-width: 900px) {
+        /* @media (max-width: 900px) {
             .footer-container {
                 grid-template-columns: 1fr 1fr;
                 gap: 35px;
@@ -1176,7 +1064,7 @@
             .footer-bottom {
                 justify-content: flex-start;
             }
-        }
+        } */
 
         @media (max-width: 600px) {
             .footer {
@@ -1361,8 +1249,6 @@
             .hero p { font-size: 16px; }
         }
 
-
-
         /* Mobile navbar and hamburger menu */
         .header {
             position: sticky;
@@ -1477,7 +1363,6 @@
                             border-bottom: 1px solid rgba(255,255,255,.1);
             }
         }
-
 
         /* PAGE 1 - Mobile responsive layout */
         @media (max-width: 820px) {
@@ -1920,8 +1805,6 @@
             transition: background 0.2s ease, color 0.2s ease;
         }
 
-        
-
         .diamond-side-popup a.active{
             background: #173237;
             color: #fff;
@@ -1932,8 +1815,6 @@
             background: #173237;
             color: #fff;
         }
-
-
 
         .diamond-side-popup a:last-child {
             border-bottom: none;
@@ -2233,11 +2114,7 @@
                 height: 55px;
                 font-size: 35px;
             }
-    }
-
-    /* .navbar #openContact {
-            display: none !important;
-        } */
+        }
 
     </style>
 </head>
@@ -2431,11 +2308,11 @@
                 <h1> Key Features </h1>
             </div>
             <div class="paragraph1">
-                <p id="source"><i class="fa-solid fa-circle-arrow-right"></i> <b>comprehensive Diamond Detection - </b> The machine is designed to <b>detect natural diamonds, lab-grown diamonds(CVD, HPHT), and non-doamond simulants like CZ,</b> While also identifiyng RFT. It can <b>scan loose diamonds</b> 
-                    as well as various types to <b>Small jewellery, including neckless, earings, bangles and more.</b> </p>
-                <p id="sourc"><i class="fa-solid fa-circle-arrow-right"></i> <b>Smart Auto-Marking - </b>The machine features <b>advanced automatic diamond detection,</b> simplifying the identification process and enhancing accuracy. </p>
-                <p id="sour"><i class="fa-solid fa-circle-arrow-right"></i> <b> Internal Fluorescent Light - </b>This system uses <b> UV light with a unique wavelight</b> to reduce false positive and simulant light to detect non-diamonds, making it the first machine to incorporate this advanced technology. </p>
-                <p id="sou"><i class="fa-solid fa-circle-arrow-right"></i> <b>Advanced Data Management - </b>Offers auto-save and manual save options with customizable details like name, lot number, and other details. Comes with <b>256 GB Storage</b> and an In-app gallery for easy access.</p>
+                <p id="source"><i class="fa-solid fa-circle-arrow-right"></i><b>Comprehensive Diamond Detection </b> - The machine is designed to detect natural diamonds, lab-grown diamonds(CVD, HPHT), and non-doamond simulants like CZ, While also identifiyng RFT. It can scan loose diamonds
+                    as well as various types to Small jewellery, including neckless, earings, bangles and more. </p>
+                <p id="sourc"><i class="fa-solid fa-circle-arrow-right"></i> <b>Smart Auto-Marking - </b>The machine features advanced automatic diamond detection, simplifying the identification process and enhancing accuracy. </p>
+                <p id="sour"><i class="fa-solid fa-circle-arrow-right"></i> <b> Internal Fluorescent Light - </b>This system uses UV light with a unique wavelight to reduce false positive and simulant light to detect non-diamonds, making it the first machine to incorporate this advanced technology. </p>
+                <p id="sou"><i class="fa-solid fa-circle-arrow-right"></i> <b>Advanced Data Management - </b>Offers auto-save and manual save options with customizable details like name, lot number, and other details. Comes with 256 GB Storage and an In-app gallery for easy access.</p>
                 <p id="so"><i class="fa-solid fa-circle-arrow-right"></i> <b>Certificate Generations - </b> Allow users to create professional certificates with customizable featuers, enabling branding for their company. </p>
                 <p id="s"><i class="fa-solid fa-circle-arrow-right"></i> <b>Seamless Record Sharing - </b> Effortiessly share records via Email, or any mobile sharing feature for quick and secure data tranfer. </p>
                 <p id="same"><i class="fa-solid fa-circle-arrow-right"></i> <b> 15X Zoom for Precision - </b> Equipped with 15X zooming capabilities allowing for clear and detailed viewing of individual diamonds. </p>
@@ -2591,19 +2468,9 @@
             <div class="footer-column company" id="footer-column">
                 <h3>CORPORATE HEADQUARTERS:</h3>
 
-                <p>
-                    LDTECS<br>
-                    
-                </p>
+                <p>LDTECS</p>
+                <p>Surat, Gujarat, India </p>
 
-                <p>
-                    Surat, Gujarat, India
-                </p>
-
-                <p>
-                    <!-- Phone : +91 261 2309900<br>
-                    Email : contact@drcindia.in -->
-                </p>
             </div>
 
             <!-- Quick Links -->
@@ -2661,11 +2528,6 @@
                 © 2026 ldtecs INDIA. All rights reserved.
             </p>
 
-            <!-- <div class="certificates">
-                <div class="certificate">ISO 9001<br><small>ISOQAR</small></div>
-                <div class="certificate">✓<br><small>MANAGEMENT<br>SYSTEMS</small></div>
-            </div> -->
-
         </div>
 
     </footer>
@@ -2721,45 +2583,45 @@
             Product dropdown 
         ======================================*/
         
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const popup = menu.querySelector(".diamond-side-popup");
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const popup = menu.querySelector(".diamond-side-popup");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        const isOpen = popup.classList.contains("show");
+                const isOpen = popup.classList.contains("show");
 
-        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
-            item.classList.remove("show");
+                document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+                    item.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                if (!isOpen) {
+                    popup.classList.add("show");
+                    button.classList.add("active");
+                }
+            });
         });
 
-        document.querySelectorAll(".diamond-btn").forEach((item) => {
-            item.classList.remove("active");
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".diamond-menu")) {
+                document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+                    popup.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
         });
 
-        if (!isOpen) {
-            popup.classList.add("show");
-            button.classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("click", (event) => {
-    if (!event.target.closest(".diamond-menu")) {
-        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
-            popup.classList.remove("show");
-        });
-
-        document.querySelectorAll(".diamond-btn").forEach((button) => {
-            button.classList.remove("active");
-        });
-    }
-});
-
- /*====================================
-            Contect US 
+        /*====================================
+            Contact US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
         const closeContact = document.getElementById("closecontact");
@@ -2843,42 +2705,6 @@ document.addEventListener("click", (event) => {
                 });
             }
         });
-
-        // document.addEventListener("DOMContentLoaded", function () {
-
-        //     const whatsappBtn = document.getElementById("whatsappContact");
-        //     const contactPopup = document.getElementById("contactPopup");
-        //     const closeContact = document.getElementById("closecontact");
-
-        //     // WhatsApp click - Open Contact Popup
-        //     if (whatsappBtn && contactPopup) {
-        //         whatsappBtn.addEventListener("click", function (e) {
-        //             e.preventDefault();
-
-        //             contactPopup.style.display = "flex";
-        //             document.body.style.overflow = "hidden";
-        //         });
-        //     }
-
-        //     // Close popup
-        //     if (closeContact && contactPopup) {
-        //         closeContact.addEventListener("click", function () {
-        //             contactPopup.style.display = "none";
-        //             document.body.style.overflow = "";
-        //         });
-        //     }
-
-        //     // Outside click
-        //     if (contactPopup) {
-        //         contactPopup.addEventListener("click", function (e) {
-        //             if (e.target === contactPopup) {
-        //                 contactPopup.style.display = "none";
-        //                 document.body.style.overflow = "";
-        //             }
-        //         });
-        //     }
-
-        // });
 
     </script>
 

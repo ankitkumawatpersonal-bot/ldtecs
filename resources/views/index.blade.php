@@ -54,8 +54,6 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px 50px;
-            /* background: var(--bg-2); */
-            /* border-bottom: 1px solid black; */
             box-shadow: 0 2px 12px rgba(25, 27, 25, 0.08);
         }
 
@@ -67,9 +65,6 @@
         .img {
             width: 100px;
             height: 120px;
-            /* background-color: var(--text);
-            border: 2px solid var(--accent);
-            border-radius: 10px; */
             cursor: pointer;
             object-fit: cover;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -77,16 +72,7 @@
 
         .img:hover {
             transform: scale(1.06);
-            /* box-shadow: 0 4px 12px rgba(36, 161, 156, 0.35); */
         }
-
-        /* .brand {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-left: 12px;
-            letter-spacing: 0.5px;
-        } */
 
         .navbar {
             display: flex;
@@ -98,8 +84,7 @@
         .navbar a {
             position: relative;
             text-decoration: none;
-            font-size: 16px;
-            
+            font-size: 16px; 
             font-weight: 600;
             color: #ffffff;
             padding: 8px 2px;
@@ -171,7 +156,6 @@
 
         .hero span {
             color: #42b9e4;
-
         }
 
         .hero p {
@@ -274,7 +258,6 @@
             top: calc(110% + 30px);
             width: 200px;
             height:75px;
-            /* background: #fff; */
             border-radius: 8px;
             padding: 0px 0;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -298,7 +281,6 @@
             padding: 12px 0;
             padding-right:20px;
             padding-left:20px;
-            
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             opacity: 0;
             font-family: 'Poppins', sans-serif;
@@ -333,10 +315,6 @@
             border-left: 2px solid #eee;
             transition: background 0.2s ease, color 0.2s ease;
         }
-
-        /* .services p{
-            padding-right:20px;
-        } */
 
         .service p{
             padding-right:60px;
@@ -375,11 +353,6 @@
             color: #fff;
         }
 
-        /* .nano1, .lite1 {
-            padding: 0 10px;
-            border-left: 2px solid gray;
-        } */
-
         .page1{
             position:relative;
             width:100%;
@@ -389,16 +362,14 @@
             isolation:isolate;
         }
         /* =========================================
-        OUR PRODUCTS SECTION
+            OUR PRODUCTS SECTION
         ========================================= */
 
         .page2 {
             width: 100%;
             min-height: 100vh;
             padding: 70px 35px 80px;
-
             background-color: #fff;
-
             text-align: center;
             overflow: hidden;
         }
@@ -410,14 +381,10 @@
 
         .products-title {
             margin: 0 0 55px;
-
             font-family: "Segoe UI", Arial, sans-serif;
             font-size: clamp(35px, 4vw, 38px);
             font-weight: 650;
-
-
             color: #103b60;
-
             opacity: 1;
         }
 
@@ -427,18 +394,12 @@
         ========================================= */
 
         .products-container {
-
             width: 90%;
             max-width: 1500px;
-
             margin: 0 auto;
-
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 20px;
-
             align-items: stretch;
         }
 
@@ -448,28 +409,18 @@
         ========================================= */
 
         .product-card {
-
             width: 90%;
             min-height: 320px;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding: 20px 10px 15px;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: space-between;
-
             overflow: hidden;
-
             position: relative;
-            
             transition:
                 transform 0.4s ease,
                 box-shadow 0.4s ease,
@@ -478,79 +429,60 @@
 
 
         /* =========================================
-        CARD HOVER
+            CARD HOVER
         ========================================= */
 
         .product-card:hover {
-
             transform: translateY(-10px);
-
-            box-shadow:
-                0 20px 45px rgba(0, 0, 0, 0.15);
-
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
             border-color: #24a19c;
         }
 
 
         /* =========================================
-        IMAGE LINK
+            IMAGE LINK
         ========================================= */
 
         .product-image-link {
-
             width: 100%;
             height: 250px;
-
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             text-decoration: none;
-
             overflow: hidden;
-
             border-radius: 12px;
         }
 
 
         /* =========================================
-        PRODUCT IMAGE
+            PRODUCT IMAGE
         ========================================= */
 
         .product-image {
-
             width: 90%;
             height: 100%;
-
             object-fit: contain;
-
             display: block;
-
             cursor: pointer;
-
             transform: scale(1);
-
             transition:
                 transform 0.5s ease,
                 filter 0.5s ease;
         }
 
-
         /* =========================================
-        IMAGE HOVER ZOOM
+            IMAGE HOVER ZOOM
         ========================================= */
 
         .product-card:hover .product-image {
-
             transform: scale(1.08);
-
             filter: brightness(1.03);
         }
 
 
         /* =========================================
-        INDIVIDUAL IMAGE SIZE
+            INDIVIDUAL IMAGE SIZE
         ========================================= */
 
         .product-image.elite {
@@ -559,13 +491,11 @@
             object-fit: contain;
         }
 
-
         .product-image.lite {
             width: 90%;
             height: 85%;
             object-fit: contain;
         }
-
 
         .product-image.nano {
             width: 62%;
@@ -573,19 +503,15 @@
             object-fit: contain;
         }
 
-
         /* =========================================
-        PRODUCT DETAILS
+            PRODUCT DETAILS
         ========================================= */
 
         .diem {
             width: 100%;
             margin-top: 20px;
-
             text-align: center;
-
             color: #103b60;
-
             font-family:
                 "Bahnschrift SemiBold Condensed",
                 "Segoe UI",
@@ -593,241 +519,180 @@
                 sans-serif;
         }
 
-
         /* =========================================
         PRODUCT NAME
         ========================================= */
 
         .diem h2 {
-
             margin: 0;
-
             font-family:
                 "Times New Roman",
                 serif;
-
             font-size: clamp(30px, 2.5vw, 42px);
-
             font-weight: 500;
-
             letter-spacing: 8px;
-
             line-height: 1.1;
-
             color: #103b60;
         }
 
-
         /* =========================================
-        ELITE / LITE / NANO
+            ELITE / LITE / NANO
         ========================================= */
 
         .diem h3 {
-
             margin: 5px 0 15px;
-
             font-family:
                 "Times New Roman",
                 serif;
-
             font-size: clamp(18px, 1.5vw, 25px);
-
             font-weight: 500;
-
             letter-spacing: 6px;
-
             color: #324c65;
-
             text-align: right;
-
             padding-right: 10%;
         }
 
-
         /* =========================================
-        DIMENSION
+            DIMENSION
         ========================================= */
 
         .diem p {
-
             margin: 5px 0;
-
             font-size: 18px;
             font-weight: 500;
-
             line-height: 1.4;
-
             color: #506b82;
         }
 
 
         /* =========================================
-        FIRST DIMENSION TEXT
+            FIRST DIMENSION TEXT
         ========================================= */
 
         .diem p:first-of-type {
-
             margin-top: 5px;
-
             font-size: 18px;
         }
 
-
         /* =========================================
-        CLICK EFFECT
+            CLICK EFFECT
         ========================================= */
 
         .product-image-link:active {
-
             transform: scale(0.97);
         }
 
 
         /* =========================================
-        TABLET
+            TABLET
         ========================================= */
 
         @media (max-width: 1100px) {
 
             .page2 {
-
                 padding: 25px;
             }
 
             .products-container {
-
                 grid-template-columns: repeat(2, 1fr);
-
                 gap: 20px;
             }
 
             .product-card {
-
             min-height:400px;
+            }
+
+            .product-image-link {
+                height: 200px;
+            }
         }
-
-        .product-image-link {
-
-            height: 200px;
-        }
-
-        }
-
 
         /* =========================================
-        MOBILE
+            MOBILE
         ========================================= */
 
         @media (max-width: 700px) {
 
             .page2 {
-
                 padding: 45px 15px 60px;
             }
 
             .products-title {
-
                 margin-bottom: 35px;
-
                 font-size: 33px;
             }
 
             .products-container {
-
                 grid-template-columns: 1fr;
-
                 gap: 25px;
-
                 max-width: 500px;
             }
 
             .product-card {
-
                 min-height: 400px;
-
                 padding: 25px 15px;
             }
 
             .product-image-link {
-
                 height: 350px;
             }
 
             .product-image {
-
                 width: 90%;
             }
 
             .diem h2 {
-
                 font-size: 20px;
-
                 letter-spacing: 6px;
             }
 
             .diem h3 {
-
                 font-size: 16px;
-
                 letter-spacing: 5px;
-
                 padding-right: 12%;
             }
-
         }
 
-
         /* =========================================
-        SMALL MOBILE
+            SMALL MOBILE
         ========================================= */
 
         @media (max-width: 450px) {
 
             .page2 {
-
                 padding: 35px 10px 50px;
             }
 
             .products-title {
-
                 font-size: 28px;
             }
 
             .product-card {
-
                 min-height: 520px;
-
                 border-radius: 15px;
             }
 
             .product-image-link {
-
                 height: 300px;
             }
 
             .diem h2 {
-
                 font-size: 20px;
-
                 letter-spacing: 4px;
             }
 
             .diem h3 {
-
                 font-size: 16px;
-
                 letter-spacing: 4px;
             }
 
             .diem p {
-
                 font-size: 16px;
             }
-
         }
 
         /* =================================
-            page3 & section services
+                page3 & section services
         ====================================*/
 
         .services-title {
@@ -1129,7 +994,7 @@
         }
 
         /* ===============================
-        OUR CLIENTS SECTION
+            OUR CLIENTS SECTION
         ================================ */
 
         .page5 {
@@ -1153,15 +1018,6 @@
             padding: 0 20px;
             margin-bottom: 55px;
         }
-
-        /* .clients-label {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            color: #24a19c;
-            margin-bottom: 15px;
-        } */
 
         .clients-heading h2 {
             font-size: clamp(35px, 4vw, 40px);
@@ -1308,31 +1164,8 @@
             }
         }
 
-        /* Footer */
-
-        /* .clients-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-
-            margin-top: 35px;
-
-            color: #696969;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .clients-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #24a19c;
-            box-shadow: 0 0 10px rgba(36, 161, 156, 0.4);
-        } */
-
         /* ===============================
-        TABLET RESPONSIVE
+            TABLET RESPONSIVE
         ================================ */
 
         @media (max-width: 768px) {
@@ -1384,11 +1217,6 @@
             .clients-heading {
                 margin-bottom: 30px;
             }
-
-            /* .clients-label {
-                font-size: 11px;
-                letter-spacing: 3px;
-            } */
 
             .clients-heading h2 {
                 font-size: 32px;
@@ -1448,7 +1276,6 @@
         .footer {
             position: relative;
             width: 100%;
-            /* background-image: url("background.png"); */
             background: #173237;
             background-size: cover;
             background-position: center;
@@ -1464,7 +1291,6 @@
             content: "";
             position: absolute;
             inset: 0;
-            /* background: rgba(59, 60, 60, 0.78); */
             z-index: -1;
         }
         
@@ -1601,31 +1427,6 @@
             font-weight: 600;
             line-height: 1.6;
         }
-
-        /* .certificates {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .certificate {
-            width: 80px;
-            height: 75px;
-            background: #fff;
-            color: #160039;
-            border: 2px solid #ccc;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .certificate small {
-            font-size: 9px;
-        } */
 
         /* Tablet */
         @media (max-width: 900px) {
@@ -2140,44 +1941,6 @@
             }
         }
 
-        /* Popup links */
-        /* .diamond-side-popup a {
-            display: block;
-            padding: 15px 14px;
-            color: #191b19;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: 0.3s ease;
-        }
-
-        .diamond-side-popup a:hover {
-            background: #173237;
-            color: #ffffff;
-        } */
-
-        /* Mobile */
-        /* @media (max-width: 820px) {
-
-            .diamond-side-popup {
-                position: static;
-                width: auto;
-                margin: 5px 10px;
-                box-shadow: none;
-                background: #f8f9f9;
-            }
-
-            .diamond-side-popup.show {
-                display: block;
-            }
-
-            .diamond-btn {
-                padding: 15px 16px;
-            }
-        } */
-
-
         /* Tablet */
         @media (min-width: 821px) and (max-width: 1100px) {
             .product-popup {
@@ -2298,10 +2061,6 @@
                 font-size: 35px;
             }
         }
-
-        /* .navbar #openContact {
-            display: none !important;
-        } */
 
     </style>
 </head>
@@ -2612,16 +2371,10 @@
 
             <!-- Section Heading -->
             <div class="clients-heading">
-                <!-- <span class="clients-label">TRUSTED PARTNERS</span> -->
 
                 <h2>
                     Our Clients
                 </h2>
-
-                <!-- <p>
-                    Building strong relationships through innovation,
-                    technology and trust.
-                </p> -->
             </div>
 
             <!-- Clients Marquee -->
@@ -2742,18 +2495,13 @@
                 <h3>CORPORATE HEADQUARTERS:</h3>
 
                 <p>
-                    LDTECS<br>
-                    
+                    LDTECS<br>   
                 </p>
 
                 <p>
                     Surat, Gujarat, India
                 </p>
 
-                <p>
-                    <!-- Phone : +91 261 2309900<br>
-                    Email : contact@drcindia.in -->
-                </p>
             </div>
 
             <!-- Quick Links -->
@@ -2782,9 +2530,6 @@
                     Email : info@ldtecs.com
                 </p>
 
-                <!-- <h4>24 * 7 SUPPORT</h4>
-                <p>Email : support@drcindia.in</p> -->
-
                 <h4>FOLLOW US</h4>
 
                 <div class="social-icons">
@@ -2811,11 +2556,6 @@
             <p class="copyright">
                 © 2026 ldtecs INDIA. All rights reserved.
             </p>
-
-            <!-- <div class="certificates">
-                <div class="certificate">ISO 9001<br><small>ISOQAR</small></div>
-                <div class="certificate">✓<br><small>MANAGEMENT<br>SYSTEMS</small></div>
-            </div> -->
 
         </div>
 
@@ -2921,8 +2661,6 @@
                 });
             }
         });
-
-
 
         /*====================================
             Contect US 
@@ -3058,42 +2796,6 @@
             });
 
         });
-
-        // document.addEventListener("DOMContentLoaded", function () {
-
-        //     const whatsappBtn = document.getElementById("whatsappContact");
-        //     const contactPopup = document.getElementById("contactPopup");
-        //     const closeContact = document.getElementById("closecontact");
-
-        //     // WhatsApp click - Open Contact Popup
-        //     if (whatsappBtn && contactPopup) {
-        //         whatsappBtn.addEventListener("click", function (e) {
-        //             e.preventDefault();
-
-        //             contactPopup.style.display = "flex";
-        //             document.body.style.overflow = "hidden";
-        //         });
-        //     }
-
-        //     // Close popup
-        //     if (closeContact && contactPopup) {
-        //         closeContact.addEventListener("click", function () {
-        //             contactPopup.style.display = "none";
-        //             document.body.style.overflow = "";
-        //         });
-        //     }
-
-        //     // Outside click
-        //     if (contactPopup) {
-        //         contactPopup.addEventListener("click", function (e) {
-        //             if (e.target === contactPopup) {
-        //                 contactPopup.style.display = "none";
-        //                 document.body.style.overflow = "";
-        //             }
-        //         });
-        //     }
-
-        // });
 
     </script>
 

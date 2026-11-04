@@ -104,7 +104,7 @@
         /* Clickable boxes inside bot messages */
         #ld-chat-window .ld-card-list { display: flex; flex-direction: column; gap: 7px; margin-top: 10px; white-space: normal; }
         #ld-chat-window .ld-msg-bubble a.ld-link-card {
-            display: flex; align-items: center; justify-content: space-between; gap: 10px;
+            display: flex; align-items: left; justify-content: space-between; gap: 10px;
             padding: 9px 12px; border-radius: 11px; text-decoration: none; color: var(--ld-text);
             background: var(--ld-accent-soft); border: 1px solid rgba(36,161,156,.4); cursor: pointer;
             transition: background .15s, border-color .15s, transform .15s;
@@ -114,7 +114,7 @@
         #ld-chat-window .ld-lc-sub { display: block; margin-top: 2px; font-size: 10px; color: var(--ld-muted); overflow-wrap: anywhere; }
         #ld-chat-window .ld-lc-arrow { color: var(--ld-accent); font-size: 15px; flex-shrink: 0; }
 
-        #ld-chat-window .ld-typing { display: none; align-items: center; gap: 8px; }
+        #ld-chat-window .ld-typing { display: none; align-items: left; gap: 8px; }
         #ld-chat-window .ld-typing.visible { display: grid; }
         #ld-chat-window .ld-typing-dots { display: grid; gap: 4px; padding: 12px 14px; border: 1px solid var(--ld-border); border-radius: 12px; background: var(--ld-bot); }
         #ld-chat-window .ld-typing-dots span { width: 5px; height: 5px; border-radius: 50%; background: var(--ld-muted); animation: ldBlink 1.2s infinite; }
@@ -126,7 +126,7 @@
         #ld-chat-window .ld-chips { display: grid; gap: 7px; text-align: left; justify-content: left; overflow-x: auto; padding: 4px 0 11px; scrollbar-width: none; }
         #ld-chat-window .ld-chips::-webkit-scrollbar { display: none; }
         #ld-chat-window .ld-chip {
-            display: grid; align-items: center; gap: 6px; flex-shrink: 0; padding: 7px 10px;
+            display: grid; align-items: left; gap: 6px; flex-shrink: 0; padding: 7px 10px;
             border: 1px solid var(--ld-border); border-radius: 18px; background: var(--ld-surface);
             color: var(--ld-text); font-family: Arial, sans-serif; font-size: 14px; white-space: nowrap; cursor: pointer;
         }
@@ -134,7 +134,7 @@
         #ld-chat-window .ld-chip:disabled { opacity: .45; cursor: not-allowed; }
 
         #ld-chat-window .ld-input-box {
-            display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 12px;
+            display: flex; align-items: left; gap: 8px; padding: 8px 8px 8px 12px;
             border: 1px solid var(--ld-border); border-radius: 13px; background: var(--ld-surface);
         }
         #ld-chat-window .ld-input-box:focus-within { border-color: var(--ld-accent); box-shadow: 0 0 0 3px var(--ld-accent-soft); }
@@ -150,6 +150,22 @@
         @media (max-width: 480px) {
             #ld-chat-window { right: 10px; bottom: 82px; width: calc(100vw - 20px); height: min(620px, calc(100dvh - 100px)); max-width: none; }
             #ld-chat-button { right: 16px; bottom: 16px; }
+        }
+
+        /* Chatbot message text left alignment */
+        #ld-chat-window .ld-msg-bubble {
+            text-align: left !important;
+        }
+
+        /* Bot message content */
+        #ld-chat-window .ld-msg-row.bot .ld-msg-bubble {
+            text-align: left !important;
+        }
+
+        /* Bullet points alignment */
+        #ld-chat-window .ld-msg-bubble ul,
+        #ld-chat-window .ld-msg-bubble li {
+            text-align: left !important;
         }
     </style>
     </head>

@@ -48,7 +48,6 @@
             width:100%;
         }
 
-
         .header {
             position: sticky;
             margin-top:0px;
@@ -185,7 +184,6 @@
             top: 0;
             left: 0;
             z-index: -1;
-
         }
 
        @media (max-width: 820px) {
@@ -224,7 +222,6 @@
                 width: 100%;
             }
             
-
             .product-popup,.product-popup1{
                 position: absolute;
                 width:200%;
@@ -254,10 +251,6 @@
                 font-size: 30px;
             }
         }
-
-        /* .product-menu, .product-menu1{
-            position:relative;
-        } */
 
         .product-link{
             text-decoration:none;
@@ -383,26 +376,17 @@
             max-width:400px;
             min-height:360px;
             height:auto;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding: 30px 20px 25px;
             margin:0 auto 50px;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
-
             transition:
                 transform 0.4s ease,
                 box-shadow 0.4s ease,
@@ -424,7 +408,6 @@
             object-fit: contain;
             margin-top:50px;
         }
-
 
         .page1{
             width:100%;
@@ -473,26 +456,17 @@
         .product-card1 {
             width:100%;
             min-height:360px;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding: 30px 20px 25px;
             margin:50px 0;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
-
             transition:
                 transform 0.4s ease,
                 box-shadow 0.4s ease,
@@ -553,7 +527,6 @@
             }
         }
 
-
         @media (max-width: 600px) {
 
             .page2 {
@@ -588,25 +561,16 @@
             flex:1 1 220px;
             max-width:320px;
             min-height:100px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:30px 24px;
             margin:0;
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -672,25 +636,15 @@
             flex:1 1 240px;
             max-width:360px;
             min-height:20px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:10px 24px 30px;
-            
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -715,25 +669,16 @@
             flex:1 1 240px;
             max-width:320px;
             min-height:50px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:30px 24px;
             margin:0;
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -776,20 +721,15 @@
             flex:1 1 240px;
             max-width:250px;
             min-height:150px;
-
             /* border: 2px solid #111;
-
             border-radius: 20px; */
             padding:30px 24px;            
             margin-top:-70px;
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
         .product-car5 {
@@ -801,12 +741,9 @@
             margin-top:-150px;
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
         .product-image.try {
@@ -856,32 +793,20 @@
             font-weight:500;
         }
 
-        /* .scan p{
-            font-size:16px;
-            letter-spacing:1px;
-            font-weight:400;
-        } */
-
         .product-card6 {
             width:auto;
             flex:1 1 240px;
             max-width:200px;
             min-height:100px;
-
             /* border: 2px solid #111;
-
             border-radius: 20px; */
             padding:30px 24px;
             margin-top:50px;            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -1008,152 +933,91 @@
         .product-card8 .paragraph2 p{
             margin-bottom:12px;
         }
-         /* =========================================
-        TABLET
+
+        /* =========================================
+            TABLET
         ========================================= */
 
         @media (max-width: 1100px) {
 
             .page2 {
-
                 padding: 25px;
             }
 
             .products-container {
-
                 grid-template-columns: repeat(2, 1fr);
-
                 gap: 20px;
             }
 
             .product-card {
-
                 min-height: 300px;
             }
 
             .product-image-link {
-
                 height: 350px;
             }
-
         }
 
-
         /* =========================================
-        MOBILE
+            MOBILE
         ========================================= */
 
         @media (max-width: 700px) {
 
             .page2 {
-
                 padding: 45px 15px 60px;
             }
 
             .products-title {
-
                 margin-bottom: 35px;
-
                 font-size: 38px;
             }
 
             .products-container {
-
                 grid-template-columns: 1fr;
-
                 gap: 25px;
-
                 max-width: 500px;
             }
 
             .product-card {
-
                 min-height: 580px;
-
                 padding: 25px 15px;
             }
 
             .product-image-link {
-
                 height: 350px;
             }
 
             .product-image {
-
                 width: 90%;
             }
-
-            .diem h2 {
-
-                font-size: 20px;
-
-                letter-spacing: 6px;
-            }
-
-            .diem h3 {
-
-                font-size: 16px;
-
-                letter-spacing: 5px;
-
-                padding-right: 12%;
-            }
-
         }
 
-
         /* =========================================
-        SMALL MOBILE
+            SMALL MOBILE
         ========================================= */
 
         @media (max-width: 450px) {
 
             .page2 {
-
                 padding: 35px 10px 50px;
             }
 
             .products-title {
-
                 font-size: 32px;
             }
 
             .product-card {
-
                 min-height: 520px;
-
                 border-radius: 15px;
             }
 
             .product-image-link {
-
                 height: 300px;
             }
-
-            .diem h2 {
-
-                font-size: 20px;
-
-                letter-spacing: 4px;
-            }
-
-            .diem h3 {
-
-                font-size: 16px;
-
-                letter-spacing: 4px;
-            }
-
-            .diem p {
-
-                font-size: 16px;
-            }
-
         }
-    
 
-
-        @media (max-width: 900px) {
+        /* @media (max-width: 900px) {
             .footer-container {
                 grid-template-columns: 1fr 1fr;
                 gap: 35px;
@@ -1170,7 +1034,7 @@
             .footer-bottom {
                 justify-content: flex-start;
             }
-        }
+        } */
 
         @media (max-width: 600px) {
             .footer {
@@ -1355,8 +1219,6 @@
             .hero p { font-size: 16px; }
         }
 
-
-
         /* Mobile navbar and hamburger menu */
         .header {
             position: sticky;
@@ -1471,7 +1333,6 @@
                             border-bottom: 1px solid rgba(255,255,255,.1);
             }
         }
-
 
         /* PAGE 1 - Mobile responsive layout */
         @media (max-width: 820px) {
@@ -1919,9 +1780,7 @@
             font-weight: 600;
             border-bottom: 1px solid #eee;
             transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        
+        }        
 
         .diamond-side-popup a.active{
             background: #173237;
@@ -1933,8 +1792,6 @@
             background: #173237;
             color: #fff;
         }
-
-
 
         .diamond-side-popup a:last-child {
             border-bottom: none;
@@ -2154,11 +2011,7 @@
                 height: 55px;
                 font-size: 35px;
             }
-    }
-
-    /* .navbar #openContact {
-            display: none !important;
-        } */
+        }
 
     </style>
 </head>
@@ -2482,7 +2335,6 @@
         <div class="footer-cta">
             <h1>Let's put our minds into motion,<br>
                 Let's grow together</h1>
-            <!-- <a href="#contact" class="contact-btn">GET IN TOUCH</a> -->
         </div>
 
         <div class="footer-container">
@@ -2491,19 +2343,9 @@
             <div class="footer-column company" id="footer-column">
                 <h3>CORPORATE HEADQUARTERS:</h3>
 
-                <p>
-                    LDTECS<br>
-                    
-                </p>
+                <p>LDTECS</p>
+                <p>Surat, Gujarat, India</p>
 
-                <p>
-                    Surat, Gujarat, India
-                </p>
-
-                <p>
-                    <!-- Phone : +91 261 2309900<br>
-                    Email : contact@drcindia.in -->
-                </p>
             </div>
 
             <!-- Quick Links -->
@@ -2531,9 +2373,6 @@
                     Email : info@ldtecs.com
                 </p>
 
-                <!-- <h4>24 * 7 SUPPORT</h4>
-                <p>Email : support@drcindia.in</p> -->
-
                 <h4>FOLLOW US</h4>
 
                 <div class="social-icons">
@@ -2559,11 +2398,6 @@
             <p class="copyright">
                 © 2026 ldtecs INDIA. All rights reserved.
             </p>
-
-            <!-- <div class="certificates">
-                <div class="certificate">ISO 9001<br><small>ISOQAR</small></div>
-                <div class="certificate">✓<br><small>MANAGEMENT<br>SYSTEMS</small></div>
-            </div> -->
 
         </div>
 
@@ -2742,42 +2576,6 @@
                 });
             }
         });
-
-    // document.addEventListener("DOMContentLoaded", function () {
-
-    //     const whatsappBtn = document.getElementById("whatsappContact");
-    //     const contactPopup = document.getElementById("contactPopup");
-    //     const closeContact = document.getElementById("closecontact");
-
-    //     // WhatsApp click - Open Contact Popup
-    //     if (whatsappBtn && contactPopup) {
-    //         whatsappBtn.addEventListener("click", function (e) {
-    //             e.preventDefault();
-
-    //             contactPopup.style.display = "flex";
-    //             document.body.style.overflow = "hidden";
-    //         });
-    //     }
-
-    //     // Close popup
-    //     if (closeContact && contactPopup) {
-    //         closeContact.addEventListener("click", function () {
-    //             contactPopup.style.display = "none";
-    //             document.body.style.overflow = "";
-    //         });
-    //     }
-
-    //     // Outside click
-    //     if (contactPopup) {
-    //         contactPopup.addEventListener("click", function (e) {
-    //             if (e.target === contactPopup) {
-    //                 contactPopup.style.display = "none";
-    //                 document.body.style.overflow = "";
-    //             }
-    //         });
-    //     }
-
-    // });
 
     </script>
 

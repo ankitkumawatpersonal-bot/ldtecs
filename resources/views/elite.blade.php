@@ -84,14 +84,6 @@
             /* box-shadow: 0 4px 12px rgba(36, 161, 156, 0.35); */
         }
 
-        /* .brand {
-            font-size: 20px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-left: 12px;
-            letter-spacing: 0.5px;
-        } */
-
         .navbar {
             display: flex;
             align-items: center;
@@ -224,7 +216,6 @@
             .product-menu1 {
                 width: 100%;
             }
-            
 
             .product-popup,.product-popup1{
                 position: absolute;
@@ -255,10 +246,6 @@
                 font-size: 30px;
             }
         }
-
-        /* .product-menu, .product-menu1{
-            position:relative;
-        } */
 
         .product-link{
             text-decoration:none;
@@ -363,15 +350,6 @@
             transition: 0.3s;
         }
 
-        /* .nano1, .lite1 {
-            padding: 0 20px;
-            border-left: 2px solid gray;
-        } */
-
-        /* .product-popup a:hover{
-            background: #f1f7f7;
-            color: #e9aa6b;
-        } */
         .product-popup1 a:hover{
             background: #173237;
             color: #fff;
@@ -385,26 +363,17 @@
             max-width:400px;
             min-height:360px;
             height:auto;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding: 30px 20px 25px;
             margin:0 auto 50px;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
-
             transition:
                 transform 0.4s ease,
                 box-shadow 0.4s ease,
@@ -452,12 +421,6 @@
             background: #ffffff;
         }
 
-        /* .description {
-            font-size:25px;
-            font-weight:540;
-            padding-top:50px;
-        } */
-
         .box1{
             width:100%;
             max-width:1200px;
@@ -475,26 +438,17 @@
         .product-card1 {
             width:100%;
             min-height:360px;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding: 30px 20px 25px;
             margin:50px 0;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
-
             transition:
                 transform 0.4s ease,
                 box-shadow 0.4s ease,
@@ -543,12 +497,6 @@
             margin:20px 0;
         }
 
-        /* .paragraph{
-            font-size:22px;
-            font-weight:450;
-            padding:0;
-            text-align:left;    
-        } */
         @media (max-width: 820px) {
 
             .header {
@@ -565,10 +513,6 @@
             {
                 width: 100%;
             }
-
-            /* .paragraph {
-                text-align: center;
-            } */
         }
 
 
@@ -581,11 +525,6 @@
             .product-card1 {
                 padding: 18px;
             }
-
-            /* .paragraph p {
-                font-size: 16px;
-                line-height: 1.65;
-            } */
         }
 
         .page3{
@@ -606,25 +545,16 @@
             flex:1 1 220px;
             max-width:320px;
             min-height:100px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:30px 24px;
             margin:0;
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -668,7 +598,6 @@
 
         }
 
-
         @media (max-width: 600px) {
 
             .page3 {
@@ -690,25 +619,15 @@
             flex:1 1 240px;
             max-width:360px;
             min-height:20px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:10px 24px 30px;
-            
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -733,25 +652,16 @@
             flex:1 1 240px;
             max-width:320px;
             min-height:50px;
-
             /* background: #a04949; */
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             padding:30px 24px;
             margin:0;
-            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -794,21 +704,15 @@
             flex:1 1 240px;
             max-width:250px;
             min-height:150px;
-
             /* border: 2px solid #111;
-
             border-radius: 20px; */
             padding:30px 24px;
             margin-top:30px;            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
         .product-car {
@@ -816,21 +720,15 @@
             flex:1 1 240px;
             max-width:250px;
             min-height:150px;
-
             /* border: 2px solid #111;
-
             border-radius: 20px; */
             padding:30px 24px;
             margin-top:70px;            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
         .product-image.try {
@@ -880,32 +778,20 @@
             font-weight:500;
         }
 
-        /* .scan p{
-            font-size:16px;
-            letter-spacing:1px;
-            font-weight:400;
-        } */
-
         .product-card6 {
             width:auto;
             flex:1 1 240px;
             max-width:200px;
             min-height:100px;
-
             /* border: 2px solid #111;
-
             border-radius: 20px; */
             padding:30px 24px;
             margin-top:50px;            
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
         }
 
@@ -935,13 +821,6 @@
             font-weight:300;
             font-size:clamp(16px, 2vw, 20px);
         }
-
-        /* .technical {
-            width:150%;
-            max-width:400px;
-            max-height:500px;
-            object-fit: contain; 
-        } */
 
         table,tr,td{
             position:sticky;
@@ -1032,152 +911,59 @@
         .product-card8 .paragraph2 p{
             margin-bottom:12px;
         }
-         /* =========================================
-        TABLET
+
+        /* =========================================
+            TABLET
         ========================================= */
 
         @media (max-width: 1100px) {
 
             .page2 {
-
                 padding: 25px;
             }
 
-            /* .products-container {
-
-                grid-template-columns: repeat(2, 1fr);
-
-                gap: 20px;
-            } */
-
-                .product-card {
-
+            .product-card {
                 min-height: 300px;
             }
-
-            /* .product-image-link {
-
-                height: 350px;
-                
-            } */
-
         }
 
-
         /* =========================================
-        MOBILE
+            MOBILE
         ========================================= */
 
         @media (max-width: 700px) {
 
             .page2 {
-
                 padding: 45px 15px 60px;
             }
 
-            /* .products-title {
-
-                margin-bottom: 35px;
-
-                font-size: 38px;
-            } */
-
-            /* .products-container {
-
-                grid-template-columns: 1fr;
-
-                gap: 25px;
-
-                max-width: 500px;
-            } */
-
             .product-card {
-
                 min-height: 580px;
-
                 padding: 25px 15px;
             }
 
-            /* .product-image-link {
-
-                height: 350px;
-            } */
-
             .product-image {
-
                 width: 90%;
             }
-
-            /* .diem h2 {
-
-                font-size: 20px;
-
-                letter-spacing: 6px;
-            } */
-
-            /* .diem h3 {
-
-                font-size: 16px;
-
-                letter-spacing: 5px;
-
-                padding-right: 12%;
-            } */
-
         }
 
 
         /* =========================================
-        SMALL MOBILE
+            SMALL MOBILE
         ========================================= */
 
         @media (max-width: 450px) {
 
             .page2 {
-
                 padding: 35px 10px 50px;
             }
 
-            /* .products-title {
-
-                font-size: 32px;
-            } */
-
             .product-card {
-
                 min-height: 520px;
-
                 border-radius: 15px;
             }
-
-            /* .product-image-link {
-
-                height: 300px;
-            } */
-
-            /* .diem h2 {
-
-                font-size: 20px;
-
-                letter-spacing: 4px;
-            }
-
-            .diem h3 {
-
-                font-size: 16px;
-
-                letter-spacing: 4px;
-            }
-
-            .diem p {
-
-                font-size: 16px;
-            } */
-
         }
     
-
-
         @media (max-width: 900px) {
             .footer-container {
                 grid-template-columns: 1fr 1fr;
@@ -1380,8 +1166,6 @@
             .hero p { font-size: 16px; }
         }
 
-
-
         /* Mobile navbar and hamburger menu */
         .header {
             position: sticky;
@@ -1493,10 +1277,9 @@
                 color: #fff;
                 font-size: 14px;
                 border-bottom: 1px solid rgba(255,255,255,.1);
-                            border-bottom: 1px solid rgba(255,255,255,.1);
+                border-bottom: 1px solid rgba(255,255,255,.1);
             }
         }
-
 
         /* PAGE 1 - Mobile responsive layout */
         @media (max-width: 1020px) {
@@ -1949,8 +1732,6 @@
             transition: background 0.2s ease, color 0.2s ease;
         }
 
-        
-
         .diamond-side-popup a.active{
             background: #173237;
             color: #fff;
@@ -1961,8 +1742,6 @@
             background: #173237;
             color: #fff;
         }
-
-
 
         .diamond-side-popup a:last-child {
             border-bottom: none;
@@ -2003,7 +1782,6 @@
                 height: 100%;
             }
         }
-        
 
         /* Tablet */
         @media (min-width: 821px) and (max-width: 1100px) {
@@ -2084,7 +1862,6 @@
         }
     
         /* Contact Button */
-
         .contact-btn {
             background: transparent;
             color: white;
@@ -2262,10 +2039,6 @@
                 font-size: 35px;
             }
         }
-
-        /* .navbar #openContact {
-            display: none !important;
-        } */
 
     </style>
 </head>
@@ -2633,7 +2406,6 @@
         <div class="footer-cta">
             <h1>Let's put our minds into motion,<br>
                 Let's grow together</h1>
-            <!-- <a href="#contact" class="contact-btn">GET IN TOUCH</a> -->
         </div>
 
         <div class="footer-container">
@@ -2641,20 +2413,8 @@
             <!-- Company Details -->
             <div class="footer-column company" id="footer-column">
                 <h3>CORPORATE HEADQUARTERS:</h3>
-
-                <p>
-                    LDTECS<br>
-                    
-                </p>
-
-                <p>
-                    Surat, Gujarat, India
-                </p>
-
-                <p>
-                    <!-- Phone : +91 261 2309900<br>
-                    Email : contact@drcindia.in -->
-                </p>
+                <p> LDTECS </p>
+                <p> Surat, Gujarat, India </p>
             </div>
 
             <!-- Quick Links -->
@@ -2674,7 +2434,7 @@
             </div>
 
             <!-- Contact -->
-            <div class="footer-column contact" id="contect">
+            <div class="footer-column contact" id="contact">
                 <h3>CONTACT US</h3>
 
                 <h4>SALES INQUIRY</h4>
@@ -2712,11 +2472,6 @@
             <p class="copyright">
                 © 2026 ldtecs INDIA. All rights reserved.
             </p>
-
-            <!-- <div class="certificates">
-                <div class="certificate">ISO 9001<br><small>ISOQAR</small></div>
-                <div class="certificate">✓<br><small>MANAGEMENT<br>SYSTEMS</small></div>
-            </div> -->
 
         </div>
 
@@ -2770,49 +2525,49 @@
             });
         }
 
-                /*====================================
+        /*====================================
             Product dropdown 
         ======================================*/
         
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const popup = menu.querySelector(".diamond-side-popup");
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const popup = menu.querySelector(".diamond-side-popup");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        const isOpen = popup.classList.contains("show");
+                const isOpen = popup.classList.contains("show");
 
-        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
-            item.classList.remove("show");
+                document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+                    item.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                if (!isOpen) {
+                    popup.classList.add("show");
+                    button.classList.add("active");
+                }
+            });
         });
 
-        document.querySelectorAll(".diamond-btn").forEach((item) => {
-            item.classList.remove("active");
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".diamond-menu")) {
+                document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+                    popup.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
         });
 
-        if (!isOpen) {
-            popup.classList.add("show");
-            button.classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("click", (event) => {
-    if (!event.target.closest(".diamond-menu")) {
-        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
-            popup.classList.remove("show");
-        });
-
-        document.querySelectorAll(".diamond-btn").forEach((button) => {
-            button.classList.remove("active");
-        });
-    }
-});
-
- /*====================================
-            Contect US 
+        /*====================================
+            Contact US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
         const closeContact = document.getElementById("closecontact");
@@ -2896,41 +2651,6 @@ document.addEventListener("click", (event) => {
                 });
             }
         });
-        // document.addEventListener("DOMContentLoaded", function () {
-
-        //     const whatsappBtn = document.getElementById("whatsappContact");
-        //     const contactPopup = document.getElementById("contactPopup");
-        //     const closeContact = document.getElementById("closecontact");
-
-        //     // WhatsApp click - Open Contact Popup
-        //     if (whatsappBtn && contactPopup) {
-        //         whatsappBtn.addEventListener("click", function (e) {
-        //             e.preventDefault();
-
-        //             contactPopup.style.display = "flex";
-        //             document.body.style.overflow = "hidden";
-        //         });
-        //     }
-
-        //     // Close popup
-        //     if (closeContact && contactPopup) {
-        //         closeContact.addEventListener("click", function () {
-        //             contactPopup.style.display = "none";
-        //             document.body.style.overflow = "";
-        //         });
-        //     }
-
-        //     // Outside click
-        //     if (contactPopup) {
-        //         contactPopup.addEventListener("click", function (e) {
-        //             if (e.target === contactPopup) {
-        //                 contactPopup.style.display = "none";
-        //                 document.body.style.overflow = "";
-        //             }
-        //         });
-        //     }
-
-        // });
 
     </script>
 
