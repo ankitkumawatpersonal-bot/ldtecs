@@ -198,7 +198,7 @@
         // ── Settings ──────────────────────────────────────────────────────────
         // Where messages are sent. FastAPI static bot: '/api/level2/chat'.
         // If you use a Laravel route instead, change it (e.g. '/chatbot/message').
-        const CHAT_URL = 'http://127.0.0.1:8082/api/level2/chat';
+        const CHAT_URL = 'https://ldtecs-chatbot.onrender.com/api/level2/chat';
 
         const panel = document.getElementById('ld-chat-window');
         if (!panel || panel.dataset.initialized === 'true') return;
@@ -273,7 +273,7 @@
 
         const arrow = document.createElement('span');
         arrow.className = 'ld-lc-arrow';
-        arrow.textContent = c.ask ? '›' : '↗';
+        arrow.textContent = c.ask ? '>' : '↗';
 
         a.append(left, arrow);
 
