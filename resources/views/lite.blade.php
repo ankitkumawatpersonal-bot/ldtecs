@@ -480,7 +480,7 @@
 
             border-radius: 20px;
 
-            padding: 30px 20px 25px;
+            /* padding: 30px 20px 25px; */
             margin:50px 0;
 
             display: flex;
@@ -511,11 +511,11 @@
         }
 
         .product-image.elite1 {
-            width:70%;
-            max-width:100%;
-            max-height:300px;
+            width:180%;
+            max-width:2000px;
+            max-height:400px;
             object-fit: contain;
-            margin:20px 0;
+            /* margin:10px 0; */
         }
 
         .product-image.elite0 {
@@ -2332,7 +2332,7 @@
         </div>
         <div class="box1">
             <div class="product-card1">
-                <img class="product-image elite1" src="transparent.png" alt="Classifier elite" id="elite1">
+                <img class="product-image elite1" src="transparent1.png" alt="Classifier elite" id="elite1">
             </div>
             <div class="paragraph2">
                 <p id="p">Classifier Lite is a next-generation diamond screening solution designed to identify 
@@ -2638,11 +2638,11 @@
                 <h4>FOLLOW US</h4>
 
                 <div class="social-icons">
-                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <!-- <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a> -->
+                    <a href="https://www.youtube.com/@LDTECS" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/ld_tecs/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQF6SVfDW8dMpQAAAaGgRYjQDDWKlkCxtYSNKhF1yF23BYZARKJpU-uVm1s6s28WnW9_c-7nLmx5buf2Q9Yxv0JXgiVC_K0sQmz0BFS_A6KRG4uwJWtbZ191Nsi2ch4PtaQ2G-s=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fldtecs%2F%3FviewAsMember%3Dtrue" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
 

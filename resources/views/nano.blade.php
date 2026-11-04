@@ -2537,11 +2537,11 @@
                 <h4>FOLLOW US</h4>
 
                 <div class="social-icons">
-                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <!-- <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a> -->
+                    <a href="https://www.youtube.com/@LDTECS" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/ld_tecs/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQF6SVfDW8dMpQAAAaGgRYjQDDWKlkCxtYSNKhF1yF23BYZARKJpU-uVm1s6s28WnW9_c-7nLmx5buf2Q9Yxv0JXgiVC_K0sQmz0BFS_A6KRG4uwJWtbZ191Nsi2ch4PtaQ2G-s=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fldtecs%2F%3FviewAsMember%3Dtrue" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
 
@@ -2620,44 +2620,44 @@
             Product dropdown 
         ======================================*/
         
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const popup = menu.querySelector(".diamond-side-popup");
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const popup = menu.querySelector(".diamond-side-popup");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        const isOpen = popup.classList.contains("show");
+                const isOpen = popup.classList.contains("show");
 
-        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
-            item.classList.remove("show");
+                document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+                    item.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                if (!isOpen) {
+                    popup.classList.add("show");
+                    button.classList.add("active");
+                }
+            });
         });
 
-        document.querySelectorAll(".diamond-btn").forEach((item) => {
-            item.classList.remove("active");
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".diamond-menu")) {
+                document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+                    popup.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
         });
 
-        if (!isOpen) {
-            popup.classList.add("show");
-            button.classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("click", (event) => {
-    if (!event.target.closest(".diamond-menu")) {
-        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
-            popup.classList.remove("show");
-        });
-
-        document.querySelectorAll(".diamond-btn").forEach((button) => {
-            button.classList.remove("active");
-        });
-    }
-});
-
- /*====================================
+        /*====================================
             Contect US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");

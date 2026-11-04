@@ -33,8 +33,6 @@ Route::get('/product', function () {
     return redirect('/#our-products');
 });
 
-Route::post('/chatbot/message', [ChatbotController::class, 'chat'])
-    ->name('chatbot.message');
-
+Route::post('/chatbot/message', [ChatbotController::class, 'chat']);
 Route::post('/contact-submit', [ContactController::class, 'submit'])
     ->name('contact.submit');
