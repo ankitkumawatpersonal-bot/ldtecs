@@ -48,7 +48,6 @@
             width:100%;
         }
 
-
         .header {
             position: sticky;
             margin-top:0px;
@@ -368,10 +367,6 @@
             font-size: 16px;
         }
 
-        /* .product-popup1 a:active{
-            background: #173237;
-        } */
-
         .product-popup a{
             margin: 12px 18px;
             display:block;
@@ -381,15 +376,6 @@
             transition: 0.3s;
         }
 
-        /* .nano1, .lite1 {
-            padding: 0 20px;
-            border-left: 2px solid gray;
-        } */
-
-        /* .product-popup a:hover{
-            background: #173237;
-            color: #fff;
-        } */
         .product-popup1 a:hover{
             background: #173237;
             color: #fff;
@@ -398,11 +384,9 @@
             border-radius:8px;
         }
 
-        
-
         /* ====================================
             page1
-        */
+        ======================================*/
 
         .page1{
             width:100%;
@@ -437,37 +421,18 @@
         .product-card1 {
             width:100%;
             min-height:360px;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             /* padding: 30px 20px 25px; */
             margin:50px 0;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
-
-            /* transition:
-                transform 1.0s ease,
-                box-shadow 1.0s ease,
-                border-color 0.4s ease; */
         }
-
-        /* .product-card1:hover {
-            transform: translateY(-10px);
-            box-shadow:0 20px 45px rgba(0, 0, 0, 0.15);
-            border-color: #24a19c;
-        } */
 
         .product-card1:hover .product-image {
             transform: scale(1.10);
@@ -484,7 +449,7 @@
         }
 
         /* =========================================
-        PRODUCTS CONTAINER
+            PRODUCTS CONTAINER
         ========================================= */
 
         .page2 {
@@ -492,137 +457,61 @@
             min-height: 100vh;
             padding: 50px 35px 50px;
             background-color: #fff;
-
             text-align: center;
             overflow: hidden;
         }
 
         .products-container {
-
             width: 100%;
             max-width: 1200px;
             min-height:400px;
             margin: 50px auto;
-
             display: grid;
-            
             grid-template-columns: repeat(3, 1fr);
-
             gap: 20px;
-
             align-items: stretch;
         }
 
-
         /* =========================================
-        PRODUCT CARD
+            PRODUCT CARD
         ========================================= */
 
         .product-card {
-
             width: 100%;
             min-height: 200px;
             color: #506b82;
             background: #f1f5fd;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             /* padding: 20px 10px 15px; */
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: space-between;
-
             overflow: hidden;
             position: relative;
-            
-            /* transition:
-                transform 0.4s ease,
-                box-shadow 0.4s ease,
-                border-color 0.4s ease; */
         }
 
-
         /* =========================================
-        CARD HOVER
-        ========================================= */
-
-        /* .product-card:hover {
-
-            transform: translateY(-10px);
-
-            box-shadow:
-                0 20px 45px rgba(0, 0, 0, 0.15);
-
-            border-color: #24a19c;
-        } */
-
-
-        /* =========================================
-        IMAGE LINK
-        ========================================= */
-
-        /* .product-image-link {
-
-            width: 100%;
-            height: 390px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            text-decoration: none;
-
-            overflow: hidden;
-
-            border-radius: 12px;
-        } */
-
-
-        /* =========================================
-        PRODUCT IMAGE
+            PRODUCT IMAGE
         ========================================= */
 
         .product-image {
-
             width: 100%;
             height: 100%;
             margin-top:-30px;
             margin-bottom:-30px;
             object-fit: contain;
-
             display: block;
-
             /* cursor: pointer; */
-
             transform: scale(1);
-
             transition:
                 transform 1.0s ease,
                 filter 0.5s ease;
         }
-        
-
 
         /* =========================================
-        IMAGE HOVER ZOOM
-        ========================================= */
-
-        /* .product-card:hover .product-image {
-
-            transform: scale(1.10);
-
-            filter: brightness(1.03);
-        } */
-
-
-        /* =========================================
-        INDIVIDUAL IMAGE SIZE
+            INDIVIDUAL IMAGE SIZE
         ========================================= */
 
         .product-image.custom {
@@ -671,7 +560,7 @@
             .page2,
             .page1 {
 
-                padding: d 25px;
+                padding: 25px;
             }
 
             .products-container,
@@ -683,14 +572,6 @@
 
                 max-width: 1300px;
             }
-
-            /* .products-container
-            .box1 {
-
-                grid-template-columns: repeat(2, 1fr);
-
-                gap: 20px;
-            } */
 
             .page1 .product-card1 {
                 width: 100%;
@@ -717,29 +598,12 @@
                 padding-top: 30px;
                 padding-bottom:30px;
             }
-            /* .product-card
-            .product-card1 {
 
-                min-height: 00px;
-            } */
-
-            /* .product-card1
-            .product-image{
-                height: 500px;
-            } */
-
-            /* .product-image.soft1
-            {
-                width: 100%;
-                max-height: 400px;
-
-            } */
 
         }
 
-
         /* =========================================
-        MOBILE
+            MOBILE
         ========================================= */
 
        @media (max-width: 700px) {
@@ -795,7 +659,7 @@
 
 
         /* =========================================
-        SMALL MOBILE
+            SMALL MOBILE
         ========================================= */
 
         @media (max-width: 450px) {
@@ -975,8 +839,6 @@
             .hero h1 { font-size: clamp(28px, 9vw, 40px); }
             .hero p { font-size: 16px; }
         }
-
-
 
         /* Mobile navbar and hamburger menu */
         .header {
@@ -1744,13 +1606,110 @@
                 height: 55px;
                 font-size: 35px;
             }
+        }
+
+        #networkSkeleton {
+    position: fixed;
+    inset: 0;
+    background: #ffffff;
+    z-index: 9999999;
+    display: none;
+    padding: 50px 8%;
+}
+
+.skeleton-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        #eeeeee 25%,
+        #ffffff 50%,
+        #eeeeee 75%
+    );
+
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.5s infinite linear;
+    border-radius: 8px;
+}
+
+@keyframes skeletonShimmer {
+    0% {
+        background-position: 200% 0;
     }
 
-    /* .navbar #openContact {
-            display: none !important;
-        } */
+    100% {
+        background-position: -200% 0;
+    }
+}
 
-</style>
+.skeleton-logo {
+    width: 130px;
+    height: 35px;
+    margin-bottom: 70px;
+}
+
+.skeleton-heading {
+    width: 55%;
+    height: 40px;
+    margin-bottom: 25px;
+}
+
+.skeleton-line {
+    width: 90%;
+    height: 15px;
+    margin-bottom: 15px;
+}
+
+.skeleton-line.short {
+    width: 55%;
+}
+
+.skeleton-content {
+    display: flex;
+    gap: 35px;
+    margin-top: 45px;
+}
+
+.skeleton-image {
+    width: 45%;
+    height: 280px;
+}
+
+.skeleton-text {
+    flex: 1;
+    padding-top: 35px;
+}
+
+#skeletonMessage {
+    margin-top: 35px;
+    color: #24A19C;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media(max-width: 600px) {
+    #networkSkeleton {
+        padding: 35px 6%;
+    }
+
+    .skeleton-content {
+        flex-direction: column;
+    }
+
+    .skeleton-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .skeleton-heading {
+        width: 85%;
+    }
+}
+
+    </style>
 </head>
 <body>
     <header class="header">
@@ -1954,7 +1913,6 @@
         <div class="footer-cta">
             <h1>Let's put our minds into motion,<br>
                 Let's grow together</h1>
-            <!-- <a href="#contact" class="contact-btn">GET IN TOUCH</a> -->
         </div>
 
         <div class="footer-container">
@@ -1962,18 +1920,10 @@
             <!-- Company Details -->
             <div class="footer-column company" id="footer-column">
                 <h3>CORPORATE HEADQUARTERS:</h3>
-
-                <p>
-                    LDTECS                    
-                </p>
-
-                <p>
-                    Surat, Gujarat, India
-                </p>
-
-                <p> Phone : +91 90337 93379<br>
-                </p>
-            </div>
+                <p> LDTECS </p>
+                <p> Surat, Gujarat, India </p>
+                <p> Phone : +91 90337 93379</p>
+                </div>
 
             <!-- Quick Links -->
             <div class="footer-column quick-links" id="quick-links">
@@ -2019,21 +1969,43 @@
                 <a href="#privacy">Privacy Policy</a>
                 <span>-</span>
                 <a href="#terms">Terms and Conditions</a>
-                <a href="/contact">Contact Us</a>
             </div>
 
             <p class="copyright">
                 © 2026 ldtecs INDIA. All rights reserved.
             </p>
 
-            <!-- <div class="certificates">
-                <div class="certificate">ISO 9001<br><small>ISOQAR</small></div>
-                <div class="certificate">✓<br><small>MANAGEMENT<br>SYSTEMS</small></div>
-            </div> -->
-
         </div>
 
     </footer>
+
+    <div id="networkSkeleton">
+    <div class="skeleton-container">
+
+        <div class="skeleton-logo shimmer"></div>
+
+        <div class="skeleton-heading shimmer"></div>
+
+        <div class="skeleton-line shimmer"></div>
+        <div class="skeleton-line short shimmer"></div>
+
+        <div class="skeleton-content">
+            <div class="skeleton-image shimmer"></div>
+
+            <div class="skeleton-text">
+                <div class="skeleton-line shimmer"></div>
+                <div class="skeleton-line shimmer"></div>
+                <div class="skeleton-line short shimmer"></div>
+                <div class="skeleton-line shimmer"></div>
+            </div>
+        </div>
+
+        <p id="skeletonMessage">
+            Connecting to LDTECS...
+        </p>
+
+    </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
 
@@ -2081,49 +2053,49 @@
             });
         }
 
-                /*====================================
+        /*====================================
             Product dropdown 
         ======================================*/
         
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const popup = menu.querySelector(".diamond-side-popup");
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const popup = menu.querySelector(".diamond-side-popup");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        const isOpen = popup.classList.contains("show");
+                const isOpen = popup.classList.contains("show");
 
-        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
-            item.classList.remove("show");
+                document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+                    item.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                if (!isOpen) {
+                    popup.classList.add("show");
+                    button.classList.add("active");
+                }
+            });
         });
 
-        document.querySelectorAll(".diamond-btn").forEach((item) => {
-            item.classList.remove("active");
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".diamond-menu")) {
+                document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+                    popup.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
         });
 
-        if (!isOpen) {
-            popup.classList.add("show");
-            button.classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("click", (event) => {
-    if (!event.target.closest(".diamond-menu")) {
-        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
-            popup.classList.remove("show");
-        });
-
-        document.querySelectorAll(".diamond-btn").forEach((button) => {
-            button.classList.remove("active");
-        });
-    }
-});
-
- /*====================================
-            Contect US 
+        /*====================================
+            Contact US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
         const closeContact = document.getElementById("closecontact");
@@ -2207,6 +2179,86 @@ document.addEventListener("click", (event) => {
                 });
             }
         });
+
+        const skeleton = document.getElementById("networkSkeleton");
+const skeletonMessage = document.getElementById("skeletonMessage");
+
+let checking = false;
+
+function showSkeleton(message) {
+    skeletonMessage.textContent = message;
+    skeleton.style.display = "block";
+}
+
+function hideSkeleton() {
+    skeleton.style.display = "none";
+}
+
+async function checkServer() {
+
+    if (checking) return;
+
+    checking = true;
+
+    try {
+
+        if (!navigator.onLine) {
+            showSkeleton("No Internet Connection...");
+            return;
+        }
+
+        showSkeleton("Connecting to LDTECS...");
+
+        const controller = new AbortController();
+
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, 8000);
+
+        try {
+            const response = await fetch(
+                "/server-status?t=" + Date.now(),
+                {
+                    cache: "no-store",
+                    signal: controller.signal
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Server unavailable");
+            }
+
+            const data = await response.json();
+
+            if (data.status !== "ok") {
+                throw new Error("Server unavailable");
+            }
+
+            hideSkeleton();
+
+        } finally {
+            clearTimeout(timeout);
+        }
+
+    } catch (error) {
+
+        showSkeleton(
+            navigator.onLine
+                ? "Server Temporarily Unavailable..."
+                : "No Internet Connection..."
+        );
+
+    } finally {
+        checking = false;
+    }
+}
+
+checkServer();
+
+setInterval(checkServer, 15000);
+
+window.addEventListener("online", checkServer);
+window.addEventListener("offline", checkServer);
 
     </script>
 
