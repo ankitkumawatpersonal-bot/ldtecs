@@ -2486,8 +2486,8 @@
                 <a href="/cad-design"> 3D CAD Design Services </a>
                 <a href="/r&d-services">R&D Services</a>
                 <!-- <a href="/career">Career</a> -->
-                <a href="/about">About</a>
-                <a href="/" id="footerContact">Contact</a>
+                <a href="/about">About Us</a>
+                <a href="/" id="footerContact">Contact Us</a>
             </div>
 
             <!-- Contact -->
