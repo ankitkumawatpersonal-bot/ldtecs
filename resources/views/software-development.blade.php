@@ -406,7 +406,7 @@
 
         .page1{
             width:100%;
-            min-height:100vh;
+            min-height:90vh;
             background: #f1f5fd;
         }
         .heading{
@@ -488,7 +488,7 @@
 
         .page2 {
             width: 100%;
-            min-height: 90vh;
+            min-height: 100vh;
             padding: 50px 35px 50px;
             background-color: #fff;
 
@@ -1819,7 +1819,7 @@
             <div class="product-card1" id="product-card1">
                 <img class="product-image soft1" src="image1.jpg" alt="Software image"> 
             </div>
-            <div class="description">
+            <div class="description" id="description">
                 <p>At LDTECS, we specialize in developing custom software solutions that help businesses streamline
                     operations, improve productivity, and achieve digital growth. Our software development services 
                     combine modern technologies, innovative thinking, and reliable engineering to create applications 
@@ -1878,35 +1878,8 @@
                         <li> Authentication and authorization </li>
                         <li> Data processing and business logic </li>
                     </div>
-
                 </div>
-
             </div>
-            <!-- Contact Popup -->
-    
-    <div class="contact-overlay" id="contactPopup">
-        <div class="contact-box">
-            <button type="button" class="close-btn" id="closecontact">&times;</button>
-
-            <h2>Contact Us</h2>
-            <p>Let's discuss your project and ideas.</p>
-
-            <form id="contactForm">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-
-                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-
-                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-
-                <button type="submit" class="submit-btn">
-                    Send Message
-                </button>
-            </form>
-        </div>
-    </div>
-
 
             <div class="products-container">
 
@@ -1949,6 +1922,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Popup -->
+    
+    <div class="contact-overlay" id="contactPopup">
+        <div class="contact-box">
+            <button type="button" class="close-btn" id="closecontact">&times;</button>
+
+            <h2>Contact Us</h2>
+            <p>Let's discuss your project and ideas.</p>
+
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+
+                <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </div>
     
     <footer class="footer">
 
