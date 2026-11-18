@@ -617,7 +617,7 @@
         .product-card3 {
             width:auto;
             flex:1 1 240px;
-            max-width:360px;
+            max-width:300px;
             min-height:20px;
             /* background: #a04949; */
             border: 2px solid #111;
@@ -632,8 +632,8 @@
         }
 
         .product-image.search {
-            width:100%;
-            max-width:200px;
+            width:110%;
+            max-width:250px;
             max-height:60px;
             object-fit: contain;
             margin:10px;
@@ -2155,26 +2155,26 @@
             </div>
             <div class="all">
                 <div class="product-card2">
-                    <img class="product-image loose" src="Loose.svg" alt="Loose" id="loose">
+                    <img class="product-image loose" src="loose.png" alt="Loose" id="loose">
                     <h4>Loose & Mounted </h3>
                 </div>
                 <div class="product-card2">
-                    <img class="product-image shape" src="All-shapes.svg" alt="All-Shapes" id="all-shapes">
+                    <img class="product-image shape" src="all.png" alt="All-Shapes" id="all-shapes">
                     <h4> All Shapes </h4>
                 </div>
                 <div class="product-card2">
-                    <img class="product-image rough" src="Rough.svg" alt="Rough" id="rough">
+                    <img class="product-image loose" src="rough1.png" alt="Rough" id="rough">
                     <h4>Rough & Polished </h4>
                 </div>
             </div>
             <div class="all">
                 <div class="product-card3">
-                    <img class="product-image search" src="search.png" alt="search" id="search">
+                    <img class="product-image search" src="detects.png" alt="search" id="search">
                     <p>Detects </p>
                     <h4> CVD/HPHT & Treated </h4>
                 </div>
                 <div class="product-card3">
-                    <img class="product-image search" src="accuracy.png" alt="search" id="search">
+                    <img class="product-image search" src="accuracy1.png" alt="search" id="search">
                     <p>Accuracy </p>
                     <h3> +98% </h3>
                 </div>
