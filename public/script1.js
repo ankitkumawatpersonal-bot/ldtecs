@@ -111,7 +111,7 @@ gsap.from('.product-card4',{
 
     scrollTrigger:{
         trigger:'.product-card4',
-        start:'top 80%',
+        start:'top 90%',
         toggleActions: 'play none none reverse'
     }
 })
