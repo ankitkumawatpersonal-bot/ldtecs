@@ -2211,7 +2211,7 @@ document.addEventListener("click", (event) => {
                 "Phone: " + phone + "\n" +
                 "Message: " + message;
 
-            const whatsappNumber = "9193163 03689";
+            const whatsappNumber = "919316303689";
 
             const url =
                 "https://wa.me/" + whatsappNumber +
@@ -2251,45 +2251,9 @@ document.addEventListener("click", (event) => {
             }
         });
 
-        // document.addEventListener("DOMContentLoaded", function () {
-
-        //     const whatsappBtn = document.getElementById("whatsappContact");
-        //     const contactPopup = document.getElementById("contactPopup");
-        //     const closeContact = document.getElementById("closecontact");
-
-        //     // WhatsApp click - Open Contact Popup
-        //     if (whatsappBtn && contactPopup) {
-        //         whatsappBtn.addEventListener("click", function (e) {
-        //             e.preventDefault();
-
-        //             contactPopup.style.display = "flex";
-        //             document.body.style.overflow = "hidden";
-        //         });
-        //     }
-
-        //     // Close popup
-        //     if (closeContact && contactPopup) {
-        //         closeContact.addEventListener("click", function () {
-        //             contactPopup.style.display = "none";
-        //             document.body.style.overflow = "";
-        //         });
-        //     }
-
-        //     // Outside click
-        //     if (contactPopup) {
-        //         contactPopup.addEventListener("click", function (e) {
-        //             if (e.target === contactPopup) {
-        //                 contactPopup.style.display = "none";
-        //                 document.body.style.overflow = "";
-        //             }
-        //         });
-        //     }
-
-        // });
-
     </script>
 
-    <a href="https://wa.me/9193163 03689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/919316303689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 

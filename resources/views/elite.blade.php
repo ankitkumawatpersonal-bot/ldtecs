@@ -2612,7 +2612,7 @@
                 "Phone: " + phone + "\n" +
                 "Message: " + message;
 
-            const whatsappNumber = "9193163 03689"; // Replace with your WhatsApp number
+            const whatsappNumber = "919316303689"; // Replace with your WhatsApp number
 
             const url =
                 "https://wa.me/" + whatsappNumber +
@@ -2654,7 +2654,7 @@
 
     </script>
 
-    <a href="https://wa.me/9193163 03689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/919316303689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 

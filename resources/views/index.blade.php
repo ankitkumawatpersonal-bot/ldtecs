@@ -2812,7 +2812,7 @@
 
     </script>
 
-    <a href="https://wa.me/9193163 03689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/919316303689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
