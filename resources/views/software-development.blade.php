@@ -1608,107 +1608,6 @@
             }
         }
 
-        #networkSkeleton {
-    position: fixed;
-    inset: 0;
-    background: #ffffff;
-    z-index: 9999999;
-    display: none;
-    padding: 50px 8%;
-}
-
-.skeleton-container {
-    max-width: 1100px;
-    margin: auto;
-}
-
-.shimmer {
-    background: linear-gradient(
-        90deg,
-        #eeeeee 25%,
-        #ffffff 50%,
-        #eeeeee 75%
-    );
-
-    background-size: 200% 100%;
-    animation: skeletonShimmer 1.5s infinite linear;
-    border-radius: 8px;
-}
-
-@keyframes skeletonShimmer {
-    0% {
-        background-position: 200% 0;
-    }
-
-    100% {
-        background-position: -200% 0;
-    }
-}
-
-.skeleton-logo {
-    width: 130px;
-    height: 35px;
-    margin-bottom: 70px;
-}
-
-.skeleton-heading {
-    width: 55%;
-    height: 40px;
-    margin-bottom: 25px;
-}
-
-.skeleton-line {
-    width: 90%;
-    height: 15px;
-    margin-bottom: 15px;
-}
-
-.skeleton-line.short {
-    width: 55%;
-}
-
-.skeleton-content {
-    display: flex;
-    gap: 35px;
-    margin-top: 45px;
-}
-
-.skeleton-image {
-    width: 45%;
-    height: 280px;
-}
-
-.skeleton-text {
-    flex: 1;
-    padding-top: 35px;
-}
-
-#skeletonMessage {
-    margin-top: 35px;
-    color: #24A19C;
-    font-weight: 600;
-    text-align: center;
-}
-
-@media(max-width: 600px) {
-    #networkSkeleton {
-        padding: 35px 6%;
-    }
-
-    .skeleton-content {
-        flex-direction: column;
-    }
-
-    .skeleton-image {
-        width: 100%;
-        height: 200px;
-    }
-
-    .skeleton-heading {
-        width: 85%;
-    }
-}
-
     </style>
 </head>
 <body>
@@ -1979,33 +1878,7 @@
 
     </footer>
 
-    <div id="networkSkeleton">
-    <div class="skeleton-container">
-
-        <div class="skeleton-logo shimmer"></div>
-
-        <div class="skeleton-heading shimmer"></div>
-
-        <div class="skeleton-line shimmer"></div>
-        <div class="skeleton-line short shimmer"></div>
-
-        <div class="skeleton-content">
-            <div class="skeleton-image shimmer"></div>
-
-            <div class="skeleton-text">
-                <div class="skeleton-line shimmer"></div>
-                <div class="skeleton-line shimmer"></div>
-                <div class="skeleton-line short shimmer"></div>
-                <div class="skeleton-line shimmer"></div>
-            </div>
-        </div>
-
-        <p id="skeletonMessage">
-            Connecting to LDTECS...
-        </p>
-
-    </div>
-</div>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
 
@@ -2095,7 +1968,7 @@
         });
 
         /*====================================
-            Contact US 
+            Contect US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
         const closeContact = document.getElementById("closecontact");
@@ -2179,86 +2052,6 @@
                 });
             }
         });
-
-        const skeleton = document.getElementById("networkSkeleton");
-const skeletonMessage = document.getElementById("skeletonMessage");
-
-let checking = false;
-
-function showSkeleton(message) {
-    skeletonMessage.textContent = message;
-    skeleton.style.display = "block";
-}
-
-function hideSkeleton() {
-    skeleton.style.display = "none";
-}
-
-async function checkServer() {
-
-    if (checking) return;
-
-    checking = true;
-
-    try {
-
-        if (!navigator.onLine) {
-            showSkeleton("No Internet Connection...");
-            return;
-        }
-
-        showSkeleton("Connecting to LDTECS...");
-
-        const controller = new AbortController();
-
-        const timeout = setTimeout(() => {
-            controller.abort();
-        }, 8000);
-
-        try {
-            const response = await fetch(
-                "/server-status?t=" + Date.now(),
-                {
-                    cache: "no-store",
-                    signal: controller.signal
-                }
-            );
-
-            if (!response.ok) {
-                throw new Error("Server unavailable");
-            }
-
-            const data = await response.json();
-
-            if (data.status !== "ok") {
-                throw new Error("Server unavailable");
-            }
-
-            hideSkeleton();
-
-        } finally {
-            clearTimeout(timeout);
-        }
-
-    } catch (error) {
-
-        showSkeleton(
-            navigator.onLine
-                ? "Server Temporarily Unavailable..."
-                : "No Internet Connection..."
-        );
-
-    } finally {
-        checking = false;
-    }
-}
-
-checkServer();
-
-setInterval(checkServer, 15000);
-
-window.addEventListener("online", checkServer);
-window.addEventListener("offline", checkServer);
 
     </script>
 
