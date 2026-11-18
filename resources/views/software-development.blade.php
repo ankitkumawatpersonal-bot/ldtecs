@@ -1817,9 +1817,9 @@
             }
     }
 
-    .navbar #openContact {
+    /* .navbar #openContact {
             display: none !important;
-        }
+        } */
 
 </style>
 </head>
@@ -1878,7 +1878,6 @@
                     </div>    
                 </div>
             </div>
-            <!-- <a href="/career">Career</a> -->
             <a href="/about">About</a>
             <a class="contact-btn" id="openContact">Contact Us</a>
         </nav>
