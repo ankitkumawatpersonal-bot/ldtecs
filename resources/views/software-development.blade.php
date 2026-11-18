@@ -488,7 +488,7 @@
 
         .page2 {
             width: 100%;
-            min-height: 100vh;
+            min-height: 90vh;
             padding: 50px 35px 50px;
             background-color: #fff;
 
