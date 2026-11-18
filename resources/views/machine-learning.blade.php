@@ -48,7 +48,6 @@
             width:100%;
         }
 
-
         .header {
             position: sticky;
             margin-top:0px;
@@ -380,10 +379,6 @@
             border-left: 2px solid #6f6a67;
         }
 
-        /* .product-popup a:hover{
-            background: #f1f7f7;
-            color: #a1e1eb;
-        } */
         .product-popup1 a:hover{
             background: #173237;
             color: #fff;
@@ -394,7 +389,7 @@
 
         /* ====================================
             page1
-        */
+        ======================================*/
         .heading{
             color: #082036;
             padding-top:30px;
@@ -421,37 +416,18 @@
         .product-card1 {
             width:100%;
             min-height:360px;
-
             background: #ffffff;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             /* padding: 30px 20px 25px; */
             margin:50px 0;
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: center;
-
             overflow: hidden;
-
             position: relative;
-
-            /* transition:
-                transform 1.0s ease,
-                box-shadow 1.0s ease,
-                border-color 0.4s ease; */
         }
-
-        /* .product-card1:hover {
-            transform: translateY(-10px);
-            box-shadow:0 20px 45px rgba(0, 0, 0, 0.15);
-            border-color: #24a19c;
-        } */
 
         .product-card1:hover .product-image {
             transform: scale(1.10);
@@ -468,7 +444,7 @@
         }
 
         /* =========================================
-        PRODUCTS CONTAINER
+            PRODUCTS CONTAINER
         ========================================= */
 
         .page2 {
@@ -476,137 +452,60 @@
             min-height: 100vh;
             padding: 50px 35px 50px;
             background-color: #fff;
-
             text-align: center;
             overflow: hidden;
         }
 
         .products-container {
-
             width: 100%;
             max-width: 1200px;
             min-height:400px;
             margin: 50px auto;
-
             display: grid;
-            
             grid-template-columns: repeat(3, 1fr);
-
             gap: 20px;
-
             align-items: stretch;
         }
 
-
         /* =========================================
-        PRODUCT CARD
+            PRODUCT CARD
         ========================================= */
 
         .product-card {
-
             width: 100%;
             min-height: 400px;
-
             background: #f1f5fd;
-
             border: 2px solid #111;
-
             border-radius: 20px;
-
             /* padding: 20px 10px 15px; */
-
             display: flex;
             flex-direction: column;
-
             align-items: center;
             justify-content: space-between;
-
             overflow: hidden;
             position: relative;
-            
-            /* transition:
-                transform 0.4s ease,
-                box-shadow 0.4s ease,
-                border-color 0.4s ease; */
         }
 
-
         /* =========================================
-        CARD HOVER
-        ========================================= */
-
-        /* .product-card:hover {
-
-            transform: translateY(-10px);
-
-            box-shadow:
-                0 20px 45px rgba(0, 0, 0, 0.15);
-
-            border-color: #24a19c;
-        } */
-
-
-        /* =========================================
-        IMAGE LINK
-        ========================================= */
-
-        /* .product-image-link {
-
-            width: 100%;
-            height: 390px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            text-decoration: none;
-
-            overflow: hidden;
-
-            border-radius: 12px;
-        } */
-
-
-        /* =========================================
-        PRODUCT IMAGE
+            PRODUCT IMAGE
         ========================================= */
 
         .product-image {
-
             width: 100%;
             height: 100%;
             margin-top:-30px;
             margin-bottom:-30px;
             object-fit: contain;
-
             display: block;
-
             /* cursor: pointer; */
-
             transform: scale(1);
-
             transition:
                 transform 1.0s ease,
                 filter 0.5s ease;
         }
         
-
-
         /* =========================================
-        IMAGE HOVER ZOOM
-        ========================================= */
-
-        /* .product-card:hover .product-image {
-
-            transform: scale(1.10);
-
-            filter: brightness(1.03);
-        } */
-
-
-        /* =========================================
-        INDIVIDUAL IMAGE SIZE
+            INDIVIDUAL IMAGE SIZE
         ========================================= */
 
         .product-image.custom {
@@ -615,12 +514,7 @@
             height:80%;
             object-fit: contain;
         }
-        /* .product-image.custom1 {
-            width: 90%;
-            max-width:800px;
-            height: 60%;
-            object-fit: contain;
-        } */
+
         .diem{
             color: #506b82;
             font-size:18px;
@@ -632,7 +526,6 @@
             color: #103b60;
             padding-top:-20px;
         }
-
 
         /* ============================================
             Page3
@@ -670,14 +563,6 @@
                 max-width: 900px;
             }
 
-            /* .products-container
-            .box1 {
-
-                grid-template-columns: repeat(2, 1fr);
-
-                gap: 20px;
-            } */
-
             .page3 .product-card1 {
                 width: 100%;
                 min-height: auto;
@@ -709,11 +594,6 @@
                 min-height: 00px;
             }
 
-            /* .product-card1
-            .product-image{
-                height: 500px;
-            } */
-
             .product-image.soft1
             {
                 width: 100%;
@@ -725,7 +605,7 @@
 
 
         /* =========================================
-        MOBILE
+            MOBILE
         ========================================= */
 
         @media (max-width: 700px) {
@@ -775,12 +655,10 @@
                 font-size: 20px;
             }
 
-
         }
 
-
         /* =========================================
-        SMALL MOBILE
+            SMALL MOBILE
         ========================================= */
 
         @media (max-width: 450px) {
@@ -1080,31 +958,8 @@
                             border-bottom: 1px solid rgba(255,255,255,.1);
             }
         }
-        /* @media (max-width: 1300px) {
-
-            .page3 .product-card1 {
-                width: 100%;
-                min-height: auto;
-                margin: 0;
-                padding: 0;
-                border: 2px solid #111;
-                border-radius: 24px;
-                overflow: hidden;
-                background: #fff;
-            }
-
-            .page3 .product-image.soft1 {
-                display: block;
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                max-height: none;
-                margin: 0;
-                object-fit: contain;
-                border-radius: 22px;
-            }
-
-        } */        /* =================================
+    
+        /* =================================
             Footer
         ====================================*/
         .footer {
@@ -1755,12 +1610,9 @@
                 height: 55px;
                 font-size: 35px;
             }
-    }
+        }
 
-    /* .navbar #openContact {
-            display: none !important;
-        } */
-</style>
+    </style>
 </head>
 <body>
     <header class="header">
@@ -2054,48 +1906,48 @@
             });
         }
 
-                /*====================================
+        /*====================================
             Product dropdown 
         ======================================*/
         
-document.querySelectorAll(".diamond-menu").forEach((menu) => {
-    const button = menu.querySelector(".diamond-btn");
-    const popup = menu.querySelector(".diamond-side-popup");
+        document.querySelectorAll(".diamond-menu").forEach((menu) => {
+            const button = menu.querySelector(".diamond-btn");
+            const popup = menu.querySelector(".diamond-side-popup");
 
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
+            button.addEventListener("click", (event) => {
+                event.preventDefault();
+                event.stopPropagation();
 
-        const isOpen = popup.classList.contains("show");
+                const isOpen = popup.classList.contains("show");
 
-        document.querySelectorAll(".diamond-side-popup").forEach((item) => {
-            item.classList.remove("show");
+                document.querySelectorAll(".diamond-side-popup").forEach((item) => {
+                    item.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((item) => {
+                    item.classList.remove("active");
+                });
+
+                if (!isOpen) {
+                    popup.classList.add("show");
+                    button.classList.add("active");
+                }
+            });
         });
 
-        document.querySelectorAll(".diamond-btn").forEach((item) => {
-            item.classList.remove("active");
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".diamond-menu")) {
+                document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
+                    popup.classList.remove("show");
+                });
+
+                document.querySelectorAll(".diamond-btn").forEach((button) => {
+                    button.classList.remove("active");
+                });
+            }
         });
 
-        if (!isOpen) {
-            popup.classList.add("show");
-            button.classList.add("active");
-        }
-    });
-});
-
-document.addEventListener("click", (event) => {
-    if (!event.target.closest(".diamond-menu")) {
-        document.querySelectorAll(".diamond-side-popup").forEach((popup) => {
-            popup.classList.remove("show");
-        });
-
-        document.querySelectorAll(".diamond-btn").forEach((button) => {
-            button.classList.remove("active");
-        });
-    }
-});
-
- /*====================================
+        /*====================================
             Contect US 
         ======================================*/
         const contactPopup = document.getElementById("contactPopup");
