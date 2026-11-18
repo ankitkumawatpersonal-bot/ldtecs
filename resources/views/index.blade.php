@@ -1101,7 +1101,8 @@
 
         /* Individual Logo Card */
 
-        .client-card {
+        .client-card,
+        .client-card1 {
             width: 210px;
             height: 110px;
             flex-shrink: 0;
@@ -1133,16 +1134,29 @@
 
             transition: transform 0.35s ease;
         }
+        .client-card1 img {
+            width: 120%;
+            height: 120%;
+            object-fit: contain;
+            display: block;
+
+            transition: transform 0.35s ease;
+        }
 
         /* Hover Effect */
 
-        .client-card:hover {
+        .client-card:hover,
+        .client-card1:hover {
             transform: translateY(-7px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
             background: #f8fffc;
         }
 
         .client-card:hover img {
+            transform: scale(1.07);
+        }
+
+        .client-card1:hover img {
             transform: scale(1.07);
         }
 
@@ -2401,7 +2415,7 @@
                             <img src="mahavir.png" alt="Mahavir">
                         </div>
 
-                        <div class="client-card">
+                        <div class="client-card1">
                             <img src="shivaye.png" alt="Shivaye Diamonds">
                         </div>
 
@@ -2409,8 +2423,8 @@
                             <img src="hari-krishana.svg" alt="Hari Krishna">
                         </div>
 
-                        <div class="client-card">
-                            <img src="mahindra diamonds.jpg" alt="Mahindra Diamonds">
+                        <div class="client-card1">
+                            <img src="mahindra diamonds.png" alt="Mahindra Diamonds">
                         </div>
 
                         <div class="client-card">
@@ -2421,9 +2435,8 @@
                             <img src="nature.png" alt="Nature's Art">
                         </div>
 
-                        <div class="client-card">
-                            <img src="rpv.jpg" alt="RPV Diamonds">
-                             <p> RPV Diamonds HongKong</p>
+                        <div class="client-card1">
+                            <img src="rpv.png" alt="RPV Diamonds">
                         </div>
 
                     </div>
@@ -2447,7 +2460,7 @@
                             <img src="mahavir.png" alt="">
                         </div>
 
-                        <div class="client-card">
+                        <div class="client-card1">
                             <img src="shivaye.png" alt="">
                         </div>
 
@@ -2455,8 +2468,8 @@
                             <img src="hari-krishana.svg" alt="">
                         </div>
 
-                        <div class="client-card">
-                            <img src="mahindra diamonds.jpg" alt="">
+                        <div class="client-card1">
+                            <img src="mahindra diamonds.png" alt="">
                         </div>
 
                         <div class="client-card">
@@ -2467,8 +2480,8 @@
                             <img src="nature.png" alt="">
                         </div>
 
-                        <div class="client-card">
-                            <img src="rpv.jpg" alt="">
+                        <div class="client-card1">
+                            <img src="rpv.png" alt="">
                         </div>
 
                     </div>
