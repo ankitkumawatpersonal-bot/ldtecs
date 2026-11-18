@@ -2508,12 +2508,14 @@
                 <h3>CORPORATE HEADQUARTERS:</h3>
 
                 <p>
-                    LDTECS<br>   
+                    LDTECS 
                 </p>
 
                 <p>
                     Surat, Gujarat, India
                 </p>
+
+                <p> phone : +91 90337 93379</p>
 
             </div>
 
@@ -2530,7 +2532,7 @@
                 <a href="/r&d-services">R&D Services</a>
                 <!-- <a href="/career">Career</a> -->
                 <a href="/about">About</a>
-                <a href="#" id="footerContact">Contact</a>
+                <a href="/" id="footerContact">Contact</a>
             </div>
 
             <!-- Contact -->
@@ -2539,7 +2541,7 @@
 
                 <h4>SALES INQUIRY</h4>
                 <p>
-                    <!-- Phone : +91 9909990884<br> -->
+                    Phone : +91 90540 05433<br>
                     Email : info@ldtecs.com
                 </p>
 
@@ -2549,7 +2551,6 @@
                     <!-- <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a> -->
                     <a href="https://www.youtube.com/@LDTECS" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     <a href="https://www.instagram.com/ld_tecs/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQF6SVfDW8dMpQAAAaGgRYjQDDWKlkCxtYSNKhF1yF23BYZARKJpU-uVm1s6s28WnW9_c-7nLmx5buf2Q9Yxv0JXgiVC_K0sQmz0BFS_A6KRG4uwJWtbZ191Nsi2ch4PtaQ2G-s=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fldtecs%2F%3FviewAsMember%3Dtrue" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
@@ -2812,7 +2813,7 @@
 
     </script>
 
-    <a href="https://wa.me/919316303689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/919054005433" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 

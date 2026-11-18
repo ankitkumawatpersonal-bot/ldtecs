@@ -2001,18 +2001,14 @@
                 <h3>CORPORATE HEADQUARTERS:</h3>
 
                 <p>
-                    LDTECS<br>
-                    
+                    LDTECS
                 </p>
 
                 <p>
                     Surat, Gujarat, India
                 </p>
 
-                <p>
-                    <!-- Phone : +91 261 2309900<br>
-                    Email : contact@drcindia.in -->
-                </p>
+                <p> Phone : +91 90337 93379 </p>
             </div>
 
             <!-- Quick Links -->
@@ -2211,7 +2207,7 @@ document.addEventListener("click", (event) => {
                 "Phone: " + phone + "\n" +
                 "Message: " + message;
 
-            const whatsappNumber = "919316303689";
+            const whatsappNumber = "919054005433"; // Replace with your WhatsApp number
 
             const url =
                 "https://wa.me/" + whatsappNumber +
@@ -2253,7 +2249,7 @@ document.addEventListener("click", (event) => {
 
     </script>
 
-    <a href="https://wa.me/919316303689" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/919054005433" class="floating-whatsapp" id="whatsappContact" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
