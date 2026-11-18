@@ -2280,7 +2280,7 @@
 
             <!-- AI & Machine Learning -->
             <div class="service-card software-card">
-                <img src="ai3.avif" alt="Artificial Intelligence" id="software">
+                <img src="ai.png" alt="Artificial Intelligence" id="software">
 
                 <div class="card-content">
                     <h3>AI & Machine Learning Solution</h3>
@@ -2336,7 +2336,7 @@
 
             <!-- 3D CAD Design -->
             <div class="service-card design-card">
-                <img src="3d cad design.avif" alt="3D CAD Design" id="design">
+                <img src="3d cad design1.webp" alt="3D CAD Design" id="design">
 
                 <div class="card-content">
                     <h3>3D CAD Design</h3>

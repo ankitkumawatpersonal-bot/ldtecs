@@ -494,47 +494,49 @@ gsap.from('.table',{
     }
 });
 
-// gsap.from('.card-content', {
-//         x: 100,
-//         opacity: 0,
-//         duration: 1.2,
-//         ease: 'power3.out',
+const softwareTL = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".page1",
+        start: "top 75%",
+        toggleActions: "play none none reverse"
+    }
+});
 
-//         scrollTrigger: {
-//             trigger: '.card-content',
-//             start: 'top 70%',
-//             toggleActions: 'play none none reverse'
-//         }
+// Heading animation
+softwareTL.to("#soft", {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out"
+});
 
-//     });
+// Image animation
+softwareTL.to(".soft1", {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    duration: 1.3,
+    ease: "back.out(1.5)"
+}, "-=0.5");
 
-//     gsap.from('#software', {
-//         x: -100,
-//         opacity: 0,
-//         duration: 1.2,
-//         ease: 'power3.out',
+// Description animation
+softwareTL.to(".description p", {
+    opacity: 1,
+    x: 0,
+    duration: 1,
+    stagger: 0.3,
+    ease: "power2.out"
+}, "-=0.7");
 
-//         scrollTrigger: {
-//             trigger: '.card-content',
-//             start: 'top 70%',
-//             toggleActions: 'play none none reverse'
-//         }
-
-//     });
-
-//     gsap.from('#design', {
-//         x: -100,
-//         opacity: 0,
-//         duration: 1.2,
-//         ease: 'power3.out',
-
-//         scrollTrigger: {
-//             trigger: '.card-content',
-//             start: 'top 70%',
-//             toggleActions: 'play none none reverse'
-//         }
-
-//     });
+// Continuous floating effect
+gsap.to(".soft1", {
+    y: -12,
+    duration: 2,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut",
+    delay: 2
+});
 
     gsap.from('.footer', {
         y: 100,
