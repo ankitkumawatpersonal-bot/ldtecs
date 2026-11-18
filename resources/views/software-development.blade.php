@@ -412,6 +412,7 @@
         .heading{
             color: #082036;
             padding-top:30px;
+            padding-bottom:30px;
         }
 
         .box1{
