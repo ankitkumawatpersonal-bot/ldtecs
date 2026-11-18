@@ -1816,7 +1816,7 @@
             <h1> Software Development </h1>
         </div>
         <div class="box1">
-            <div class="product-card1">
+            <div class="product-card1" id="product-card1">
                 <img class="product-image soft1" src="image1.jpg" alt="Software image"> 
             </div>
             <div class="description">
