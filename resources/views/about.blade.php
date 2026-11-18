@@ -1880,7 +1880,7 @@
             max-width: 1200px;
             margin: auto;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr 1fr;
+            grid-template-columns: 1fr 0.8fr 0.5fr;
             gap: 60px;
             padding: 0 10px 55px;
         }
