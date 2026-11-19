@@ -1858,7 +1858,7 @@
             margin-bottom: 45px;
         }
 
-        .footer-cta h1 {
+        .footer-cta h2 {
             font-size: 36px;
             line-height: 1.65;
             font-weight: 700;
