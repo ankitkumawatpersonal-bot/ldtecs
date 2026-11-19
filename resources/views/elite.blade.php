@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- ELITE PAGE -->
+<title>LDTECS | CLASSIFIER Elite | Diamond Detection Machine</title>
+<meta name="description" content="Discover the LDTECS CLASSIFIER Elite diamond detection machine, designed for advanced diamond classification and detection applications.">
+<link rel="canonical" href="https://ldtecs.com/elite">
 
     <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}?v=15">
     <link rel="shortcut icon" href="{{ asset('logo2.png') }}?v=15">

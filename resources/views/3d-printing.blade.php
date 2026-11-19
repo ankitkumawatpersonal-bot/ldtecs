@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- 3D PRINTING PAGE -->
+<title>LDTECS | 3D Printing Services </title>
+<meta name="description" content="Discover LDTECS 3D printing services for prototyping, product development and engineering applications.">
+<link rel="canonical" href="https://ldtecs.com/3d-printing">
 
     <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}?v=15">
     <link rel="shortcut icon" href="{{ asset('logo2.png') }}?v=15">

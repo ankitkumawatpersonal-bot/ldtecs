@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- MACHINE LEARNING PAGE -->
+<title>LDTECS | Machine Learning Solutions</title>
+<meta name="description" content="Explore LDTECS machine learning solutions for intelligent automation, data-driven applications and innovative technology.">
+<link rel="canonical" href="https://ldtecs.com/machine-learning">
 
     <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}?v=15">
     <link rel="shortcut icon" href="{{ asset('logo2.png') }}?v=15">

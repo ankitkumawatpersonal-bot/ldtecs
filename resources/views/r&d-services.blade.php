@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- R&D SERVICES PAGE -->
+<title>LDTECS | Research & Development Services</title>
+<meta name="description" content="Discover LDTECS research and development services focused on engineering, innovation and technology solutions.">
+<link rel="canonical" href="https://ldtecs.com/r&d-services">
 
     <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}?v=15">
     <link rel="shortcut icon" href="{{ asset('logo2.png') }}?v=15">

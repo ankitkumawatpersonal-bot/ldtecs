@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- CAD DESIGN PAGE -->
+<title>LDTECS | CAD Design Services</title>
+<meta name="description" content="Explore LDTECS CAD design services for accurate 3D modeling, product design and engineering solutions.">
+<link rel="canonical" href="https://ldtecs.com/cad-design">
 
     <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}?v=15">
     <link rel="shortcut icon" href="{{ asset('logo2.png') }}?v=15">

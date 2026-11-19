@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- NANO PAGE -->
+<title>LDTECS | CLASSIFIER Nano | Compact Diamond Detection</title>
+<meta name="description" content="Learn about the LDTECS CLASSIFIER Nano, a compact wireless diamond detection solution.">
+<link rel="canonical" href="https://ldtecs.com/nano">
 
     <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}?v=15">
     <link rel="shortcut icon" href="{{ asset('logo2.png') }}?v=15">

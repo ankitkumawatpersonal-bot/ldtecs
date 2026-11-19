@@ -3,7 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- BASIC SEO -->
+<title>LDTECS | Diamond Detection & Technology Solutions</title>
+
+<meta name="description"
+    content="LDTECS provides innovative diamond detection machines, software development, AI and machine learning solutions, 3D printing and engineering services in Surat, Gujarat, India.">
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="LDTECS">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- CANONICAL URL -->
+<link rel="canonical" href="https://ldtecs.com/">
+
+<!-- OPEN GRAPH SEO -->
+<meta property="og:type" content="website">
+<meta property="og:title"
+    content="LDTECS | Diamond Detection & Technology Solutions">
+<meta property="og:description"
+    content="Explore LDTECS diamond detection technology, software development, AI solutions and engineering services.">
+<meta property="og:url" content="https://ldtecs.com/">
+<meta property="og:site_name" content="LDTECS">
+
+<!-- TWITTER SEO -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title"
+    content="LDTECS | Diamond Detection & Technology Solutions">
+<meta name="twitter:description"
+    content="Innovative diamond detection and technology solutions by LDTECS.">
     <link rel="icon" type="image/png" href="/logo2.png?v=15">
     <link rel="shortcut icon" href="/logo2.png?v=15">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">

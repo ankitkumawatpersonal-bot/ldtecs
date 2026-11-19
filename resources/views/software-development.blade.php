@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LDTECS</title>
+    <!-- SOFTWARE DEVELOPMENT PAGE -->
+<title>LDTECS | Software Development Services</title>
+<meta name="description" content="Explore LDTECS software development services for modern web applications and custom technology solutions.">
+<link rel="canonical" href="https://ldtecs.com/software-development">
 
     <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}?v=15">
     <link rel="shortcut icon" href="{{ asset('logo2.png') }}?v=15">
