@@ -2125,7 +2125,7 @@
                             <div class="feature">
                                 <a href="software-development"> Software Development </a>
                                 <a href="machine-learning"> AI & Machine Learning </a>
-                                <a href="data-engineering"> Data Engineering </a>
+                                <!-- <a href="data-engineering"> Data Engineering </a> -->
                             </div>
                         </div>
                         <div class="services">
