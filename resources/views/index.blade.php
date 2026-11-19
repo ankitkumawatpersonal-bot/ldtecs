@@ -4,35 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- BASIC SEO -->
-<title>LDTECS | Diamond Detection & Technology Solutions</title>
+    <title>LDTECS | Diamond Detection & Technology Solutions</title>
 
-<meta name="description"
-    content="LDTECS provides innovative diamond detection machines, software development, AI and machine learning solutions, 3D printing and engineering services in Surat, Gujarat, India.">
+    <meta name="description"
+        content="LDTECS provides innovative diamond detection machines, software development, AI and machine learning solutions, 3D printing and engineering services in Surat, Gujarat, India.">
 
-<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 
-<meta name="author" content="LDTECS">
+    <meta name="author" content="LDTECS">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- CANONICAL URL -->
-<link rel="canonical" href="https://ldtecs.com/">
+    <!-- CANONICAL URL -->
+    <link rel="canonical" href="https://ldtecs.com/">
 
-<!-- OPEN GRAPH SEO -->
-<meta property="og:type" content="website">
-<meta property="og:title"
-    content="LDTECS | Diamond Detection & Technology Solutions">
-<meta property="og:description"
-    content="Explore LDTECS diamond detection technology, software development, AI solutions and engineering services.">
-<meta property="og:url" content="https://ldtecs.com/">
-<meta property="og:site_name" content="LDTECS">
+    <!-- OPEN GRAPH SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+        content="LDTECS | Diamond Detection & Technology Solutions">
+    <meta property="og:description"
+        content="Explore LDTECS diamond detection technology, software development, AI solutions and engineering services.">
+    <meta property="og:url" content="https://ldtecs.com/">
+    <meta property="og:site_name" content="LDTECS">
 
-<!-- TWITTER SEO -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title"
-    content="LDTECS | Diamond Detection & Technology Solutions">
-<meta name="twitter:description"
-    content="Innovative diamond detection and technology solutions by LDTECS.">
+    <!-- TWITTER SEO -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title"
+        content="LDTECS | Diamond Detection & Technology Solutions">
+    <meta name="twitter:description"
+        content="Innovative diamond detection and technology solutions by LDTECS.">
     <link rel="icon" type="image/png" href="/logo2.png?v=15">
     <link rel="shortcut icon" href="/logo2.png?v=15">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -1070,17 +1070,17 @@
 
         /* Marquee */
 
-        .marquee {
+        /* .marquee {
             width: 100%;
             overflow: hidden;
             position: relative;
             padding: 25px 0;
             background: #173237;
-        }
+        } */
 
         /* Gradient edges */
 
-        .marquee::before,
+        /* .marquee::before,
         .marquee::after {
             content: "";
             position: absolute;
@@ -1107,30 +1107,30 @@
                 #173237,
                 transparent
             );
-        }
+        } */
 
         /* Animation Track */
 
-        .marquee-track {
+        /* .marquee-track {
             display: flex;
             width: max-content;
             animation: marqueeMove 35s linear infinite;
             will-change: transform;
-        }
+        } */
 
         /* Logo Group */
 
-        .marquee-group {
+        /* .marquee-group {
             display: flex;
             align-items: center;
             gap: 25px;
             padding: 0 12px;
             flex-shrink: 0;
-        }
+        } */
 
         /* Individual Logo Card */
 
-        .client-card,
+        /* .client-card,
         .client-card1 {
             width: 210px;
             height: 110px;
@@ -1151,11 +1151,11 @@
                 transform 0.35s ease,
                 box-shadow 0.35s ease,
                 background 0.35s ease;
-        }
+        } */
 
         /* Logo Image */
 
-        .client-card img {
+        /* .client-card img {
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -1170,11 +1170,11 @@
             display: block;
 
             transition: transform 0.35s ease;
-        }
+        } */
 
         /* Hover Effect */
 
-        .client-card:hover,
+        /* .client-card:hover,
         .client-card1:hover {
             transform: translateY(-7px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
@@ -1187,17 +1187,17 @@
 
         .client-card1:hover img {
             transform: scale(1.07);
-        }
+        } */
 
         /* Pause Animation on Hover */
 
-        .marquee:hover .marquee-track {
+        /* .marquee:hover .marquee-track {
             animation-play-state: paused;
-        }
+        } */
 
         /* Infinite Animation */
 
-        @keyframes marqueeMove {
+        /* @keyframes marqueeMove {
             from {
                 transform: translateX(0);
             }
@@ -1205,13 +1205,13 @@
             to {
                 transform: translateX(-50%);
             }
-        }
+        } */
 
         /* ===============================
             TABLET RESPONSIVE
         ================================ */
 
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
 
             .clients-section {
                 padding: 65px 0 45px;
@@ -1245,13 +1245,13 @@
                 width: 50px;
             }
 
-        }
+        } */
 
         /* ===============================
             MOBILE RESPONSIVE
         ================================ */
 
-        @media (max-width: 480px) {
+        /* @media (max-width: 480px) {
 
             .clients-section {
                 padding: 50px 0 35px;
@@ -1300,17 +1300,17 @@
                 margin-top: 25px;
             }
 
-        }
+        } */
 
         /* Accessibility */
 
-        @media (prefers-reduced-motion: reduce) {
+        /* @media (prefers-reduced-motion: reduce) {
 
             .marquee-track {
                 animation: none;
             }
 
-        }
+        } */
 
 
         /* =================================
@@ -2411,11 +2411,11 @@
         </div> 
     </section>
 
-    <section class="page5" id="our-clients">
+    <!-- <section class="page5" id="our-clients">
 
         <div class="clients-section">
 
-            <!-- Section Heading -->
+            Section Heading
             <div class="clients-heading">
 
                 <h2>
@@ -2423,12 +2423,12 @@
                 </h2>
             </div>
 
-            <!-- Clients Marquee -->
+            Clients Marquee
             <div class="marquee">
 
                 <div class="marquee-track">
 
-                    <!-- First Group -->
+                    First Group
                     <div class="marquee-group">
 
                         <div class="client-card">
@@ -2473,7 +2473,7 @@
 
                     </div>
 
-                    <!-- Duplicate Group for Infinite Animation -->
+                    Duplicate Group for Infinite Animation
                     <div class="marquee-group" aria-hidden="true">
 
                         <div class="client-card">
@@ -2524,7 +2524,7 @@
 
         </div>
 
-    </section>
+    </section> -->
     
     <footer class="footer">
 

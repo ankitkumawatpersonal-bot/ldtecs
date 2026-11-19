@@ -574,6 +574,13 @@
             font-weight:500;
         }
 
+        .build h3{
+            color: #000;
+            line-height:1.5;
+            font-size:27px;
+            font-weight:500;
+        }
+
         .build p{
             padding-top:20px;
             font-size:18px;
@@ -2921,8 +2928,8 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img class="hero-img" src="header.png" alt="back">
-            <img class="img" src="logo.png" alt="logo" onerror="this.style.background='var(--text)'">
+            <img class="hero-img" src="header.png" alt="LDTECS technology company banner">
+            <img class="img" src="logo.png" alt="LDTECS company logo" onerror="this.style.background='var(--text)'">
         </div>
 
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
@@ -2983,9 +2990,8 @@
         
         <div class="about" id="desc">
             <div class="heading" id="soft">
-                <h1 class="h1"> About Us </h1>
-                <h1> LDTECS </h1>
-                <p class="tech"> Technology. Engineering Tomorrow <p>
+                <h1 class="h1">About LDTECS</h1>
+                <p class="tech">Technology. Engineering Tomorrow</p>
             </div>
             <div class="description">
                 <p>We are an India-based technology and engineering company focused on <br>developing innovative, 
@@ -2996,7 +3002,7 @@
             </div>
         </div>
         <div class="logo1">
-            <img class="hero-img1" src="about3.png" alt="back">
+            <img class="hero-img1" src="about3.png" alt="About LDTECS technology and engineering">
         </div>
     </section>
 
@@ -3030,7 +3036,7 @@
         <div class="product-titl">
             <div class="build" id="build">
                 <h2> Who We Are </h2>
-                <h1> Building Solutions <br>Through Technology </h1>
+                <h3> Building Solutions <br>Through Technology </h3>
                 <div class="paragraph">
                     <p>LDTECS brings together technology, software, and engineering to create products and solutions 
                         designed around real industry needs.
@@ -3054,13 +3060,13 @@
         <div class="product-title">
             <div class="heading1" id="our">
                 <h6> OUR CAPABILITIES </h6>
-                <h1> What We Do </h1>
+                <h2> What We Do </h2>
             </div>
             <div class="products-container" id="diamond">
 
                 <div class="box1 product-card">
                     <h4 class="customh4"> Diamond Detection Technology </h4>
-                    <img class="product-image custom" src="diamond scan1.png" alt="Diamond Detection">
+                    <img class="product-image custom" src="diamond scan1.png" alt="LDTECS diamond detection technology">
 
                     <div class="diem">
                         <p> Advanced HPHT & CVD Diamond detection and classification systems for labs, traders, jewellery
@@ -3071,7 +3077,7 @@
 
                 <div class="box1 product-card">
                     <h4 class="customh4"> Software Devlopment </h4>
-                    <img class="product-image custom" src="software1.png" alt="Software Devlopment">
+                    <img class="product-image custom" src="software1.png" alt="LDTECS software development services">
 
                     <div class="diem">
                         <p> customized software applications, automation solutions and technology-driven tools 
@@ -3091,7 +3097,7 @@
                 </div>
                 <div class="box1 product-card">
                     <h4 class="customh4"> 3D Printing & Prototyping </h4>
-                    <img class="product-image custom1" src="3d image.png" alt="Custom Devlopment" id="zoomImage">
+                    <img class="product-image custom1" src="3d image.png" alt="LDTECS 3D printing and prototyping services" id="zoomImage">
 
                     <div class="diem">
                         <p> Supporting rapid prototyping and product devlopment through customized 3D printing solutions. </p>
@@ -3099,7 +3105,7 @@
                 </div>
                 <div class="box1 product-card">
                     <h4 class="customh4"> OEM & White-Label Manufacturing </h4>
-                    <img class="product-image custom1" src="oem.png" alt="Custom Devlopment" id="zoomImage">
+                    <img class="product-image custom1" src="oem.png" alt="LDTECS OEM and white label manufacturing" id="zoomImage">
 
                     <div class="diem">
                         <p> Providing manufacturing and customization opportunities for businesses looking to develop or market 
@@ -3161,7 +3167,7 @@
         <div class="product-title">
             <div class="heading1" id="why">
                 <h5> WHY CHOOSE US </h5>
-                <h1> The LDTECS Advantage </h1>
+                <h2> The LDTECS Advantage </h2>
             </div>
             <div class="products-container" id="container">
 
@@ -3326,8 +3332,8 @@
     <footer class="footer">
 
         <div class="footer-cta">
-            <h1>Let's put our minds into motion,<br>
-                Let's grow together</h1>
+            <h2>Let's put our minds into motion,<br>
+                Let's grow together</h2>
             <!-- <a href="#contact" class="contact-btn">GET IN TOUCH</a> -->
         </div>
 
