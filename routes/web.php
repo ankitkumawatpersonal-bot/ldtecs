@@ -27,6 +27,7 @@ Route::view('/embedded-software', 'embedded-software');
 Route::view('/3d-printing', '3d-printing');
 Route::view('/cad-design', 'cad-design');
 Route::view('/r&d-services', 'r&d-services');
+Route::view('/blog', 'blog');
 
 // Product link: Home page ke Our Products section par le jao
 Route::get('/product', function () {
