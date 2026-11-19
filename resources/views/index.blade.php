@@ -2125,6 +2125,7 @@
                             <div class="feature">
                                 <a href="software-development"> Software Development </a>
                                 <a href="machine-learning"> AI & Machine Learning </a>
+                                <a href="data-engineering"> Data Engineering </a>
                             </div>
                         </div>
                         <div class="services">
@@ -2137,7 +2138,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="/blog">Blog</a>
+                <!-- <a href="/blog">Blog</a> -->
                 <a href="/about">About Us</a>
                 <a class="contact-btn" id="openContact">Contact Us</a>
             </nav>

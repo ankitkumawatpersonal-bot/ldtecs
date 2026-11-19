@@ -1654,7 +1654,7 @@
                     </div>    
                 </div>
             </div>
-            <a href="/blog">Blog</a>
+            <!-- <a href="/blog">Blog</a> -->
             <a href="/about">About Us</a>
             <a class="contact-btn" id="openContact">Contact Us</a>
         </nav>
