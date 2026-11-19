@@ -399,7 +399,7 @@
         /* Desktop / Laptop */
         .page {
             width: 100%;
-            min-height: 70vh;
+            min-height: 55vh;
             position: relative;
             display: flex;
             align-items: flex-start;
@@ -424,7 +424,7 @@
 
         .tech {
             color: #000;
-            font-size: 25px;
+            font-size: 30px;
             font-weight: 500;
             text-align: left;
         }
@@ -552,7 +552,7 @@
 
         .page3 {
             width: 100%;
-            min-height:80vh;
+            min-height:60vh;
             padding-left:70px;
             padding-right:110px;
             padding-top:80px;
@@ -569,12 +569,12 @@
         
         .build h2{
             color: #4495bb;
-            line-height:1.5;
+            line-height:0.7;
             font-size:20px;
             font-weight:500;
         }
 
-        .build h3{
+        .build .tech{
             color: #000;
             line-height:1.5;
             font-size:27px;
@@ -733,17 +733,14 @@
 
             overflow: hidden;
             position: relative;
-            
-            /* transition:
-                transform 0.4s ease,
-                box-shadow 0.4s ease,
-                border-color 0.4s ease; */
+
         }
 
         .heading1{
             padding-left:50px;
             text-align:left;
             padding-top:30px;
+            line-height:1.5;
         }
 
         .heading1 h6,h5{
@@ -1641,7 +1638,7 @@
         /* Page 6 */
         .page6 {
             width: 100%;
-            min-height: 80vh;
+            min-height: 70vh;
             background-color: #fff;
             text-align: center;
             overflow: hidden;
@@ -3036,7 +3033,7 @@
         <div class="product-titl">
             <div class="build" id="build">
                 <h2> Who We Are </h2>
-                <h3> Building Solutions <br>Through Technology </h3>
+                <p class="tech"> Building Solutions <br>Through Technology </p>
                 <div class="paragraph">
                     <p>LDTECS brings together technology, software, and engineering to create products and solutions 
                         designed around real industry needs.
@@ -3060,7 +3057,7 @@
         <div class="product-title">
             <div class="heading1" id="our">
                 <h6> OUR CAPABILITIES </h6>
-                <h2> What We Do </h2>
+                <p class="tech"> What We Do </p>
             </div>
             <div class="products-container" id="diamond">
 
@@ -3167,7 +3164,7 @@
         <div class="product-title">
             <div class="heading1" id="why">
                 <h5> WHY CHOOSE US </h5>
-                <h2> The LDTECS Advantage </h2>
+                <p class="tech"> The LDTECS Advantage </p>
             </div>
             <div class="products-container" id="container">
 
