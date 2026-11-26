@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diamond Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        :root {
+            --bg-1: #111827;
+            --bg-2: #1F2937;
+            --bg-3: #374151;
+            --bg-4: #4B5563;
+            --accent: #24A19C;
+            --danger: #F75555;
+            --success: #22C55E;
+            --muted: #6B7280;
+            --muted-2: #9CA3AF;
+            --text: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            touch-action: none;
+            overflow: hidden;
+        }
+        body {
+            text-align: center;
+            background: var(--bg-1);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            padding: 0;
+            height: 100vh;
+            height: 100dvh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .content-wrap {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 62px 20px 10px 20px;
+            overflow-y: auto;
+        }
+        .scan-bar {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            padding: 8px 10px;
+        }
+        h1 { color: var(--text); margin-bottom: 30px; font-size: 32px; }
+
+        /* ===== TOP BAR (Full Width, same as results.html across all pages) ===== */
+        .top-bar {
+            position: fixed;
+            top: 8px;
+            left: 10px;
+            right: 10px;
+            width: auto;
+            height: 42px;
+            background: var(--bg-3);
+            border: none;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            padding: 0 8px;
+            z-index: 1000;
+        }
+        .top-bar-title {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: bold;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .top-bar-icon {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            background: none;
+            border: 1px solid var(--bg-4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .top-bar-icon:hover {
+                background: var(--accent);
+                border-color: var(--accent);
+            }
+            .top-bar-icon:hover svg {
+                fill: var(--bg-1);
+            }
+            .top-bar-icon.info-icon:hover {
+                color: var(--bg-1);
+            }
+        }
+        .top-bar-icon svg {
+            width: 15px;
+            height: 15px;
+            fill: var(--text);
+            transition: fill 0.3s;
+        }
+        .top-bar-icon.gear-icon:hover {
+            transform: rotate(90deg);
+        }
+        .top-bar-icon.info-icon {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--text);
+            font-family: Georgia, serif;
+            font-style: italic;
+        }
+        .top-bar-icon.info-icon.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--bg-1);
+        }
+
+        /* ===== REFERENCE IMAGE OVERLAY (dropdown from top bar) ===== */
+        .ref-overlay {
+            display: none;
+            position: fixed;
+            top: 56px;
+            right: 15px;
+            left: auto;
+            width: auto;
+            max-width: 260px;
+            max-height: 32vh;
+            overflow-y: auto;
+            background: transparent;
+            z-index: 999;
+            text-align: right;
+            padding: 0;
+        }
+        .ref-overlay.active { display: block; }
+        .ref-overlay img {
+            max-width: 260px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            display: block;
+        }
+        .ref-overlay-empty {
+            color: var(--muted-2);
+            font-size: 11px;
+            background: var(--bg-3);
+            border: 1px solid var(--bg-4);
+            border-radius: 6px;
+            padding: 6px 10px;
+        }
+
+        /* ===== PASSWORD MODAL ===== */
+        .pwd-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+        .pwd-overlay.active { display: flex; }
+        .pwd-box {
+            background: var(--bg-2);
+            border: 1px solid var(--bg-4);
+            border-radius: 12px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+        }
+        .pwd-title {
+            color: var(--text);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .pwd-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 8px;
+            border: 1px solid var(--bg-4);
+            border-radius: 8px;
+            background: var(--bg-1);
+            color: var(--accent);
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .pwd-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(36,161,156,0.3);
+        }
+        .pwd-error {
+            color: var(--danger);
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .pwd-error.active { display: block; }
+        .pwd-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .pwd-btn {
+            padding: 10px 24px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid var(--bg-4);
+            background: var(--bg-3);
+            color: var(--text);
+            transition: all 0.2s;
+        }
+        .pwd-btn:hover {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .pwd-btn.primary {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .pwd-btn.primary:hover {
+            background: var(--accent);
+            opacity: 0.85;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        /* ===== LEFT: CAMERA ===== */
+        .camera-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+        .camera-box {
+            border: 1px solid var(--text);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            background: #000;
+            aspect-ratio: 4/3;
+            /* height: auto; */
+            /* aspect-ratio: 16/9; */
+            min-height: 200px;
+        }
+        .camera-box img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            /* height: auto; */
+            object-fit: contain;
+        }
+        .camera-box img.frozen {
+            display: none;
+        }
+        .camera-placeholder {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            align-items: center;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 14px;
+            position: absolute;
+            top: 0; left: 0;
+        }
+        .camera-placeholder.active {
+            display: flex;
+        }
+
+        /* ===== ROUND PROGRESS OVERLAY ===== */
+        .progress-overlay {
+            display: none;
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .progress-overlay.active { display: flex; }
+
+        .circular-progress {
+            position: relative;
+            width: 120px;
+            height: 120px;
+        }
+        .circular-progress svg {
+            transform: rotate(-90deg);
+            width: 100%;
+            height: 100%;
+        }
+        .circular-progress circle {
+            fill: none;
+            stroke-width: 2px;
+        }
+        .circular-progress .bg-circle {
+            stroke: rgba(255,255,255,0.15);
+        }
+        .circular-progress .progress-circle {
+            stroke: var(--accent);
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.4s ease;
+        }
+        .progress-text {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 4px rgba(0,0,0,0.8);
+        }
+        .scan-step-text {
+            display: block;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 0 0 4px rgba(0,0,0,0.8);
+            min-height: 20px;
+        }
+        .scan-step-text.hidden {
+            display: none;
+        }
+        .scan-complete {
+            display: none;
+            color: var(--text);
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 0 4px rgba(0,0,0,0.8);
+        }
+        .scan-complete.active { display: block; }
+
+        /* ===== RIGHT: CONTROLS ===== */
+        .controls-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            min-width: 200px;
+        }
+        .top-controls-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ctrl-btn {
+            height: 48px;
+            padding: 0;
+            font-size: 14px;
+            background: var(--bg-1);
+            color: var(--accent);
+            border: 1px solid var(--bg-4);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .ctrl-btn:hover {
+            background: var(--bg-3);
+            color: var(--accent);
+        }
+        .ctrl-btn:disabled {
+            background: var(--bg-1);
+            color: var(--accent);
+            border-color: var(--bg-4);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        .ctrl-btn.scanning {
+            background: var(--bg-3);
+            color: var(--accent);
+            border-color: var(--bg-4);
+            opacity: 1;
+        }
+
+        .scan-btn {
+            width: 60px;
+            height: 60px;
+            /* padding: 15px 0; */
+            padding: 0;
+            font-size: 18px;
+            background: var(--bg-3);
+            color: var(--text);
+            border: 1px solid var(--bg-4);
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            /* width: 150px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .scan-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            background-color: var(--text);
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            transition: background-color 0.3s;
+        }
+        .scan-btn.scanning .scan-icon {
+            background-color: var(--bg-1);
+        }
+        .scan-btn:hover {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .scan-btn:disabled {
+            background: var(--bg-3);
+            color: var(--text);
+            border-color: var(--bg-4);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        .scan-btn.scanning {
+            background: var(--accent);
+            color: var(--bg-1);
+            border-color: var(--accent);
+            opacity: 1;
+        }
+
+        .toggle-container {
+            height: 48px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-1);
+            padding: 0 20px;
+            border-radius: 8px;
+            border: 1px solid var(--bg-4);
+            width: 150px;
+            box-sizing: border-box;
+            justify-content: space-between;
+        }
+        .toggle-label {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--bg-1);
+            transition: .4s;
+            border-radius: 28px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 3px;
+            bottom: 3px;
+            background-color: var(--accent);
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: var(--bg-3);
+        }
+        input:checked + .slider:before {
+            background-color: var(--text);
+            transform: translateX(22px);
+        }
+        .toggle-container.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* ===== DESKTOP / LAPTOP ONLY: trim camera frame height a bit so it fully fits ===== */
+        @media (min-width: 769px) {
+            .camera-box {
+                max-height: 68vh;
+            }
+        }
+
+        /* ===== MOBILE PORTRAIT ===== */
+        @media (max-width: 768px) and (orientation: portrait) {
+            h1 { font-size: 20px; margin-bottom: 15px; }
+            .main-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .camera-section { width: 100%; }
+            .camera-box { 
+                max-width: 100%; 
+                /* aspect-ratio: 4/3;  */
+                height: auto;
+                min-height: 180px; }
+            .controls-section {
+                flex-direction: column;
+                gap: 16px;
+                width: 100%;
+                align-items: center;
+            }
+            .top-controls-group {
+                align-self: flex-end;
+                align-items: flex-end;
+                gap: 10px;
+                margin-right: 10px;
+            }
+            .ctrl-btn{
+                width: 125px;
+                padding: 8px 0;
+                font-size: 11px;
+            }
+            .ctrl-btn { height: 38px; padding: 0; }
+            .toggle-container { width: 125px; height: 38px; padding: 0 10px; gap: 6px; box-sizing: border-box; }
+            /* .scan-btn { font-size: 13px; padding: 11px 0; width: 130px; } */
+            .scan-btn { 
+                font-size: 13px; 
+                padding: 0 ;   
+                width: 55px ;  
+                height: 55px ; 
+                border-radius: 10px;     
+            }
+            .scan-icon { width: 24px; height: 24px; }
+            .toggle-label { font-size: 10px; }
+            .circular-progress { width: 100px; height: 100px; }
+            .progress-text { font-size: 16px; }
+            .scan-complete { font-size: 14px; }
+            .top-bar { top: 8px; height: 40px; padding: 0 6px; gap: 6px; }
+            .top-bar-icon { width: 26px; height: 26px; }
+            .top-bar-icon svg { width: 14px; height: 14px; }
+            .ref-overlay { top: 52px; right: 10px; max-width: 190px; max-height: 34vh; }
+            .ref-overlay img { max-width: 190px; }
+            .content-wrap { padding-top: 52px; }
+        }
+
+        /* ===== MOBILE LANDSCAPE ===== */
+        @media (max-width: 768px) and (orientation: landscape) {
+            h1 { font-size: 18px; margin-bottom: 10px; }
+            .top-bar { top: 8px; height: 36px; }
+            .content-wrap { padding-top: 48px; }
+            .main-container { flex-direction: row; gap: 20px; }
+            .camera-box { max-width: 65vw; }
+            .controls-section { gap: 12px; }
+            .ctrl-btn, .scan-btn, .toggle-container { width: 130px; }
+            .ctrl-btn, .toggle-container { height: 42px; }
+            .scan-btn { padding: 12px 0; font-size: 14px; }
+            .scan-icon { width: 20px; height: 20px; }
+            .circular-progress { width: 90px; height: 90px; }
+            .progress-text { font-size: 14px; }
+            .scan-complete { font-size: 13px; }
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+<base target="_blank">
+</head>
+<body>
+    <!-- TOP BAR: Reference Image (i) + Settings (gear) -->
+    <div class="top-bar">
+        <span class="top-bar-title">Home</span>
+        <div class="top-bar-icon info-icon" id="refInfoBtn" onclick="toggleReferenceImage()" title="Reference Image">i</div>
+        <div class="top-bar-icon gear-icon" onclick="openPasswordModal()" title="Settings">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.66.07 1l-2.11 1.63c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.08.73 1.69-.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.63Z"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- REFERENCE IMAGE OVERLAY -->
+    <div class="ref-overlay" id="refOverlay">
+        {% if ref_image %}
+        <img src="{{ url_for('ref_image', filename=ref_image) }}" alt="Reference Image">
+        {% else %}
+        <div class="ref-overlay-empty">No reference image found</div>
+        {% endif %}
+    </div>
+
+    <!-- PASSWORD MODAL - OK button instead of Unlock -->
+    <div class="pwd-overlay" id="pwdOverlay">
+        <div class="pwd-box">
+            <div class="pwd-title">Enter Password</div>
+            <input type="password" class="pwd-input" id="pwdInput" placeholder="••••••" maxlength="6">
+            <div class="pwd-error" id="pwdError">Incorrect password!</div>
+            <div class="pwd-btns">
+                <button class="pwd-btn" onclick="closePasswordModal()">Cancel</button>
+                <button class="pwd-btn primary" onclick="checkPassword()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrap">
+        <h1>Diamond Scanner</h1>
+
+        <div class="main-container">
+            <!-- LEFT: Camera -->
+            <div class="camera-section">
+                <div class="camera-box" id="cameraBox">
+                    <img id="cameraImg" src="{{ url_for('video_feed') }}" alt="Camera">
+                    <div class="camera-placeholder" id="cameraPlaceholder"></div>
+                    <div class="progress-overlay" id="progressOverlay">
+                        <div class="circular-progress">
+                            <svg viewBox="0 0 120 120">
+                                <circle class="bg-circle" cx="60" cy="60" r="54" />
+                                <circle class="progress-circle" id="progressCircle" cx="60" cy="60" r="54" 
+                                    stroke-dasharray="339.292" stroke-dashoffset="339.292" />
+                            </svg>
+                            <div class="progress-text" id="progressText">0%</div>
+                        </div>
+                        <div class="scan-step-text" id="scanStepText">Scanning...</div>
+                        <div class="scan-complete" id="scanComplete">Scan Complete</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Controls -->
+            <div class="controls-section">
+                <div class="top-controls-group">
+                    <button class="ctrl-btn" id="focusBtn" onclick="autoFocus()">Auto Focus</button>
+
+                    <!-- Super Image Toggle only -->
+                    <div class="toggle-container" id="toggleContainer">
+                        <span class="toggle-label">Super Image</span>
+                        <label class="switch">
+                            <input type="checkbox" id="superToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Desktop/laptop only: Scan button gets moved here via JS so the camera frame can use full height. Mobile is untouched. -->
+                <div id="scanBarDesktopSlot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marks the original (mobile) position of the scan bar so JS can restore it there -->
+    <div id="mobileScanBarAnchor" style="display:none;"></div>
+
+    <!-- SCAN BAR (same fixed bottom position as Home button in results.html, on mobile) -->
+    <div class="scan-bar" id="scanBarWrap">
+        <button class="scan-btn" id="scanBtn" onclick="startScan()">
+            <span class="scan-icon" id="scanIcon"></span>
+        </button>
+    </div>
+
+    <script>
+        // ===== DESKTOP/LAPTOP ONLY: move Scan button under Super Image toggle =====
+        // Mobile layout (<=768px) is completely untouched - scan bar stays at its original position.
+        function positionScanBar() {
+            const scanBar = document.getElementById('scanBarWrap');
+            const desktopSlot = document.getElementById('scanBarDesktopSlot');
+            const mobileAnchor = document.getElementById('mobileScanBarAnchor');
+            if (!scanBar || !desktopSlot || !mobileAnchor) return;
+
+            const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+            if (isDesktop) {
+                if (scanBar.parentElement !== desktopSlot) {
+                    desktopSlot.appendChild(scanBar);
+                }
+            } else {
+                if (scanBar.previousElementSibling !== mobileAnchor) {
+                    mobileAnchor.parentElement.insertBefore(scanBar, mobileAnchor.nextSibling);
+                }
+            }
+        }
+        positionScanBar();
+        window.addEventListener('resize', positionScanBar);
+        window.addEventListener('orientationchange', positionScanBar);
+
+        const CIRCUMFERENCE = 2 * Math.PI * 54;
+        const CORRECT_PASSWORD = "654321";
+        const SCAN_ICON_URL = "{{ url_for('static', filename='image/capture.png') }}";
+
+        (function setScanIcon() {
+            const icon = document.getElementById('scanIcon');
+            if (icon) {
+                icon.style.maskImage = `url("${SCAN_ICON_URL}")`;
+                icon.style.webkitMaskImage = `url("${SCAN_ICON_URL}")`;
+            }
+        })();
+
+        // Generate unique session ID for this device
+        const SESSION_ID = 'dev_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+
+        // Check scan status periodically
+        let scanCheckInterval = null;
+        let isPaused = false;
+        let originalCameraSrc = null;
+
+        function startScanStatusCheck() {
+            scanCheckInterval = setInterval(async () => {
+                try {
+                    const resp = await fetch('/scan_status');
+                    const data = await resp.json();
+
+                    if (data.scanning) {
+                        // Scan is running (by ANY device)
+                        if (!isPaused) {
+                            // First time detecting scan - pause this device's camera
+                            pauseCameraFeed();
+                        }
+                        if (data.owner !== SESSION_ID) {
+                            showBusyState(data.owner, data.elapsed);
+                        }
+                    } else {
+                        // No scan running
+                        if (isPaused) {
+                            // Scan finished - resume camera
+                            resumeCameraFeed();
+                        }
+                        hideBusyState();
+                    }
+                } catch(e) {}
+            }, 3000);
+        }
+
+        function pauseCameraFeed() {
+            isPaused = true;
+            const cameraImg = document.getElementById('cameraImg');
+            const cameraPlaceholder = document.getElementById('cameraPlaceholder');
+
+            // Stop the MJPEG stream
+            originalCameraSrc = cameraImg.src;
+            cameraImg.src = '';  // Stop loading
+            cameraImg.classList.add('frozen');
+
+            // Show paused placeholder - clean, no extra text
+            cameraPlaceholder.innerHTML = '';
+            cameraPlaceholder.classList.add('active');
+
+            console.log('Camera PAUSED - scan in progress');
+        }
+
+        function resumeCameraFeed() {
+            isPaused = false;
+            const cameraImg = document.getElementById('cameraImg');
+            const cameraPlaceholder = document.getElementById('cameraPlaceholder');
+
+            // Resume MJPEG stream (add timestamp to bypass cache)
+            const baseUrl = "{{ url_for('video_feed') }}";
+            cameraImg.src = baseUrl + '?t=' + Date.now();
+            cameraImg.classList.remove('frozen');
+            cameraPlaceholder.classList.remove('active');
+            cameraPlaceholder.innerHTML = '';
+
+            console.log('Camera RESUMED - scan complete');
+        }
+
+        function showBusyState(owner, elapsed) {
+            const scanBtn = document.getElementById('scanBtn');
+            if (!scanBtn.disabled) {
+                scanBtn.disabled = true;
+                scanBtn.dataset.busy = 'true';
+                scanBtn.style.opacity = '0.6';
+            }
+        }
+
+        function hideBusyState() {
+            const scanBtn = document.getElementById('scanBtn');
+            if (scanBtn.disabled && scanBtn.dataset.busy === 'true') {
+                scanBtn.disabled = false;
+                scanBtn.dataset.busy = '';
+                scanBtn.style.opacity = '1';
+            }
+        }
+
+        // ===== PREVIEW CONTROL - Auto start/stop white light =====
+        window.onload = function() {
+            // Start preview when page loads (white light ON)
+            fetch('/start_preview', {method: 'POST'});
+            // Start checking scan status
+            startScanStatusCheck();
+            // Immediate check
+            setTimeout(async () => {
+                try {
+                    const resp = await fetch('/scan_status');
+                    const data = await resp.json();
+                    if (data.scanning) {
+                        pauseCameraFeed();
+                        showBusyState(data.owner, data.elapsed);
+                    }
+                } catch(e) {}
+            }, 500);
+        };
+
+        window.onbeforeunload = function() {
+            // Stop preview when page closes (white light OFF)
+            fetch('/stop_preview', {method: 'POST'});
+            // Stop scan status checking
+            if (scanCheckInterval) clearInterval(scanCheckInterval);
+        };
+
+        // Handle tab switch
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                fetch('/stop_preview', {method: 'POST'});
+            } else {
+                fetch('/start_preview', {method: 'POST'});
+            }
+        });
+
+        // ===== REFERENCE IMAGE TOGGLE (i button) =====
+        function toggleReferenceImage() {
+            const overlay = document.getElementById('refOverlay');
+            const btn = document.getElementById('refInfoBtn');
+            overlay.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        // ===== PASSWORD MODAL =====
+        function openPasswordModal() {
+            document.getElementById('pwdOverlay').classList.add('active');
+            document.getElementById('pwdInput').value = '';
+            document.getElementById('pwdError').classList.remove('active');
+            setTimeout(() => document.getElementById('pwdInput').focus(), 100);
+        }
+
+        function closePasswordModal() {
+            document.getElementById('pwdOverlay').classList.remove('active');
+        }
+
+        function checkPassword() {
+            const input = document.getElementById('pwdInput').value;
+            if (input === CORRECT_PASSWORD) {
+                closePasswordModal();
+                window.location.href = '/settings';
+            } else {
+                document.getElementById('pwdError').classList.add('active');
+                document.getElementById('pwdInput').value = '';
+                document.getElementById('pwdInput').focus();
+            }
+        }
+
+        document.getElementById('pwdInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkPassword();
+            if (e.key === 'Escape') closePasswordModal();
+        });
+
+        document.getElementById('pwdOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closePasswordModal();
+        });
+
+        // ===== AUTO FOCUS =====
+        function autoFocus() {
+            const btn = document.getElementById('focusBtn');
+            btn.disabled = true;
+            btn.textContent = 'Focusing...';
+            fetch('/auto_focus', { method: 'POST' })
+            .then(r => r.json())
+            .then(data => {
+                btn.textContent = 'Auto Focus';
+                btn.disabled = false;
+            })
+            .catch(() => {
+                btn.textContent = 'Auto Focus';
+                btn.disabled = false;
+            });
+        }
+
+        // ===== SCAN =====
+        let progressPollInterval = null;
+
+        function startScan() {
+            // Check if already scanning
+            const scanBtn = document.getElementById('scanBtn');
+            if (scanBtn.disabled) {
+                alert('Scan is already in progress. Please wait.');
+                return;
+            }
+
+            const superMode = document.getElementById('superToggle').checked;
+            const focusBtn = document.getElementById('focusBtn');
+            const toggleContainer = document.getElementById('toggleContainer');
+            const overlay = document.getElementById('progressOverlay');
+            const circle = document.getElementById('progressCircle');
+            const text = document.getElementById('progressText');
+            const complete = document.getElementById('scanComplete');
+            const cameraImg = document.getElementById('cameraImg');
+            const cameraPlaceholder = document.getElementById('cameraPlaceholder');
+
+            // Show UI in scanning state
+            cameraImg.classList.add('frozen');
+            cameraPlaceholder.classList.add('active');
+            scanBtn.classList.add('scanning');
+            focusBtn.disabled = true;
+            toggleContainer.classList.add('disabled');
+            overlay.classList.add('active');
+            complete.classList.remove('active');
+            document.getElementById('scanStepText').classList.remove('hidden');
+            circle.style.strokeDashoffset = CIRCUMFERENCE;
+            text.textContent = '0%';
+
+            // Start the scan request
+            const formData = new FormData();
+            formData.append('super_mode', superMode);
+            formData.append('session_id', SESSION_ID);
+
+            // Start polling for real progress
+            progressPollInterval = setInterval(pollScanProgress, 500);
+
+            // Send scan request (non-blocking, runs in background)
+            fetch('/scan', { method: 'POST', body: formData })
+            .then(r => r.json())
+            .then(data => {
+                // Scan API returned - stop polling
+                if (progressPollInterval) {
+                    clearInterval(progressPollInterval);
+                    progressPollInterval = null;
+                }
+
+                if (data.status === 'success') {
+                    // Show 100% before redirect
+                    updateProgressCircle(100, 'Complete!');
+                    document.getElementById('scanStepText').classList.add('hidden');
+                    complete.classList.add('active');
+                    setTimeout(() => {
+                        window.location.href = '/results/' + data.path;
+                    }, 800);
+                } else if (data.status === 'busy') {
+                    alert(data.message);
+                    resetUI();
+                } else {
+                    alert('Scan failed: ' + data.message);
+                    resetUI();
+                }
+            })
+            .catch(err => {
+                if (progressPollInterval) {
+                    clearInterval(progressPollInterval);
+                    progressPollInterval = null;
+                }
+                alert('Scan error: ' + err);
+                resetUI();
+            });
+        }
+
+        function pollScanProgress() {
+            fetch('/scan_progress')
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'running' || data.status === 'complete') {
+                    updateProgressCircle(data.percent, data.step);
+                }
+            })
+            .catch(e => {
+                // Silently ignore polling errors
+            });
+        }
+
+        function updateProgressCircle(percent, stepText) {
+            const circle = document.getElementById('progressCircle');
+            const text = document.getElementById('progressText');
+            const offset = CIRCUMFERENCE - (percent / 100) * CIRCUMFERENCE;
+            circle.style.strokeDashoffset = offset;
+            text.textContent = percent + '%';
+        }
+
+        function resetUI() {
+            if (progressPollInterval) {
+                clearInterval(progressPollInterval);
+                progressPollInterval = null;
+            }
+            document.getElementById('scanBtn').classList.remove('scanning');
+            document.getElementById('focusBtn').disabled = false;
+            document.getElementById('toggleContainer').classList.remove('disabled');
+            document.getElementById('progressOverlay').classList.remove('active');
+            document.getElementById('scanStepText').classList.remove('hidden');
+            document.getElementById('scanComplete').classList.remove('active');
+            // Camera resume is handled by scan status check
+        }
+    </script>
+</body>
+</html>

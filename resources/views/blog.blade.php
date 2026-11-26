@@ -1795,9 +1795,9 @@
                     Surat, Gujarat, India
                 </p>
 
-                <p>
+                <!-- <p>
                     phone : +91 90337 93379
-                </p>
+                </p> -->
             </div>
 
             <!-- Quick Links -->

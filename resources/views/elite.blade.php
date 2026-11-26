@@ -2349,7 +2349,7 @@
                 <h3>CORPORATE HEADQUARTERS:</h3>
                 <p> LDTECS </p>
                 <p> Surat, Gujarat, India </p>
-                <p> 90337 93379 </p>
+                <!-- <p> 90337 93379 </p> -->
             </div>
 
             <!-- Quick Links -->

@@ -399,7 +399,7 @@
         /* Desktop / Laptop */
         .page {
             width: 100%;
-            min-height: 55vh;
+            min-height: 50vh;
             position: relative;
             display: flex;
             align-items: flex-start;
@@ -480,12 +480,12 @@
 
 
         /* Mobile */
-        @media (max-width: 767px) {
+        @media (max-width: 757px) {
             .page {
-                min-height: auto;
+                min-height: 20vh;
                 display: flex;
                 flex-direction: column;
-                padding-bottom: 30px;
+                /* padding-bottom: 0px; */
             }
 
             .about {
@@ -1001,7 +1001,8 @@
             .page1,
             .page {
 
-                padding: d 25px;
+                padding-left: 25px;
+                padding-right: 25px;
             }
 
 
@@ -1039,7 +1040,7 @@
             .page1,
             .page {
 
-                padding: 45px 15px 60px;
+                padding: -45px -15px -60px;
             }
 
             .products-title,
@@ -3348,7 +3349,7 @@
                     Surat, Gujarat, India
                 </p>
 
-                <p> Phone : +91 90337 93379 </p>
+                <!-- <p> Phone : +91 90337 93379 </p> -->
             </div>
 
             <!-- Quick Links -->

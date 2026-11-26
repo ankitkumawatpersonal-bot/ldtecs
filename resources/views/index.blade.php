@@ -844,7 +844,7 @@
         }
 
         .software-card img {
-            height: 215px;
+            height: 145px;
         }
 
         .design-card img {
@@ -2154,7 +2154,7 @@
                             <div class="feature">
                                 <a href="software-development"> Software Development </a>
                                 <a href="machine-learning"> AI & Machine Learning </a>
-                                <!-- <a href="data-engineering"> Data Engineering </a> -->
+                                <a href="data-engineering"> Data Engineering </a>
                             </div>
                         </div>
                         <div class="services">
@@ -2301,7 +2301,7 @@
                         <li>Web Application Development</li>
                         <li>Frontend & Backend Development</li>
                         <li>Database & API Integration</li>
-                        <li>Maintenance & Support</li>
+                        <!-- <li>Maintenance & Support</li> -->
                     </ul>
 
                     <a href="software-development" class="learn-btn">
@@ -2320,10 +2320,33 @@
 
                     <ul>
                         <li>Machine Learning Models</li>
-                        <li>Predictive Analytics</li>
+                        <!-- <li>Predictive Analytics</li> -->
                         <li>Computer Vision</li>
                         <li>AI-Powered Automation</li>
                         <li> Chatbot </li>
+                    </ul>
+
+                    <a href="machine-learning" class="learn-btn">
+                        Learn More <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Data Engineering & Analytiocs Solutions -->
+            <div class="service-card software-card">
+                <img src="data.png" alt="Data Engineering" id="software">
+
+                <div class="card-content">
+                    <h3>Data Engineering & Analytiocs Solutions</h3>
+                    <p>Intelligent Data. Smarter Technology. Better Decisions.</p>
+
+                    <ul>
+                        <li> Data Engineering & Processing </li>
+                        <li> Database Design & Management </li>
+                        <li> Data Integration & Automation </li>
+                        <li> Business Intelligence & Analytics </li>
+                        <li> Custom Dashboards & Reporting </li>
+                        <!-- <li> AI-Powered Data Solutions </li> -->
                     </ul>
 
                     <a href="machine-learning" class="learn-btn">
@@ -2546,8 +2569,6 @@
                 <p>
                     Surat, Gujarat, India
                 </p>
-
-                <p> phone : +91 90337 93379</p>
 
             </div>
 

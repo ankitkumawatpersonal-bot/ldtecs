@@ -2405,7 +2405,7 @@
 
                 <p>LDTECS</p>
                 <p>Surat, Gujarat, India </p>
-                <p> phone : +91 90337 93379 </p>
+                <!-- <p> phone : +91 90337 93379 </p> -->
 
             </div>
 

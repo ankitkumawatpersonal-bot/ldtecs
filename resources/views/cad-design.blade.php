@@ -1942,7 +1942,7 @@
                     Surat, Gujarat, India
                 </p>
 
-                <p> Phone : +91 90337 93379 </p>
+                <!-- <p> Phone : +91 90337 93379 </p> -->
             </div>
 
             <!-- Quick Links -->

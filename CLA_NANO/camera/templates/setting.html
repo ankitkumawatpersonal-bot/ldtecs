@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            touch-action: manipulation;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+        body {
+            background: #0a0a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 70px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            border-bottom: 1px solid #333;
+            flex-shrink: 0;
+            background: #0a0a1a;
+        }
+        .header-title {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-title svg {
+            width: 22px;
+            height: 22px;
+            fill: #ffd700;
+        }
+        .header-close {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #ffd700;
+            border-radius: 50%;
+            background: none;
+            color: #ffd700;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .header-close:hover {
+            background: #ffd700;
+            color: #000;
+        }
+
+        /* ===== CONFIG TABS ===== */
+        .config-tabs {
+            display: flex;
+            gap: 8px;
+            padding: 12px 15px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            flex-shrink: 0;
+            justify-content: center;
+            flex-wrap: wrap;
+            background: #0a0a1a;
+            border-bottom: 1px solid #222;
+        }
+        .config-tabs::-webkit-scrollbar { display: none; }
+
+        .config-tab {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #1a1a3a;
+            border: 1px solid #444;
+            border-radius: 20px;
+            color: #888;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            white-space: nowrap;
+            user-select: none;
+        }
+        .config-tab:hover {
+            border-color: #ffd700;
+            color: #ffd700;
+        }
+        .config-tab.active {
+            background: #ffd700;
+            border-color: #ffd700;
+            color: #000;
+            font-weight: bold;
+        }
+        .tab-dot {
+            width: 10px;
+            height: 10px;
+            border: 2px solid currentColor;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .config-tab.active .tab-dot::after {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        /* ===== CONTENT AREA ===== */
+        .content-area {
+            flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #ffd700 #1a1a3a;
+            padding: 15px 20px 80px 20px;
+        }
+        .content-area::-webkit-scrollbar { width: 6px; }
+        .content-area::-webkit-scrollbar-track { background: #1a1a3a; }
+        .content-area::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 3px; }
+
+        /* ===== SETTINGS GRID ===== */
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 25px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .field-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 34px;
+        }
+        .field-label {
+            color: #ffd700;
+            font-size: 13px;
+            width: 115px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .field-input {
+            flex: 1;
+            max-width: 130px;
+        }
+        .field-input input,
+        .field-input select {
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 13px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #0a0a1a;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .field-input input:focus,
+        .field-input select:focus {
+            border-color: #ffd700;
+        }
+        .field-input input:disabled,
+        .field-input select:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        .field-hint {
+            color: #555;
+            font-size: 10px;
+            margin-left: 4px;
+            white-space: nowrap;
+        }
+
+        /* Toggle Switch */
+        .toggle-field {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toggle-switch {
+            position: relative;
+            width: 40px;
+            height: 22px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #444;
+            border-radius: 22px;
+            transition: .3s;
+        }
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: .3s;
+        }
+        .toggle-switch input:checked + .toggle-slider {
+            background: #ffd700;
+        }
+        .toggle-switch input:checked + .toggle-slider:before {
+            transform: translateX(18px);
+        }
+        .toggle-switch input:disabled + .toggle-slider {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        /* Disabled row styling */
+        .field-row.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* ===== UPDATE CREDENTIALS SECTION ===== */
+        .credentials-section {
+            max-width: 950px;
+            margin: 30px auto 0 auto;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            background: #0d0d1f;
+        }
+        .credentials-title {
+            color: #ffd700;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 25px;
+        }
+        .cred-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 34px;
+        }
+        .cred-label {
+            color: #ffd700;
+            font-size: 13px;
+            width: 140px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .cred-input {
+            flex: 1;
+            max-width: 130px;
+        }
+        .cred-input input {
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 13px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #0a0a1a;
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .cred-input input:focus {
+            border-color: #ffd700;
+        }
+
+        /* Update Button */
+        .update-btn-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .update-btn {
+            padding: 10px 40px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #ffd700;
+            background: #1a1a3a;
+            color: #ffd700;
+            transition: all 0.2s;
+        }
+        .update-btn:hover {
+            background: #ffd700;
+            color: #000;
+            transform: scale(1.02);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            padding: 12px 20px;
+            border-top: 1px solid #333;
+            background: #0a0a1a;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+        }
+        .footer-btn {
+            padding: 10px 50px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid #ffd700;
+        }
+        .btn-save {
+            background: #ffd700;
+            color: #000;
+        }
+        .btn-save:hover {
+            background: #ffed4a;
+            transform: scale(1.02);
+        }
+        .btn-discard {
+            background: #1a1a3a;
+            color: #ffd700;
+        }
+        .btn-discard:hover {
+            background: #ffd700;
+            color: #000;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .settings-grid, .credentials-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .field-label, .cred-label { width: 100px; font-size: 12px; }
+            .field-input, .cred-input { max-width: 120px; }
+            .config-tabs { padding: 8px; gap: 5px; }
+            .config-tab { padding: 6px 10px; font-size: 11px; }
+            .header-title { font-size: 16px; }
+            .footer-btn { padding: 10px 25px; font-size: 13px; }
+            .credentials-section { padding: 15px; margin-top: 20px; }
+            .update-btn { padding: 8px 30px; font-size: 13px; }
+            body { padding-bottom: 65px; }
+            .content-area { padding-bottom: 70px; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.66.07 1l-2.11 1.63c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.08.73 1.69-.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.63Z"/>
+            </svg>
+            Camera Settings
+        </div>
+        <button class="header-close" onclick="goBack()">✕</button>
+    </div>
+
+    <!-- CONFIG TABS -->
+    <div class="config-tabs" id="configTabs">
+        <div class="config-tab active" onclick="selectConfig(0)">
+            <span class="tab-dot"></span>
+            <span>Preview</span>
+        </div>
+        <div class="config-tab" onclick="selectConfig(1)">
+            <span class="tab-dot"></span>
+            <span>White Light</span>
+        </div>
+        <div class="config-tab" onclick="selectConfig(2)">
+            <span class="tab-dot"></span>
+            <span>Fluorescence</span>
+        </div>
+        <div class="config-tab" onclick="selectConfig(3)">
+            <span class="tab-dot"></span>
+            <span>Short Phos</span>
+        </div>
+        <div class="config-tab" onclick="selectConfig(4)">
+            <span class="tab-dot"></span>
+            <span>Long Phos</span>
+        </div>
+        <div class="config-tab" onclick="selectConfig(5)">
+            <span class="tab-dot"></span>
+            <span>Super Image</span>
+        </div>
+        <div class="config-tab" onclick="selectConfig(6)">
+            <span class="tab-dot"></span>
+            <span>Simulant</span>
+        </div>
+    </div>
+
+    <!-- SETTINGS CONTENT -->
+    <div class="content-area">
+        <div class="settings-grid" id="settingsGrid">
+            <!-- Row 1 -->
+            <div class="field-row">
+                <span class="field-label">Width</span>
+                <div class="field-input"><input type="number" id="width" value="3000"></div>
+                <span class="field-hint">0 to 5000</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">WB Mode</span>
+                <div class="field-input">
+                    <select id="awb">
+                        <option value="auto">auto</option>
+                        <option value="tungsten">tungsten</option>
+                        <option value="fluorescent">fluorescent</option>
+                        <option value="indoor">indoor</option>
+                        <option value="daylight">daylight</option>
+                        <option value="cloudy">cloudy</option>
+                        <option value="custom" selected>custom</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="field-row">
+                <span class="field-label">Height</span>
+                <div class="field-input"><input type="number" id="height" value="2456"></div>
+                <span class="field-hint">0 to 5000</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Metering Mode</span>
+                <div class="field-input">
+                    <select id="metering">
+                        <option value="centre" selected>centre</option>
+                        <option value="spot">spot</option>
+                        <option value="matrix" >matrix</option>
+                        <option value="custom">custom</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="field-row">
+                <span class="field-label">Brightness</span>
+                <div class="field-input"><input type="number" id="brightness" value="0" step="0.1"></div>
+                <span class="field-hint">-1.0 to 5.0</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Exposure Mode</span>
+                <div class="field-input">
+                    <select id="exposure">
+                        <option value="normal" selected>normal</option>
+                        <option value="short">short</option>
+                        <option value="long">long</option>
+                        <option value="custom">custom</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="field-row">
+                <span class="field-label">Contrast</span>
+                <div class="field-input"><input type="number" id="contrast" value="1" step="0.1"></div>
+                <span class="field-hint">-1.0 to 5.0</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Denoise</span>
+                <div class="field-input">
+                    <select id="denoise">
+                        <option value="highquality" selected>highquality</option>
+                        <option value="off">off</option>
+                        <option value="fast">fast</option>
+                        
+                       
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="field-row">
+                <span class="field-label">Saturation</span>
+                <div class="field-input"><input type="number" id="saturation" value="1" step="0.1"></div>
+                <span class="field-hint">-1.0 to 5.0</span>
+            </div>
+            <!-- NEW: Constrain dropdown -->
+            <div class="field-row">
+                <span class="field-label">Constrain</span>
+                <div class="field-input">
+                    <select id="constrain">
+                        <option value="normal" selected>normal</option>
+                        <option value="highlight">highlight</option>
+                        <option value="shadows">shadows</option>
+                        <option value="custom">custom</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Row 6 -->
+            <div class="field-row">
+                <span class="field-label">Red Balance</span>
+                <div class="field-input"><input type="number" id="awbgains0" value="0" step="0.1"></div>
+                <span class="field-hint">0.0 to 32.0</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Quality</span>
+                <div class="field-input"><input type="number" id="quality" value="100"></div>
+            </div>
+
+            <!-- Row 7 -->
+            <div class="field-row" id="blueBalanceRow">
+                <span class="field-label">Blue Balance</span>
+                <div class="field-input"><input type="number" id="awbgains1" value="0" step="0.1"></div>
+                <span class="field-hint">0.0 to 32.0</span>
+            </div>
+            <div class="field-row toggle-field">
+                <span class="field-label">H Flip</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="hflip" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <!-- Row 8 -->
+            <div class="field-row toggle-field">
+                <span class="field-label">V Flip</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="vflip" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Sharpness</span>
+                <div class="field-input"><input type="number" id="sharpness" value="1" step="0.1"></div>
+                <span class="field-hint">-1.0 to 5.0</span>
+            </div>
+
+            <!-- Row 9 -->
+            <div class="field-row">
+                <span class="field-label">Rotate</span>
+                <div class="field-input"><input type="number" id="rotation" value="0"></div>
+                <span class="field-hint">0 to 360</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Framerate</span>
+                <div class="field-input"><input type="number" id="framerate" value="30" step="0.1"></div>
+                <span class="field-hint">1 to 30</span>
+            </div>
+
+            <!-- Row 10 -->
+            <div class="field-row">
+                <span class="field-label">Shutter</span>
+                <div class="field-input"><input type="number" id="shutter" value="40000"></div>
+                <span class="field-hint">0/auto, 1 to 1000000</span>
+            </div>
+            <div class="field-row">
+                <span class="field-label">Exposure Comp</span>
+                <div class="field-input"><input type="number" id="ev" value="0"></div>
+                <span class="field-hint">-25 to 25</span>
+            </div>
+
+            <!-- Row 11 -->
+            <div class="field-row">
+                <span class="field-label">Gain</span>
+                <div class="field-input"><input type="number" id="gain" value="1"></div>
+                <span class="field-hint">0 to 32</span>
+            </div>
+            <div class="field-row toggle-field">
+                <span class="field-label">Camera Preview</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="preview" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <!-- Row 12 -->
+            <div class="field-row">
+                <span class="field-label">Analog Gain</span>
+                <div class="field-input"><input type="number" id="analoggain" value="1"></div>
+                <span class="field-hint">0 to 32</span>
+            </div>
+            <!-- NEW: AWB Enable toggle -->
+            <div class="field-row toggle-field">
+                <span class="field-label">AWB Enable</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="awbenable" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <!-- ===== UPDATE CREDENTIALS SECTION ===== -->
+        <div class="credentials-section">
+            <div class="credentials-title">Update Credentials</div>
+            <div class="credentials-grid">
+                <div class="cred-row toggle-field">
+                    <span class="cred-label">Repair Mode</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="repairMode">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cred-row toggle-field">
+                    <span class="cred-label">Simulant</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="simulantToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">Username</span>
+                    <div class="cred-input"><input type="text" id="username" value=""></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">Password</span>
+                    <div class="cred-input"><input type="password" id="password" value=""></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">Delay_1_FlOn</span>
+                    <div class="cred-input"><input type="number" id="delay1" value="1" step="0.1"></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">Delay_2_FlOff</span>
+                    <div class="cred-input"><input type="number" id="delay2" value="0" step="0.1"></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">Delay_3_UlOn</span>
+                    <div class="cred-input"><input type="number" id="delay3" value="1" step="0.1"></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">Delay_4_UlOff</span>
+                    <div class="cred-input"><input type="number" id="delay4" value="0" step="0.1"></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">Delay_5_SlOn</span>
+                    <div class="cred-input"><input type="number" id="delay5" value="2" step="0.1"></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">motorYspeed</span>
+                    <div class="cred-input"><input type="number" id="motorYspeed" value="0.002" step="0.001"></div>
+                </div>
+                <div class="cred-row">
+                    <span class="cred-label">image_count</span>
+                    <div class="cred-input"><input type="number" id="imageCount" value="4"></div>
+                </div>
+            </div>
+            <div class="update-btn-row">
+                <button class="update-btn" onclick="updateCredentials()">Update Credentials</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <button class="footer-btn btn-save" onclick="saveSettings()">Save</button>
+        <button class="footer-btn btn-discard" onclick="discardSettings()">Discard</button>
+    </div>
+
+    <script>
+        const CONFIG_NAMES = ['config', 'config1', 'config2', 'config3', 'config4', 'config5', 'config6'];
+        let currentConfig = 0;
+        let configData = {};
+        let originalData = {};
+        let infoData = {};
+        let originalInfo = {};
+
+        // Load all configs on page load
+        window.onload = function() {
+            loadAllConfigs();
+            loadInfo();
+            setupAwbToggle();
+        };
+
+        function setupAwbToggle() {
+            const awbToggle = document.getElementById('awbenable');
+            awbToggle.addEventListener('change', function() {
+                updateBalanceFieldsState();
+            });
+        }
+
+        function updateBalanceFieldsState() {
+            const awbEnabled = document.getElementById('awbenable').checked;
+            const redInput = document.getElementById('awbgains0');
+            const blueInput = document.getElementById('awbgains1');
+            const redRow = redInput.closest('.field-row');
+            const blueRow = document.getElementById('blueBalanceRow');
+
+            if (awbEnabled) {
+                // AWB ON → disable Red/Blue balance (auto)
+                redInput.disabled = true;
+                blueInput.disabled = true;
+                redRow.classList.add('disabled');
+                blueRow.classList.add('disabled');
+            } else {
+                // AWB OFF → enable Red/Blue balance (manual)
+                redInput.disabled = false;
+                blueInput.disabled = false;
+                redRow.classList.remove('disabled');
+                blueRow.classList.remove('disabled');
+            }
+        }
+
+        function loadAllConfigs() {
+            fetch('/get_all_configs')
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    configData = data.configs;
+                    originalData = JSON.parse(JSON.stringify(data.configs));
+                    loadConfig(0);
+                }
+            })
+            .catch(err => {
+                console.log('Using default values:', err);
+                loadConfig(0);
+            });
+        }
+
+        function loadInfo() {
+            fetch('/get_info')
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    infoData = data.info;
+                    originalInfo = JSON.parse(JSON.stringify(data.info));
+                    populateInfoFields(data.info);
+                }
+            })
+            .catch(err => {
+                console.log('Using default info:', err);
+            });
+        }
+
+        function populateInfoFields(info) {
+            document.getElementById('repairMode').checked = (info.repairmode === '1');
+            document.getElementById('simulantToggle').checked = (info.simulant === '1');
+            document.getElementById('username').value = info.username || '';
+            document.getElementById('password').value = info.password || '';
+
+            const delays = (info.delay_value || '1.0,0.0,1.0,0.0,2.0').split(',');
+            document.getElementById('delay1').value = delays[0] || '1.0';
+            document.getElementById('delay2').value = delays[1] || '0.0';
+            document.getElementById('delay3').value = delays[2] || '1.0';
+            document.getElementById('delay4').value = delays[3] || '0.0';
+            document.getElementById('delay5').value = delays[4] || '2.0';
+
+            document.getElementById('motorYspeed').value = info.motorYspeed || '0.002';
+            document.getElementById('imageCount').value = info.image_count || '4';
+        }
+
+        function selectConfig(index) {
+            saveCurrentConfigData();
+            document.querySelectorAll('.config-tab').forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            currentConfig = index;
+            loadConfig(index);
+        }
+
+        function loadConfig(index) {
+            const config = configData[CONFIG_NAMES[index]];
+            if (!config) {
+                console.log('Config not loaded yet');
+                return;
+            }
+            populateFields(config);
+        }
+
+        function populateFields(config) {
+            document.getElementById('width').value = config.width || 3000;
+            document.getElementById('height').value = config.height || 2456;
+            document.getElementById('rotation').value = config.rotation || 0;
+            document.getElementById('shutter').value = config.shutter || 40000;
+            document.getElementById('analoggain').value = config.analoggain || 1;
+            document.getElementById('gain').value = config.gain || 1;
+            document.getElementById('ev').value = config.ev || 0;
+            document.getElementById('quality').value = config.quality || 100;
+            document.getElementById('hflip').checked = (config.hflip == 1 || config.hflip === '1');
+            document.getElementById('vflip').checked = (config.vflip == 1 || config.vflip === '1');
+            document.getElementById('brightness').value = config.brightness || 0;
+            document.getElementById('contrast').value = config.contrast || 1;
+            document.getElementById('saturation').value = config.saturation || 1;
+            document.getElementById('sharpness').value = config.sharpness || 1;
+            document.getElementById('framerate').value = config.framerate || 30;
+            document.getElementById('awb').value = config.awb || 'custom';
+            document.getElementById('denoise').value = config.denoise || 'auto';
+            document.getElementById('metering').value = config.metering || 'average';
+            document.getElementById('exposure').value = config.exposure || 'normal';
+            // NEW: constrain
+            document.getElementById('constrain').value = config.constrain || 'normal';
+            // NEW: awbenable
+            const awbenableVal = config.awbenable;
+            document.getElementById('awbenable').checked = (awbenableVal == 1 || awbenableVal === '1' || awbenableVal === true);
+
+            if (config.awbgains) {
+                const gains = String(config.awbgains).split(',').map(x => parseFloat(x.trim()));
+                document.getElementById('awbgains0').value = gains[0] || 0;
+                document.getElementById('awbgains1').value = gains[1] || 0;
+            }
+
+            // Apply AWB toggle state
+            updateBalanceFieldsState();
+        }
+
+        function saveCurrentConfigData() {
+            configData[CONFIG_NAMES[currentConfig]] = collectFieldData();
+        }
+
+        function collectFieldData() {
+            return {
+                width: parseInt(document.getElementById('width').value) || 3000,
+                height: parseInt(document.getElementById('height').value) || 2456,
+                rotation: parseInt(document.getElementById('rotation').value) || 0,
+                shutter: parseInt(document.getElementById('shutter').value) || 40000,
+                analoggain: parseInt(document.getElementById('analoggain').value) || 1,
+                gain: parseInt(document.getElementById('gain').value) || 1,
+                ev: parseInt(document.getElementById('ev').value) || 0,
+                quality: parseInt(document.getElementById('quality').value) || 100,
+                hflip: document.getElementById('hflip').checked ? 1 : 0,
+                vflip: document.getElementById('vflip').checked ? 1 : 0,
+                brightness: parseFloat(document.getElementById('brightness').value) || 0,
+                contrast: parseFloat(document.getElementById('contrast').value) || 1,
+                saturation: parseFloat(document.getElementById('saturation').value) || 1,
+                sharpness: parseFloat(document.getElementById('sharpness').value) || 1,
+                framerate: parseFloat(document.getElementById('framerate').value) || 30,
+                awb: document.getElementById('awb').value,
+                denoise: document.getElementById('denoise').value,
+                metering: document.getElementById('metering').value,
+                exposure: document.getElementById('exposure').value,
+                // NEW fields
+                constrain: document.getElementById('constrain').value,
+                awbenable: document.getElementById('awbenable').checked ? 1 : 0,
+                awbgains: document.getElementById('awbgains0').value + ',' + document.getElementById('awbgains1').value,
+                roi: '0.0,0.0,1.0,1.0',
+                preview: '8,95,1200,910'
+            };
+        }
+
+        function saveSettings() {
+            saveCurrentConfigData();
+
+            fetch('/save_all_configs', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ configs: configData })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Settings saved and applied to camera!');
+                    originalData = JSON.parse(JSON.stringify(configData));
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(err => {
+                console.error('Save error:', err);
+                alert('Error saving settings');
+            });
+        }
+
+        function discardSettings() {
+            if (confirm('Discard all changes?')) {
+                configData = JSON.parse(JSON.stringify(originalData));
+                loadConfig(currentConfig);
+                infoData = JSON.parse(JSON.stringify(originalInfo));
+                populateInfoFields(infoData);
+            }
+        }
+
+        function updateCredentials() {
+            const delay_value = [
+                document.getElementById('delay1').value,
+                document.getElementById('delay2').value,
+                document.getElementById('delay3').value,
+                document.getElementById('delay4').value,
+                document.getElementById('delay5').value
+            ].join(',');
+
+            const creds = {
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value,
+                repairmode: document.getElementById('repairMode').checked ? '1' : '0',
+                simulant: document.getElementById('simulantToggle').checked ? '1' : '0',
+                delay_value: delay_value,
+                motorYspeed: document.getElementById('motorYspeed').value,
+                image_count: document.getElementById('imageCount').value,
+                machinenumber: infoData.machinenumber || 'CLA001-06-2025',
+                softwareversion: infoData.softwareversion || 'Version : 1.0.0',
+                autosave: infoData.autosave || '1',
+                darkmode: infoData.darkmode || '1',
+                sleep_time: infoData.sleep_time || '0',
+                historytime: infoData.historytime || '4',
+                qrfirstlink: infoData.qrfirstlink || 'https://ldtecs.com',
+                qrbacklink: infoData.qrbacklink || '',
+                color1: infoData.color1 || '#0000FF',
+                color2: infoData.color2 || '#E600E6',
+                color3: infoData.color3 || '#00FFFF',
+                color4: infoData.color4 || '#FFFF00',
+                color5: infoData.color5 || '#FF0000',
+                color6: infoData.color6 || '#7FFF00',
+                color7: infoData.color7 || '#00FF00',
+                advancemarking: infoData.advancemarking || '0',
+                hardwareversion: infoData.hardwareversion || 'Version : 1.0.0',
+                email: infoData.email || 'info@ldtecs.com / support@ldtecs.com',
+                website: infoData.website || 'www.ldtecs.com',
+                copyright: infoData.copyright || '© 2025 LDTECS. All Rights Reserved.',
+                name: infoData.name || 'C L A S S I F I E R'
+            };
+
+            fetch('/save_info', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(creds)
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Credentials updated successfully!');
+                    originalInfo = JSON.parse(JSON.stringify(creds));
+                    infoData = JSON.parse(JSON.stringify(creds));
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(err => {
+                console.error('Update error:', err);
+                alert('Error updating credentials');
+            });
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

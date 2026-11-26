@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            touch-action: none;
+            overflow: hidden;
+        }
+        body {
+            text-align: center;
+            background: #0a0a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 6px;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* ===== GEAR ICON (Top Right) ===== */
+        .gear-icon {
+            position: fixed;
+            top: 8px;
+            right: 8px;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            z-index: 1000;
+            background: none;
+            border: 2px solid #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .gear-icon:hover {
+            background: #ffd700;
+            transform: rotate(90deg);
+        }
+        .gear-icon:hover svg {
+            fill: #000;
+        }
+        .gear-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: #ffd700;
+            transition: fill 0.3s;
+        }
+
+        /* ===== PASSWORD MODAL ===== */
+        .pwd-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+        .pwd-overlay.active { display: flex; }
+        .pwd-box {
+            background: #1a1a3a;
+            border: 2px solid #ffd700;
+            border-radius: 12px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+        }
+        .pwd-title {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .pwd-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 8px;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            background: #0a0a1a;
+            color: #ffd700;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .pwd-input:focus {
+            border-color: #ffed4a;
+            box-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+        .pwd-error {
+            color: #ff4444;
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .pwd-error.active { display: block; }
+        .pwd-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .pwd-btn {
+            padding: 10px 24px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            background: #1a1a3a;
+            color: #ffd700;
+            transition: all 0.2s;
+        }
+        .pwd-btn:hover {
+            background: #ffd700;
+            color: #000;
+        }
+        .pwd-btn.primary {
+            background: #ffd700;
+            color: #000;
+        }
+        .pwd-btn.primary:hover {
+            background: #ffed4a;
+        }
+
+        /* ===== POPUP MODAL ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: #1a1a3a;
+            border: 2px solid #ffd700;
+            border-radius: 12px;
+            padding: 24px;
+            width: 90%;
+            max-width: 360px;
+            text-align: center;
+        }
+        .modal-title {
+            color: #ffd700;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        .modal-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ffd700;
+            border-radius: 6px;
+            background: #0a0a1a;
+            color: #fff;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .modal-input:focus {
+            outline: none;
+            border-color: #ffed4a;
+        }
+        .modal-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .modal-btn {
+            padding: 8px 20px;
+            font-size: 13px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            background: #1a1a3a;
+            color: #ffd700;
+            transition: all 0.2s;
+        }
+        .modal-btn:hover {
+            background: #ffd700;
+            color: #000;
+        }
+        .modal-btn.primary {
+            background: #ffd700;
+            color: #000;
+        }
+        .modal-btn.primary:hover {
+            background: #ffed4a;
+        }
+
+        /* ===== MAIN LAYOUT ===== */
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            width: 100%;
+            height: calc(100vh - 12px);
+        }
+
+        /* ===== LEFT: 4 IMAGES / 1 FULL IMAGE (65%) ===== */
+        .left-section {
+            flex: 0 0 65%;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-width: 0;
+            padding: 4px 0;
+        }
+        .grid-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .grid-view.hidden { display: none; }
+
+        .full-image-view {
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid #222;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .full-image-view.active { display: flex; }
+        .full-image-view img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transform-origin: center center;
+        }
+
+        .img-box {
+            position: relative;
+            background: #000;
+            border-radius: 3px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 1px solid #222;
+        }
+        .img-box:hover { border-color: #ffd700; }
+        .img-box img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            display: block;
+            transform-origin: center center;
+        }
+
+        .img-label {
+            position: absolute;
+            top: 4px; left: 4px;
+            background: rgba(0,0,0,0.6);
+            color: #ffd700;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+            border: none;
+        }
+        .img-label:hover {
+            background: rgba(0,0,0,0.9);
+            color: #fff;
+        }
+
+        /* ===== RIGHT: REFERENCE (28%) ===== */
+        .right-section {
+            flex: 0 0 28%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            height: 70%;
+            min-width: 0;
+        }
+
+        .ref-box {
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #333;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .ref-title {
+            background: rgba(0,0,0,0.8);
+            color: #ffd700;
+            padding: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .ref-scroll {
+            flex: 1;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            display: block;
+            background: #000;
+        }
+        .ref-scroll::-webkit-scrollbar { display: none; }
+        .ref-scroll img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .ref-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 10px;
+            height: 100%;
+        }
+
+        .btn-row {
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            flex-shrink: 0;
+            justify-content: flex-start;
+        }
+        .btn {
+            padding: 6px 2px;
+            font-size: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid #ffd700;
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            flex: none;
+            width: 23%;
+            line-height: 1.1;
+            white-space: nowrap;
+            background: #1a1a3a;
+            color: #ffd700;
+        }
+        .btn:hover {
+            background: #ffd700;
+            color: #000;
+            transform: scale(1.02);
+        }
+        .btn svg {
+            width: 10px; height: 10px;
+            flex-shrink: 0;
+        }
+        .btn.active {
+            background: #ffd700;
+            color: #000;
+        }
+
+        .image-select-btns {
+            display: none;
+            flex-wrap: nowrap;
+            gap: 3px;
+            margin-top: 6px;
+            justify-content: flex-start;
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .image-select-btns::-webkit-scrollbar { display: none; }
+        .image-select-btns.active { display: flex; }
+        .image-select-btns .btn {
+            width: 44px;
+            min-width: 44px;
+            max-width: 44px;
+            height: 28px;
+            min-height: 28px;
+            max-height: 28px;
+            padding: 2px 1px;
+            font-size: 7px;
+            flex: none;
+            line-height: 1;
+        }
+
+        /* ===== MOBILE PORTRAIT ===== */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .main-container { flex-direction: column; gap: 4px; }
+            .left-section { flex: 0 0 52%; padding: 2px 0; }
+            .grid-view { height: 100%; }
+            .right-section {
+                flex: 0 0 46%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 3px;
+                height: auto;
+                min-height: 0;
+            }
+            .ref-box { width: 55%; height: 100%; }
+            .ref-box.fullview-small { width: 100%; height: 48%; }
+            .ref-scroll { overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+            .btn-row { width: 42%; flex-direction: column; gap: 3px; align-items: flex-start; height: auto; }
+            .btn { padding: 6px 2px; font-size: 9px; width: 100%; }
+            .image-select-btns { display: none; width: 100%; margin-top: 3px; order: 3; gap: 3px; flex-wrap: nowrap; overflow-x: auto; }
+            .image-select-btns.active { display: flex; }
+            .image-select-btns .btn { width: 40px; min-width: 40px; max-width: 40px; height: 26px; min-height: 26px; max-height: 26px; font-size: 7px; padding: 2px 1px; flex: none; line-height: 1; }
+            .modal-box { padding: 20px; max-width: 300px; }
+            .modal-title { font-size: 16px; }
+            .modal-input { font-size: 13px; }
+            .modal-btn { padding: 7px 16px; font-size: 12px; }
+        }
+
+        /* ===== MOBILE LANDSCAPE ===== */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .main-container { gap: 6px; }
+            .left-section { flex: 0 0 60%; padding: 4px 0; }
+            .right-section { flex: 0 0 38%; }
+            .ref-scroll { overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }
+            .btn { padding: 4px 2px; font-size: 9px; width: 23%; }
+            .img-label { font-size: 8px; padding: 2px 5px; }
+            .ref-title { font-size: 9px; }
+            .image-select-btns .btn { width: 42px; min-width: 42px; max-width: 42px; height: 26px; min-height: 26px; max-height: 26px; font-size: 7px; padding: 2px 1px; flex: none; line-height: 1; }
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body>
+    <!-- GEAR ICON -->
+    <div class="gear-icon" onclick="openPasswordModal()" title="Settings">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.66.07 1l-2.11 1.63c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.63Z"/>
+        </svg>
+    </div>
+
+    <!-- PASSWORD MODAL -->
+    <div class="pwd-overlay" id="pwdOverlay">
+        <div class="pwd-box">
+            <div class="pwd-title">Enter Password</div>
+            <input type="password" class="pwd-input" id="pwdInput" placeholder="••••••" maxlength="6">
+            <div class="pwd-error" id="pwdError">Incorrect password!</div>
+            <div class="pwd-btns">
+                <button class="pwd-btn" onclick="closePasswordModal()">Cancel</button>
+                <button class="pwd-btn primary" onclick="checkPassword()">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD MODAL -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-box">
+            <div class="modal-title">Enter ZIP Filename</div>
+            <input type="text" class="modal-input" id="zipNameInput" placeholder="e.g. xyz, diamond_scan, client_name" value="">
+            <div class="modal-btns">
+                <button class="modal-btn" onclick="closeDownloadModal()">Cancel</button>
+                <button class="modal-btn primary" onclick="confirmDownload()">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="appData" data-super="{% if super_exists %}true{% else %}false{% endif %}" style="display:none;"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <!-- LEFT: 4 Images Grid OR 1 Full Image -->
+        <div class="left-section">
+            <div class="grid-view" id="gridView">
+                <div class="img-box" id="box-result">
+                    <span class="img-label" onclick="event.stopPropagation(); switchImage('result', 'whitelight.jpg', 'White Light')">Result</span>
+                    <img id="img-result" src="{{ url_for('get_image', path=path, filename='result.jpg') }}" alt="Result">
+                </div>
+                <div class="img-box" id="box-fluor">
+                    <span class="img-label">Flor</span>
+                    <img id="img-fluor" src="{{ url_for('get_image', path=path, filename='fluorescence.jpg') }}" alt="Fluor">
+                </div>
+                <div class="img-box" id="box-short">
+                    <span class="img-label" onclick="event.stopPropagation(); switchImage('short', 'superimage.jpg', 'Super Image')">Short</span>
+                    <img id="img-short" src="{{ url_for('get_image', path=path, filename='shortphosphorescence.jpg') }}" alt="Short">
+                </div>
+                <div class="img-box" id="box-long">
+                    <span class="img-label" onclick="event.stopPropagation(); switchImage('long', 'simulant.jpg', 'Simulant')">Long</span>
+                    <img id="img-long" src="{{ url_for('get_image', path=path, filename='longphosphorescence.jpg') }}" alt="Long">
+                </div>
+            </div>
+            <div class="full-image-view" id="fullImageView">
+                <img id="fullImage" src="" alt="Full View">
+            </div>
+        </div>
+
+        <!-- RIGHT: Reference + Buttons -->
+        <div class="right-section" id="rightSection">
+            <div class="ref-box" id="refBox">
+                <div class="ref-title">Reference Image</div>
+                <div class="ref-scroll" id="refScroll">
+                    {% if ref_image %}
+                    <img src="{{ url_for('ref_image', filename=ref_image) }}" alt="Reference">
+                    {% else %}
+                    <div class="ref-placeholder">No Reference Image</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="btn-row" id="btnRow">
+                <button class="btn" id="btnGrid" onclick="showGridView()">Grid View</button>
+                <button class="btn" id="btnFull" onclick="showFullView()">Full View</button>
+                <button class="btn" onclick="goHome()">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    Home
+                </button>
+                <button class="btn" onclick="openDownloadModal()">Download</button>
+            </div>
+            <div class="image-select-btns" id="imageSelectBtns">
+                <button class="btn" onclick="showImage('result.jpg', 'Result', this)">Result</button>
+                <button class="btn" onclick="showImage('whitelight.jpg', 'WL', this)">WL</button>
+                <button class="btn" onclick="showImage('fluorescence.jpg', 'Flor', this)">Flor</button>
+                <button class="btn" onclick="showImage('shortphosphorescence.jpg', 'Short', this)">Short</button>
+                <button class="btn" onclick="showImage('longphosphorescence.jpg', 'Long', this)">Long</button>
+                <button class="btn" onclick="showImage('simulant.jpg', 'Simu', this)">Simu</button>
+                <button class="btn" id="btnSuperImg" style="display:none;" onclick="showImage('superimage.jpg', 'Super', this)">Super</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const path = "{{ path }}";
+        const superExists = document.getElementById('appData').dataset.super === 'true';
+        const CORRECT_PASSWORD = "654321";
+        let resultMode = 'result', shortMode = 'short', longMode = 'long';
+        let isFullView = false;
+        let fullZoomLevel = 1;
+        let fullPanX = 0, fullPanY = 0;
+
+        // ===== PASSWORD MODAL =====
+        function openPasswordModal() {
+            document.getElementById('pwdOverlay').classList.add('active');
+            document.getElementById('pwdInput').value = '';
+            document.getElementById('pwdError').classList.remove('active');
+            setTimeout(() => document.getElementById('pwdInput').focus(), 100);
+        }
+        function closePasswordModal() {
+            document.getElementById('pwdOverlay').classList.remove('active');
+        }
+        function checkPassword() {
+            const input = document.getElementById('pwdInput').value;
+            if (input === CORRECT_PASSWORD) {
+                closePasswordModal();
+                window.location.href = '/settings';
+            } else {
+                document.getElementById('pwdError').classList.add('active');
+                document.getElementById('pwdInput').value = '';
+                document.getElementById('pwdInput').focus();
+            }
+        }
+        document.getElementById('pwdInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkPassword();
+            if (e.key === 'Escape') closePasswordModal();
+        });
+        document.getElementById('pwdOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closePasswordModal();
+        });
+
+        /* ===== DOWNLOAD MODAL ===== */
+        function openDownloadModal() {
+            document.getElementById('downloadModal').classList.add('active');
+            document.getElementById('zipNameInput').focus();
+        }
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').classList.remove('active');
+        }
+        function confirmDownload() {
+            let name = document.getElementById('zipNameInput').value.trim();
+            if (!name) name = 'diamond_scan';
+            name = name.replace(/[^a-zA-Z0-9_-]/g, '');
+            if (!name) name = 'diamond_scan';
+            closeDownloadModal();
+            window.location.href = `/download/${path}?name=${encodeURIComponent(name)}`;
+        }
+        document.getElementById('zipNameInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') confirmDownload();
+            if (e.key === 'Escape') closeDownloadModal();
+        });
+        document.getElementById('downloadModal').addEventListener('click', function(e) {
+            if (e.target === this) closeDownloadModal();
+        });
+
+        /* ===== GRID VIEW ===== */
+        function showGridView() {
+            isFullView = false;
+            document.getElementById('gridView').classList.remove('hidden');
+            document.getElementById('fullImageView').classList.remove('active');
+            document.getElementById('imageSelectBtns').classList.remove('active');
+            document.getElementById('btnGrid').classList.add('active');
+            document.getElementById('btnFull').classList.remove('active');
+            const refBox = document.getElementById('refBox');
+            if (refBox) refBox.classList.remove('fullview-small');
+            fullZoomLevel = 1; fullPanX = 0; fullPanY = 0;
+            applyFullZoom();
+            resetAll();
+        }
+
+        /* ===== FULL VIEW ===== */
+        function showFullView() {
+            isFullView = true;
+            document.getElementById('gridView').classList.add('hidden');
+            document.getElementById('fullImageView').classList.add('active');
+            document.getElementById('imageSelectBtns').classList.add('active');
+            document.getElementById('btnGrid').classList.remove('active');
+            document.getElementById('btnFull').classList.add('active');
+            const refBox = document.getElementById('refBox');
+            if (refBox && window.innerWidth <= 768 && window.innerHeight > window.innerWidth) {
+                refBox.classList.add('fullview-small');
+            }
+            document.getElementById('btnSuperImg').style.display = superExists ? 'inline-flex' : 'none';
+            showImage('result.jpg', 'Result', document.querySelector('#imageSelectBtns .btn'));
+        }
+
+        function showImage(filename, label, btn) {
+            document.getElementById('fullImage').src = `/image/${path}/${filename}`;
+            fullZoomLevel = 1; fullPanX = 0; fullPanY = 0;
+            applyFullZoom();
+            document.querySelectorAll('#imageSelectBtns .btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
+        /* ===== FULL IMAGE ZOOM & PAN ===== */
+        function applyFullZoom() {
+            const img = document.getElementById('fullImage');
+            img.style.transform = `scale(${fullZoomLevel}) translate(${fullPanX / fullZoomLevel}px, ${fullPanY / fullZoomLevel}px)`;
+        }
+        function clampFullPan() {
+            const maxPan = (fullZoomLevel - 1) * 300;
+            fullPanX = Math.max(-maxPan, Math.min(maxPan, fullPanX));
+            fullPanY = Math.max(-maxPan, Math.min(maxPan, fullPanY));
+        }
+
+        const fullImageView = document.getElementById('fullImageView');
+        fullImageView.addEventListener('wheel', function(e) {
+            if (!isFullView) return;
+            e.preventDefault();
+            fullZoomLevel = Math.min(5, Math.max(1, fullZoomLevel + (e.deltaY > 0 ? -0.15 : 0.15)));
+            clampFullPan();
+            applyFullZoom();
+        }, { passive: false });
+
+        let fullMouse = { dragging: false, startX: 0, startY: 0 };
+        fullImageView.addEventListener('mousedown', function(e) {
+            if (!isFullView || e.button !== 0) return;
+            e.preventDefault();
+            fullMouse.dragging = true;
+            fullMouse.startX = e.clientX - fullPanX;
+            fullMouse.startY = e.clientY - fullPanY;
+            fullImageView.style.cursor = 'grabbing';
+        });
+        document.addEventListener('mousemove', function(e) {
+            if (fullMouse.dragging) {
+                fullPanX = e.clientX - fullMouse.startX;
+                fullPanY = e.clientY - fullMouse.startY;
+                clampFullPan();
+                applyFullZoom();
+            }
+        });
+        document.addEventListener('mouseup', function(e) {
+            if (e.button === 0) {
+                fullMouse.dragging = false;
+                fullImageView.style.cursor = '';
+            }
+        });
+
+        let fullTouch = { active: false, pinching: false, startDist: 0, startZoom: 1, startPanX: 0, startPanY: 0, startX: 0, startY: 0, lastTap: 0 };
+        fullImageView.addEventListener('touchstart', function(e) {
+            if (!isFullView) return;
+            if (e.touches.length === 2) {
+                fullTouch.pinching = true; fullTouch.active = false;
+                fullTouch.startDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                fullTouch.startZoom = fullZoomLevel; fullTouch.startPanX = fullPanX; fullTouch.startPanY = fullPanY;
+            } else if (e.touches.length === 1) {
+                fullTouch.pinching = false; fullTouch.active = true;
+                fullTouch.startX = e.touches[0].clientX - fullPanX;
+                fullTouch.startY = e.touches[0].clientY - fullPanY;
+                const now = Date.now();
+                if (now - fullTouch.lastTap < 300) { fullZoomLevel = 1; fullPanX = 0; fullPanY = 0; applyFullZoom(); }
+                fullTouch.lastTap = now;
+            }
+        }, { passive: true });
+        fullImageView.addEventListener('touchmove', function(e) {
+            if (!isFullView) return;
+            if (e.touches.length === 2 && fullTouch.pinching) {
+                e.preventDefault();
+                const dist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                fullZoomLevel = Math.min(5, Math.max(1, fullTouch.startZoom * (dist / fullTouch.startDist)));
+                clampFullPan(); applyFullZoom();
+            } else if (e.touches.length === 1 && fullTouch.active) {
+                e.preventDefault();
+                fullPanX = e.touches[0].clientX - fullTouch.startX;
+                fullPanY = e.touches[0].clientY - fullTouch.startY;
+                clampFullPan(); applyFullZoom();
+            }
+        }, { passive: false });
+        fullImageView.addEventListener('touchend', function(e) {
+            if (e.touches.length < 2) fullTouch.pinching = false;
+            if (e.touches.length === 0) fullTouch.active = false;
+        }, { passive: true });
+
+        /* ===== IMAGE SWITCH ===== */
+        function switchImage(box, filename, label) {
+            if (box === 'fluor') return;
+            const img = document.getElementById('img-' + box);
+            const lbl = document.querySelector('#box-' + box + ' .img-label');
+            if (box === 'result') {
+                if (resultMode === 'result') { img.src = `/image/${path}/${filename}`; lbl.textContent = label; resultMode = 'whitelight'; }
+                else { img.src = `/image/${path}/result.jpg`; lbl.textContent = 'Result'; resultMode = 'result'; }
+            } else if (box === 'fluor') {
+                if (img.src.includes('fluorescence.jpg')) { img.src = `/image/${path}/${filename}`; lbl.textContent = label; }
+                else { img.src = `/image/${path}/fluorescence.jpg`; lbl.textContent = 'Fluor'; }
+            } else if (box === 'short') {
+                if (shortMode === 'short' && superExists) { img.src = `/image/${path}/${filename}`; lbl.textContent = label; shortMode = 'super'; }
+                else { img.src = `/image/${path}/shortphosphorescence.jpg`; lbl.textContent = 'Short'; shortMode = 'short'; }
+            } else if (box === 'long') {
+                if (longMode === 'long') { img.src = `/image/${path}/${filename}`; lbl.textContent = label; longMode = 'simulant'; }
+                else { img.src = `/image/${path}/longphosphorescence.jpg`; lbl.textContent = 'Long'; longMode = 'long'; }
+            }
+        }
+
+        function resetAll() {
+            resultMode = 'result'; shortMode = 'short'; longMode = 'long';
+            document.getElementById('img-result').src = `/image/${path}/result.jpg`;
+            document.querySelector('#box-result .img-label').textContent = 'Result';
+            document.getElementById('img-short').src = `/image/${path}/shortphosphorescence.jpg`;
+            document.querySelector('#box-short .img-label').textContent = 'Short';
+            document.getElementById('img-long').src = `/image/${path}/longphosphorescence.jpg`;
+            document.querySelector('#box-long .img-label').textContent = 'Long';
+            zoomLevel = 1; panX = 0; panY = 0;
+            applyZoomToAll();
+        }
+
+        function goHome() { window.location.href = '/'; }
+
+        /* ===== ZOOM & PAN - 4 IMAGES SYNC ===== */
+        let zoomLevel = 1;
+        let panX = 0, panY = 0;
+        function applyZoomToAll() {
+            document.querySelectorAll('.img-box img').forEach(img => {
+                img.style.transform = `scale(${zoomLevel}) translate(${panX / zoomLevel}px, ${panY / zoomLevel}px)`;
+            });
+        }
+        function clampPan() {
+            const maxPan = (zoomLevel - 1) * 200;
+            panX = Math.max(-maxPan, Math.min(maxPan, panX));
+            panY = Math.max(-maxPan, Math.min(maxPan, panY));
+        }
+        const gridView = document.getElementById('gridView');
+        gridView.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            zoomLevel = Math.min(5, Math.max(1, zoomLevel + (e.deltaY > 0 ? -0.15 : 0.15)));
+            clampPan(); applyZoomToAll();
+        }, { passive: false });
+        let mouse = { dragging: false, startX: 0, startY: 0 };
+        gridView.addEventListener('mousedown', function(e) {
+            if (e.button === 0) { e.preventDefault(); mouse.dragging = true; mouse.startX = e.clientX - panX; mouse.startY = e.clientY - panY; gridView.style.cursor = 'grabbing'; }
+        });
+        document.addEventListener('mousemove', function(e) {
+            if (mouse.dragging) { panX = e.clientX - mouse.startX; panY = e.clientY - mouse.startY; clampPan(); applyZoomToAll(); }
+        });
+        document.addEventListener('mouseup', function(e) { if (e.button === 0) { mouse.dragging = false; gridView.style.cursor = ''; } });
+        let touch = { active: false, pinching: false, startDist: 0, startZoom: 1, startPanX: 0, startPanY: 0, startX: 0, startY: 0, lastTap: 0 };
+        gridView.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 2) { touch.pinching = true; touch.active = false; touch.startDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY); touch.startZoom = zoomLevel; touch.startPanX = panX; touch.startPanY = panY; }
+            else if (e.touches.length === 1) { touch.pinching = false; touch.active = true; touch.startX = e.touches[0].clientX - panX; touch.startY = e.touches[0].clientY - panY; const now = Date.now(); if (now - touch.lastTap < 300) { zoomLevel = 1; panX = 0; panY = 0; applyZoomToAll(); } touch.lastTap = now; }
+        }, { passive: true });
+        gridView.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 2 && touch.pinching) { e.preventDefault(); const dist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY); zoomLevel = Math.min(5, Math.max(1, touch.startZoom * (dist / touch.startDist))); clampPan(); applyZoomToAll(); }
+            else if (e.touches.length === 1 && touch.active) { e.preventDefault(); panX = e.touches[0].clientX - touch.startX; panY = e.touches[0].clientY - touch.startY; clampPan(); applyZoomToAll(); }
+        }, { passive: false });
+        gridView.addEventListener('touchend', function(e) { if (e.touches.length < 2) touch.pinching = false; if (e.touches.length === 0) touch.active = false; }, { passive: true });
+    </script>
+</body>
+</html>

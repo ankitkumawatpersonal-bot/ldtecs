@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        :root {
+            --bg-1: #111827;
+            --bg-2: #1F2937;
+            --bg-3: #374151;
+            --bg-4: #4B5563;
+            --accent: #24A19C;
+            --danger: #F75555;
+            --success: #22C55E;
+            --muted: #6B7280;
+            --muted-2: #9CA3AF;
+            --text: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body {
+            touch-action: none;
+            overflow: hidden;
+        }
+        body {
+            text-align: center;
+            background: var(--bg-1);
+            color: var(--text);
+            font-family: Arial, sans-serif;
+            padding: 6px;
+            height: 100vh;
+            height: 100dvh;
+            width: 100vw;
+        }
+
+        /* ===== TOP BAR (Full Width) ===== */
+        .top-bar {
+            position: fixed;
+            top: 8px; left: 10px; right: 10px;
+            width: auto;
+            height: 42px;
+            background: var(--bg-3);
+            border: none;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8px;
+            z-index: 1000;
+        }
+        .top-bar-left { display: flex; gap: 6px; }
+        .top-bar-right { display: flex; gap: 8px; align-items: center; }
+        .top-bar-title {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text);
+            font-size: 14px;
+            font-weight: bold;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .view-toggle-btn {
+            padding: 5px 10px;
+            font-size: 10px;
+            border: 1px solid var(--bg-4);
+            border-radius: 5px;
+            background: var(--bg-1);
+            color: var(--accent);
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+        .view-toggle-btn svg { width: 11px; height: 11px; }
+        .view-toggle-btn.active { background: var(--accent); border-color: var(--accent); color: var(--bg-1); }
+
+        .top-bar-icon {
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            background: none;
+            border: 1px solid var(--bg-4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        .top-bar-icon:hover { background: var(--accent); border-color: var(--accent); }
+        .top-bar-icon:hover svg { fill: var(--bg-1); }
+        .top-bar-icon svg { width: 15px; height: 15px; fill: var(--text); transition: fill 0.3s; }
+        .top-bar-icon.gear-icon:hover { transform: rotate(90deg); }
+        .top-bar-icon.info-icon {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--text);
+            font-family: Georgia, serif;
+            font-style: italic;
+        }
+        .top-bar-icon.info-icon:hover { color: var(--bg-1); }
+        .top-bar-icon.info-icon.active { background: var(--accent); border-color: var(--accent); color: var(--bg-1); }
+
+        /* ===== REFERENCE IMAGE OVERLAY ===== */
+        .ref-overlay {
+            display: none;
+            position: fixed;
+            top: 54px;
+            right: 10px;
+            left: auto;
+            width: auto;
+            max-width: 260px;
+            max-height: 32vh;
+            overflow-y: auto;
+            background: transparent;
+            z-index: 999;
+            text-align: right;
+            padding: 0;
+        }
+        .ref-overlay.active { display: block; }
+        .ref-overlay img {
+            max-width: 260px;
+            width: 100%;
+            border-radius: 8px;
+            border: none;
+            display: block;
+        }
+        .ref-overlay-empty {
+            color: var(--muted-2);
+            font-size: 11px;
+            background: var(--bg-3);
+            border: 1px solid var(--bg-4);
+            border-radius: 6px;
+            padding: 6px 10px;
+        }
+
+        /* ===== PASSWORD MODAL ===== */
+        .pwd-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+        }
+        .pwd-overlay.active { display: flex; }
+        .pwd-box {
+            background: var(--bg-2);
+            border: 1px solid var(--bg-4);
+            border-radius: 12px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+        }
+        .pwd-title {
+            color: var(--text);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .pwd-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 8px;
+            border: 1px solid var(--bg-4);
+            border-radius: 8px;
+            background: var(--bg-1);
+            color: var(--accent);
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .pwd-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(36,161,156,0.3);
+        }
+        .pwd-error {
+            color: var(--danger);
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .pwd-error.active { display: block; }
+        .pwd-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .pwd-btn {
+            padding: 10px 24px;
+            font-size: 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid var(--bg-4);
+            background: var(--bg-3);
+            color: var(--text);
+            transition: all 0.2s;
+        }
+        .pwd-btn:hover {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .pwd-btn.primary {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .pwd-btn.primary:hover {
+            background: var(--accent);
+            opacity: 0.85;
+        }
+
+        /* ===== POPUP MODAL ===== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: var(--bg-2);
+            border: 1px solid var(--bg-4);
+            border-radius: 12px;
+            padding: 24px;
+            width: 90%;
+            max-width: 360px;
+            text-align: center;
+        }
+        .modal-title {
+            color: var(--text);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+        .modal-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid var(--bg-4);
+            border-radius: 6px;
+            background: var(--bg-1);
+            color: var(--text);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .modal-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .modal-btns {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .modal-btn {
+            padding: 8px 20px;
+            font-size: 13px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid var(--bg-4);
+            background: var(--bg-3);
+            color: var(--text);
+            transition: all 0.2s;
+        }
+        .modal-btn:hover {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .modal-btn.primary {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .modal-btn.primary:hover {
+            background: var(--accent);
+            opacity: 0.85;
+        }
+
+        /* ===== BODY AS FLEX COLUMN ===== */
+        body {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        /* ===== CONTENT AREA (Grid / Full View) ===== */
+        .content-wrap {
+            flex: 1;
+            min-height: 0;
+            padding: 56px 4px 4px 4px;
+            overflow: hidden;
+            max-height: calc(100dvh - 100px);
+            box-sizing: border-box;
+        }
+        .grid-view {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1px;
+            background: var(--success);
+            border: 1px solid var(--success);
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .grid-view.hidden { display: none; }
+
+        .full-image-view {
+            display: none;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid var(--bg-4);
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .full-image-view.active { display: flex; }
+        .full-image-view img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transform-origin: center center;
+        }
+
+        .img-box {
+            position: relative;
+            background: #000;
+            border-radius: 0;
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+        }
+        .img-box img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            display: block;
+            transform-origin: center center;
+        }
+
+        .img-label {
+            position: absolute;
+            top: 4px; left: 4px;
+            background: rgba(0,0,0,0.6);
+            color: var(--accent);
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            user-select: none;
+            border: none;
+        }
+        .img-label:hover {
+            background: rgba(0,0,0,0.9);
+            color: var(--text);
+        }
+
+        /* ===== IMAGE SELECT BAR (shown above Home, only in Full View) ===== */
+        .image-select-btns {
+            display: flex;
+            flex-shrink: 0;
+            flex-wrap: nowrap;
+            gap: 4px;
+            padding: 6px 6px;
+            justify-content: center;
+            width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            border-top: none;
+            height: 40px;
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s;
+        }
+        .image-select-btns::-webkit-scrollbar { display: none; }
+        .image-select-btns.active {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn {
+            padding: 6px 4px;
+            font-size: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid var(--bg-4);
+            transition: all 0.2s;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            white-space: nowrap;
+            background: var(--bg-3);
+            color: var(--text);
+        }
+        .btn:hover {
+            background: var(--accent);
+            color: var(--bg-1);
+            transform: scale(1.02);
+        }
+        .btn.active {
+            background: var(--accent);
+            color: var(--bg-1);
+        }
+        .image-select-btns .btn {
+            width: 46px;
+            min-width: 46px;
+            height: 28px;
+            font-size: 9px;
+            flex: none;
+            line-height: 1;
+        }
+
+        /* ===== HOME BAR (bottom) ===== */
+        .home-bar {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            padding: 8px 10px;
+        }
+        .home-btn {
+            width: 150px;
+            padding: 15px 0;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            border: 1px solid var(--bg-4);
+            background: var(--bg-3);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .home-btn:hover { background: var(--accent); color: var(--bg-1); }
+        .home-btn svg { width: 22px; height: 22px; }
+
+        /* ===== DESKTOP / LAPTOP ONLY: Home button sits fixed on the right side
+           (same right-side position as the Scan button on index.html), so the
+           grid gets that space back from the bottom (more height) and gives up
+           some width on the right (where the Home button now sits) ===== */
+        @media (min-width: 769px) {
+            .content-wrap {
+                max-height: calc(100dvh - 20px);
+                padding: 60px 190px 4px 4px;
+            }
+            .home-bar {
+                position: fixed;
+                top: 50%;
+                right: 20px;
+                transform: translateY(-50%);
+                z-index: 500;
+            }
+            .image-select-btns {
+                margin-right: 190px;
+            }
+        }
+
+        /* ===== MOBILE PORTRAIT ===== */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .content-wrap { padding: 52px 3px 3px 3px; }
+            .top-bar { top: 8px; height: 40px; padding: 0 6px; }
+            .view-toggle-btn { padding: 4px 7px; font-size: 9px; }
+            .top-bar-icon { width: 26px; height: 26px; }
+            .top-bar-icon svg { width: 14px; height: 14px; }
+            .ref-overlay { top: 50px; right: 6px; max-width: 190px; max-height: 34vh; }
+            .ref-overlay img { max-width: 190px; }
+            .image-select-btns .btn { width: 42px; min-width: 42px; height: 26px; font-size: 8px; }
+            .home-btn { font-size: 13px; padding: 11px 0; width: 130px; }
+            .home-btn svg { width: 18px; height: 18px; }
+            .modal-box { padding: 20px; max-width: 300px; }
+            .modal-title { font-size: 16px; }
+            .modal-input { font-size: 13px; }
+            .modal-btn { padding: 7px 16px; font-size: 12px; }
+        }
+
+        /* ===== MOBILE LANDSCAPE ===== */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .content-wrap { padding: 48px 3px 3px 3px; }
+            .top-bar { top: 8px; height: 36px; }
+            .ref-overlay { top: 46px; }
+            .img-label { font-size: 8px; padding: 2px 5px; }
+            .image-select-btns .btn { width: 42px; min-width: 42px; height: 24px; font-size: 7px; }
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <span class="top-bar-title">Result</span>
+        <div class="top-bar-left">
+            <button class="view-toggle-btn active" id="viewToggleBtn" onclick="toggleViewMode()">
+                <svg id="viewToggleIconGrid" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3m10 0h8v8h-8V3M3 13h8v8H3v-8m10 0h8v8h-8v-8Z"/></svg>
+                <svg id="viewToggleIconFull" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M4 4h6v2H6v4H4V4m10 0h6v6h-2V6h-4V4M4 14h2v4h4v2H4v-6m16 0v6h-6v-2h4v-4h2Z"/></svg>
+                <span id="viewToggleLabel">Grid</span>
+            </button>
+        </div>
+        <div class="top-bar-right">
+            <div class="top-bar-icon info-icon" id="refInfoBtn" onclick="toggleReferenceImage()" title="Reference Image">i</div>
+            <div class="top-bar-icon" onclick="openDownloadModal()" title="Download">
+                <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2m14-9h-4V3H9v8H5l7 7 7-7Z"/></svg>
+            </div>
+            <div class="top-bar-icon gear-icon" onclick="openPasswordModal()" title="Settings">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.66.07 1l-2.11 1.63c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.63Z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- REFERENCE IMAGE OVERLAY -->
+    <div class="ref-overlay" id="refOverlay">
+        {% if ref_image %}
+        <img src="{{ url_for('ref_image', filename=ref_image) }}" alt="Reference Image">
+        {% else %}
+        <div class="ref-overlay-empty">No reference image found</div>
+        {% endif %}
+    </div>
+
+    <!-- PASSWORD MODAL -->
+    <div class="pwd-overlay" id="pwdOverlay">
+        <div class="pwd-box">
+            <div class="pwd-title">Enter Password</div>
+            <input type="password" class="pwd-input" id="pwdInput" placeholder="••••••" maxlength="6">
+            <div class="pwd-error" id="pwdError">Incorrect password!</div>
+            <div class="pwd-btns">
+                <button class="pwd-btn" onclick="closePasswordModal()">Cancel</button>
+                <button class="pwd-btn primary" onclick="checkPassword()">Ok</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DOWNLOAD MODAL -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-box">
+            <div class="modal-title">Enter ZIP Filename</div>
+            <input type="text" class="modal-input" id="zipNameInput" placeholder="e.g. xyz, diamond_scan, client_name" value="">
+            <div class="modal-btns">
+                <button class="modal-btn" onclick="closeDownloadModal()">Cancel</button>
+                <button class="modal-btn primary" onclick="confirmDownload()">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="appData" data-super="{% if super_exists %}true{% else %}false{% endif %}" style="display:none;"></div>
+
+    <!-- CONTENT AREA: 4 Images Grid OR 1 Full Image -->
+    <div class="content-wrap">
+        <div class="grid-view" id="gridView">
+            <div class="img-box" id="box-result">
+                <span class="img-label" onclick="event.stopPropagation(); switchImage('result', 'whitelight.jpg', 'White Light')">Result</span>
+                <img id="img-result" src="{{ url_for('get_image', path=path, filename='result.jpg') }}" alt="Result">
+            </div>
+            <div class="img-box" id="box-fluor">
+                <span class="img-label">Flor</span>
+                <img id="img-fluor" src="{{ url_for('get_image', path=path, filename='fluorescence.jpg') }}" alt="Fluor">
+            </div>
+            <div class="img-box" id="box-short">
+                <span class="img-label" onclick="event.stopPropagation(); switchImage('short', 'superimage.jpg', 'Super Image')">Short</span>
+                <img id="img-short" src="{{ url_for('get_image', path=path, filename='shortphosphorescence.jpg') }}" alt="Short">
+            </div>
+            <div class="img-box" id="box-long">
+                <span class="img-label" onclick="event.stopPropagation(); switchImage('long', 'simulant.jpg', 'Simulant')">Long</span>
+                <img id="img-long" src="{{ url_for('get_image', path=path, filename='longphosphorescence.jpg') }}" alt="Long">
+            </div>
+        </div>
+        <div class="full-image-view" id="fullImageView">
+            <img id="fullImage" src="" alt="Full View">
+        </div>
+    </div>
+
+    <!-- IMAGE SELECT BAR (only visible in Full View, sits above Home) -->
+    <div class="image-select-btns" id="imageSelectBtns">
+        <button class="btn" onclick="showImage('result.jpg', 'Result', this)">Result</button>
+        <button class="btn" onclick="showImage('whitelight.jpg', 'WL', this)">WL</button>
+        <button class="btn" onclick="showImage('fluorescence.jpg', 'Flor', this)">Flor</button>
+        <button class="btn" onclick="showImage('shortphosphorescence.jpg', 'Short', this)">Short</button>
+        <button class="btn" onclick="showImage('longphosphorescence.jpg', 'Long', this)">Long</button>
+        <button class="btn" onclick="showImage('simulant.jpg', 'Simu', this)">Simu</button>
+        <button class="btn" id="btnSuperImg" style="display:none;" onclick="showImage('superimage.jpg', 'Super', this)">Super</button>
+    </div>
+
+    <!-- HOME BAR -->
+    <div class="home-bar">
+        <button class="home-btn" onclick="goHome()" title="Home">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+        </button>
+    </div>
+
+    <script>
+        const path = "{{ path }}";
+        const superExists = document.getElementById('appData').dataset.super === 'true';
+        const CORRECT_PASSWORD = "654321";
+        let resultMode = 'result', shortMode = 'short', longMode = 'long';
+        let isFullView = false;
+        let fullZoomLevel = 1;
+        let fullPanX = 0, fullPanY = 0;
+
+        // ===== PASSWORD MODAL =====
+        function openPasswordModal() {
+            document.getElementById('pwdOverlay').classList.add('active');
+            document.getElementById('pwdInput').value = '';
+            document.getElementById('pwdError').classList.remove('active');
+            setTimeout(() => document.getElementById('pwdInput').focus(), 100);
+        }
+        function closePasswordModal() {
+            document.getElementById('pwdOverlay').classList.remove('active');
+        }
+        function checkPassword() {
+            const input = document.getElementById('pwdInput').value;
+            if (input === CORRECT_PASSWORD) {
+                closePasswordModal();
+                window.location.href = '/settings';
+            } else {
+                document.getElementById('pwdError').classList.add('active');
+                document.getElementById('pwdInput').value = '';
+                document.getElementById('pwdInput').focus();
+            }
+        }
+        document.getElementById('pwdInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') checkPassword();
+            if (e.key === 'Escape') closePasswordModal();
+        });
+        document.getElementById('pwdOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closePasswordModal();
+        });
+
+        /* ===== DOWNLOAD MODAL ===== */
+        function openDownloadModal() {
+            document.getElementById('downloadModal').classList.add('active');
+            document.getElementById('zipNameInput').focus();
+        }
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').classList.remove('active');
+        }
+        function confirmDownload() {
+            let name = document.getElementById('zipNameInput').value.trim();
+            if (!name) name = 'diamond_scan';
+            name = name.replace(/[^a-zA-Z0-9_-]/g, '');
+            if (!name) name = 'diamond_scan';
+            closeDownloadModal();
+            window.location.href = `/download/${path}?name=${encodeURIComponent(name)}`;
+        }
+        document.getElementById('zipNameInput').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') confirmDownload();
+            if (e.key === 'Escape') closeDownloadModal();
+        });
+        document.getElementById('downloadModal').addEventListener('click', function(e) {
+            if (e.target === this) closeDownloadModal();
+        });
+
+        /* ===== REFERENCE IMAGE TOGGLE (i button) ===== */
+        function toggleReferenceImage() {
+            const overlay = document.getElementById('refOverlay');
+            const btn = document.getElementById('refInfoBtn');
+            overlay.classList.toggle('active');
+            btn.classList.toggle('active');
+        }
+
+        /* ===== VIEW TOGGLE (single button) ===== */
+        function toggleViewMode() {
+            if (isFullView) showGridView();
+            else showFullView();
+        }
+        function updateViewToggleUI() {
+            const label = document.getElementById('viewToggleLabel');
+            const iconGrid = document.getElementById('viewToggleIconGrid');
+            const iconFull = document.getElementById('viewToggleIconFull');
+            if (isFullView) {
+                label.textContent = 'Full';
+                iconGrid.style.display = 'none';
+                iconFull.style.display = '';
+            } else {
+                label.textContent = 'Grid';
+                iconGrid.style.display = '';
+                iconFull.style.display = 'none';
+            }
+        }
+
+        /* ===== GRID VIEW ===== */
+        function showGridView() {
+            isFullView = false;
+            document.getElementById('gridView').classList.remove('hidden');
+            document.getElementById('fullImageView').classList.remove('active');
+            document.getElementById('imageSelectBtns').classList.remove('active');
+            updateViewToggleUI();
+            fullZoomLevel = 1; fullPanX = 0; fullPanY = 0;
+            applyFullZoom();
+            resetAll();
+        }
+
+        /* ===== FULL VIEW ===== */
+        function showFullView() {
+            isFullView = true;
+            document.getElementById('gridView').classList.add('hidden');
+            document.getElementById('fullImageView').classList.add('active');
+            document.getElementById('imageSelectBtns').classList.add('active');
+            updateViewToggleUI();
+            document.getElementById('btnSuperImg').style.display = superExists ? 'inline-flex' : 'none';
+            showImage('result.jpg', 'Result', document.querySelector('#imageSelectBtns .btn'));
+        }
+
+        function showImage(filename, label, btn) {
+            document.getElementById('fullImage').src = `/image/${path}/${filename}`;
+            fullZoomLevel = 1; fullPanX = 0; fullPanY = 0;
+            applyFullZoom();
+            document.querySelectorAll('#imageSelectBtns .btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
+        /* ===== FULL IMAGE ZOOM & PAN ===== */
+        function applyFullZoom() {
+            const img = document.getElementById('fullImage');
+            img.style.transform = `scale(${fullZoomLevel}) translate(${fullPanX / fullZoomLevel}px, ${fullPanY / fullZoomLevel}px)`;
+        }
+        function clampFullPan() {
+            const container = document.getElementById('fullImageView');
+            const maxPanX = (container.offsetWidth * (fullZoomLevel - 1)) / 2;
+            const maxPanY = (container.offsetHeight * (fullZoomLevel - 1)) / 2;
+            fullPanX = Math.max(-maxPanX, Math.min(maxPanX, fullPanX));
+            fullPanY = Math.max(-maxPanY, Math.min(maxPanY, fullPanY));
+        }
+
+        const fullImageView = document.getElementById('fullImageView');
+        fullImageView.addEventListener('wheel', function(e) {
+            if (!isFullView) return;
+            e.preventDefault();
+            fullZoomLevel = Math.min(5, Math.max(1, fullZoomLevel + (e.deltaY > 0 ? -0.15 : 0.15)));
+            clampFullPan();
+            applyFullZoom();
+        }, { passive: false });
+
+        let fullMouse = { dragging: false, startX: 0, startY: 0 };
+        fullImageView.addEventListener('mousedown', function(e) {
+            if (!isFullView || e.button !== 0) return;
+            e.preventDefault();
+            fullMouse.dragging = true;
+            fullMouse.startX = e.clientX - fullPanX;
+            fullMouse.startY = e.clientY - fullPanY;
+            fullImageView.style.cursor = 'grabbing';
+        });
+        document.addEventListener('mousemove', function(e) {
+            if (fullMouse.dragging) {
+                fullPanX = e.clientX - fullMouse.startX;
+                fullPanY = e.clientY - fullMouse.startY;
+                clampFullPan();
+                applyFullZoom();
+            }
+        });
+        document.addEventListener('mouseup', function(e) {
+            if (e.button === 0) {
+                fullMouse.dragging = false;
+                fullImageView.style.cursor = '';
+            }
+        });
+
+        let fullTouch = { active: false, pinching: false, startDist: 0, startZoom: 1, startPanX: 0, startPanY: 0, startX: 0, startY: 0, lastTap: 0 };
+        fullImageView.addEventListener('touchstart', function(e) {
+            if (!isFullView) return;
+            if (e.touches.length === 2) {
+                fullTouch.pinching = true; fullTouch.active = false;
+                fullTouch.startDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                fullTouch.startZoom = fullZoomLevel; fullTouch.startPanX = fullPanX; fullTouch.startPanY = fullPanY;
+            } else if (e.touches.length === 1) {
+                fullTouch.pinching = false; fullTouch.active = true;
+                fullTouch.startX = e.touches[0].clientX - fullPanX;
+                fullTouch.startY = e.touches[0].clientY - fullPanY;
+                const now = Date.now();
+                if (now - fullTouch.lastTap < 300) { fullZoomLevel = 1; fullPanX = 0; fullPanY = 0; applyFullZoom(); }
+                fullTouch.lastTap = now;
+            }
+        }, { passive: true });
+        fullImageView.addEventListener('touchmove', function(e) {
+            if (!isFullView) return;
+            if (e.touches.length === 2 && fullTouch.pinching) {
+                e.preventDefault();
+                const dist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
+                fullZoomLevel = Math.min(5, Math.max(1, fullTouch.startZoom * (dist / fullTouch.startDist)));
+                clampFullPan(); applyFullZoom();
+            } else if (e.touches.length === 1 && fullTouch.active) {
+                e.preventDefault();
+                fullPanX = e.touches[0].clientX - fullTouch.startX;
+                fullPanY = e.touches[0].clientY - fullTouch.startY;
+                clampFullPan(); applyFullZoom();
+            }
+        }, { passive: false });
+        fullImageView.addEventListener('touchend', function(e) {
+            if (e.touches.length < 2) fullTouch.pinching = false;
+            if (e.touches.length === 0) fullTouch.active = false;
+        }, { passive: true });
+
+        /* ===== IMAGE SWITCH ===== */
+        function switchImage(box, filename, label) {
+            if (box === 'fluor') return;
+            const img = document.getElementById('img-' + box);
+            const lbl = document.querySelector('#box-' + box + ' .img-label');
+            if (box === 'result') {
+                if (resultMode === 'result') { img.src = `/image/${path}/${filename}`; lbl.textContent = label; resultMode = 'whitelight'; }
+                else { img.src = `/image/${path}/result.jpg`; lbl.textContent = 'Result'; resultMode = 'result'; }
+            } else if (box === 'fluor') {
+                if (img.src.includes('fluorescence.jpg')) { img.src = `/image/${path}/${filename}`; lbl.textContent = label; }
+                else { img.src = `/image/${path}/fluorescence.jpg`; lbl.textContent = 'Fluor'; }
+            } else if (box === 'short') {
+                if (shortMode === 'short' && superExists) { img.src = `/image/${path}/${filename}`; lbl.textContent = label; shortMode = 'super'; }
+                else { img.src = `/image/${path}/shortphosphorescence.jpg`; lbl.textContent = 'Short'; shortMode = 'short'; }
+            } else if (box === 'long') {
+                if (longMode === 'long') { img.src = `/image/${path}/${filename}`; lbl.textContent = label; longMode = 'simulant'; }
+                else { img.src = `/image/${path}/longphosphorescence.jpg`; lbl.textContent = 'Long'; longMode = 'long'; }
+            }
+        }
+
+        function resetAll() {
+            resultMode = 'result'; shortMode = 'short'; longMode = 'long';
+            document.getElementById('img-result').src = `/image/${path}/result.jpg`;
+            document.querySelector('#box-result .img-label').textContent = 'Result';
+            document.getElementById('img-short').src = `/image/${path}/shortphosphorescence.jpg`;
+            document.querySelector('#box-short .img-label').textContent = 'Short';
+            document.getElementById('img-long').src = `/image/${path}/longphosphorescence.jpg`;
+            document.querySelector('#box-long .img-label').textContent = 'Long';
+            zoomLevel = 1; panX = 0; panY = 0;
+            applyZoomToAll();
+        }
+
+        function goHome() { window.location.href = '/'; }
+
+        /* ===== ZOOM & PAN - 4 IMAGES SYNC ===== */
+        let zoomLevel = 1;
+        let panX = 0, panY = 0;
+        function applyZoomToAll() {
+            document.querySelectorAll('.img-box img').forEach(img => {
+                img.style.transform = `scale(${zoomLevel}) translate(${panX / zoomLevel}px, ${panY / zoomLevel}px)`;
+            });
+        }
+        function clampPan() {
+            const box = document.querySelector('.img-box');
+            const maxPanX = (box.offsetWidth * (zoomLevel - 1)) / 2;
+            const maxPanY = (box.offsetHeight * (zoomLevel - 1)) / 2;
+            panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
+            panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+        }
+        const gridView = document.getElementById('gridView');
+        gridView.addEventListener('wheel', function(e) {
+            e.preventDefault();
+            zoomLevel = Math.min(5, Math.max(1, zoomLevel + (e.deltaY > 0 ? -0.15 : 0.15)));
+            clampPan(); applyZoomToAll();
+        }, { passive: false });
+        let mouse = { dragging: false, startX: 0, startY: 0 };
+        gridView.addEventListener('mousedown', function(e) {
+            if (e.button === 0) { e.preventDefault(); mouse.dragging = true; mouse.startX = e.clientX - panX; mouse.startY = e.clientY - panY; gridView.style.cursor = 'grabbing'; }
+        });
+        document.addEventListener('mousemove', function(e) {
+            if (mouse.dragging) { panX = e.clientX - mouse.startX; panY = e.clientY - mouse.startY; clampPan(); applyZoomToAll(); }
+        });
+        document.addEventListener('mouseup', function(e) { if (e.button === 0) { mouse.dragging = false; gridView.style.cursor = ''; } });
+        let touch = { active: false, pinching: false, startDist: 0, startZoom: 1, startPanX: 0, startPanY: 0, startX: 0, startY: 0, lastTap: 0 };
+        gridView.addEventListener('touchstart', function(e) {
+            if (e.touches.length === 2) { touch.pinching = true; touch.active = false; touch.startDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY); touch.startZoom = zoomLevel; touch.startPanX = panX; touch.startPanY = panY; }
+            else if (e.touches.length === 1) { touch.pinching = false; touch.active = true; touch.startX = e.touches[0].clientX - panX; touch.startY = e.touches[0].clientY - panY; const now = Date.now(); if (now - touch.lastTap < 300) { zoomLevel = 1; panX = 0; panY = 0; applyZoomToAll(); } touch.lastTap = now; }
+        }, { passive: true });
+        gridView.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 2 && touch.pinching) { e.preventDefault(); const dist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY); zoomLevel = Math.min(5, Math.max(1, touch.startZoom * (dist / touch.startDist))); clampPan(); applyZoomToAll(); }
+            else if (e.touches.length === 1 && touch.active) { e.preventDefault(); panX = e.touches[0].clientX - touch.startX; panY = e.touches[0].clientY - touch.startY; clampPan(); applyZoomToAll(); }
+        }, { passive: false });
+        gridView.addEventListener('touchend', function(e) { if (e.touches.length < 2) touch.pinching = false; if (e.touches.length === 0) touch.active = false; }, { passive: true });
+    </script>
+</body>
+</html>
