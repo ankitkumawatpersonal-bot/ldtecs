@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         scrollTrigger: {
             trigger: '#build',
-            start: 'top 70%',
+            start: 'top 80%',
             toggleActions: 'play none none reverse'
         }
 
