@@ -1656,6 +1656,7 @@
                         <div class="development">
                             <a href="software-development" class="active"> Software Development </a>
                             <a href="machine-learning"> AI & Machine Learning </a>
+                            <a href="data-engineering"> Data Engineering </a>
                         </div>
                     </div>
                     <div class="services">

@@ -23,6 +23,7 @@ Route::view('/software-development', 'software-development');
 Route::view('/machine-learning', 'machine-learning');
 Route::view('/automation-software', 'automation-software');
 Route::view('/embedded-software', 'embedded-software');
+Route::view('/data-engineering', 'data-engineering');
 
 Route::view('/3d-printing', '3d-printing');
 Route::view('/cad-design', 'cad-design');
