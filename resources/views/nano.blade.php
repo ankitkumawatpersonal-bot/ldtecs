@@ -2293,6 +2293,7 @@
                 <a href="#our-products">Our Product</a>
                 <a href="/software-development"> Software Development Services </a>
                 <a href="/machine-learning"> AI & Machine Learning Services </a>
+                <a href="data-engineering"> Data Engineering </a>
                 <a href="/3d-printing"> 3D Printing Services </a>
                 <a href="/cad-design"> 3D CAD Design Services </a>
                 <a href="/r&d-services">R&D Services</a>
